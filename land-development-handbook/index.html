@@ -180,6 +180,30 @@ footer{border-top:1px solid var(--line);padding:26px 40px;color:var(--muted);fon
   .tl-item{grid-template-columns:78px 22px 1fr}
   .brand small{display:none}
 }
+/* ===== 標題縮小 ===== */
+body>h1{font-family:var(--serif);font-size:clamp(20px,3vw,30px);font-weight:900;line-height:1.35;margin:18px 20px 6px;color:var(--ink)}
+/* ===== 浮動 Dropdown Menu / 功能控制台 / 站內導覽 / Breadcrumb ===== */
+:root{--fdd:#fffdf9;--fdd-ink:#211d18;--fdd-muted:#6f675c;--fdd-line:#e3dccf;--fdd-accent:#bc4b2c}
+html[data-theme="dark"]{--fdd:#1f1c19;--fdd-ink:#ece6da;--fdd-muted:#9d9488;--fdd-line:#332e28;--fdd-accent:#e07a4f}
+.fdd{position:fixed;right:18px;bottom:20px;z-index:900;font-family:var(--sans)}
+.fdd-fab{width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,var(--fdd-accent),#d96a3a);color:#fff;font-size:24px;line-height:1;box-shadow:0 6px 18px rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center;transition:transform .25s}
+.fdd-fab:hover{transform:scale(1.08)}
+.fdd-fab.open{transform:rotate(135deg)}
+.fdd-panel{position:absolute;right:0;bottom:64px;width:300px;max-height:76vh;overflow:auto;background:var(--fdd);color:var(--fdd-ink);border:1px solid var(--fdd-line);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.28);padding:14px;display:none;text-align:left}
+.fdd-panel.open{display:block;animation:fddIn .18s ease}
+@keyframes fddIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.fdd h4{margin:0 0 8px;font-size:13px;letter-spacing:.06em;color:var(--fdd-accent);font-weight:800;border-bottom:1px solid var(--fdd-line);padding-bottom:6px}
+.fdd-crumb{font-size:12px;color:var(--fdd-muted);margin-bottom:12px;line-height:1.6;display:flex;flex-wrap:wrap;gap:2px}
+.fdd-crumb a{color:var(--fdd-accent);text-decoration:none}
+.fdd-crumb .sep{opacity:.5;margin:0 3px}
+.fdd-crumb b{color:var(--fdd-ink)}
+.fdd-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px}
+.fdd-btn{display:flex;align-items:center;gap:6px;padding:8px 9px;border-radius:9px;background:color-mix(in srgb,var(--fdd-surface,#f6f3ec) 60%,transparent);border:1px solid var(--fdd-line);cursor:pointer;font-size:12.5px;color:var(--fdd-ink);font-family:var(--sans);transition:background .15s}
+.fdd-btn:hover{background:var(--fdd-accent);color:#fff}
+.fdd-nav{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.fdd-nav a{display:block;padding:7px 10px;border-radius:8px;color:var(--fdd-ink);text-decoration:none;font-size:13px;background:var(--fdd-surface,#f6f3ec);border:1px solid var(--fdd-line)}
+.fdd-nav a:hover{background:var(--fdd-accent);color:#fff}
+.fdd-nav a small{display:block;color:var(--fdd-muted);font-size:11px}
 </style>
 
 <script type="application/ld+json">
@@ -1126,6 +1150,63 @@ document.getElementById('searchInput').addEventListener('input',e=>{
 });
 
 route();
+</script>
+
+<!-- ===== 浮動 Dropdown Menu / 功能控制台 / 站內導覽 / Breadcrumb ===== -->
+<div class="fdd" id="fdd">
+  <div class="fdd-panel" id="fddPanel">
+    <h4>📍 目前位置</h4>
+    <nav class="fdd-crumb" id="fddCrumb">首頁 <span class="sep">›</span> 土地開發百科</nav>
+    <h4>⚙ 功能控制台</h4>
+    <div class="fdd-grid">
+      <button class="fdd-btn" onclick="fddTheme()">🌓 日夜主題</button>
+      <button class="fdd-btn" onclick="fddBackTop()">↑ 回到頂部</button>
+      <button class="fdd-btn" onclick="fddSearch()">🔍 搜尋</button>
+      <button class="fdd-btn" onclick="fddPrint()">🖶 列印</button>
+      <button class="fdd-btn" onclick="fddFull()">⛶ 全螢幕</button>
+      <button class="fdd-btn" onclick="fddRandom()">🎲 隨機章節</button>
+    </div>
+    <h4>🧭 站內導覽</h4>
+    <ul class="fdd-nav" id="fddNav"></ul>
+  </div>
+  <button class="fdd-fab" id="fddFab" aria-label="功能選單">⚙</button>
+</div>
+<script>
+/* 浮動 Dropdown Menu 控制台 */
+(function(){
+  var fab=document.getElementById('fddFab'),panel=document.getElementById('fddPanel');
+  fab.addEventListener('click',function(){fab.classList.toggle('open');panel.classList.toggle('open');});
+  document.addEventListener('click',function(e){if(!document.getElementById('fdd').contains(e.target)){fab.classList.remove('open');panel.classList.remove('open');}});
+  window.fddTheme=function(){document.getElementById('themeBtn').click();};
+  window.fddBackTop=function(){window.scrollTo({top:0,behavior:'smooth'});};
+  window.fddSearch=function(){var i=document.getElementById('searchInput');if(i){i.focus();i.select();}};
+  window.fddPrint=function(){window.print();};
+  window.fddFull=function(){if(document.fullscreenElement){document.exitFullscreen();}else{document.documentElement.requestFullscreen();}};
+  window.fddRandom=function(){var a=document.querySelectorAll('#fddNav a');if(a.length){a[Math.floor(Math.random()*a.length)].click();}};
+  /* 站內導覽：從既有 TOC 收集 */
+  function buildNav(){
+    var nav=document.getElementById('fddNav');nav.innerHTML='';
+    var links=document.querySelectorAll('aside.toc a[data-nav], a[data-nav]');
+    var seen={};links.forEach(function(a){
+      var href=a.getAttribute('href');var t=(a.textContent||'').trim().replace(/\s+/g,' ');
+      if(!href||seen[href])return;seen[href]=1;
+      var li=document.createElement('li'),x=document.createElement('a');
+      x.href=href;x.textContent=t.length>34?t.slice(0,34)+'…':t;
+      x.setAttribute('data-nav','');li.appendChild(x);nav.appendChild(li);
+    });
+    if(!nav.children.length){nav.innerHTML='<li><a href="#/">📖 瀏覽全書</a></li>';}
+  }
+  buildNav();
+  /* Breadcrumb：更新目前章節 */
+  function syncCrumb(){
+    var crumb=document.getElementById('fddCrumb');
+    var active=document.querySelector('.content [data-nav].active, aside.toc a.active, .content a.active');
+    var t=active?(active.textContent||'').trim().replace(/\s+/g,' '):'';
+    crumb.innerHTML='<a href="#/" data-nav="home">首頁</a><span class="sep">›</span>'+(t?'<b>'+t+'</b>':'<b>土地開發百科</b>');
+  }
+  window.addEventListener('hashchange',function(){setTimeout(buildNav,50);setTimeout(syncCrumb,120);});
+  setTimeout(syncCrumb,200);
+})();
 </script>
 
 </body>

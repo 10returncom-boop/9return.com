@@ -184,6 +184,27 @@ body {
   .header-meta { display:none; }
 }
 @media (max-width:640px) { .kpi-grid { grid-template-columns:1fr; } }
+
+/* ===== 浮動 Dropdown Menu / 功能控制台 / 站內導覽 / Breadcrumb ===== */
+:root{--fdd:#141a26;--fdd-ink:#eef2f7;--fdd-muted:#94a3b8;--fdd-line:rgba(148,163,184,.18);--fdd-accent:#3b82f6}
+.fdd{position:fixed;right:18px;bottom:20px;z-index:900;font-family:'Microsoft JhengHei',sans-serif}
+.fdd-fab{width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,#3b82f6,#6366f1);color:#fff;font-size:24px;line-height:1;box-shadow:0 6px 18px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;transition:transform .25s}
+.fdd-fab:hover{transform:scale(1.08)}
+.fdd-fab.open{transform:rotate(135deg)}
+.fdd-panel{position:absolute;right:0;bottom:64px;width:300px;max-height:76vh;overflow:auto;background:var(--fdd);color:var(--fdd-ink);border:1px solid var(--fdd-line);border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.4);padding:14px;display:none;text-align:left}
+.fdd-panel.open{display:block;animation:fddIn .18s ease}
+@keyframes fddIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.fdd h4{margin:0 0 8px;font-size:13px;letter-spacing:.06em;color:var(--fdd-accent);font-weight:800;border-bottom:1px solid var(--fdd-line);padding-bottom:6px}
+.fdd-crumb{font-size:12px;color:var(--fdd-muted);margin-bottom:12px;line-height:1.6;display:flex;flex-wrap:wrap;gap:2px}
+.fdd-crumb a{color:var(--fdd-accent);text-decoration:none}
+.fdd-crumb .sep{opacity:.5;margin:0 3px}
+.fdd-crumb b{color:var(--fdd-ink)}
+.fdd-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px}
+.fdd-btn{display:flex;align-items:center;gap:6px;padding:8px 9px;border-radius:9px;background:#1c2333;border:1px solid var(--fdd-line);cursor:pointer;font-size:12.5px;color:var(--fdd-ink);font-family:'Microsoft JhengHei',sans-serif;transition:background .15s}
+.fdd-btn:hover{background:var(--fdd-accent);color:#fff}
+.fdd-nav{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.fdd-nav a{display:block;padding:7px 10px;border-radius:8px;color:var(--fdd-ink);text-decoration:none;font-size:13px;background:#1c2333;border:1px solid var(--fdd-line)}
+.fdd-nav a:hover{background:var(--fdd-accent);color:#fff}
 </style>
 
 <script type="application/ld+json">
@@ -980,6 +1001,40 @@ applyTheme(getTheme());
 initCharts();
 updateAll();
 window.addEventListener('resize', () => Object.values(charts).forEach(c => c.resize()));
+</script>
+
+<!-- ===== 浮動 Dropdown Menu / 功能控制台 / 站內導覽 / Breadcrumb ===== -->
+<div class="fdd" id="fdd">
+  <div class="fdd-panel" id="fddPanel">
+    <h4>📍 目前位置</h4>
+    <nav class="fdd-crumb" id="fddCrumb"><a href="#/">首頁</a> <span class="sep">›</span> <b>都更投資分析</b></nav>
+    <h4>⚙ 功能控制台</h4>
+    <div class="fdd-grid">
+      <button class="fdd-btn" onclick="fddBackTop()">↑ 回到頂部</button>
+      <button class="fdd-btn" onclick="fddPrint()">🖶 列印</button>
+      <button class="fdd-btn" onclick="fddFull()">⛶ 全螢幕</button>
+      <button class="fdd-btn" onclick="fddRandom()">🎲 隨機章節</button>
+    </div>
+    <h4>🧭 站內導覽</h4>
+    <ul class="fdd-nav" id="fddNav"></ul>
+  </div>
+  <button class="fdd-fab" id="fddFab" aria-label="功能選單">⚙</button>
+</div>
+<script>
+(function(){
+  var fab=document.getElementById('fddFab'),panel=document.getElementById('fddPanel');
+  fab.addEventListener('click',function(){fab.classList.toggle('open');panel.classList.toggle('open');});
+  document.addEventListener('click',function(e){if(!document.getElementById('fdd').contains(e.target)){fab.classList.remove('open');panel.classList.remove('open');}});
+  window.fddBackTop=function(){window.scrollTo({top:0,behavior:'smooth'});};
+  window.fddPrint=function(){window.print();};
+  window.fddFull=function(){if(document.fullscreenElement){document.exitFullscreen();}else{document.documentElement.requestFullscreen();}};
+  window.fddRandom=function(){var a=document.querySelectorAll('#fddNav a');if(a.length){a[Math.floor(Math.random()*a.length)].click();}};
+  var nav=document.getElementById('fddNav');nav.innerHTML='';
+  document.querySelectorAll('.sidebar-nav a').forEach(function(a){
+    var li=document.createElement('li'),x=document.createElement('a');
+    x.href=a.getAttribute('href');x.textContent=(a.textContent||'').trim().replace(/\s+/g,' ');li.appendChild(x);nav.appendChild(li);
+  });
+})();
 </script>
 
 </body>
