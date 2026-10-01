@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head><meta name="description" content="都更投資報酬率分析 v2.0">
+<link rel="canonical" href="index.html">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="都更投資報酬率分析 v2.0">
+<meta property="og:description" content="都更投資報酬率分析 v2.0">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="都更投資報酬率分析 v2.0">
+<meta name="twitter:description" content="都更投資報酬率分析 v2.0">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>都更投資報酬率分析 v2.0</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a1a2e'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='%23d4a853' font-family='serif' font-weight='bold'>325</text></svg>">
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+:root {
+  --bg-primary:#0f1117; --bg-secondary:#1a1d27; --bg-card:#222633;
+  --bg-card-hover:#2a2f3f; --border:#2e3446;
+  --text-primary:#e8eaf0; --text-secondary:#9ba1b3; --text-muted:#6b7185;
+  --accent-gold:#d4a853; --accent-gold-dim:rgba(212,168,83,.15);
+  --accent-red:#e05c5c; --accent-green:#4ecb8d; --accent-blue:#5b9bd5; --accent-purple:#9b7ede;
+  --radius:12px; --radius-sm:8px;
+  --shadow:0 4px 20px rgba(0,0,0,.3); --sidebar-width:240px;
+}
+[data-theme="light"] {
+  --bg-primary:#f5f6f8; --bg-secondary:#fff; --bg-card:#fff;
+  --bg-card-hover:#f0f1f5; --border:#e0e2e8;
+  --text-primary:#1a1d27; --text-secondary:#5a6070; --text-muted:#9ba1b3;
+  --accent-gold:#b8862e; --accent-gold-dim:rgba(184,134,46,.12);
+  --accent-red:#d04545; --accent-green:#3aaf7a; --accent-blue:#4a86c5; --accent-purple:#8567c4;
+  --shadow:0 4px 20px rgba(0,0,0,.08);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Noto Sans TC','Microsoft JhengHei',-apple-system,sans-serif;
+  background:var(--bg-primary); color:var(--text-primary);
+  line-height:1.6; min-height:100vh; transition:background .3s,color .3s;
+}
+.header { display:none; 
+  background:var(--bg-secondary); border-bottom:1px solid var(--border);
+  padding:16px 32px; position:sticky; top:0; z-index:100; backdrop-filter:blur(10px);
+}
+.header-content { max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; gap:16px; }
+.header-left { display:flex; align-items:center; gap:12px; }
+.menu-toggle {
+  display:none; background:none; border:1px solid var(--border); color:var(--text-secondary);
+  padding:6px 10px; border-radius:6px; cursor:pointer; font-size:18px;
+}
+.header h1 { font-size:19px; font-weight:700; white-space:nowrap; }
+.header h1 span { color:var(--accent-gold); }
+.header-right { display:flex; align-items:center; gap:12px; }
+.header-meta { text-align:right; font-size:12px; color:var(--text-secondary); }
+.header-meta .case-id { color:var(--accent-gold); font-weight:600; }
+.theme-toggle {
+  background:var(--bg-card); border:1px solid var(--border); border-radius:20px;
+  padding:6px 12px; cursor:pointer; font-size:13px; color:var(--text-secondary);
+  display:flex; align-items:center; gap:6px; transition:all .2s;
+}
+.theme-toggle:hover { border-color:var(--accent-gold); color:var(--accent-gold); }
+.layout { display:flex; max-width:1400px; margin:0 auto; }
+.sidebar {
+  width:var(--sidebar-width); flex-shrink:0; padding:20px 12px;
+  border-right:1px solid var(--border); position:sticky; top:65px;
+  height:calc(100vh - 65px); overflow-y:auto;
+}
+.sidebar-title { font-size:11px; color:var(--text-muted); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; padding:0 12px; }
+.sidebar-nav { list-style:none; }
+.sidebar-nav li a {
+  display:flex; align-items:center; gap:8px; padding:8px 12px; border-radius:8px;
+  color:var(--text-secondary); text-decoration:none; font-size:13px; transition:all .2s; margin-bottom:2px;
+}
+.sidebar-nav li a:hover { background:var(--bg-card); color:var(--text-primary); }
+.sidebar-nav li a.active { background:var(--accent-gold-dim); color:var(--accent-gold); font-weight:600; }
+.sidebar-nav li a .num {
+  width:20px; height:20px; background:var(--bg-card); border-radius:4px;
+  display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600; flex-shrink:0;
+}
+.sidebar-nav li a.active .num { background:var(--accent-gold); color:#fff; }
+.main { flex:1; padding:20px 28px; min-width:0; }
+.breadcrumb { font-size:12px; color:var(--text-muted); margin-bottom:20px; padding:6px 0; }
+.breadcrumb .sep { margin:0 6px; }
+.kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:20px; }
+.kpi-card {
+  background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius);
+  padding:18px; position:relative; overflow:hidden; transition:transform .2s,box-shadow .2s;
+}
+.kpi-card:hover { transform:translateY(-2px); box-shadow:var(--shadow); }
+.kpi-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--accent-gold); }
+.kpi-card.red::before { background:var(--accent-red); }
+.kpi-card.green::before { background:var(--accent-green); }
+.kpi-card.blue::before { background:var(--accent-blue); }
+.kpi-label { font-size:12px; color:var(--text-secondary); margin-bottom:6px; }
+.kpi-value { font-size:26px; font-weight:700; font-family:Georgia,serif; }
+.kpi-value .unit { font-size:13px; color:var(--text-muted); font-weight:400; margin-left:3px; }
+.kpi-sub { font-size:11px; color:var(--text-muted); margin-top:4px; }
+.section {
+  background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius);
+  padding:22px; margin-bottom:20px; scroll-margin-top:75px;
+}
+.section-title {
+  font-size:16px; font-weight:700; margin-bottom:16px; padding-bottom:10px;
+  border-bottom:1px solid var(--border); display:flex; align-items:center; gap:10px;
+}
+.section-title .icon {
+  width:26px; height:26px; background:var(--accent-gold-dim); border-radius:6px;
+  display:flex; align-items:center; justify-content:center; color:var(--accent-gold); font-size:12px; font-weight:700;
+}
+.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
+.chart-box { background:var(--bg-secondary); border-radius:var(--radius-sm); padding:14px; }
+.chart-box h3 { font-size:13px; color:var(--text-secondary); margin-bottom:10px; font-weight:600; }
+.chart-container { width:100%; height:280px; }
+.chart-tall { height:360px; }
+.data-table { width:100%; border-collapse:collapse; font-size:13px; }
+.data-table th, .data-table td { padding:10px 14px; text-align:right; border-bottom:1px solid var(--border); }
+.data-table th { background:var(--bg-secondary); color:var(--text-secondary); font-weight:600; text-align:center; }
+.data-table th:first-child, .data-table td:first-child { text-align:left; }
+.data-table .highlight { color:var(--accent-gold); font-weight:700; }
+.data-table .bad { color:var(--accent-red); }
+.data-table .good { color:var(--accent-green); }
+.slider-group { margin-bottom:14px; }
+.slider-group label { display:flex; justify-content:space-between; font-size:12px; color:var(--text-secondary); margin-bottom:6px; }
+.slider-group label .value { color:var(--accent-gold); font-weight:600; }
+.slider-group input[type=range] { width:100%; height:5px; border-radius:3px; background:var(--border); outline:none; -webkit-appearance:none; }
+.slider-group input[type=range]::-webkit-slider-thumb { -webkit-appearance:none; width:16px; height:16px; border-radius:50%; background:var(--accent-gold); cursor:pointer; }
+.result-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:16px; padding-top:16px; border-top:1px solid var(--border); }
+.result-item { text-align:center; }
+.result-item .label { font-size:11px; color:var(--text-muted); margin-bottom:3px; }
+.result-item .val { font-size:20px; font-weight:700; color:var(--accent-gold); font-family:Georgia,serif; }
+.issue-list { display:flex; flex-direction:column; gap:12px; }
+.issue-item {
+  background:var(--bg-secondary); border-left:4px solid var(--accent-red);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0; padding:12px 16px;
+}
+.issue-item .issue-num {
+  display:inline-block; background:var(--accent-red); color:#fff;
+  font-size:10px; font-weight:700; padding:2px 7px; border-radius:4px; margin-right:6px;
+}
+.issue-item .issue-title { font-weight:600; margin-bottom:4px; }
+.issue-item .issue-desc { font-size:12px; color:var(--text-secondary); line-height:1.6; }
+.issue-item .issue-impact { margin-top:6px; font-size:11px; color:var(--accent-gold); }
+.info-item { background:var(--bg-secondary); padding:12px 14px; border-radius:var(--radius-sm); }
+.info-item .label { font-size:11px; color:var(--text-muted); margin-bottom:3px; }
+.info-item .val { font-size:14px; font-weight:600; }
+.scenario-btns { display:flex; gap:10px; margin-bottom:16px; }
+.scenario-btn {
+  flex:1; padding:12px; border:2px solid var(--border); border-radius:var(--radius-sm);
+  background:var(--bg-secondary); color:var(--text-secondary); cursor:pointer;
+  font-size:13px; font-weight:600; transition:all .2s; text-align:center;
+}
+.scenario-btn:hover { border-color:var(--accent-gold); }
+.scenario-btn.active { border-color:var(--accent-gold); background:var(--accent-gold-dim); color:var(--accent-gold); }
+.scenario-btn .sub { font-size:11px; font-weight:400; margin-top:2px; opacity:.8; }
+.checklist { list-style:none; }
+.checklist li { padding:8px 0; border-bottom:1px solid var(--border); font-size:13px; display:flex; align-items:center; gap:10px; }
+.checklist li:last-child { border-bottom:none; }
+.check-icon { width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; flex-shrink:0; }
+.check-icon.pass { background:rgba(78,203,141,.15); color:var(--accent-green); }
+.check-icon.warn { background:rgba(224,92,92,.15); color:var(--accent-red); }
+.decision-box { background:var(--accent-gold-dim); border:1px solid var(--accent-gold); border-radius:var(--radius-sm); padding:16px; margin-top:16px; }
+.decision-box h4 { color:var(--accent-gold); margin-bottom:8px; font-size:14px; }
+.decision-box p { font-size:13px; color:var(--text-secondary); line-height:1.7; }
+.export-btn {
+  background:var(--accent-gold); color:#fff; border:none; padding:10px 20px;
+  border-radius:var(--radius-sm); cursor:pointer; font-size:13px; font-weight:600; transition:opacity .2s;
+}
+.export-btn:hover { opacity:.9; }
+.footer { text-align:center; padding:20px; color:var(--text-muted); font-size:11px; border-top:1px solid var(--border); margin-top:30px; }
+.sidebar-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:99; }
+@media (max-width:1024px) {
+  .sidebar { position:fixed; left:-280px; top:0; bottom:0; height:100vh; z-index:101; background:var(--bg-secondary); transition:left .3s; padding-top:50px; }
+  .sidebar.open { left:0; box-shadow:4px 0 20px rgba(0,0,0,.2); }
+  .sidebar-overlay.open { display:block; }
+  .menu-toggle { display:block; }
+  .kpi-grid { grid-template-columns:repeat(2,1fr); }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns:1fr; }
+  .result-grid { grid-template-columns:1fr; }
+  .main { padding:14px; }
+  .header { display:none;  padding:12px 14px; }
+  .header h1 { font-size:15px; }
+  .header-meta { display:none; }
+}
+@media (max-width:640px) { .kpi-grid { grid-template-columns:1fr; } }
+</style>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "都更投資報酬率分析 v2.0",
+ "url": "index.html"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "首頁",
+   "item": "index.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "都更投資報酬率分析 v2.0",
+   "item": "index.html"
+  }
+ ]
+}
+</script>
+</head>
+<body>
+
+<!-- Portal nav removed -->
+
+
+
+
+
+
+
+<header class="header">
+  <div class="header-content">
+    <div class="header-left">
+      <button class="menu-toggle" id="menuToggle">&#9776;</button>
+      <h1>都更投資分析 <span>v2.0</span></h1>
+    </div>
+    <div class="header-right">
+      <div class="header-meta"></div>
+      <button class="theme-toggle" id="themeToggle">
+        <span id="themeIcon">&#9789;</span><span id="themeText">深色</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-title">導覽</div>
+    <ul class="sidebar-nav">
+      <li><a href="#overview" class="active" data-section="overview"><span class="num">01</span>基本條件</a></li>
+      <li><a href="#cost-revenue" data-section="cost-revenue"><span class="num">02</span>成本營收</a></li>
+      <li><a href="#comparison" data-section="comparison"><span class="num">03</span>報酬對比</a></li>
+      <li><a href="#financial" data-section="financial"><span class="num">04</span>財務指標</a></li>
+      <li><a href="#params" data-section="params"><span class="num">05</span>參數調控</a></li>
+      <li><a href="#cashflow" data-section="cashflow"><span class="num">06</span>現金流</a></li>
+      <li><a href="#sensitivity" data-section="sensitivity"><span class="num">07</span>敏感性</a></li>
+      <li><a href="#breakeven" data-section="breakeven"><span class="num">08</span>損益兩平</a></li>
+      <li><a href="#risk" data-section="risk"><span class="num">09</span>風險評估</a></li>
+      <li><a href="#scenario" data-section="scenario"><span class="num">10</span>情境分析</a></li>
+      <li><a href="#regulations" data-section="regulations"><span class="num">11</span>法規公式</a></li>
+      <li><a href="#process" data-section="process"><span class="num">12</span>都更流程</a></li>
+      <li><a href="#calculator" data-section="calculator"><span class="num">13</span>公式試算</a></li>
+      <li><a href="#issues" data-section="issues"><span class="num">14</span>五大問題</a></li>
+      <li><a href="#articles" data-section="articles"><span class="num">15</span>知識文章</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+    <nav class="breadcrumb">首頁 <span class="sep">/</span> 不動產開發</nav>
+
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-label">總成本</div><div class="kpi-value" id="kpiCost">21.66<span class="unit">億</span></div><div class="kpi-sub">含土地、營建、管銷、稅賦、利息</div></div>
+      <div class="kpi-card green"><div class="kpi-label">總營業額</div><div class="kpi-value" id="kpiRev">25.72<span class="unit">億</span></div><div class="kpi-sub">住宅 + 店鋪 + 車位</div></div>
+      <div class="kpi-card blue"><div class="kpi-label">淨利潤</div><div class="kpi-value" id="kpiProfit">3.25<span class="unit">億</span></div><div class="kpi-sub" id="kpiProfitSub">成本報酬率 14.5%</div></div>
+      <div class="kpi-card red"><div class="kpi-label">ROE 自有資金報酬率</div><div class="kpi-value" id="kpiRoe">36.2<span class="unit">%</span></div><div class="kpi-sub">含融資槓桿效果</div></div>
+    </div>
+
+    <div class="section" id="overview">
+      <div class="section-title"><span class="icon">01</span>基地基本條件</div>
+      <div class="grid-3" id="infoGrid"></div>
+    </div>
+
+    <div class="section" id="cost-revenue">
+      <div class="section-title"><span class="icon">02</span>成本與營業額結構</div>
+      <div class="grid-2">
+        <div class="chart-box"><h3>成本結構（萬元）</h3><div id="costChart" class="chart-container"></div></div>
+        <div class="chart-box"><h3>營業額結構（萬元）</h3><div id="revenueChart" class="chart-container"></div></div>
+      </div>
+    </div>
+
+    <div class="section" id="comparison">
+      <div class="section-title"><span class="icon">03</span>原表 vs 修正版報酬率對比</div>
+      <table class="data-table">
+        <thead><tr><th>項目</th><th>原表（未計利息）</th><th>修正版（含融資利息）</th><th>差異</th></tr></thead>
+        <tbody>
+          <tr><td>總成本（萬）</td><td>216,554</td><td id="cmpCost">224,675</td><td class="bad" id="cmpCostDiff">+8,121</td></tr>
+          <tr><td>營業額（萬）</td><td>257,214</td><td id="cmpRev">257,214</td><td>—</td></tr>
+          <tr><td>淨利潤（萬）</td><td>40,660</td><td id="cmpProfit">32,539</td><td class="bad" id="cmpProfitDiff">-8,121</td></tr>
+          <tr><td>成本報酬率</td><td class="highlight">18.8%</td><td class="highlight" id="cmpRoi">14.5%</td><td class="bad" id="cmpRoiDiff">-4.3%</td></tr>
+          <tr><td>營業額報酬率</td><td class="highlight">15.8%</td><td class="highlight" id="cmpRor">12.7%</td><td class="bad" id="cmpRorDiff">-3.1%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section" id="financial">
+      <div class="section-title"><span class="icon">04</span>財務指標計算器（8項公式）</div>
+      <div class="grid-4" id="financeGrid"></div>
+      <div class="result-grid">
+        <div class="result-item"><div class="label">NPV 淨現值（萬）</div><div class="val" id="npvResult">—</div></div>
+        <div class="result-item"><div class="label">IRR 內部報酬率</div><div class="val" id="irrResult">—</div></div>
+        <div class="result-item"><div class="label">投資回收期（年）</div><div class="val" id="paybackResult">—</div></div>
+      </div>
+    </div>
+
+    <div class="section" id="params">
+      <div class="section-title"><span class="icon">05</span>自訂參數調控面板（9組滑塊）</div>
+      <div class="grid-3" id="paramSliders"></div>
+      <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+        <button class="export-btn" onclick="resetParams()">重設參數</button>
+        <button class="export-btn" style="background:var(--bg-secondary); color:var(--text-primary); border:1px solid var(--border);" onclick="exportCSV()">匯出 CSV</button>
+      </div>
+    </div>
+
+    <div class="section" id="cashflow">
+      <div class="section-title"><span class="icon">06</span>現金流瀑布圖與資金時程</div>
+      <div class="chart-box" style="margin-bottom:16px;">
+        <h3>現金流瀑布圖（萬元）</h3>
+        <div id="waterfallChart" class="chart-container chart-tall"></div>
+      </div>
+      <div class="chart-box">
+        <h3>資金需求時程表</h3>
+        <div id="timelineChart" class="chart-container"></div>
+      </div>
+    </div>
+
+    <div class="section" id="sensitivity">
+      <div class="section-title"><span class="icon">07</span>雙變數敏感性熱力圖</div>
+      <div class="chart-box">
+        <h3>住宅售價 × 融資利率 → 成本報酬率 (%)</h3>
+        <div id="heatmapChart" class="chart-container chart-tall"></div>
+      </div>
+    </div>
+
+    <div class="section" id="breakeven">
+      <div class="section-title"><span class="icon">08</span>損益兩平分析</div>
+      <div class="chart-box">
+        <h3>銷售率 vs 累積損益（萬元）</h3>
+        <div id="breakevenChart" class="chart-container chart-tall"></div>
+      </div>
+      <div class="result-grid">
+        <div class="result-item"><div class="label">損益兩平銷售率</div><div class="val" id="bepRate">—</div></div>
+        <div class="result-item"><div class="label">保本售價（萬/坪）</div><div class="val" id="bepPrice">—</div></div>
+        <div class="result-item"><div class="label">土地成本上限（萬/坪）</div><div class="val" id="maxLand">—</div></div>
+      </div>
+    </div>
+
+    <div class="section" id="risk">
+      <div class="section-title"><span class="icon">09</span>風險評估雷達圖與檢查清單</div>
+      <div class="grid-2">
+        <div class="chart-box">
+          <h3>案場競爭力雷達圖</h3>
+          <div id="radarChart" class="chart-container chart-tall"></div>
+        </div>
+        <div class="chart-box">
+          <h3>風險檢查清單（6項）</h3>
+          <ul class="checklist" id="riskChecklist"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="scenario">
+      <div class="section-title"><span class="icon">10</span>情境分析與投資決策</div>
+      <div class="scenario-btns">
+        <button class="scenario-btn" data-scenario="bear">悲觀情境<div class="sub">售價 -10% / 工期 +6月</div></button>
+        <button class="scenario-btn active" data-scenario="base">基準情境<div class="sub">原表數據</div></button>
+        <button class="scenario-btn" data-scenario="bull">樂觀情境<div class="sub">售價 +10% / 提前6月完售</div></button>
+      </div>
+      <div class="grid-3" id="scenarioResults"></div>
+      <div class="decision-box">
+        <h4>投資決策建議</h4>
+        <p id="decisionText">—</p>
+      </div>
+    </div>
+
+    <!-- 11 法規與公式 -->
+    <div class="section" id="regulations">
+      <div class="section-title"><span class="icon">11</span>建築法規與權威公式參照</div>
+      <div class="grid-2">
+        <div class="chart-box">
+          <h3>都市更新條例 — 容積獎勵項目（法定上限）</h3>
+          <table class="data-table" style="font-size:12px;">
+            <thead><tr><th>獎勵項目</th><th>上限</th><th>法源依據</th></tr></thead>
+            <tbody>
+              <tr><td>建築設計與技術創新</td><td>10%</td><td>都更條例 §44</td></tr>
+              <tr><td>維護公共安全與無障礙</td><td>5%</td><td>都更條例 §44</td></tr>
+              <tr><td>提供公共設施用地</td><td>15%</td><td>都更條例 §44-1</td></tr>
+              <tr><td>社會化需求（社會住宅等）</td><td>10%</td><td>都更條例 §44-2</td></tr>
+              <tr><td>時程獎勵（速批速建）</td><td>10%</td><td>都更條例 §45</td></tr>
+              <tr style="font-weight:700;"><td>合計容積獎勵上限</td><td class="highlight">50%</td><td>以基準容積為準</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="chart-box">
+          <h3>關鍵公式與法規依據</h3>
+          <table class="data-table" style="font-size:12px;">
+            <thead><tr><th>指標</th><th>公式</th><th>法源</th></tr></thead>
+            <tbody>
+              <tr><td>容積率</td><td>總樓地板面積 ÷ 基地面積</td><td>建築法 §102</td></tr>
+              <tr><td>建蔽率</td><td>建築面積 ÷ 基地面積</td><td>建築法 §100</td></tr>
+              <tr><td>土地增值稅</td><td>漲價總數額 × 累進稅率</td><td>土地稅法 §28</td></tr>
+              <tr><td>平均地權漲價額</td><td>現值 − 前次申報現值 × 物價指數</td><td>平均地權條例 §32</td></tr>
+              <tr><td>容積移轉計價</td><td>捐贈面積 × 容積單價 × 折減數</td><td>都更條例 §42-1</td></tr>
+              <tr><td>容積回饋金</td><td>實際容積 × 單位回饋單價</td><td>都市計畫法 §80-1</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12 都更流程 -->
+    <div class="section" id="process">
+      <div class="section-title"><span class="icon">12</span>都市更新標準流程時間軸</div>
+      <div class="chart-box">
+        <h3>都更案作業時程（約 3-5 年）</h3>
+        <div id="processChart" class="chart-container" style="height:220px;"></div>
+      </div>
+    </div>
+
+    <!-- 13 公式試算器 -->
+    <div class="section" id="calculator">
+      <div class="section-title"><span class="icon">13</span>權威公式試算器</div>
+      <div class="grid-3">
+        <div class="chart-box">
+          <h3>土地增值稅試算（土地稅法 §28）</h3>
+          <div class="slider-group">
+            <label>本次公告現值（萬/坪）<span class="value" id="declaredPriceVal">12.04</span></label>
+            <input type="range" id="declaredPriceSlider" min="5" max="30" step="0.5" value="12.04">
+          </div>
+          <div class="slider-group">
+            <label>前次申報現值（萬/坪）<span class="value" id="prevDeclaredVal">8.00</span></label>
+            <input type="range" id="prevDeclaredSlider" min="2" max="20" step="0.5" value="8.00">
+          </div>
+          <div class="slider-group">
+            <label>物價指數（%）<span class="value" id="priceIndexVal">120</span></label>
+            <input type="range" id="priceIndexSlider" min="100" max="200" step="5" value="120">
+          </div>
+          <div style="margin-top:12px; padding-top:12px; border-top:1px solid var(--border);">
+            <div class="result-item" style="text-align:left;">
+              <div class="label">漲價總數額（萬/坪）</div>
+              <div class="val" id="landTaxGain" style="font-size:18px;">—</div>
+            </div>
+            <div class="result-item" style="text-align:left; margin-top:8px;">
+              <div class="label">應納土增稅（萬/坪，約）</div>
+              <div class="val" id="landTaxAmount" style="font-size:18px;">—</div>
+            </div>
+          </div>
+        </div>
+        <div class="chart-box">
+          <h3>容積率 / 建蔽率試算（建築法）</h3>
+          <div class="slider-group">
+            <label>基地面積（坪）<span class="value" id="baseAreaVal">1,304.99</span></label>
+            <input type="range" id="baseAreaSlider" min="500" max="3000" step="50" value="1304.99">
+          </div>
+          <div class="slider-group">
+            <label>總樓地板面積（坪）<span class="value" id="gfaVal">3,053</span></label>
+            <input type="range" id="gfaSlider" min="1000" max="8000" step="100" value="3053">
+          </div>
+          <div class="slider-group">
+            <label>單層建築面積（坪）<span class="value" id="buildingAreaVal">203</span></label>
+            <input type="range" id="buildingAreaSlider" min="100" max="800" step="10" value="203">
+          </div>
+          <div style="margin-top:12px; padding-top:12px; border-top:1px solid var(--border);">
+            <div class="result-item" style="text-align:left;">
+              <div class="label">實際容積率</div>
+              <div class="val" id="actualFar" style="font-size:18px;">—</div>
+            </div>
+            <div class="result-item" style="text-align:left; margin-top:8px;">
+              <div class="label">實際建蔽率</div>
+              <div class="val" id="actualBcr" style="font-size:18px;">—</div>
+            </div>
+          </div>
+        </div>
+        <div class="chart-box">
+          <h3>營建成本構成比例（營建署物價指數）</h3>
+          <table class="data-table" style="font-size:12px; margin-bottom:12px;">
+            <thead><tr><th>項目</th><th>占比</th><th>萬/坪</th></tr></thead>
+            <tbody>
+              <tr><td>結構工程（RC/鋼骨）</td><td>40%</td><td id="costStruct">3.40</td></tr>
+              <tr><td>裝修工程（輕/重裝）</td><td>25%</td><td id="costFinish">2.13</td></tr>
+              <tr><td>機電工程（水電消防）</td><td>18%</td><td id="costMep">1.53</td></tr>
+              <tr><td>景觀與環境</td><td>7%</td><td id="costLandscape">0.60</td></tr>
+              <tr><td>工程管理+利潤</td><td>10%</td><td id="costMgmt">0.85</td></tr>
+              <tr style="font-weight:700;"><td>合計（單價 8.5 萬/坪）</td><td>100%</td><td class="highlight" id="costTotal">8.50</td></tr>
+            </tbody>
+          </table>
+          <div style="font-size:11px; color:var(--text-muted); line-height:1.5;">
+            參考內政部營建署「營建物價指數」及公共工程委員會「工程單價分析手冊」
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="issues">
+      <div class="section-title"><span class="icon">14</span>原表五大問題</div>
+      <div class="issue-list" id="issueList"></div>
+    </div>
+
+    <div class="section" id="articles">
+      <div class="section-title"><span class="icon">15</span>📖 都更知識文章</div>
+      <div class="grid-3">
+        <a href="articles/urban-renewal-parties.html" style="display:block;background:var(--bg-secondary);border:1px solid var(--border);border-radius:8px;padding:16px;text-decoration:none;color:var(--text)">
+          <div style="font-size:13px;color:var(--gold);font-weight:700;margin-bottom:6px">🏛️ 參與角色</div>
+          <div style="font-size:13px;color:var(--text-secondary);line-height:1.6">地主、實施者、建商與代銷，各自的分工與誘因。</div>
+        </a>
+        <a href="articles/urban-renewal-allocation.html" style="display:block;background:var(--bg-secondary);border:1px solid var(--border);border-radius:8px;padding:16px;text-decoration:none;color:var(--text)">
+          <div style="font-size:13px;color:var(--gold);font-weight:700;margin-bottom:6px">⚖️ 權利變換</div>
+          <div style="font-size:13px;color:var(--text-secondary);line-height:1.6">共同負擔怎麼扣，地主最後分回多少坪。</div>
+        </a>
+        <a href="articles/urban-renewal-risk.html" style="display:block;background:var(--bg-secondary);border:1px solid var(--border);border-radius:8px;padding:16px;text-decoration:none;color:var(--text)">
+          <div style="font-size:13px;color:var(--gold);font-weight:700;margin-bottom:6px">⚠️ 開發風險</div>
+          <div style="font-size:13px;color:var(--text-secondary);line-height:1.6">時程延宕、合建紛爭與銷售去化三大風險。</div>
+        </a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="footer">都更投資報酬率分析系統 v2.0 ｜ 僅供參考，不構成投資建議 ｜ 張書欣 規劃設計開發</footer>
+
+<script>
+// ===== 核心財務引擎 =====
+const P = {
+  landArea:1304.99, landPrice:60, constructionArea:10552.49, constructionCost:8.5,
+  resArea:7903.3, resPrice:26, shopArea:573.2, shopPrice:40,
+  parkingCount:240, parkingPrice:120, marketingRate:13.5, taxRate:1.5,
+  ltv:60, interestRate:2.5, period:2.5, discountRate:12, equityReturn:15, extraLandCost:10088
+};
+const DEFAULT = JSON.parse(JSON.stringify(P));
+
+function calc() {
+  const landCost = P.landArea * P.landPrice;
+  const landTotal = landCost + P.extraLandCost;
+  const construction = P.constructionArea * P.constructionCost;
+  const revenue = P.resArea*P.resPrice + P.shopArea*P.shopPrice + P.parkingCount*P.parkingPrice;
+  const marketing = revenue * P.marketingRate/100;
+  const tax = revenue * P.taxRate/100;
+  const loan = (landTotal + construction) * P.ltv/100;
+  const interest = loan * P.interestRate/100 * P.period;
+  const totalCost = landTotal + construction + marketing + tax + interest;
+  const profit = revenue - totalCost;
+  const roi = profit/totalCost*100;
+  const ror = profit/revenue*100;
+  const equity = totalCost - loan;
+  const roe = profit/equity*100;
+  const wacc = P.equityReturn*(1-P.ltv/100) + P.interestRate*(P.ltv/100)*(1-0.2);
+  const bepPrice = totalCost / (P.constructionArea * 0.85);
+  const maxLand = (revenue - construction - marketing - tax - interest - P.extraLandCost) / P.landArea;
+  const bepRate = totalCost/revenue*100;
+  const pi = revenue/totalCost;
+  const monthlyPay = loan * (P.interestRate/1200) / (1 - Math.pow(1+P.interestRate/1200, -P.period*12));
+  const cashflows = [
+    -landTotal*0.4, -construction*0.4-landTotal*0.3,
+    -construction*0.4+revenue*0.3, revenue*0.4-construction*0.2, revenue*0.3+profit
+  ];
+  const npv = cashflows.reduce((s,cf,i) => s + cf/Math.pow(1+P.discountRate/100, i+1), 0);
+  const irr = computeIRR(cashflows);
+  let payback = 0, cum = 0;
+  for (let i = 0; i < cashflows.length; i++) { cum += cashflows[i]; if (cum >= 0) { payback = i+1; break; } }
+  if (!payback) payback = cashflows.length;
+  return {landCost, landTotal, construction, revenue, marketing, tax, loan, interest, totalCost, profit, roi, ror, equity, roe, wacc, bepPrice, maxLand, bepRate, pi, monthlyPay, npv, irr, payback, cashflows};
+}
+function computeIRR(cf) {
+  let lo = -0.99, hi = 10;
+  for (let i = 0; i < 100; i++) {
+    const mid = (lo+hi)/2;
+    const npv = cf.reduce((s,v,j) => s + v/Math.pow(1+mid,j+1), 0);
+    if (Math.abs(npv) < 0.01) return mid*100;
+    if (npv > 0) lo = mid; else hi = mid;
+  }
+  return ((lo+hi)/2)*100;
+}
+
+// ===== 主題 =====
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+const themeText = document.getElementById('themeText');
+function getTheme() { return localStorage.getItem('325-theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'); }
+function applyTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  themeIcon.textContent = t === 'dark' ? '\u{1F319}' : '\u2600\u{FE0F}';
+  themeText.textContent = t === 'dark' ? '深色' : '淺色';
+  localStorage.setItem('325-theme', t);
+}
+themeToggle.addEventListener('click', () => {
+  const cur = document.documentElement.getAttribute('data-theme') || 'dark';
+  applyTheme(cur === 'dark' ? 'light' : 'dark');
+  renderCharts();
+});
+
+// ===== 側邊欄 =====
+const menuToggle = document.getElementById('menuToggle');
+const sidebar = document.getElementById('sidebar');
+const sidebarOverlay = document.getElementById('sidebarOverlay');
+menuToggle.addEventListener('click', () => { sidebar.classList.toggle('open'); sidebarOverlay.classList.toggle('open'); });
+sidebarOverlay.addEventListener('click', () => { sidebar.classList.remove('open'); sidebarOverlay.classList.remove('open'); });
+document.querySelectorAll('.sidebar-nav a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(link.getAttribute('href'));
+    if (t) { t.scrollIntoView({behavior:'smooth'}); sidebar.classList.remove('open'); sidebarOverlay.classList.remove('open'); }
+  });
+});
+window.addEventListener('scroll', () => {
+  let cur = '';
+  document.querySelectorAll('.section').forEach(s => { if (window.scrollY >= s.offsetTop - 100) cur = s.id; });
+  document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.toggle('active', a.dataset.section === cur));
+});
+
+// ===== 基本條件 =====
+const infoData = [
+  ['基地面積','1,304.99 坪'],['使用分區','住 2-3'],['建蔽率 / 容積率','59% / 233.96%'],
+  ['規劃樓層','地下3層 / 地上15層'],['戶數','住宅 215 戶 + 店鋪 14 戶'],['車位','平面 240 部'],
+  ['總可售坪','10,552.49 坪'],['車戶比','1.05 輛/戶'],['容積移轉','30%（折數 1.39）']
+];
+document.getElementById('infoGrid').innerHTML = infoData.map(([l,v]) =>
+  `<div class="info-item"><div class="label">${l}</div><div class="val">${v}</div></div>`).join('');
+
+// ===== 財務指標卡片 =====
+const financeItems = [
+  ['NPV 淨現值','npvCard','萬'],['IRR 內部報酬率','irrCard','%'],
+  ['投資回收期','paybackCard','年'],['WACC 加權資金成本','waccCard','%'],
+  ['ROE 自有資金報酬率','roeCard','%'],['獲利指數 PI','piCard',''],
+  ['貸款月付額','monthlyCard','萬'],['保本售價','bepPriceCard','萬/坪'],
+];
+document.getElementById('financeGrid').innerHTML = financeItems.map(([label,id,unit]) =>
+  `<div class="info-item"><div class="label">${label}</div><div class="val" id="${id}">—</div><div class="label" style="margin-top:2px">${unit}</div></div>`).join('');
+
+// ===== 參數滑塊 =====
+const sliderDefs = [
+  {key:'resPrice',label:'住宅單價（萬/坪）',min:20,max:35,step:0.5},
+  {key:'shopPrice',label:'店面單價（萬/坪）',min:30,max:60,step:1},
+  {key:'parkingPrice',label:'車位單價（萬/部）',min:80,max:180,step:5},
+  {key:'landPrice',label:'土地單價（萬/坪）',min:40,max:80,step:1},
+  {key:'constructionCost',label:'營建單價（萬/坪）',min:6,max:12,step:0.25},
+  {key:'marketingRate',label:'管銷費用率（%）',min:8,max:20,step:0.5},
+  {key:'ltv',label:'融資成數（%）',min:30,max:80,step:5},
+  {key:'interestRate',label:'融資利率（%）',min:1,max:6,step:0.25},
+  {key:'period',label:'開發期（年）',min:1,max:5,step:0.5},
+];
+document.getElementById('paramSliders').innerHTML = sliderDefs.map(s => `
+  <div class="slider-group">
+    <label>${s.label}<span class="value" id="${s.key}Val">${P[s.key]}</span></label>
+    <input type="range" id="${s.key}Slider" min="${s.min}" max="${s.max}" step="${s.step}" value="${P[s.key]}" data-key="${s.key}">
+  </div>`).join('');
+document.querySelectorAll('#paramSliders input[type=range]').forEach(sl => {
+  sl.addEventListener('input', () => {
+    P[sl.dataset.key] = parseFloat(sl.value);
+    document.getElementById(sl.dataset.key+'Val').textContent = sl.value;
+    updateAll();
+  });
+});
+
+// ===== 五大問題 =====
+const issues = [
+  ['未計入開發融資利息','總成本 21.65 億，開發期約 2.5 年，表中完全沒有利息成本。','成本報酬率從 18.8% 降至約 14.5%'],
+  ['建蔽率 59% 與實際不符','法定建蔽率 59%，但實際興建建蔽率僅約 15.6%。','建築密度認知錯誤'],
+  ['土地增值稅計算黑箱','「1.05 × 3 = 495 萬」無法推導，計算邏輯不透明。','稅務成本無法稽核'],
+  ['管銷與稅賦疑似重複計算','「管銷/稅賦 13.5%」又單列「稅賦 1.5%」。','成本可能高估約 3,858 萬'],
+  ['反算地價與實際報酬不閉鎖','反算 15% 地價 62.09 萬/坪，但實際報酬 18.8%。','地價敏感性測試失真'],
+];
+document.getElementById('issueList').innerHTML = issues.map(([t,d,imp],i) => `
+  <div class="issue-item"><div class="issue-title"><span class="issue-num">${i+1}</span>${t}</div>
+  <div class="issue-desc">${d}</div><div class="issue-impact">影響：${imp}</div></div>`).join('');
+
+// ===== ECharts =====
+let charts = {};
+function getColors() {
+  const t = document.documentElement.getAttribute('data-theme') || 'dark';
+  return {
+    text: t==='dark' ? '#9ba1b3' : '#5a6070',
+    tipBg: t==='dark' ? '#222633' : '#ffffff',
+    tipBorder: t==='dark' ? '#2e3446' : '#e0e2e8',
+    textColor: t==='dark' ? '#e8eaf0' : '#1a1d27'
+  };
+}
+function initCharts() {
+  ['costChart','revenueChart','waterfallChart','timelineChart','heatmapChart','breakevenChart','radarChart','processChart'].forEach(id => {
+    charts[id] = echarts.init(document.getElementById(id));
+  });
+}
+function renderCharts() {
+  const c = calc();
+  const cl = getColors();
+
+  charts.costChart.setOption({
+    textStyle:{color:cl.text}, color:['#d4a853','#5b9bd5','#4ecb8d','#9b7ede','#e05c5c'],
+    tooltip:{trigger:'item',formatter:'{b}: {c} 萬 ({d}%)',backgroundColor:cl.tipBg,borderColor:cl.tipBorder,textStyle:{color:cl.textColor}},
+    series:[{type:'pie',radius:['35%','65%'],center:['50%','50%'],
+      label:{color:cl.text,fontSize:11,formatter:'{b}\n{d}%'},
+      data:[
+        {value:Math.round(c.landTotal),name:'土地相關成本'},
+        {value:Math.round(c.construction),name:'營建成本'},
+        {value:Math.round(c.marketing),name:'管銷費用'},
+        {value:Math.round(c.tax),name:'稅賦'},
+        {value:Math.round(c.interest),name:'融資利息'}
+      ]}]
+  });
+
+  charts.revenueChart.setOption({
+    textStyle:{color:cl.text},
+    tooltip:{trigger:'axis',formatter:'{b}: {c} 萬',backgroundColor:cl.tipBg,borderColor:cl.tipBorder,textStyle:{color:cl.textColor}},
+    grid:{left:'3%',right:'4%',bottom:'3%',containLabel:true},
+    xAxis:{type:'category',data:['1F店鋪','集合住宅','平面車位'],axisLine:{lineStyle:{color:cl.tipBorder}},axisLabel:{color:cl.text}},
+    yAxis:{type:'value',axisLine:{show:false},splitLine:{lineStyle:{color:cl.tipBorder}},axisLabel:{color:cl.text}},
+    series:[{type:'bar',barWidth:'50%',
+      data:[
+        {value:Math.round(P.shopArea*P.shopPrice),itemStyle:{color:'#d4a853'}},
+        {value:Math.round(P.resArea*P.resPrice),itemStyle:{color:'#5b9bd5'}},
+        {value:Math.round(P.parkingCount*P.parkingPrice),itemStyle:{color:'#4ecb8d'}}
+      ],
+      label:{show:true,position:'top',color:cl.textColor,fontSize:11,formatter:'{c}'}
+    }]
+  });
+
+  const wfData = [
+    {name:'土地投入',value:-c.landTotal},{name:'營建投入',value:-c.construction},
+    {name:'管銷稅賦',value:-(c.marketing+c.tax)},{name:'利息成本',value:-c.interest},
+    {name:'銷售收入',value:c.revenue},{name:'淨利潤',value:c.profit}
+  ];
+  charts.waterfallChart.setOption({
+    textStyle:{color:cl.text},
+    tooltip:{trigger:'axis',formatter:p => p[0].name+': '+Math.round(p[0].value).toLocaleString()+' 萬',backgroundColor:cl.tipBg,borderColor:cl.tipBorder,textStyle:{color:cl.textColor}},
+    grid:{left:'3%',right:'4%',bottom:'3%',containLabel:true},
+    xAxis:{type:'category',data:wfData.map(d=>d.name),axisLine:{lineStyle:{color:cl.tipBorder}},axisLabel:{color:cl.text,fontSize:11}},
+    yAxis:{type:'value',axisLine:{show:false},splitLine:{lineStyle:{color:cl.tipBorder}},axisLabel:{color:cl.text}},
+    series:[{type:'bar',barWidth:'50%',
+      data:wfData.map(d => ({value:Math.round(d.value),itemStyle:{color:d.value>=0?'#4ecb8d':'#e05c5c'}})),
+      label:{show:true,position:'top',color:cl.textColor,fontSize:11,formatter:p=>Math.round(p.value).toLocaleString()}
+    }]
+  });
+
+  charts.timelineChart.setOption({
+    textStyle:{color:cl.text},
+    tooltip:{trigger:'axis',backgroundColor:cl.tipBg,borderColor:cl.tipBorder,textStyle:{color:cl.textColor}},
+    legend:{data:['累計投入','累計銷售'],textStyle:{color:cl.text},top:0},
+    grid:{left:'3%',right:'4%',bottom:'3%',containLabel:true},
+    xAxis:{type:'category',data:['Q1','Q2','Q3','Q4','Q5','Q6','Q7','Q8','Q9','Q10'],axisLabel:{color:cl.text},axisLine:{lineStyle:{color:cl.tipBorder}}},
+    yAxis:{type:'value',splitLine:{lineStyle:{color:cl.tipBorder}},axisLabel:{color:cl.text}},
+    series:[
+      {name:'累計投入',type:'line',smooth:true,data:[20000,50000,90000,140000,180000,210000,220000,224000,Math.round(c.totalCost),Math.round(c.totalCost)],lineStyle:{color:'#e05c5c'},itemStyle:{color:'#e05c5c'}},
+      {name:'累計銷售',type:'line',smooth:true,data:[0,5000,15000,35000,65000,110000,160000,210000,240000,Math.round(c.revenue)],lineStyle:{color:'#4ecb8d'},itemStyle:{color:'#4ecb8d'}}
+    ]
+  });
+
+  const priceRanges = [22,24,26,28,30,32];
+  const rateRanges = [1.5,2.0,2.5,3.0,3.5,4.0];
+  const heatData = [];
+  for (let i = 0; i < priceRanges.length; i++) {
+    for (let j = 0; j < rateRanges.length; j++) {
+      const loan = (c.landTotal + c.construction) * P.ltv/100;
+      const int = loan * rateRanges[j]/100 * P.period;
+      const tc = c.landTotal + c.construction + c.marketing + c.tax + int;
+      const rev = P.resArea*priceRanges[i] + P.shopArea*P.shopPrice + P.parkingCount*P.parkingPrice;
+      heatData.push([j, i, Math.round((rev-tc)/tc*1000)/10]);
+    }
+  }
+  charts.heatmapChart.setOption({
+    textStyle:{color:cl.text},
+    tooltip:{formatter:p => '售價 '+priceRanges[p.value[1]]+' 萬/坪<br>利率 '+rateRanges[p.value[0]]+'%<br>ROI: '+p.value[2]+'%',backgroundColor:cl.tipBg,borderColor:cl.tipBorder,textStyle:{color:cl.textColor}},
+    grid:{left:'12%',right:'8%',bottom:'12%',top:'8%'},
+    xAxis:{type:'category',data:rateRanges.map(r=>r+'%'),name:'利率',nameLocation:'middle',nameGap:30,axisLabel:{color:cl.text},splitArea:{show:true}},
+    yAxis:{type:'category',data:priceRanges.map(r=>r+'萬'),name:'售價',nameLocation:'middle',nameGap:40,axisLabel:{color:cl.text},splitArea:{show:true}},
+    visualMap:{min:5,max:25,calculable:true,orient:'horizontal',left:'center',bottom:0,inRange:{color:['#e05c5c','#d4a853','#4ecb8d']},textStyle:{color:cl.text}},
+    series:[{type:'heatmap',data:heatData,label:{show:true,fontSize:10,color:'#fff'}}]
+  });
+
+  const salesRates = [], profitLines = [];
+  for (let s = 0; s <= 100; s += 5) {
+    salesRates.push(s+'%');
+    profitLines.push(Math.round(c.revenue * s/100 - c.totalCost));
+  }
+  charts.breakevenChart.setOption({
+    textStyle:{color:cl.text},
+    tooltip:{trigger:'axis',backgroundColor:cl.tipBg,borderColor:cl.tipBorder,textStyle:{color:cl.textColor}},
+    grid:{left:'3%',right:'4%',bottom:'3%',containLabel:true},
+    xAxis:{type:'category',data:salesRates,name:'銷售率',nameLocation:'middle',nameGap:30,axisLabel:{color:cl.text},axisLine:{lineStyle:{color:cl.tipBorder}}},
+    yAxis:{type:'value',name:'累積損益（萬）',splitLine:{lineStyle:{color:cl.tipBorder}},axisLabel:{color:cl.text}},
+    series:[{type:'line',smooth:true,data:profitLines,
+      lineStyle:{color:'#d4a853',width:3},itemStyle:{color:'#d4a853'},
+      markLine:{data:[{yAxis:0}],lineStyle:{color:'#e05c5c',type:'dashed'},label:{color:cl.text}}
+    }]
+  });
+
+  charts.radarChart.setOption({
+    textStyle:{color:cl.text},
+    tooltip:{backgroundColor:cl.tipBg,borderColor:cl.tipBorder,textStyle:{color:cl.textColor}},
+    radar:{
+      indicator:[
+        {name:'區位條件',max:10},{name:'產品規劃',max:10},
+        {name:'價格競爭力',max:10},{name:'銷售去化',max:10},
+        {name:'利潤空間',max:10},{name:'風險控管',max:10}
+      ],
+      axisName:{color:cl.text,fontSize:12},
+      splitLine:{lineStyle:{color:cl.tipBorder}},
+      axisLine:{lineStyle:{color:cl.tipBorder}}
+    },
+    series:[{type:'radar',data:[{value:[8,7,6,7,6,5],name:'本案評估',
+      areaStyle:{color:'rgba(212,168,83,.25)'},lineStyle:{color:'#d4a853'},itemStyle:{color:'#d4a853'}}]}]
+  });
+
+  // 都更流程時間軸
+  charts.processChart.setOption({
+    textStyle:{color:cl.text},
+    tooltip:{backgroundColor:cl.tipBg,borderColor:cl.tipBorder,textStyle:{color:cl.textColor}},
+    grid:{left:'3%',right:'4%',top:'10%',bottom:'15%',containLabel:true},
+    xAxis:{type:'category',data:['事業概劃','權變協議','申請許可','都計審議','建照申請','開工','結構完成','使用執照','銷售完畢'],
+      axisLabel:{color:cl.text,fontSize:10,rotate:30},axisLine:{lineStyle:{color:cl.tipBorder}}},
+    yAxis:{type:'value',name:'期程（月）',splitLine:{lineStyle:{color:cl.tipBorder}},axisLabel:{color:cl.text}},
+    series:[{
+      type:'bar',barWidth:'60%',
+      data:[
+        {value:6,itemStyle:{color:'#5b9bd5'}},
+        {value:12,itemStyle:{color:'#5b9bd5'}},
+        {value:6,itemStyle:{color:'#9b7ede'}},
+        {value:6,itemStyle:{color:'#9b7ede'}},
+        {value:4,itemStyle:{color:'#d4a853'}},
+        {value:6,itemStyle:{color:'#d4a853'}},
+        {value:12,itemStyle:{color:'#d4a853'}},
+        {value:2,itemStyle:{color:'#4ecb8d'}},
+        {value:12,itemStyle:{color:'#4ecb8d'}}
+      ],
+      label:{show:true,position:'top',color:cl.textColor,fontSize:10,formatter:'{c}月'}
+    }]
+  });
+}
+
+// ===== 更新所有數據 =====
+function updateAll() {
+  const c = calc();
+  document.getElementById('kpiCost').innerHTML = (c.totalCost/10000).toFixed(2)+'<span class="unit">億</span>';
+  document.getElementById('kpiRev').innerHTML = (c.revenue/10000).toFixed(2)+'<span class="unit">億</span>';
+  document.getElementById('kpiProfit').innerHTML = (c.profit/10000).toFixed(2)+'<span class="unit">億</span>';
+  document.getElementById('kpiProfitSub').textContent = '成本報酬率 '+c.roi.toFixed(1)+'%';
+  document.getElementById('kpiRoe').innerHTML = c.roe.toFixed(1)+'<span class="unit">%</span>';
+  document.getElementById('cmpCost').textContent = Math.round(c.totalCost).toLocaleString();
+  document.getElementById('cmpRev').textContent = Math.round(c.revenue).toLocaleString();
+  document.getElementById('cmpProfit').textContent = Math.round(c.profit).toLocaleString();
+  document.getElementById('cmpRoi').textContent = c.roi.toFixed(1)+'%';
+  document.getElementById('cmpRor').textContent = c.ror.toFixed(1)+'%';
+  document.getElementById('npvCard').textContent = Math.round(c.npv).toLocaleString();
+  document.getElementById('irrCard').textContent = c.irr.toFixed(1)+'%';
+  document.getElementById('paybackCard').textContent = c.payback.toFixed(1);
+  document.getElementById('waccCard').textContent = c.wacc.toFixed(2)+'%';
+  document.getElementById('roeCard').textContent = c.roe.toFixed(1)+'%';
+  document.getElementById('piCard').textContent = c.pi.toFixed(2);
+  document.getElementById('monthlyCard').textContent = c.monthlyPay.toFixed(1);
+  document.getElementById('bepPriceCard').textContent = c.bepPrice.toFixed(1);
+  document.getElementById('npvResult').textContent = Math.round(c.npv).toLocaleString();
+  document.getElementById('irrResult').textContent = c.irr.toFixed(1)+'%';
+  document.getElementById('paybackResult').textContent = c.payback.toFixed(1)+' 年';
+  document.getElementById('bepRate').textContent = c.bepRate.toFixed(1)+'%';
+  document.getElementById('bepPrice').textContent = c.bepPrice.toFixed(1);
+  document.getElementById('maxLand').textContent = c.maxLand.toFixed(1);
+  const risks = [
+    [c.roi>=15,'報酬率達標（'+c.roi.toFixed(1)+'%）'],
+    [c.bepRate<80,'損益兩平安全（'+c.bepRate.toFixed(1)+'%）'],
+    [c.irr>=P.discountRate,'IRR 高於折現率（'+c.irr.toFixed(1)+'%）'],
+    [c.interest<c.profit*0.3,'利息負擔可控'],
+    [c.landCost/c.totalCost<0.45,'土地成本占比合理'],
+    [c.roe>=20,'自有資金報酬率優渥（'+c.roe.toFixed(1)+'%）'],
+  ];
+  document.getElementById('riskChecklist').innerHTML = risks.map(([pass,text]) =>
+    `<li><span class="check-icon ${pass?'pass':'warn'}">${pass?'✓':'!'}</span>${text}</li>`).join('');
+  let advice = '';
+  if (c.roi >= 18) advice = '本案成本報酬率達 '+c.roi.toFixed(1)+'%，高於一般都更案門檻（15%），IRR 達 '+c.irr.toFixed(1)+'%，建議積極評估。惟需注意銷售去化風險與利率波動。';
+  else if (c.roi >= 12) advice = '本案成本報酬率 '+c.roi.toFixed(1)+'%，介於合理區間。建議密切關注售價變化與融資成本，若售價能提升 5% 以上則更具投資價值。';
+  else advice = '本案成本報酬率僅 '+c.roi.toFixed(1)+'%，低於 12% 門檻。建議重新協商土地成本或調整產品定位，否則風險偏高。';
+  document.getElementById('decisionText').textContent = advice;
+
+  // ===== 公式試算器更新 =====
+  // 土增稅試算
+  const dp = parseFloat(document.getElementById('declaredPriceSlider').value);
+  const pd = parseFloat(document.getElementById('prevDeclaredSlider').value);
+  const pi = parseFloat(document.getElementById('priceIndexSlider').value);
+  const indexedPrev = pd * pi / 100;
+  const gain = dp - indexedPrev;
+  const tax = gain > 0 ? gain * 0.3 : 0;  // 假設適用 30% 稅率
+  document.getElementById('landTaxGain').textContent = gain.toFixed(2);
+  document.getElementById('landTaxAmount').textContent = tax.toFixed(2);
+
+  // 容積率/建蔽率試算
+  const ba = parseFloat(document.getElementById('baseAreaSlider').value);
+  const gfa = parseFloat(document.getElementById('gfaSlider').value);
+  const bld = parseFloat(document.getElementById('buildingAreaSlider').value);
+  document.getElementById('actualFar').textContent = (gfa / ba * 100).toFixed(1) + '%';
+  document.getElementById('actualBcr').textContent = (bld / ba * 100).toFixed(1) + '%';
+
+  // 營建成本構成（根據當前 constructionCost 動態更新）
+  const cc = P.constructionCost;
+  document.getElementById('costStruct').textContent = (cc * 0.4).toFixed(2);
+  document.getElementById('costFinish').textContent = (cc * 0.25).toFixed(2);
+  document.getElementById('costMep').textContent = (cc * 0.18).toFixed(2);
+  document.getElementById('costLandscape').textContent = (cc * 0.07).toFixed(2);
+  document.getElementById('costMgmt').textContent = (cc * 0.1).toFixed(2);
+  document.getElementById('costTotal').textContent = cc.toFixed(2);
+
+  renderCharts();
+}
+
+// ===== 情境切換 =====
+document.querySelectorAll('.scenario-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const sc = btn.dataset.scenario;
+    if (sc === 'bear') { P.resPrice = 23.4; P.period = 3.0; }
+    else if (sc === 'bull') { P.resPrice = 28.6; P.period = 2.0; }
+    else { P.resPrice = 26; P.period = 2.5; }
+    syncSliders(); updateAll();
+  });
+});
+function syncSliders() {
+  sliderDefs.forEach(s => {
+    const el = document.getElementById(s.key+'Slider');
+    if (el) { el.value = P[s.key]; document.getElementById(s.key+'Val').textContent = P[s.key]; }
+  });
+}
+// ===== 公式試算器滑塊 =====
+function bindCalcSlider(sliderId, valId, onChange) {
+  const sl = document.getElementById(sliderId);
+  const val = document.getElementById(valId);
+  if (sl && val) {
+    sl.addEventListener('input', () => {
+      val.textContent = sl.value;
+      onChange && onChange();
+      updateCalcResults();
+    });
+  }
+}
+function updateCalcResults() {
+  // 土增稅
+  const dp = parseFloat(document.getElementById('declaredPriceSlider').value);
+  const pd = parseFloat(document.getElementById('prevDeclaredSlider').value);
+  const pi = parseFloat(document.getElementById('priceIndexSlider').value);
+  const indexedPrev = pd * pi / 100;
+  const gain = dp - indexedPrev;
+  const tax = gain > 0 ? gain * 0.3 : 0;
+  document.getElementById('landTaxGain').textContent = gain.toFixed(2);
+  document.getElementById('landTaxAmount').textContent = tax.toFixed(2);
+  // 容積率
+  const ba = parseFloat(document.getElementById('baseAreaSlider').value);
+  const gfa = parseFloat(document.getElementById('gfaSlider').value);
+  const bld = parseFloat(document.getElementById('buildingAreaSlider').value);
+  document.getElementById('actualFar').textContent = (gfa / ba * 100).toFixed(1) + '%';
+  document.getElementById('actualBcr').textContent = (bld / ba * 100).toFixed(1) + '%';
+}
+bindCalcSlider('declaredPriceSlider', 'declaredPriceVal');
+bindCalcSlider('prevDeclaredSlider', 'prevDeclaredVal');
+bindCalcSlider('priceIndexSlider', 'priceIndexVal');
+bindCalcSlider('baseAreaSlider', 'baseAreaVal');
+bindCalcSlider('gfaSlider', 'gfaVal');
+bindCalcSlider('buildingAreaSlider', 'buildingAreaVal');
+
+function resetParams() { Object.assign(P, DEFAULT); syncSliders(); updateAll(); }
+function exportCSV() {
+  const c = calc();
+  const rows = [['指標','數值'],['總成本（萬）',Math.round(c.totalCost)],['總營業額（萬）',Math.round(c.revenue)],
+    ['淨利潤（萬）',Math.round(c.profit)],['成本報酬率（%）',c.roi.toFixed(2)],['營業額報酬率（%）',c.ror.toFixed(2)],
+    ['ROE（%）',c.roe.toFixed(2)],['NPV（萬）',Math.round(c.npv)],['IRR（%）',c.irr.toFixed(2)],
+    ['投資回收期（年）',c.payback.toFixed(1)],['WACC（%）',c.wacc.toFixed(2)],['損益兩平銷售率（%）',c.bepRate.toFixed(1)],
+    ['保本售價（萬/坪）',c.bepPrice.toFixed(1)],['土地成本上限（萬/坪）',c.maxLand.toFixed(1)]];
+  const csv = rows.map(r => r.join(',')).join('\n');
+  const blob = new Blob(['\uFEFF'+csv], {type:'text/csv;charset=utf-8'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = 'roi_analysis.csv'; a.click();
+}
+
+// ===== Init =====
+applyTheme(getTheme());
+initCharts();
+updateAll();
+window.addEventListener('resize', () => Object.values(charts).forEach(c => c.resize()));
+</script>
+
+<div class="site-credit-bar-zhangshuxin" style="background:#2c2418;color:#f0e6d2;text-align:center;padding:10px 16px;font-size:13px;font-family:'Microsoft JhengHei',sans-serif;margin-top:24px;line-height:1.7">
+  規劃設計開發：<b style="color:#e0b56a">張書欣</b>　·　Line：<b style="color:#e0b56a">331.today</b>　·　📱 0968-222201
+</div>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head><link rel="canonical" href="articles/outlier-filtering.html">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="實價登錄常見誤讀：哪些成交要先剔除｜不動產區段行情與成交資料庫">
+<meta property="og:description" content="實價登錄常見誤讀：哪些成交要先剔除｜不動產區段行情與成交資料庫">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="實價登錄常見誤讀：哪些成交要先剔除｜不動產區段行情與成交資料庫">
+<meta name="twitter:description" content="實價登錄常見誤讀：哪些成交要先剔除｜不動產區段行情與成交資料庫">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>實價登錄常見誤讀：哪些成交要先剔除｜不動產區段行情與成交資料庫</title>
+<meta name="description" content="為什麼區段行情算出來總是飄？因為你把親友交易、車位併算、整戶交易混進去了。這篇教你先過濾再看行情。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233b82f6'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='white'%3E濾%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --primary:#3b82f6;--secondary:#a855f7;
+  --bg:#eff6ff;--dark:#1e3a8a;
+  --panel:#ffffff;--text:#1e293b;--muted:#64748b;--border:#e2e8f0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft JhengHei","PingFang TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+a{color:var(--primary);text-decoration:none}
+.site-header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;padding:18px 24px;box-shadow:0 4px 20px rgba(0,0,0,.15);position:sticky;top:0;z-index:100}
+.header-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.site-logo{font-size:20px;font-weight:900;display:flex;align-items:center;gap:10px}
+.site-nav{display:flex;gap:16px;flex-wrap:wrap}
+.site-nav a{color:rgba(255,255,255,.95);font-size:14px;font-weight:600;transition:color .2s}
+.site-nav a:hover{color:#fff;text-decoration:underline}
+.breadcrumb{background:var(--dark);color:#bfdbfe;padding:10px 24px;font-size:13px}
+.breadcrumb a{color:#fff;font-weight:700}
+.breadcrumb a:hover{text-decoration:underline}
+.article-hero{background:linear-gradient(135deg,var(--dark),var(--primary));color:#fff;padding:52px 24px 44px;text-align:center}
+.article-hero .tag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);padding:4px 16px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:16px;letter-spacing:1px}
+.article-hero h1{font-size:clamp(24px,3.6vw,36px);font-weight:900;max-width:820px;margin:0 auto 14px;text-shadow:0 2px 10px rgba(0,0,0,.25);line-height:1.45}
+.article-hero p{max-width:740px;margin:0 auto;font-size:16px;opacity:.92}
+.container{max-width:880px;margin:0 auto;padding:34px 24px 20px}
+.section{margin-bottom:40px}
+.section-title{font-size:23px;font-weight:900;margin-bottom:18px;display:flex;align-items:center;gap:10px;color:var(--dark)}
+.section-title::before{content:"";width:5px;height:26px;background:linear-gradient(180deg,var(--primary),var(--secondary));border-radius:3px}
+h3{font-size:17px;font-weight:700;margin:22px 0 10px;color:var(--primary)}
+p{margin-bottom:14px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:7px}
+table{width:100%;border-collapse:collapse;margin:16px 0;background:var(--panel);table-layout:fixed}
+th,td{border:1px solid var(--border);padding:11px 13px;text-align:left;font-size:14px;vertical-align:top}
+th{background:var(--primary);color:#fff;font-weight:700}
+tr:nth-child(even){background:#f5f8ff}
+.note{background:#f5f3ff;border:1px solid #ddd6fe;border-left:5px solid var(--secondary);border-radius:8px;padding:16px 18px;margin:18px 0;font-size:14.5px}
+.note strong{color:#6d28d9}
+.back-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin:30px 0 36px}
+.back-nav a{color:var(--primary);font-weight:700}
+.back-nav a:hover{text-decoration:underline}
+.site-footer{background:var(--dark);color:#94a3b8;padding:30px 24px;text-align:center;font-size:13px}
+.site-footer a{color:#cbd5e1;margin:0 6px}
+.site-footer a:hover{color:#fff}
+@media(max-width:640px){.article-hero h1{font-size:22px}.site-nav{display:none}.container{padding:26px 16px 16px}}
+</style>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "首頁",
+   "item": "index.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "實價登錄常見誤讀：哪些成交要先剔除｜不動產區段行情與成交資料庫",
+   "item": "articles/outlier-filtering.html"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "實價登錄常見誤讀：哪些成交要先剔除｜不動產區段行情與成交資料庫",
+ "name": "實價登錄常見誤讀：哪些成交要先剔除｜不動產區段行情與成交資料庫",
+ "url": "articles/outlier-filtering.html"
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="site-logo"><span>🏠</span>不動產區段行情與成交資料庫</div>
+    <nav class="site-nav">
+      <a href="../index.html">返回首頁</a>
+      <a href="../index.html#articles">全部文章</a>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb"><a href="../index.html">不動產區段行情與成交資料庫</a> › 成交資料過濾</div>
+
+<section class="article-hero">
+  <span class="tag">資料清洗</span>
+  <h1>實價登錄常見誤讀：哪些成交要先剔除再看</h1>
+  <p>同個社區，有人成交單價突然砍掉三成，又有人高出兩成。與其直接算平均，不如先學會辨認哪些成交「不能算進行情」。</p>
+</section>
+
+<div class="container">
+
+<section class="section">
+  <h2 class="section-title">一、為什麼要先過濾</h2>
+  <p>實價登錄是真實成交，但「真實」不代表「可比較」。一筆交易背後可能夾著親友贈與、車位併購、整戶承接、或帶租約的條件，把這些放進平均，算出來的行情就會被極端值灌票。過濾不是不誠實，而是讓數據回到「同類物件比同類物件」的基準上。</p>
+  <ul>
+    <li><strong>防止誤判</strong>：一筆異常低價，不代表區段崩跌；一筆異常高價，也不代表行情起漲。</li>
+    <li><strong>穩定結論</strong>：樣本乾淨，重算出來的價帶才每次都差不多。</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2 class="section-title">二、優先標記的六種成交</h2>
+  <table>
+    <colgroup><col style="width:30%"><col style="width:70%"></colgroup>
+    <tr><th>交易型態</th><th>為何要先剔除或加權</th></tr>
+    <tr><td>親友／關係人交易</td><td>為節稅或資金調度，價格常偏離市場，不具指標意義。</td></tr>
+    <tr><td>車位併入總價</td><td>單價被車位灌水或稀釋，房屋本體行情失真。</td></tr>
+    <tr><td>整戶／多戶承接</td><td>一次買下一整層或多戶，常有團購式折扣，不能當零售行情。</td></tr>
+    <tr><td>含租約、含債務承接</td><td>條件複雜，成交價含了租約權利或債務安排。</td></tr>
+    <tr><td>特殊樓層或罕見格局</td><td>如頂樓加蓋、角地、畸零地，成交樣本少，不宜代表全區。</td></tr>
+    <tr><td>明顯筆誤或補登</td><td>單價離群到不合理，可能是登錄筆誤，需比對其他來源確認。</td></tr>
+  </table>
+</section>
+
+<section class="section">
+  <h2 class="section-title">三、過濾後，怎麼重算行情</h2>
+  <p>把可疑案例先標出來之後，行情的算法反而更單純：</p>
+  <ol>
+    <li><strong>固定口徑</strong>：全部改成「不含車位、主建物加合理公設」的同一單價。</li>
+    <li><strong>集中區間</strong>：把落在合理價帶中間七成的樣本留下，頭尾兩成先不用。</li>
+    <li><strong>看中位數</strong>：多數人報的行情其實就是中位數，比算平均更抗干擾。</li>
+    <li><strong>交叉驗證</strong>：用屋齡相近、鄰近不同社區的成交互相印證，避免被單一大樓綁架。</li>
+  </ol>
+  <div class="note"><strong>重點提醒：</strong>剔除的案例不要直接刪掉，而是另外記錄它「為何異常」。這些特殊成交，往往正是認識區段潛規則（例如某大樓一直用低價過戶節稅）的線索。</div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">四、三個常見的「看錯」場景</h2>
+  <table>
+    <colgroup><col style="width:34%"><col style="width:66%"></colgroup>
+    <tr><th>你看到的現象</th><th>比較可能的真相</th></tr>
+    <tr><td>同社區突然一筆超低價</td><td>可能是親友移轉或含債務承接，不是行情崩跌。</td></tr>
+    <tr><td>某戶單價特別高</td><td>可能含高價坡道車位、整新過、或頂樓獨棟，不宜比一般戶。</td></tr>
+    <tr><td>新成屋比隔壁貴一截</td><td>新建案含公設比、建材、管理費成本，與中古屋本來就不同軌。</td></tr>
+  </table>
+</section>
+
+<section class="section">
+  <h2 class="section-title">結語</h2>
+  <p>實價登錄不是拿來平均的，而是拿來「篩選」的。把特殊交易先攤開看、把口徑對齊、把極端值先記錄再決定取捨，你對區段行情的判斷就會比多數人更貼近真實成交。資料庫的價值，不在資料多，而在你懂得留下對的那一筆。</p>
+</section>
+
+<div class="back-nav">
+  <a href="../index.html">← 返回不動產區段行情與成交資料庫</a>
+  <a href="../index.html#articles">看更多內頁文章 →</a>
+</div>
+
+</div>
+
+<footer class="site-footer">
+  <p>🏠 <a href="../index.html">返回不動產區段行情與成交資料庫</a> ｜ 本頁內容僅供參考，實際以實價登錄最新資料與現行規定為準。</p>
+  <p style="margin-top:8px">© 2026 不動產區段行情與成交資料庫</p>
+</footer>
+
+</body>
+</html>

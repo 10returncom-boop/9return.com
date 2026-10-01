@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head><meta name="robots" content="index,follow">
+<meta property="og:title" content="租金投報率試算：從毛報價到淨報酬怎麼抓｜全臺租金行情地圖與試算平臺">
+<meta property="og:description" content="租金投報率試算：從毛報價到淨報酬怎麼抓｜全臺租金行情地圖與試算平臺">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="租金投報率試算：從毛報價到淨報酬怎麼抓｜全臺租金行情地圖與試算平臺">
+<meta name="twitter:description" content="租金投報率試算：從毛報價到淨報酬怎麼抓｜全臺租金行情地圖與試算平臺">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>租金投報率試算：從毛報價到淨報酬怎麼抓｜全臺租金行情地圖與試算平臺</title>
+<meta name="description" content="買房收租到底報酬率多少？毛租金報酬率、淨租金報酬率、本金還原的差異，以及哪些成本會啃掉你的投報率，一次算清楚。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233b82f6'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='white'%3E租%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --primary:#3b82f6;--secondary:#a855f7;
+  --bg:#eff6ff;--dark:#1e3a8a;
+  --panel:#ffffff;--text:#1e293b;--muted:#64748b;--border:#e2e8f0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft JhengHei","PingFang TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+a{color:var(--primary);text-decoration:none}
+.site-header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;padding:18px 24px;box-shadow:0 4px 20px rgba(0,0,0,.15);position:sticky;top:0;z-index:100}
+.header-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.site-logo{font-size:20px;font-weight:900;display:flex;align-items:center;gap:10px}
+.site-nav{display:flex;gap:16px;flex-wrap:wrap}
+.site-nav a{color:rgba(255,255,255,.95);font-size:14px;font-weight:600;transition:color .2s}
+.site-nav a:hover{color:#fff;text-decoration:underline}
+.breadcrumb{background:var(--dark);color:#bfdbfe;padding:10px 24px;font-size:13px}
+.breadcrumb a{color:#fff;font-weight:700}
+.breadcrumb a:hover{text-decoration:underline}
+.article-hero{background:linear-gradient(135deg,var(--dark),var(--primary));color:#fff;padding:52px 24px 44px;text-align:center}
+.article-hero .tag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);padding:4px 16px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:16px;letter-spacing:1px}
+.article-hero h1{font-size:clamp(24px,3.6vw,36px);font-weight:900;max-width:820px;margin:0 auto 14px;text-shadow:0 2px 10px rgba(0,0,0,.25);line-height:1.45}
+.article-hero p{max-width:740px;margin:0 auto;font-size:16px;opacity:.92}
+.container{max-width:880px;margin:0 auto;padding:34px 24px 20px}
+.section{margin-bottom:40px}
+.section-title{font-size:23px;font-weight:900;margin-bottom:18px;display:flex;align-items:center;gap:10px;color:var(--dark)}
+.section-title::before{content:"";width:5px;height:26px;background:linear-gradient(180deg,var(--primary),var(--secondary));border-radius:3px}
+h3{font-size:17px;font-weight:700;margin:22px 0 10px;color:var(--primary)}
+p{margin-bottom:14px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:7px}
+table{width:100%;border-collapse:collapse;margin:16px 0;background:var(--panel);table-layout:fixed}
+th,td{border:1px solid var(--border);padding:11px 13px;text-align:left;font-size:14px;vertical-align:top}
+th{background:var(--primary);color:#fff;font-weight:700}
+tr:nth-child(even){background:#f0f6ff}
+.note{background:#fff7ed;border:1px solid #fed7aa;border-left:5px solid var(--secondary);border-radius:8px;padding:16px 18px;margin:18px 0;font-size:14.5px}
+.note strong{color:#9333ea}
+.back-nav{display:flex;justify-content:space-between;align-items:center;background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin:30px 0 36px}
+.back-nav a{color:var(--primary);font-weight:700}
+.back-nav a:hover{text-decoration:underline}
+.site-footer{background:var(--dark);color:#94a3b8;padding:30px 24px;text-align:center;font-size:13px}
+.site-footer a{color:#cbd5e1;margin:0 6px}
+.site-footer a:hover{color:#fff}
+@media(max-width:640px){.article-hero h1{font-size:22px}.site-nav{display:none}.container{padding:26px 16px 16px}}
+</style>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "首頁",
+   "item": "index.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "租金投報率試算：從毛報價到淨報酬怎麼抓｜全臺租金行情地圖與試算平臺",
+   "item": "articles/rent-yield-calculator.html"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "租金投報率試算：從毛報價到淨報酬怎麼抓｜全臺租金行情地圖與試算平臺",
+ "name": "租金投報率試算：從毛報價到淨報酬怎麼抓｜全臺租金行情地圖與試算平臺",
+ "url": "articles/rent-yield-calculator.html"
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="site-logo"><span>🧮</span>全臺租金行情地圖與試算平臺</div>
+    <nav class="site-nav">
+      <a href="../index.html">返回首頁</a>
+      <a href="../index.html#articles">全部文章</a>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb"><a href="../index.html">全臺租金行情地圖與試算平臺</a> › 租金投報率試算</div>
+
+<section class="article-hero">
+  <span class="tag">投報試算</span>
+  <h1>租金投報率：別只看毛報價，淨報酬才是你的</h1>
+  <p>業務常說「這間投報有四趴」，但那往往是沒扣成本的毛數字。這篇把毛租金報酬率、淨租金報酬率與閒置成本一次拆開。</p>
+</section>
+
+<div class="container">
+
+<section class="section">
+  <h2 class="section-title">一、三種「投報率」差在哪</h2>
+  <p>同樣一間出租物件，用不同口徑算出來的數字會差很多。投資前一定要先確認對方講的是哪一種：</p>
+  <table>
+    <colgroup><col style="width:26%"><col style="width:74%"></colgroup>
+    <tr><th>口徑</th><th>算法與意義</th></tr>
+    <tr><td>毛租金報酬率</td><td>年租金總收入 ÷ 購置總成本。最簡單，也最灌水，完全沒扣任何成本。</td></tr>
+    <tr><td>淨租金報酬率</td><td>（年租金收入 − 各項持有成本）÷ 購置總成本。真正放進你口袋的比例，才是決策依據。</td></tr>
+    <tr><td>本金還原／回收年限</td><td>購置總成本 ÷ 年淨收入，代表幾年能靠租金回本，未考慮房價漲跌。</td></tr>
+  </table>
+</section>
+
+<section class="section">
+  <h2 class="section-title">二、哪些成本會把毛報酬啃掉</h2>
+  <p>很多人算投報率只抓「月租金 ×12 ÷ 房價」，結果實際出租後發現報酬大打折扣。常見的成本項目：</p>
+  <ul>
+    <li><strong>房屋稅與地價稅</strong>：持有期間每年固定要繳，營業用與住家用稅率不同。</li>
+    <li><strong>管理費、修繕與折舊</strong>：電器故障、水管、壁癌，出租屋維修頻率高於自住。</li>
+    <li><strong>閒置空窗</strong>：換租之間的一兩個月沒收入，長年平均下來要抓一到兩個月空窗。</li>
+    <li><strong>仲介與廣告費</strong>：每次出租的招租成本，換約越頻繁成本越高。</li>
+    <li><strong>貸款利息</strong>：如果有房貸，利息支出要從租金裡扣掉才算自有資金的真實報酬。</li>
+  </ul>
+  <div class="note"><strong>重點提醒：</strong>實務上，淨租金報酬率通常會比毛報酬率低一到兩個百分點（情境經驗值，依物件與貸款比例而異）。看到漂亮的毛報酬率，先把這幾項成本扣掉再判斷。</div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">三、自己動手試算的步驟</h2>
+  <ol>
+    <li><strong>算購置總成本</strong>：房屋價款＋裝修＋代書履約費＋契稅規費，加總才是本金。</li>
+    <li><strong>估穩定年租金收入</strong>：月租金 ×12，再扣掉預估的空窗月數。</li>
+    <li><strong>扣掉年持有成本</strong>：稅費＋管理修繕＋招租成本，估算一個合理數字。</li>
+    <li><strong>算淨報酬率</strong>：（穩定年租金收入 − 年持有成本）÷ 購置總成本 ×100%。</li>
+    <li><strong>有貸款再算自有資金報酬</strong>：把利息支出另列，看頭期款的實質報酬。</li>
+  </ol>
+  <p>建議同時算「全額自購」與「貸款一組成數」兩種情境：貸款能放大自有資金報酬，但也放大利率與空窗風險。</p>
+</section>
+
+<section class="section">
+  <h2 class="section-title">四、報酬率之外，還要看什麼</h2>
+  <table>
+    <colgroup><col style="width:34%"><col style="width:66%"></colgroup>
+    <tr><th>面向</th><th>提醒</th></tr>
+    <tr><td>區段租赁需求</td><td>租金行情地圖上租金穩定、物件流動快的區域，空窗風險低，淨報酬才穩。</td></tr>
+    <tr><td>物件易租程度</td><td>套房、小兩房在都會區最好租；大坪數宅承租族群小，空窗期長。</td></tr>
+    <tr><td>資產增值與流動</td><td>純收租看現金流，投資看長期增值與未來轉手難易，兩者要分開評估。</td></tr>
+    <tr><td>利率走勢</td><td>有房貸的物件，利率上行會直接壓縮淨報酬，試算時要抓一段利率區間。</td></tr>
+  </table>
+</section>
+
+<section class="section">
+  <h2 class="section-title">結語</h2>
+  <p>租金投報率不是一個數字，而是一組假設：租金多高、空窗多久、成本多少、利率幾趴。把毛報酬率當參考，把淨報酬率當決策，再搭配租金行情地圖判斷區段的租賃供需，你對「這間房子值不值得收租」就會有底。最後一篇，我們換到租客視角：怎麼比價、哪些物件最容易在申請租金補貼時被退件。</p>
+</section>
+
+<div class="back-nav">
+  <a href="../index.html">← 返回全臺租金行情地圖與試算平臺</a>
+  <a href="../index.html#articles">看更多內頁文章 →</a>
+</div>
+
+</div>
+
+<footer class="site-footer">
+  <p>🧮 <a href="../index.html">返回全臺租金行情地圖與試算平臺</a> ｜ 本頁試算為情境說明，實際稅率與成本以現行規定與物件現況為準。</p>
+  <p style="margin-top:8px">© 2026 全臺租金行情地圖與試算平臺</p>
+</footer>
+
+</body>
+</html>

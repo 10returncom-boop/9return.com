@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head><link rel="canonical" href="articles/transaction-price-reading.html">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="實價登錄怎麼讀：成交資料欄位逐欄解構｜不動產區段行情與成交資料庫">
+<meta property="og:description" content="實價登錄怎麼讀：成交資料欄位逐欄解構｜不動產區段行情與成交資料庫">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="實價登錄怎麼讀：成交資料欄位逐欄解構｜不動產區段行情與成交資料庫">
+<meta name="twitter:description" content="實價登錄怎麼讀：成交資料欄位逐欄解構｜不動產區段行情與成交資料庫">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>實價登錄怎麼讀：成交資料欄位逐欄解構｜不動產區段行情與成交資料庫</title>
+<meta name="description" content="實價登錄的成交坪數、單價、樓層、車位、建物現況該怎麼看？帶你逐欄解構成交資料庫，看懂區段行情的第一步。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233b82f6'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='white'%3E實%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --primary:#3b82f6;--secondary:#a855f7;
+  --bg:#eff6ff;--dark:#1e3a8a;
+  --panel:#ffffff;--text:#1e293b;--muted:#64748b;--border:#e2e8f0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft JhengHei","PingFang TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+a{color:var(--primary);text-decoration:none}
+.site-header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;padding:18px 24px;box-shadow:0 4px 20px rgba(0,0,0,.15);position:sticky;top:0;z-index:100}
+.header-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.site-logo{font-size:20px;font-weight:900;display:flex;align-items:center;gap:10px}
+.site-nav{display:flex;gap:16px;flex-wrap:wrap}
+.site-nav a{color:rgba(255,255,255,.95);font-size:14px;font-weight:600;transition:color .2s}
+.site-nav a:hover{color:#fff;text-decoration:underline}
+.breadcrumb{background:var(--dark);color:#bfdbfe;padding:10px 24px;font-size:13px}
+.breadcrumb a{color:#fff;font-weight:700}
+.breadcrumb a:hover{text-decoration:underline}
+.article-hero{background:linear-gradient(135deg,var(--dark),var(--primary));color:#fff;padding:52px 24px 44px;text-align:center}
+.article-hero .tag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);padding:4px 16px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:16px;letter-spacing:1px}
+.article-hero h1{font-size:clamp(24px,3.6vw,36px);font-weight:900;max-width:820px;margin:0 auto 14px;text-shadow:0 2px 10px rgba(0,0,0,.25);line-height:1.45}
+.article-hero p{max-width:740px;margin:0 auto;font-size:16px;opacity:.92}
+.container{max-width:880px;margin:0 auto;padding:34px 24px 20px}
+.section{margin-bottom:40px}
+.section-title{font-size:23px;font-weight:900;margin-bottom:18px;display:flex;align-items:center;gap:10px;color:var(--dark)}
+.section-title::before{content:"";width:5px;height:26px;background:linear-gradient(180deg,var(--primary),var(--secondary));border-radius:3px}
+h3{font-size:17px;font-weight:700;margin:22px 0 10px;color:var(--primary)}
+p{margin-bottom:14px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:7px}
+table{width:100%;border-collapse:collapse;margin:16px 0;background:var(--panel);table-layout:fixed}
+th,td{border:1px solid var(--border);padding:11px 13px;text-align:left;font-size:14px;vertical-align:top}
+th{background:var(--primary);color:#fff;font-weight:700}
+tr:nth-child(even){background:#f5f8ff}
+.note{background:#f5f3ff;border:1px solid #ddd6fe;border-left:5px solid var(--secondary);border-radius:8px;padding:16px 18px;margin:18px 0;font-size:14.5px}
+.note strong{color:#6d28d9}
+.back-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin:30px 0 36px}
+.back-nav a{color:var(--primary);font-weight:700}
+.back-nav a:hover{text-decoration:underline}
+.site-footer{background:var(--dark);color:#94a3b8;padding:30px 24px;text-align:center;font-size:13px}
+.site-footer a{color:#cbd5e1;margin:0 6px}
+.site-footer a:hover{color:#fff}
+@media(max-width:640px){.article-hero h1{font-size:22px}.site-nav{display:none}.container{padding:26px 16px 16px}}
+</style>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "首頁",
+   "item": "index.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "實價登錄怎麼讀：成交資料欄位逐欄解構｜不動產區段行情與成交資料庫",
+   "item": "articles/transaction-price-reading.html"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "實價登錄怎麼讀：成交資料欄位逐欄解構｜不動產區段行情與成交資料庫",
+ "name": "實價登錄怎麼讀：成交資料欄位逐欄解構｜不動產區段行情與成交資料庫",
+ "url": "articles/transaction-price-reading.html"
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="site-logo"><span>🏠</span>不動產區段行情與成交資料庫</div>
+    <nav class="site-nav">
+      <a href="../index.html">返回首頁</a>
+      <a href="../index.html#articles">全部文章</a>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb"><a href="../index.html">不動產區段行情與成交資料庫</a> › 實價登錄怎麼讀</div>
+
+<section class="article-hero">
+  <span class="tag">資料解讀</span>
+  <h1>實價登錄怎麼讀：成交資料欄位逐欄解構</h1>
+  <p>打開成交資料庫，滿滿的坪數、單價、樓層、車位欄位，到底哪個才是判斷行情的關鍵？這篇帶你由粗到細，把一筆成交紀錄讀懂。</p>
+</section>
+
+<div class="container">
+
+<section class="section">
+  <h2 class="section-title">一、為什麼要先學「讀資料」</h2>
+  <p>實價登錄把真實成交揭露在眼前，但它不是一張直接告訴你「行情多少」的成績單，而是一堆需要自己解讀的原始紀錄。同一個社區，有人成交單價差了兩成，背後可能是樓層、屋齡、車位、是否含裝潢的差異。讀不懂欄位，就容易拿特例當行情、拿行情當特例。</p>
+  <ul>
+    <li><strong>比價的基礎</strong>：把物件放進它所屬的區段，用鄰近成交當尺。</li>
+    <li><strong>議價的依據</strong>：知道合理價帶，才不會被開價或個別案例牽著走。</li>
+    <li><strong>風險的第一線</strong>：詭異偏離的成交，往往藏著特殊交易或資訊瑕疵。</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2 class="section-title">二、一筆成交紀錄的關鍵欄位</h2>
+  <p>不論哪個資料庫，核心欄位大同小異。下面這張表把你最常見的欄位，換算成「你該怎麼用」：</p>
+  <table>
+    <colgroup><col style="width:26%"><col style="width:74%"></colgroup>
+    <tr><th>成交欄位</th><th>解讀重點</th></tr>
+    <tr><td>總價 / 單價（萬/坪）</td><td>單價是跨物件比較的公分母，但一定要先確認單價怎麼算，有無扣除車位。</td></tr>
+    <tr><td>建坪 / 地坪 / 權利範圍</td><td>屋主要比「主建物＋公設」還是全坪，公設比高低會直接稀釋單價。</td></tr>
+    <tr><td>樓層 / 總樓層</td><td>高樓層視野、低樓層採光、避開1、4樓等諧音樓層，價差常在一兩成。</td></tr>
+    <tr><td>屋齡 / 建成年份</td><td>新成屋、中古屋、老屋的行情曲線不同，屋齡相近才好比。</td></tr>
+    <tr><td>車位類型與價格</td><td>坡道平面、坡道機械、塔式車位價差大；車位常被併算進總價，要拆開看。</td></tr>
+    <tr><td>交易標的現況</td><td>是否含裝潢、是否出租、有無租約，都會反應在成交價上。</td></tr>
+  </table>
+</section>
+
+<section class="section">
+  <h2 class="section-title">三、單價怎麼算才公平</h2>
+  <p>「每坪單價」看似最客觀，其實最容易誤讀。常見三種口徑：</p>
+  <ol>
+    <li><strong>含車位單價</strong>：把車位錢併進房屋總價，再除以建坪，數字會被車位灌水。</li>
+    <li><strong>不含車位單價</strong>：先扣掉車位合理價，再算房屋本身單價，跨社區比價較公平。</li>
+    <li><strong>含公設全坪單價</strong>：公設比高的大樓，單價被攤薄，看起來便宜，實際室內坪數沒變多。</li>
+  </ol>
+  <div class="note"><strong>重點提醒：</strong>比較兩筆成交前，先確認它們的單價口徑是否一致。一個含車位、一個不含車位，直接相減得出的「行情差」通常是假的。</div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">四、把單筆資料放進區段</h2>
+  <p>單看一筆成交沒意義，要看「一群成交的輪廓」。實務上建議這樣做：</p>
+  <table>
+    <colgroup><col style="width:30%"><col style="width:70%"></colgroup>
+    <tr><th>步驟</th><th>做法</th></tr>
+    <tr><td>鎖定範圍</td><td>以同一里鄰、同一社區或走路可達的生活圈為界，避免把不同重劃區併在一起。</td></tr>
+    <tr><td>拉時間帶</td><td>看近一年到一年半的成交，太早的案例已失真，太晚的樣本數不足。</td></tr>
+    <tr><td>剔除 outliers</td><td>把明顯異常高或異常低的案例先標記，確認原因後再決定算不算進行情。</td></tr>
+    <tr><td>看中位數而非平均</td><td>極端值容易灌票，區段行情看中位數與主力價帶比看平均更穩。</td></tr>
+  </table>
+  <p>把這些成交標在地圖上，你會開始看見：同一條街，面公園那一側、有捷運出入口那一側，價格就是比較挺。這就是「區段行情」真正的樣貌。</p>
+</section>
+
+<section class="section">
+  <h2 class="section-title">結語</h2>
+  <p>實價登錄給你的不是答案，而是證據。把欄位讀懂、把口徑對齊、把樣本集中在同一區段同一時間帶，你手上的成交資料庫，就會變成買賣雙方都能用的談判尺。下一篇我們接著談：有了行情之後，議價到底該怎麼開。</p>
+</section>
+
+<div class="back-nav">
+  <a href="../index.html">← 返回不動產區段行情與成交資料庫</a>
+  <a href="../index.html#articles">看更多內頁文章 →</a>
+</div>
+
+</div>
+
+<footer class="site-footer">
+  <p>🏠 <a href="../index.html">返回不動產區段行情與成交資料庫</a> ｜ 本頁內容僅供參考，實際以實價登錄最新資料與現行規定為準。</p>
+  <p style="margin-top:8px">© 2026 不動產區段行情與成交資料庫</p>
+</footer>
+
+</body>
+</html>

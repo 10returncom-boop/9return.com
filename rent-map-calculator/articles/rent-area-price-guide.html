@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head><meta name="robots" content="index,follow">
+<meta property="og:title" content="看懂租金行情地圖：坪數、房型、樓層怎麼比｜全臺租金行情地圖與試算平臺">
+<meta property="og:description" content="看懂租金行情地圖：坪數、房型、樓層怎麼比｜全臺租金行情地圖與試算平臺">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="看懂租金行情地圖：坪數、房型、樓層怎麼比｜全臺租金行情地圖與試算平臺">
+<meta name="twitter:description" content="看懂租金行情地圖：坪數、房型、樓層怎麼比｜全臺租金行情地圖與試算平臺">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>看懂租金行情地圖：坪數、房型、樓層怎麼比｜全臺租金行情地圖與試算平臺</title>
+<meta name="description" content="租金行情地圖上的數字怎麼讀？坪數、房型、樓齡、樓層與車位如何影響每坪租金，教你把熱力圖變成可談價的依據。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233b82f6'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='white'%3E租%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --primary:#3b82f6;--secondary:#a855f7;
+  --bg:#eff6ff;--dark:#1e3a8a;
+  --panel:#ffffff;--text:#1e293b;--muted:#64748b;--border:#e2e8f0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft JhengHei","PingFang TC",sans-serif;background:var(--bg);color:var(--text);line-height:1.8}
+a{color:var(--primary);text-decoration:none}
+.site-header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;padding:18px 24px;box-shadow:0 4px 20px rgba(0,0,0,.15);position:sticky;top:0;z-index:100}
+.header-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.site-logo{font-size:20px;font-weight:900;display:flex;align-items:center;gap:10px}
+.site-nav{display:flex;gap:16px;flex-wrap:wrap}
+.site-nav a{color:rgba(255,255,255,.95);font-size:14px;font-weight:600;transition:color .2s}
+.site-nav a:hover{color:#fff;text-decoration:underline}
+.breadcrumb{background:var(--dark);color:#bfdbfe;padding:10px 24px;font-size:13px}
+.breadcrumb a{color:#fff;font-weight:700}
+.breadcrumb a:hover{text-decoration:underline}
+.article-hero{background:linear-gradient(135deg,var(--dark),var(--primary));color:#fff;padding:52px 24px 44px;text-align:center}
+.article-hero .tag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);padding:4px 16px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:16px;letter-spacing:1px}
+.article-hero h1{font-size:clamp(24px,3.6vw,36px);font-weight:900;max-width:820px;margin:0 auto 14px;text-shadow:0 2px 10px rgba(0,0,0,.25);line-height:1.45}
+.article-hero p{max-width:740px;margin:0 auto;font-size:16px;opacity:.92}
+.container{max-width:880px;margin:0 auto;padding:34px 24px 20px}
+.section{margin-bottom:40px}
+.section-title{font-size:23px;font-weight:900;margin-bottom:18px;display:flex;align-items:center;gap:10px;color:var(--dark)}
+.section-title::before{content:"";width:5px;height:26px;background:linear-gradient(180deg,var(--primary),var(--secondary));border-radius:3px}
+h3{font-size:17px;font-weight:700;margin:22px 0 10px;color:var(--primary)}
+p{margin-bottom:14px}
+ul,ol{margin:0 0 16px 24px}
+li{margin-bottom:7px}
+table{width:100%;border-collapse:collapse;margin:16px 0;background:var(--panel);table-layout:fixed}
+th,td{border:1px solid var(--border);padding:11px 13px;text-align:left;font-size:14px;vertical-align:top}
+th{background:var(--primary);color:#fff;font-weight:700}
+tr:nth-child(even){background:#f0f6ff}
+.note{background:#fff7ed;border:1px solid #fed7aa;border-left:5px solid var(--secondary);border-radius:8px;padding:16px 18px;margin:18px 0;font-size:14.5px}
+.note strong{color:#9333ea}
+.back-nav{display:flex;justify-content:space-between;align-items:center;background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin:30px 0 36px}
+.back-nav a{color:var(--primary);font-weight:700}
+.back-nav a:hover{text-decoration:underline}
+.site-footer{background:var(--dark);color:#94a3b8;padding:30px 24px;text-align:center;font-size:13px}
+.site-footer a{color:#cbd5e1;margin:0 6px}
+.site-footer a:hover{color:#fff}
+@media(max-width:640px){.article-hero h1{font-size:22px}.site-nav{display:none}.container{padding:26px 16px 16px}}
+</style>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "首頁",
+   "item": "index.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "看懂租金行情地圖：坪數、房型、樓層怎麼比｜全臺租金行情地圖與試算平臺",
+   "item": "articles/rent-area-price-guide.html"
+  }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "看懂租金行情地圖：坪數、房型、樓層怎麼比｜全臺租金行情地圖與試算平臺",
+ "name": "看懂租金行情地圖：坪數、房型、樓層怎麼比｜全臺租金行情地圖與試算平臺",
+ "url": "articles/rent-area-price-guide.html"
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="site-logo"><span>🗺️</span>全臺租金行情地圖與試算平臺</div>
+    <nav class="site-nav">
+      <a href="../index.html">返回首頁</a>
+      <a href="../index.html#articles">全部文章</a>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb"><a href="../index.html">全臺租金行情地圖與試算平臺</a> › 看懂租金行情地圖</div>
+
+<section class="article-hero">
+  <span class="tag">行情判讀</span>
+  <h1>租金行情地圖上的數字，到底該怎麼比？</h1>
+  <p>打開熱力圖看到某個行政區「每坪租金」一個數字，不代表你看的那間房就該是這個價。這篇教你把地圖數字換算成自己物件的合理租金。</p>
+</section>
+
+<div class="container">
+
+<section class="section">
+  <h2 class="section-title">一、為什麼不能只看一個「平均數」</h2>
+  <p>租金行情地圖把大量出租物件彙整成區域的平均租金，方便快速掌握熱度。但平均數會被兩端極值拉來拉去：一間市中心高檔小套房和一間郊區大坪數透天，平均後可能完全失真。正確用法是把地圖當「錨點」，再用物件條件上下調整。</p>
+  <ul>
+    <li><strong>先看區位</strong>：同一個行政區，生活圈、學區、捷運距離不同，租金可以差一到三成。</li>
+    <li><strong>再比房型</strong>：套房、一房、兩房、三房的「每坪租金」通常不同——坪數越小，每坪租金反而越高。</li>
+    <li><strong>最後調物件條件</strong>：屋齡、樓層、採光、車位、管理費，都會反映在實際租金上。</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h2 class="section-title">二、比價前先把租金換成「每坪月租金」</h2>
+  <p>不同坪數的物件不能直接比月租金，要先換成每坪單價：</p>
+  <table>
+    <colgroup><col style="width:30%"><col style="width:70%"></colgroup>
+    <tr><th>換算方式</th><th>說明</th></tr>
+    <tr><td>每坪月租金</td><td>月租金 ÷ 坪數。例如 22,000 元 ÷ 10 坪 = 每坪 2,200 元，才能和其他物件平起平坐比較。</td></tr>
+    <tr><td>含車位與否</td><td>有車位的租金要分離：先扣掉車位租金（情境估算每月數千元），再算室內每坪單價，避免把車位價算進屋價。</td></tr>
+    <tr><td>含管理費與否</td><td>租金有含管理費、網路、第四台者，實質租金較高；比價時要統一基準，建議都換算成「不含管理費」的純租金。</td></tr>
+  </table>
+  <div class="note"><strong>重點提醒：</strong>地圖上的平均租金多以「含坪數的整層物件」計算，套房與雅房因為坪數小、每坪高，直接套平均數會高估。比對時務必挑同房型、同坪數帶的物件。</div>
+</section>
+
+<section class="section">
+  <h2 class="section-title">三、常見條件對租金的加減項</h2>
+  <p>把地圖錨點租金當基準，再依下列條件微調（幅度為情境經驗值，實際以供需為準）：</p>
+  <table>
+    <colgroup><col style="width:34%"><col style="width:66%"></colgroup>
+    <tr><th>物件條件</th><th>對租金的影響方向</th></tr>
+    <tr><td>捷運站步行 5 分內</td><td>行情之上，交通溢价明顯，尤其套房與小套房。</td></tr>
+    <tr><td>屋齡 10 年內、有重新整理</td><td>行情之上；剛整理過的套房最受小資族歡迎。</td></tr>
+    <tr><td>高樓層、採光佳、邊間</td><td>略高於同社區平均；低樓層或地下室通常需打折。</td></tr>
+    <tr><td>附平面車位</td><td>車位另計，整體月租金墊高，但每坪室內單價不變。</td></tr>
+    <tr><td>屋齡 30 年以上、無電梯</td><td>行情之下，高樓層無電梯對長輩與搬運更是扣分。</td></tr>
+    <tr><td>管理費高、公社大但使用率低</td><td>租客實質負擔重，議價空間較大。</td></tr>
+  </table>
+</section>
+
+<section class="section">
+  <h2 class="section-title">四、把地圖變成談判依據的三步驟</h2>
+  <ol>
+    <li><strong>鎖定同生活圈</strong>：在地圖上選定你要看的那個里或商圈，不要跨大行政區比價。</li>
+    <li><strong>抓三到五筆同條件物件</strong>：同房型、相近坪數、相近屋齡，算出區間中位數，而不是平均數。</li>
+    <li><strong>比對自己物件條件加減</strong>：用上面的加減項表，把中位數微調成「合理租金區間」，再決定開價與底價。</li>
+  </ol>
+  <p>房東可以用這個區間訂一個「有競爭力但不賤賣」的價；租客則可以拿同區間合理價去談判，而不是憑感覺殺價。</p>
+</section>
+
+<section class="section">
+  <h2 class="section-title">結語</h2>
+  <p>租金行情地圖是一張「參考網」，不是「定價尺」。它給你區位與房型的錨點，真正決定租金的是物件條件與當下供需。把每坪單價換算好、把車位與管理費分離、再用條件加減項微調，你看的每一格顏色才會變成可執行的決策。下一篇我們接著談：拿到合理租金之後，怎麼試算這間房子的投報率。</p>
+</section>
+
+<div class="back-nav">
+  <a href="../index.html">← 返回全臺租金行情地圖與試算平臺</a>
+  <a href="../index.html#articles">看更多內頁文章 →</a>
+</div>
+
+</div>
+
+<footer class="site-footer">
+  <p>🗺️ <a href="../index.html">返回全臺租金行情地圖與試算平臺</a> ｜ 本頁行情為情境整理，實際租金以市場供需與物件現況為準。</p>
+  <p style="margin-top:8px">© 2026 全臺租金行情地圖與試算平臺</p>
+</footer>
+
+</body>
+</html>
