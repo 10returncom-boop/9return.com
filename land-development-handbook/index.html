@@ -180,6 +180,41 @@ footer{border-top:1px solid var(--line);padding:26px 40px;color:var(--muted);fon
   .tl-item{grid-template-columns:78px 22px 1fr}
   .brand small{display:none}
 }
+/* ===== RWD 強化：字體可讀性 / 構圖 / 版型 ===== */
+@media(max-width:900px){
+  .topbar-inner{flex-wrap:wrap;gap:8px;padding:8px 12px}
+  .searchbox{flex:1 1 100%;max-width:100%;order:3}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3,.g4{grid-template-columns:1fr 1fr}
+  table{font-size:12px}
+  .content{font-size:15px}
+  h2{font-size:20px}
+  h3{font-size:17px}
+  .crumb{font-size:11.5px}
+}
+@media(max-width:560px){
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .topbar-inner{gap:6px}
+  .topbar-inner .brand small{display:none}
+  .brand{font-size:14px}
+  .searchbox input{font-size:13px;padding:8px 12px 8px 34px}
+  .content{padding:16px 12px 80px;font-size:15px;line-height:1.9}
+  h1{font-size:19px}
+  h2{font-size:18px}
+  h3{font-size:16px}
+  table{font-size:11.5px}
+  .tl-item{grid-template-columns:52px 18px 1fr}
+  .part-hero h1{font-size:22px}
+  .hero{padding:24px 16px}
+  .fdd-panel{width:min(86vw,300px);right:0}
+  .fdd-fab{width:48px;height:48px;font-size:22px}
+}
+/* 表格於窄螢幕橫向捲動，避免擠壓版型 */
+.table-wrap,table{overflow-x:auto;display:block}
+@media(min-width:901px){table{display:table}}
+/* 文字換行防破版 */
+p,li,td,th,h1,h2,h3,h4{overflow-wrap:break-word}
+img{max-width:100%;height:auto}
 /* ===== 標題縮小 ===== */
 body>h1{font-family:var(--serif);font-size:clamp(20px,3vw,30px);font-weight:900;line-height:1.35;margin:18px 20px 6px;color:var(--ink)}
 /* ===== 浮動 Dropdown Menu / 功能控制台 / 站內導覽 / Breadcrumb ===== */

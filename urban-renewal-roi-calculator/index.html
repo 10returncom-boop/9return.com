@@ -185,6 +185,32 @@ body {
 }
 @media (max-width:640px) { .kpi-grid { grid-template-columns:1fr; } }
 
+/* ===== RWD 強化：字體可讀性 / 構圖 / 版型 ===== */
+@media (max-width:1024px){
+  .main{font-size:15px;line-height:1.8}
+  h1{font-size:clamp(18px,4vw,26px)}
+  h2{font-size:19px}
+  h3{font-size:16px}
+  table{font-size:12px}
+}
+@media (max-width:640px){
+  .main{padding:10px}
+  .breadcrumb{font-size:11.5px;flex-wrap:wrap}
+  .kpi-card .kpi-label{font-size:11px}
+  .kpi-card .kpi-value{font-size:20px}
+  .sidebar{width:min(78vw,300px);left:-100%;padding-top:46px}
+  .header h1{font-size:14px}
+  .result-grid,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .fdd-panel{width:min(88vw,300px);right:0}
+  .fdd-fab{width:48px;height:48px;font-size:22px}
+}
+/* 表格窄屏橫向捲動 + 文字防破版 */
+table{display:block;overflow-x:auto;max-width:100%}
+@media (min-width:1025px){table{display:table}}
+p,li,td,th,h1,h2,h3,h4{overflow-wrap:break-word}
+img{max-width:100%;height:auto}
+input,select{max-width:100%}
+
 /* ===== 浮動 Dropdown Menu / 功能控制台 / 站內導覽 / Breadcrumb ===== */
 :root{--fdd:#141a26;--fdd-ink:#eef2f7;--fdd-muted:#94a3b8;--fdd-line:rgba(148,163,184,.18);--fdd-accent:#3b82f6}
 .fdd{position:fixed;right:18px;bottom:20px;z-index:900;font-family:'Microsoft JhengHei',sans-serif}
