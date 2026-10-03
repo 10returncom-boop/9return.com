@@ -34,7 +34,7 @@ D:\_WWW_325_public_9return.com\
 │   ├── bg.webp          Hero 背景（建築夜景）
 │   ├── hero-portal.webp 主題橫幅背景（城市住宅天際線）
 │   ├── hero-sibling.webp 姊妹站背景
-│   ├── card-recalc.svg  試算卡片題圖：九回算算網
+│   ├── card-recalc.webp 試算卡片題圖：九回算算網
 │   ├── card-market.webp 子站題圖：不動產區段行情
 │   ├── card-rent.webp   子站題圖：全臺租金地圖
 │   ├── card-urban.webp  子站題圖：都市更新投資報酬
@@ -48,11 +48,11 @@ D:\_WWW_325_public_9return.com\
 |---|---|---|
 | bg.webp | Hero 背景 | 城市建築夜景，深綠與米白調性 |
 | hero-portal.webp | 主題橫幅 | 台灣都會住宅大樓群，清晨自然光，暖米白淡綠，無文字 |
-| card-recalc.svg | 試算卡片 | 墨綠底 × 米白計算機造型，品牌「九回算算網」，113 種試算 |
-| card-market.webp | 行情卡片 | 城市天際線住宅群，廣角，無文字 |
-| card-rent.webp | 租金卡片 | 高空俯瞰都市住宅區，棋盤式街道與綠地，無文字 |
-| card-urban.webp | 都更卡片 | 老舊建物與嶄新高樓對比，無文字 |
-| card-land.webp | 土地開發卡片 | 平整土地＋施工吊車，無文字 |
+| card-recalc.webp | 試算卡片 | 深木桌×復古計算機×財務報表×窗外夕照住宅天際線，電影感暖光，無文字 |
+| card-market.webp | 行情卡片 | 廣角俯瞰都會住宅大樓群，傍晚低角度暖金斜陽，無文字 |
+| card-rent.webp | 租金卡片 | 高空俯瞰住宅區，棋盤式街道與綠意，暖金斜陽，無文字 |
+| card-urban.webp | 都更卡片 | 老舊矮公寓與嶄新深綠高樓對比，工地圍籬與空地，夕陽，無文字 |
+| card-land.webp | 土地開發卡片 | 整地平坦工地×黃色工程機械×高聳吊車剪影，暖金天空，無文字 |
 
 ## 子站網址
 
