@@ -47,9 +47,7 @@ button{font-family:inherit;cursor:pointer}
 /* ============================================================
    Hero
    ============================================================ */
-.hero{position:relative;overflow:hidden;background:#efe6d4;color:#3a2f22}
-.hero::before{content:"";position:absolute;inset:0;background:url('images/hero-civilizations.webp') center/cover no-repeat}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(255,250,238,.94) 0%,rgba(255,250,238,.6) 45%,rgba(255,250,238,.14) 78%)}
+.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#e8d3ae 0%,#caa06b 42%,#8a5a2e 100%);color:#3a2f22}
 .hero-inner{max-width:1280px;margin:0 auto;padding:var(--pad-lg) var(--pad-lg) calc(var(--pad-lg)*1.4);position:relative;z-index:1}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(58,47,34,.88);color:#f7ecd8;border:1px solid rgba(58,47,34,.4);padding:5px 14px;border-radius:999px;font-size:12px;font-weight:700;font-family:var(--sans)}
 .hero h1{font-size:clamp(28px,5vw,46px);margin:18px 0 10px;letter-spacing:1px;line-height:1.25;color:#3a2f22}
