@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /ReadyZone_舊站備份_261003/
+Sitemap: sitemap.xml
