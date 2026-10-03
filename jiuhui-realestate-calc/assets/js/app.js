@@ -8,7 +8,7 @@
   'use strict';
   var SITE = window.SITE || { nav: [], footerLinks: [], tags: [], latestPosts: [], contact: {} };
 
-  /* ---------- 日夜主題（含跟隨系統、localStorage 記憶） ---------- */
+  /* ---------- 日夜主題（白天模式預設，不自動變換，localStorage 記憶） ---------- */
   var THEME_KEY = '9r-theme';
   function applyTheme(t) {
     document.documentElement.setAttribute('data-theme', t);
@@ -17,8 +17,8 @@
   }
   function initTheme() {
     var saved = localStorage.getItem(THEME_KEY);
-    var sys = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    applyTheme(saved === 'dark' || saved === 'light' ? saved : sys);
+    // 預設白天模式，不跟隨系統自動變換；僅在用戶手動切過深色時才用深色
+    applyTheme(saved === 'dark' ? 'dark' : 'light');
   }
   function cycleTheme() {
     var cur = document.documentElement.getAttribute('data-theme');
@@ -27,9 +27,6 @@
     applyTheme(next);
     toast(next === 'dark' ? '已切換深色模式' : '已切換白天模式');
   }
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
-    if (!localStorage.getItem(THEME_KEY)) applyTheme(e.matches ? 'dark' : 'light');
-  });
 
   /* ---------- Toast ---------- */
   var toastEl = null;
