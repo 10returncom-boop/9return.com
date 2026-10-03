@@ -113,6 +113,7 @@ button{font-family:inherit;cursor:pointer}
 .thumb-recalc{background-image:url('assets/card-recalc.webp')}
 .thumb-arch{background-image:url('assets/arch.webp')}
 .card .cat{position:absolute;top:12px;left:12px;z-index:2;background:rgba(255,255,255,.9);backdrop-filter:blur(6px);color:#2f3e2e;font-size:11px;font-weight:700;letter-spacing:.08em;padding:5px 11px;border-radius:20px;box-shadow:0 2px 8px rgba(0,0,0,.14)}
+.card .no{position:absolute;top:12px;right:12px;z-index:2;background:linear-gradient(135deg,#b08a4a,#8a5a2e);color:#fff;font-size:12px;font-weight:800;padding:5px 12px;border-radius:20px;box-shadow:0 2px 8px rgba(0,0,0,.24);letter-spacing:.03em}
 .card .body{position:relative;padding:16px 20px 18px;display:flex;flex-direction:column;gap:8px;flex:1;background:#fff}
 .card .body h3{font-family:var(--serif);font-size:21px;font-weight:800;color:#2a2a2a;line-height:1.28;margin:0}
 .card .body p{font-size:13px;color:#5a5a62;line-height:1.7;margin:0;flex:1}
@@ -407,12 +408,12 @@ p,li,td,th,h1,h2,h3,h4{overflow-wrap:break-word}
 <script>
 /* ===== 資料 ===== */
 var SITES = [
+  {no:1, cat:"土地都更與開發", name:"營建土地開發流程百科", desc:"土地開發全流程知識，涵蓋取得、規劃、施工到銷售各階段。", cls:"thumb-land", href:"land-development-handbook/", tags:["土地開發","營建","流程","百科"]},
+  {no:2, cat:"建築", name:"世界建築史 · Architecture Atlas", desc:"100 篇專業內文、30 種建築風格、60 大功能，跨越七大區域、三十種風格解讀人類最偉大的造物。", cls:"thumb-arch", href:"architecture-atlas/", tags:["建築","世界建築史","風格","文明"]},
   {cat:"試算工具", name:"九回算算網 · 不動產 × 財務管理試算", desc:"113 種專業試算工具：房貸、購屋、稅務、投資槓桿、儲蓄、退休、貸款、財務分析，每支皆可實際計算並附圖表。", cls:"thumb-recalc", href:"recalc/", tags:["試算","房貸","財務","算算網","不動產"]},
   {cat:"市場與交易", name:"不動產區段行情成交資料庫", desc:"各區段實價登錄與成交行情查詢，實價可視化、區域走勢、買賣方情報。", cls:"thumb-market", href:"transaction-price-database/", tags:["行情","實價登錄","成交","區段"]},
   {cat:"市場與交易", name:"全臺租金行情地圖與試算", desc:"全台租金分布地圖與租金試算工具，比較各區域租金水準與投報。", cls:"thumb-rent", href:"rent-map-calculator/", tags:["租金","地圖","試算","行情"]},
-  {cat:"土地都更與開發", name:"都市更新投資報酬分析", desc:"都更案投資報酬計算工具，評估都更與危老重建的可行性與報酬。", cls:"thumb-urban", href:"urban-renewal-roi-calculator/", tags:["都更","投資報酬","危老","試算"]},
-  {cat:"土地都更與開發", name:"營建土地開發流程百科", desc:"土地開發全流程知識，涵蓋取得、規劃、施工到銷售各階段。", cls:"thumb-land", href:"land-development-handbook/", tags:["土地開發","營建","流程","百科"]},
-  {cat:"建築", name:"世界建築史 · Architecture Atlas", desc:"100 篇專業內文、30 種建築風格、60 大功能，跨越七大區域、三十種風格解讀人類最偉大的造物。", cls:"thumb-arch", href:"architecture-atlas/", tags:["建築","世界建築史","風格","文明"]}
+  {cat:"土地都更與開發", name:"都市更新投資報酬分析", desc:"都更案投資報酬計算工具，評估都更與危老重建的可行性與報酬。", cls:"thumb-urban", href:"urban-renewal-roi-calculator/", tags:["都更","投資報酬","危老","試算"]}
 ];
 
 /* ===== 卡片渲染 ===== */
@@ -420,6 +421,7 @@ var cardsEl=document.getElementById('cards');
 function renderCards(list){
   cardsEl.innerHTML=list.map(function(s){
     return '<a class="card" href="'+s.href+'" target="_blank" rel="noopener">'+
+      (s.no?'<span class="no">No.'+s.no+'</span>':'')+
       '<span class="cat">'+s.cat+'</span>'+
       '<span class="th '+s.cls+'"></span>'+
       '<div class="body"><h3>'+s.name+'</h3><p>'+s.desc+'</p>'+
