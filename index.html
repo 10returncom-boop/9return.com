@@ -78,7 +78,8 @@ button{font-family:inherit;cursor:pointer}
 .hero h1{font-family:var(--serif);font-size:clamp(30px,5.2vw,52px);font-weight:900;line-height:1.2;margin:18px 0 16px;max-width:640px}
 .hero p{font-size:clamp(15px,1.6vw,17px);max-width:560px;opacity:.92;font-weight:300}
 .hero-meta{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px}
-.chip{display:inline-flex;align-items:center;gap:6px;padding:7px 15px;border-radius:30px;font-size:12.5px;font-weight:500;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(4px)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:30px;font-size:13px;font-weight:700;background:#2f4a35;color:#fff;border:1px solid rgba(255,255,255,.28);text-decoration:none;transition:background .2s,transform .2s,box-shadow .2s}
+.chip:hover{background:#3f6b4a;transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.28)}
 
 /* ===== 目錄 ===== */
 .section{padding:54px 0 8px}
@@ -282,11 +283,11 @@ p,li,td,th,h1,h2,h3,h4{overflow-wrap:break-word}
     <h1>一座入口，走進全臺不動產的世界</h1>
     <p>從實價行情、租金分布，到都更投資報酬與土地開發流程，將分散的不動產主題收攏為清晰可查的專業入口。</p>
     <div class="hero-meta">
-      <span class="chip">不動產區段行情</span>
-      <span class="chip">全臺租金地圖</span>
-      <span class="chip">都更投資報酬</span>
-      <span class="chip">營建土地開發</span>
-      <span class="chip">不動產 × 財務試算</span>
+      <a class="chip" href="transaction-price-database/" target="_blank" rel="noopener">不動產區段行情</a>
+      <a class="chip" href="rent-map-calculator/" target="_blank" rel="noopener">全臺租金地圖</a>
+      <a class="chip" href="urban-renewal-roi-calculator/" target="_blank" rel="noopener">都更投資報酬</a>
+      <a class="chip" href="land-development-handbook/" target="_blank" rel="noopener">營建土地開發</a>
+      <a class="chip" href="recalc/" target="_blank" rel="noopener">不動產 × 財務試算</a>
     </div>
   </div>
 </section>
