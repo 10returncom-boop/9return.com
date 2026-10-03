@@ -46,6 +46,20 @@ button{font-family:inherit;cursor:pointer}
 .nav-cta{padding:8px 16px!important;border-radius:9px;background:var(--accent);color:#f4efe2!important;font-weight:600}
 .nav-cta:hover{background:var(--accent2)!important}
 
+/* ===== 下拉選單 Menu ===== */
+.nav-dd{position:relative;margin-left:auto}
+.nav-dd-btn{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:9px;border:1px solid var(--line);background:var(--surface2);color:var(--ink);font-size:14px;font-weight:600;cursor:pointer;transition:background .18s;white-space:nowrap}
+.nav-dd-btn:hover{background:var(--accent);color:#f4efe2}
+.nav-dd-btn .chev{transition:transform .2s}
+.nav-dd.open .nav-dd-btn .chev{transform:rotate(180deg)}
+.nav-dd-menu{position:absolute;right:0;top:calc(100% + 8px);min-width:230px;list-style:none;margin:0;padding:8px;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-lg);display:none;z-index:500;flex-direction:column;gap:2px}
+.nav-dd.open .nav-dd-menu{display:flex;animation:ddIn .16s ease}
+@keyframes ddIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.nav-dd-menu a{display:block;padding:10px 12px;border-radius:8px;color:var(--ink);font-size:14px;text-decoration:none}
+.nav-dd-menu a:hover{background:var(--accent);color:#f4efe2}
+.nav-dd-menu .nav-cta{margin-top:4px;background:var(--accent);color:#f4efe2!important;text-align:center;font-weight:600}
+@media(max-width:640px){.nav-dd-menu{right:auto;left:0;width:min(88vw,300px)}}
+
 /* ===== 麵包屑 ===== */
 .crumb{padding:14px 0 0;max-width:var(--maxw);margin:0 auto}
 .crumb-in{font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding:0 24px}
@@ -233,13 +247,20 @@ p,li,td,th,h1,h2,h3,h4{overflow-wrap:break-word}
       <span class="mark"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M3 21V10l9-6 9 6v11h-6v-7h-6v7z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
       <span class="t">九回房地<small>REAL ESTATE · TAIWAN</small></span>
     </a>
-    <nav class="nav-links">
-      <a href="#top">首頁</a>
-      <a href="#catalog">主題目錄</a>
-      <a href="#sitemap">網站地圖</a>
-      <a href="#sibling">姊妹站</a>
-      <a href="https://9return.com/" class="nav-cta">前往主題站</a>
-    </nav>
+    <div class="nav-dd" id="navDD">
+      <button class="nav-dd-btn" id="navDDbtn" aria-haspopup="true" aria-expanded="false" aria-label="開啟選單">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>選單</span>
+        <svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <ul class="nav-dd-menu" id="navDDmenu" role="menu" aria-label="主選單">
+        <li><a href="#top">首頁</a></li>
+        <li><a href="#catalog">主題目錄</a></li>
+        <li><a href="#sitemap">網站地圖</a></li>
+        <li><a href="#sibling">姊妹站</a></li>
+        <li><a href="https://9return.com/" class="nav-cta">前往主題站</a></li>
+      </ul>
+    </div>
   </div>
 </header>
 
@@ -431,6 +452,13 @@ smBody.innerHTML=Object.keys(groups).map(function(g){
 
 /* ===== Footer 主題連結 ===== */
 document.getElementById('footLinks').innerHTML=SITES.map(function(s){return '<a href="'+s.href+'" target="_blank">'+s.name+'</a>';}).join('');
+
+/* ===== 下拉選單 Menu ===== */
+var navDD=document.getElementById('navDD'),navDDbtn=document.getElementById('navDDbtn');
+navDDbtn.addEventListener('click',function(e){e.stopPropagation();var open=navDD.classList.toggle('open');navDDbtn.setAttribute('aria-expanded',open?'true':'false');});
+document.addEventListener('click',function(e){if(!navDD.contains(e.target)){navDD.classList.remove('open');navDDbtn.setAttribute('aria-expanded','false');}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){navDD.classList.remove('open');navDDbtn.setAttribute('aria-expanded','false');}});
+navDD.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){navDD.classList.remove('open');navDDbtn.setAttribute('aria-expanded','false');});});
 
 /* ===== 浮動 Dropdown ===== */
 var fab=document.getElementById('fddFab'),panel=document.getElementById('fddPanel');
