@@ -185,12 +185,6 @@
         D.el('span', { class: 'kicker' }, [D.icon('spark'), '史上最完整 · 專業試算工具箱']),
         D.el('h1', { html: '不動產 × 財務管理<br><span class="accent">113 種專業試算工具</span>一次擁有' }),
         D.el('p', { class: 'lead', text: '從房貸攤還、購屋能力、稅務計算到複利成長、退休規劃與財務分析，每一支工具都是真實可計算的互動表單，輸入參數立即得到結果與圖表視覺化。' }),
-        D.el('div', { class: 'hero-stats' }, [
-          statEl(RECalc.total, '種試算工具'),
-          statEl(doms.re.count, '不動產試算'),
-          statEl(doms.fin.count, '財務管理試算'),
-          statEl(RECalc.categories.length, '大分類')
-        ]),
         D.el('div', { class: 'hero-search' }, [
           D.icon('search'),
           D.el('input', { id: 'heroSearch', type: 'search', placeholder: '搜尋工具名稱，例如「房貸」「複利」「所得稅」…', autocomplete: 'off' }),
@@ -255,12 +249,6 @@
     var hs = document.getElementById('heroSearch');
     if (hs) hs.addEventListener('keydown', function (e) { if (e.key === 'Enter') goListFromHero(); });
 
-    function statEl(n, label) {
-      return D.el('div', { class: 'hero-stat' }, [
-        D.el('span', { class: 'hs-num', text: F.n(n, 0) }),
-        D.el('span', { class: 'hs-lab', text: label })
-      ]);
-    }
     function section(title, note) {
       var s = D.el('section', { class: 'section' }, [
         D.el('div', { class: 'section-head' }, [

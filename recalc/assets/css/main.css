@@ -494,12 +494,6 @@ table.calc-table { table-layout: fixed; width: 100%; border-collapse: collapse; 
 .hero h1 { margin-top: 10px; font-size: 34px; font-weight: 800; line-height: 1.28; letter-spacing: -0.01em; }
 .hero h1 .accent { color: var(--primary); }
 .hero .lead { margin-top: 10px; max-width: 640px; font-size: 15.5px; color: var(--text-2); }
-.hero-stats {
-  display: flex; flex-wrap: wrap; gap: 26px;
-  margin-top: 22px;
-}
-.hero-stat .hs-num { font-size: 26px; font-weight: 800; color: var(--primary); font-variant-numeric: tabular-nums; }
-.hero-stat .hs-lab { font-size: 12.5px; color: var(--text-3); }
 .hero-search {
   margin-top: 24px; max-width: 460px;
   display: flex; align-items: center; gap: 8px;
@@ -703,7 +697,6 @@ table.calc-table { table-layout: fixed; width: 100%; border-collapse: collapse; 
   .notes-list { padding: 8px 14px 14px; }
   .hero { padding: 24px 20px 22px; border-radius: 14px; }
   .hero h1 { font-size: 25px; }
-  .hero-stats { gap: 18px; }
   .domain-cards { grid-template-columns: 1fr; }
   .howto { grid-template-columns: 1fr; }
   .breadcrumb .sep, .breadcrumb a:not(:last-child) { display: none; }
