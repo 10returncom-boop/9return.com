@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3cd98a"/>
+      <stop offset=".5" stop-color="#ffd24a"/>
+      <stop offset="1" stop-color="#ff9a3d"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="1.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#g)"/>
+  <path d="M18 34 L32 22 L46 34 L46 50 L18 50 Z" fill="#ffffff" opacity=".95" filter="url(#glow)"/>
+  <rect x="26" y="38" width="12" height="12" rx="1.5" fill="#2f8f56"/>
+  <text x="32" y="43" font-family="sans-serif" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">算</text>
+</svg>

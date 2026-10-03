@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2f4a35">
+  <meta name="description" content="網站地圖 — 九回房地 算算不動產全站頁面結構、主題站入口與關於本站。">
+  <link rel="canonical" href="https://9return.com/sitemap.html">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <title>網站地圖 — 九回房地 算算不動產</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <header class="site-header"><div class="container top-nav">
+    <a class="brand" href="index.html"><span class="mark">算</span><span>九回房地<small>REAL ESTATE · CALC</small></span></a>
+    <div class="flex"><nav class="main-nav" id="mainNav" aria-label="主選單"></nav>
+      <div class="nav-right"><button class="theme-toggle" id="themeBtn" title="切換日夜模式">☀</button>
+        <button class="hamburger" id="hamburger" aria-label="開啟選單"><span></span><span></span><span></span></button></div></div>
+  </div></header>
+  <div class="overlay" id="overlay"></div>
+  <aside class="mobile-menu" id="mobileMenu" aria-label="行動選單"></aside>
+
+  <main class="container">
+    <nav class="breadcrumb"><a href="index.html">首頁</a><span class="sep">/</span><b>網站地圖</b></nav>
+    <section class="page-hero"><h1>網站地圖</h1>
+      <p>全站頁面與主題站入口一覽，快速前往各專業知識與工具。</p></section>
+
+    <!-- Tree-view 全站地圖 -->
+    <div class="dashboard-layout">
+      <div class="main">
+        <h2 class="section-title">全站結構</h2>
+        <div class="card" style="padding:22px">
+          <div class="tree-view">
+            <details open><summary>九回房地 算算不動產（首頁）</summary><div class="tree-inner">
+              <div class="tree-leaf"><a href="index.html">→ 首頁 index.html</a></div>
+              <details><summary>算算網</summary><div class="tree-inner">
+                <div class="tree-leaf"><a href="recalc.html#mortgage">房貸試算</a></div>
+                <div class="tree-leaf"><a href="recalc.html#afford">購屋能力</a></div>
+                <div class="tree-leaf"><a href="recalc.html#tax">稅務試算</a></div>
+                <div class="tree-leaf"><a href="recalc.html#roi">投資報酬</a></div>
+                <div class="tree-leaf"><a href="recalc.html#save">儲蓄退休</a></div>
+              </div></details>
+              <details><summary>都更危老網</summary><div class="tree-inner">
+                <div class="tree-leaf"><a href="urban-renewal.html#urban">都市更新</a></div>
+                <div class="tree-leaf"><a href="urban-renewal.html#danger">危老重建</a></div>
+                <div class="tree-leaf"><a href="urban-renewal.html#bonus">容積獎勵</a></div>
+                <div class="tree-leaf"><a href="urban-renewal.html#roi">投報分析</a></div>
+              </div></details>
+              <details><summary>不動產開發</summary><div class="tree-inner">
+                <div class="tree-leaf"><a href="development.html#acquire">土地取得</a></div>
+                <div class="tree-leaf"><a href="development.html#plan">規劃設計</a></div>
+                <div class="tree-leaf"><a href="development.html#finance">融資財報</a></div>
+                <div class="tree-leaf"><a href="development.html#build">營建施工</a></div>
+                <div class="tree-leaf"><a href="development.html#sales">銷售去化</a></div>
+              </div></details>
+              <details><summary>房屋買賣</summary><div class="tree-inner">
+                <div class="tree-leaf"><a href="home-buying.html#flow">買賣流程</a></div>
+                <div class="tree-leaf"><a href="home-buying.html#contract">契約文件</a></div>
+                <div class="tree-leaf"><a href="home-buying.html#tax">稅費成本</a></div>
+                <div class="tree-leaf"><a href="home-buying.html#risk">風險檢查</a></div>
+                <div class="tree-leaf"><a href="home-buying.html#terms">名詞速查</a></div>
+              </div></details>
+            </div></details>
+          </div>
+        </div>
+
+        <!-- 分類入口 -->
+        <h2 class="section-title">主題分類</h2>
+        <div class="grid c3">
+          <a class="card" href="recalc.html"><div class="body"><span class="cat-chip">試算工具</span><h3>算算網</h3><p>113 種不動產財務試算</p></div></a>
+          <a class="card" href="urban-renewal.html"><div class="body"><span class="cat-chip">都更危老</span><h3>都更危老網</h3><p>重建投報與容積獎勵</p></div></a>
+          <a class="card" href="development.html"><div class="body"><span class="cat-chip">土地開發</span><h3>不動產開發</h3><p>開發五大階段</p></div></a>
+          <a class="card" href="home-buying.html"><div class="body"><span class="cat-chip">買賣實務</span><h3>房屋買賣</h3><p>流程、稅費與風險</p></div></a>
+        </div>
+
+        <h2 class="section-title" id="about">關於本站</h2>
+        <div class="prose"><p>九回房地 算算不動產由 <b>張書欣</b> 規劃、設計、開發、整合，串接不動產財務試算、都市更新危老、土地開發與房屋買賣四大主題。</p>
+        <div class="note">聯絡：LINE <b>331.today</b> · TEL <b>0968-222201</b></div></div>
+      </div>
+
+      <aside class="sidebar">
+        <div class="widget"><h3>聯絡我們</h3>
+          <div class="contact-info" style="font-size:14px;color:var(--text2)">
+            <div>✉ <span id="contactEmail"></span></div><div>☏ <span id="contactTel"></span></div><div>LINE：<span id="contactLine"></span></div>
+          </div>
+          <form data-sim class="mt2">
+            <div class="form-group"><label>Email</label><input type="email" required placeholder="you@example.com"></div>
+            <div class="form-group"><label>訊息</label><textarea rows="3" placeholder="想詢問什麼？"></textarea></div>
+            <button class="btn gold" type="submit">送出</button>
+            <p class="form-msg"></p>
+          </form>
+        </div>
+        <div class="widget"><h3>標籤雲</h3><div class="tag-cloud" id="tagCloud2"></div></div>
+      </aside>
+    </div>
+  
+    <h2 class="section-title">最新文章</h2>
+    <ul class="latest-posts" id="mainLatestPosts"></ul>
+  </main>
+
+    <footer class="site-footer">
+    <div class="container footer-slim">
+      <div class="fs-brand">
+        <h4>九回房地 算算不動產</h4>
+        <p class="fs-desc">整合不動產財務試算、都更危老、土地開發與房屋買賣的專業入口。</p>
+        <div class="social-icons mt2"><!-- social-icons -->
+          <a href="#" aria-label="Facebook"><img src="assets/img/social-fb.svg" alt="Facebook" loading="lazy"></a><a href="#" aria-label="LINE"><img src="assets/img/social-line.svg" alt="LINE" loading="lazy"></a><a href="#" aria-label="Instagram"><img src="assets/img/social-ig.svg" alt="Instagram" loading="lazy"></a><a href="#" aria-label="YouTube"><img src="assets/img/social-yt.svg" alt="YouTube" loading="lazy"></a>
+        </div>
+      </div>
+      <div class="fs-contact">
+        <h4>聯絡</h4>
+        <div>✉ <span id="contactEmail"></span></div>
+        <div>☏ <span id="contactTel"></span></div>
+        <div>LINE：<span id="contactLine"></span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 九回房地 算算不動產 · 規劃 設計 開發 整合：張書欣 LINE: 331.today TEL: 0968-222201 · 本網站內容僅供參考，不構成投資或交易建議</div>
+  </footer>
+
+  <button class="back-to-top" id="backTop" aria-label="回到頂端">↑</button>
+  <button class="fab" id="fabFav" aria-label="收藏">★</button>
+  <nav class="context-menu" id="contextMenu"><a href="#" data-act="top">↑ 回到頂端</a><a href="#" data-act="fav">★ 收藏本頁</a><a href="#" data-act="theme">☀ 切換主題</a><a href="sitemap.html">≣ 網站地圖</a></nav>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var tg = document.getElementById('tagCloud2'); if (tg && window.SITE) tg.innerHTML = window.SITE.tags.slice(0,9).map(function (t) { return '<a href="sitemap.html#about">#' + t + '</a>'; }).join('');
+  });
+  </script>
+</body>
+</html>

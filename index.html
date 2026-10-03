@@ -96,7 +96,7 @@ button{font-family:inherit;cursor:pointer}
 .thumb-market{background-image:url('assets/card-market.webp')}
 .thumb-rent{background-image:url('assets/card-rent.webp')}
 .thumb-urban{background-image:url('assets/card-urban.webp')}
-.thumb-land{background-image:url('assets/card-land.webp')}
+.thumb-land{background-image:url('assets/card-land.webp')} .thumb-jiuhui{background-image:url('assets/jiuhui-portal.webp')}
 .thumb-recalc{background-image:url('assets/card-recalc.webp')}
 .card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
 .card:hover .thumb img{transform:scale(1.05)}
@@ -390,12 +390,13 @@ var SITES = [
   {cat:"市場與交易", name:"不動產區段行情成交資料庫", desc:"各區段實價登錄與成交行情查詢，實價可視化、區域走勢、買賣方情報。", img:"assets/card-market.webp", href:"transaction-price-database/", tags:["行情","實價登錄","成交","區段"]},
   {cat:"市場與交易", name:"全臺租金行情地圖與試算", desc:"全台租金分布地圖與租金試算工具，比較各區域租金水準與投報。", img:"assets/card-rent.webp", href:"rent-map-calculator/", tags:["租金","地圖","試算","行情"]},
   {cat:"土地都更與開發", name:"都市更新投資報酬分析", desc:"都更案投資報酬計算工具，評估都更與危老重建的可行性與報酬。", img:"assets/card-urban.webp", href:"urban-renewal-roi-calculator/", tags:["都更","投資報酬","危老","試算"]},
-  {cat:"土地都更與開發", name:"營建土地開發流程百科", desc:"土地開發全流程知識，涵蓋取得、規劃、施工到銷售各階段。", img:"assets/card-land.webp", href:"land-development-handbook/", tags:["土地開發","營建","流程","百科"]}
+  {cat:"土地都更與開發", name:"營建土地開發流程百科", desc:"土地開發全流程知識，涵蓋取得、規劃、施工到銷售各階段。", img:"assets/card-land.webp", href:"land-development-handbook/", tags:["土地開發","營建","流程","百科"]},
+  {cat:"綜合入口", name:"九回房地 算算不動產（六大主題一站整合）", desc:"房貸購屋稅務等113種試算、都更危老投報、不動產開發流程、房屋買賣實務，六大主題一站整合的知識入口。", img:"assets/jiuhui-portal.webp", href:"jiuhui-realestate-calc/", tags:["算算網","都更危老","不動產開發","房屋買賣","整合"]}
 ];
 
 /* ===== 卡片渲染 ===== */
 var cardsEl=document.getElementById('cards');
-function thumbCls(i){return ['thumb-recalc','thumb-market','thumb-rent','thumb-urban','thumb-land'][i]||'thumb-market';}
+function thumbCls(i){return ['thumb-recalc','thumb-market','thumb-rent','thumb-urban','thumb-land','thumb-jiuhui'][i]||'thumb-market';}
 function renderCards(list){
   cardsEl.innerHTML=list.map(function(s,i){
     return '<a class="card" href="'+s.href+'" target="_blank" rel="noopener">'+

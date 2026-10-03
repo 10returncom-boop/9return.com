@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2f4a35">
+  <meta name="description" content="算算網 — 房貸、購屋、稅務、投資報酬、儲蓄退休等 113 種不動產財務試算工具。">
+  <link rel="canonical" href="https://9return.com/recalc.html">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <title>算算網 — 九回房地 算算不動產</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <header class="site-header"><div class="container top-nav">
+    <a class="brand" href="index.html"><span class="mark">算</span><span>九回房地<small>REAL ESTATE · CALC</small></span></a>
+    <div class="flex"><nav class="main-nav" id="mainNav" aria-label="主選單"></nav>
+      <div class="nav-right"><button class="theme-toggle" id="themeBtn" title="切換日夜模式">☀</button>
+        <button class="hamburger" id="hamburger" aria-label="開啟選單"><span></span><span></span><span></span></button></div></div>
+  </div></header>
+  <div class="overlay" id="overlay"></div>
+  <aside class="mobile-menu" id="mobileMenu" aria-label="行動選單"></aside>
+
+  <main class="container">
+    <nav class="breadcrumb"><a href="index.html">首頁</a><span class="sep">/</span><b>算算網</b></nav>
+
+    <section class="page-hero"><h1>算算網 — 不動產 × 財務管理試算</h1>
+      <p>113 種專業試算工具：房貸、購屋、稅務、投資、儲蓄、退休、貸款、財務分析，每支皆可實際計算並附圖表。</p>
+      <div class="stats-row">
+        <div class="stat-card"><div class="num" data-count="113">0</div><div class="lbl">試算工具</div></div>
+        <div class="stat-card"><div class="num" data-count="8">0</div><div class="lbl">大分類</div></div>
+        <div class="stat-card"><div class="num" data-count="100">0</div><div class="lbl">% 可執行</div></div>
+      </div>
+    </section>
+
+    <!-- Tabs 分類 -->
+    <div class="tabs">
+      <button class="tab-btn active" data-target="p-mortgage">房貸</button>
+      <button class="tab-btn" data-target="p-tax">稅務</button>
+      <button class="tab-btn" data-target="p-invest">投資報酬</button>
+      <button class="tab-btn" data-target="p-save">儲蓄退休</button>
+    </div>
+
+    <div class="grid c3">
+      <div class="card"><div class="body"><span class="cat-chip">房貸</span><h3>本息平均攤還試算</h3>
+        <p>輸入貸款金額、年限與利率，計算每月還款與總利息。</p><a class="more" href="#mortgage">試算 →</a></div></div>
+      <div class="card"><div class="body"><span class="cat-chip">購屋</span><h3>購屋能力試算</h3>
+        <p>依自備款與月負擔能力，回推可負擔的房價區間。</p><a class="more" href="#afford">試算 →</a></div></div>
+      <div class="card"><div class="body"><span class="cat-chip">稅務</span><h3>契稅與土增稅試算</h3>
+        <p>依移轉價格與持有情形計算購屋相關稅費。</p><a class="more" href="#tax">試算 →</a></div></div>
+      <div class="card"><div class="body"><span class="cat-chip">投資</span><h3>不動產投資報酬</h3>
+        <p>租金投報、現金流與 IRR 內部報酬率試算。</p><a class="more" href="#roi">試算 →</a></div></div>
+      <div class="card"><div class="body"><span class="cat-chip">儲蓄</span><h3>儲蓄目標試算</h3>
+        <p>依每月定額與複利，估算達成購屋頭期款所需年期。</p><a class="more" href="#save">試算 →</a></div></div>
+      <div class="card"><div class="body"><span class="cat-chip">退休</span><h3>退休金需求試算</h3>
+        <p>估算退休後所需總額與每月應提撥金額。</p><a class="more" href="#retire">試算 →</a></div></div>
+    </div>
+
+    <div class="tab-pane active" id="p-mortgage"></div>
+    <div class="tab-pane" id="p-tax"></div>
+    <div class="tab-pane" id="p-invest"></div>
+    <div class="tab-pane" id="p-save"></div>
+
+    <!-- 房貸試算表單（form-submit） -->
+    <h2 class="section-title" id="mortgage">房貸本息平均攤還試算</h2>
+    <div class="card" style="padding:22px">
+      <form data-sim class="grid c3">
+        <div class="form-group"><label for="loan">貸款金額（萬）</label><input id="loan" type="number" value="1000" min="0"></div>
+        <div class="form-group"><label for="years">貸款年期（年）</label><input id="years" type="number" value="30" min="1" max="40"></div>
+        <div class="form-group"><label for="rate">年利率（%）</label><input id="rate" type="number" value="2.0" step="0.05"></div>
+        <div class="form-group" style="grid-column:1/-1"><button class="btn" type="submit">開始試算</button>
+          <p class="form-msg"></p></div>
+      </form>
+      <div class="table-wrap mt3"><table class="data" id="mortTable">
+        <thead><tr><th>項目</th><th>數值</th></tr></thead>
+        <tbody><tr><td>貸款金額</td><td id="rLoan">—</td></tr><tr><td>每月應還本息</td><td id="rMonthly">—</td></tr>
+        <tr><td>總繳金額</td><td id="rTotal">—</td></tr><tr><td>總利息</td><td id="rInterest">—</td></tr></tbody>
+      </table></div>
+    </div>
+
+    <!-- 分類時間軸 -->
+    <h2 class="section-title">試算分類總覽</h2>
+    <div class="timeline">
+      <div class="tl-item"><span class="tl-time">① 房貸</span><h4>本息 / 本金 / 寬限期</h4><p>購屋貸款的各種攤還方式比較。</p></div>
+      <div class="tl-item"><span class="tl-time">② 稅務</span><h4>契稅、土增稅、贈與</h4><p>不動產移轉相關稅費試算。</p></div>
+      <div class="tl-item"><span class="tl-time">③ 投資</span><h4>租金投報、IRR、現金流</h4><p>評估不動產投資的報酬與風險。</p></div>
+      <div class="tl-item"><span class="tl-time">④ 儲蓄退休</span><h4>購屋頭期款、退休金</h4><p>以複利達成財務目標。</p></div>
+    </div>
+  
+    <h2 class="section-title">最新文章</h2>
+    <ul class="latest-posts" id="mainLatestPosts"></ul>
+    <h2 class="section-title">熱門標籤</h2>
+    <div class="tag-cloud" id="mainTagCloud"></div>
+  </main>
+
+    <footer class="site-footer">
+    <div class="container footer-slim">
+      <div class="fs-brand">
+        <h4>九回房地 算算不動產</h4>
+        <p class="fs-desc">整合不動產財務試算、都更危老、土地開發與房屋買賣的專業入口。</p>
+        <div class="social-icons mt2"><!-- social-icons -->
+          <a href="#" aria-label="Facebook"><img src="assets/img/social-fb.svg" alt="Facebook" loading="lazy"></a><a href="#" aria-label="LINE"><img src="assets/img/social-line.svg" alt="LINE" loading="lazy"></a><a href="#" aria-label="Instagram"><img src="assets/img/social-ig.svg" alt="Instagram" loading="lazy"></a><a href="#" aria-label="YouTube"><img src="assets/img/social-yt.svg" alt="YouTube" loading="lazy"></a>
+        </div>
+      </div>
+      <div class="fs-contact">
+        <h4>聯絡</h4>
+        <div>✉ <span id="contactEmail"></span></div>
+        <div>☏ <span id="contactTel"></span></div>
+        <div>LINE：<span id="contactLine"></span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 九回房地 算算不動產 · 規劃 設計 開發 整合：張書欣 LINE: 331.today TEL: 0968-222201 · 本網站內容僅供參考，不構成投資或交易建議</div>
+  </footer>
+
+  <button class="back-to-top" id="backTop" aria-label="回到頂端">↑</button>
+  <button class="fab" id="fabFav" aria-label="收藏">★</button>
+  <nav class="context-menu" id="contextMenu"><a href="#" data-act="top">↑ 回到頂端</a><a href="#" data-act="fav">★ 收藏本頁</a><a href="#" data-act="theme">☀ 切換主題</a><a href="sitemap.html">≣ 網站地圖</a></nav>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+  // 房貸試算
+  document.addEventListener('DOMContentLoaded', function () {
+    var form = document.querySelector('form[data-sim]');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var p = parseFloat(document.getElementById('loan').value) * 10000;
+      var y = parseFloat(document.getElementById('years').value);
+      var r = parseFloat(document.getElementById('rate').value) / 100 / 12;
+      var n = y * 12;
+      var m = p * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+      var total = m * n, interest = total - p;
+      document.getElementById('rLoan').textContent = (p / 10000).toFixed(0) + ' 萬元';
+      document.getElementById('rMonthly').textContent = '每月 ' + m.toFixed(0) + ' 元';
+      document.getElementById('rTotal').textContent = total.toFixed(0) + ' 元';
+      document.getElementById('rInterest').textContent = interest.toFixed(0) + ' 元';
+      var msg = form.querySelector('.form-msg'); msg.textContent = '✓ 試算完成（示範）'; msg.className = 'form-msg ok';
+    });
+  });
+  </script>
+</body>
+</html>

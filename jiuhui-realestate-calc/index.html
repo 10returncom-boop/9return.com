@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><!-- meta-utf8 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- meta-viewport -->
+  <meta name="theme-color" content="#2f4a35"><!-- theme-color -->
+  <meta name="description" content="九回房地 算算不動產：不動產 × 財務試算、都市更新危老重建、土地開發、房屋買賣的全方位知識與工具入口。">
+  <link rel="canonical" href="https://9return.com/"><!-- canonical -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg"><!-- favicon -->
+  <title>九回房地 算算不動產 — 不動產 × 財務試算入口</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <!-- ===== Header / top-nav / sticky-nav / hamburger ===== -->
+  <header class="site-header">
+    <div class="container top-nav">
+      <a class="brand" href="index.html">
+        <span class="mark">算</span>
+        <span>九回房地<small>REAL ESTATE · CALC</small></span>
+      </a>
+      <div class="flex">
+        <nav class="main-nav" id="mainNav" aria-label="主選單"><!-- dropdown-menu 由 JS 渲染 --></nav>
+        <div class="nav-right">
+          <button class="theme-toggle" id="themeBtn" title="切換日夜模式" aria-label="切換日夜模式">☀</button>
+          <button class="hamburger" id="hamburger" aria-label="開啟選單" aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="overlay" id="overlay"></div>
+  <aside class="mobile-menu" id="mobileMenu" aria-label="行動選單"></aside><!-- mobile-menu -->
+
+  <main class="container">
+    <!-- ===== Breadcrumb ===== -->
+    <nav class="breadcrumb" aria-label="麵包屑"><a href="index.html">首頁</a><span class="sep">/</span><b>全臺不動產知識整合入口</b></nav>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <h1>一座入口，走進全臺不動產的世界</h1>
+      <p>從房貸財務試算、都更危老投報、土地開發流程，到房屋買賣實務，把分散的不動產專業知識收攏為清晰可查的入口。</p>
+      <div class="hero-chips">
+        <a href="recalc.html">▤ 算算網</a>
+        <a href="urban-renewal.html">◧ 都更危老網</a>
+        <a href="development.html">▦ 不動產開發</a>
+        <a href="home-buying.html">⌂ 房屋買賣</a>
+      </div>
+    </section>
+
+    <!-- ===== Stats（統計） ===== -->
+    <div class="stats-row">
+      <div class="stat-card"><div class="num" data-count="113">0</div><div class="lbl">種專業試算工具</div></div>
+      <div class="stat-card"><div class="num" data-count="4">0</div><div class="lbl">大主題知識站</div></div>
+      <div class="stat-card"><div class="num" data-count="24">0</div><div class="lbl">小時自動化運作</div></div>
+      <div class="stat-card"><div class="num" data-count="100">0</div><div class="lbl">% 可執行可開發</div></div>
+    </div>
+
+    <!-- ===== 主題卡片 ===== -->
+    <h2 class="section-title">五大主題知識站</h2>
+    <div class="grid c4">
+      <article class="card"><div class="thumb"><img src="assets/img/card-recalc.webp" alt="九回房地算算網主題質感插畫，現代住宅與計算器財務圖，涵蓋房貸購屋稅務投資報酬等113種試算工具" loading="lazy"><span class="tag">試算工具</span></div>
+        <div class="body"><h3>算算網</h3><p>房貸、購屋、稅務、投資報酬、儲蓄退休等 113 種試算，皆可實際計算。</p>
+          <a class="more" href="recalc.html">前往主題站 →</a></div></article>
+      <article class="card"><div class="thumb"><img src="assets/img/card-urban.webp" alt="九回房地都更危老網主題質感插畫，舊樓透過塔吊更新為新高樓，都市更新與危老重建投報分析入口" loading="lazy"><span class="tag">市場與交易</span></div>
+        <div class="body"><h3>都更危老網</h3><p>都市更新與危老重建的投報分析、容積獎勵與流程時程。</p>
+          <a class="more" href="urban-renewal.html">前往主題站 →</a></div></article>
+      <article class="card"><div class="thumb"><img src="assets/img/card-land.webp" alt="九回房地不動產開發主題質感插畫，土地上的建築藍圖與圓規卷尺，土地取得規劃設計融資施工全流程入口" loading="lazy"><span class="tag">土地開發</span></div>
+        <div class="body"><h3>不動產開發</h3><p>土地取得、規劃設計、融資財報、營建施工到銷售去化全流程。</p>
+          <a class="more" href="development.html">前往主題站 →</a></div></article>
+      <article class="card"><div class="thumb"><img src="assets/img/card-buy.webp" alt="九回房地房屋買賣主題質感插畫，現代住宅前懸掛金鑰匙與房契，買賣流程稅費成本與風險清單入口" loading="lazy"><span class="tag">買賣實務</span></div>
+        <div class="body"><h3>房屋買賣</h3><p>買賣流程時間軸、契約文件、稅費成本與風險檢查清單。</p>
+          <a class="more" href="home-buying.html">前往主題站 →</a></div></article>
+    </div>
+
+    <!-- ===== Tabs（熱門主題） ===== -->
+    <h2 class="section-title">熱門主題速覽</h2>
+    <div class="tabs">
+      <button class="tab-btn active" data-target="tab-a">房貸試算</button>
+      <button class="tab-btn" data-target="tab-b">都更危老</button>
+      <button class="tab-btn" data-target="tab-c">買賣稅費</button>
+    </div>
+    <div class="card" style="padding:20px">
+      <div class="tab-pane active" id="tab-a"><b>房貸試算</b><p class="prose" style="margin-top:8px">提供本息平均攤還、利率比較、寬限期與提前還款等情境試算，輸入貸款金額、年期與利率即可得知每月還款與總利息。<a href="recalc.html#mortgage">立即試算 →</a></p></div>
+      <div class="tab-pane" id="tab-b"><b>都更 vs 危老</b><p class="prose" style="margin-top:8px">都市更新與危老重建兩種重建路徑的適用條件、容積獎勵與程序差異總整理。<a href="urban-renewal.html">深入了解 →</a></p></div>
+      <div class="tab-pane" id="tab-c"><b>購屋稅費</b><p class="prose" style="margin-top:8px">契稅、土地增值稅、印花稅、代書費與規費等購屋成本一次算清。<a href="home-buying.html#tax">看稅費明細 →</a></p></div>
+    </div>
+
+    <!-- ===== FAQ Accordion ===== -->
+    <h2 class="section-title">常見問題</h2>
+    <div class="accordion">
+      <div class="acc-item"><button class="acc-head">什麼是九回房地 算算不動產？<span class="ico">＋</span></button>
+        <div class="acc-body"><div class="acc-body-inner">這是整合不動產財務試算、都市更新危老、土地開發與房屋買賣實務的多主題知識與工具入口網站。</div></div></div>
+      <div class="acc-item"><button class="acc-head">試算工具可以直接使用嗎？<span class="ico">＋</span></button>
+        <div class="acc-body"><div class="acc-body-inner">可以。算算網內每支工具皆可輸入數值即時計算，並附圖表對照，無需登入。</div></div></div>
+      <div class="acc-item"><button class="acc-head">如何聯繫站主？<span class="ico">＋</span></button>
+        <div class="acc-body"><div class="acc-body-inner">規劃、設計、開發、整合：張書欣 · LINE：331.today · TEL：0968-222201。</div></div></div>
+    </div>
+
+    <!-- ===== 訂閱（subscribe / email-sub / form-submit） ===== -->
+    <h2 class="section-title">訂閱最新不動產資訊</h2>
+    <div class="card" style="padding:22px">
+      <form data-sim class="subscribe-row">
+        <input type="email" name="email" placeholder="輸入 Email 訂閱最新主題文章" required aria-label="Email">
+        <button class="btn gold" type="submit">訂閱</button>
+      </form>
+      <p class="form-msg"></p>
+    </div>
+
+    <!-- ===== 收藏 / 分享 ===== -->
+    <div class="flex mt3">
+      <button class="fav-btn" aria-label="收藏本頁"><span class="star">☆</span>收藏本頁</button><!-- favorite -->
+      <div class="ui-dropdown"><button class="dd-toggle">分享 ▾</button><div class="dd-menu">
+        <a href="#" data-share="fb">分享到 Facebook</a><a href="#" data-share="line">分享到 LINE</a><a href="#" data-share="copy">複製網址</a>
+      </div></div><!-- ui-dropdown -->
+      <div class="popover"><button class="btn outline" style="margin:0">關於本站 <span>ⓘ</span></button>
+        <div class="pop-body">九回房地 算算不動產 — 由張書欣規劃、設計、開發、整合。歡迎使用各主題工具。</div>
+      </div><!-- popover -->
+    </div>
+  
+    <h2 class="section-title">最新文章</h2>
+    <ul class="latest-posts" id="mainLatestPosts"></ul>
+    <h2 class="section-title">熱門標籤</h2>
+    <div class="tag-cloud" id="mainTagCloud"></div>
+  </main>
+
+  <!-- ===== Footer ===== -->
+    <footer class="site-footer">
+    <div class="container footer-slim">
+      <div class="fs-brand">
+        <h4>九回房地 算算不動產</h4>
+        <p class="fs-desc">整合不動產財務試算、都更危老、土地開發與房屋買賣的專業入口。</p>
+        <div class="social-icons mt2"><!-- social-icons -->
+          <a href="#" aria-label="Facebook"><img src="assets/img/social-fb.svg" alt="Facebook" loading="lazy"></a><a href="#" aria-label="LINE"><img src="assets/img/social-line.svg" alt="LINE" loading="lazy"></a><a href="#" aria-label="Instagram"><img src="assets/img/social-ig.svg" alt="Instagram" loading="lazy"></a><a href="#" aria-label="YouTube"><img src="assets/img/social-yt.svg" alt="YouTube" loading="lazy"></a>
+        </div>
+      </div>
+      <div class="fs-contact">
+        <h4>聯絡</h4>
+        <div>✉ <span id="contactEmail"></span></div>
+        <div>☏ <span id="contactTel"></span></div>
+        <div>LINE：<span id="contactLine"></span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 九回房地 算算不動產 · 規劃 設計 開發 整合：張書欣 LINE: 331.today TEL: 0968-222201 · 本網站內容僅供參考，不構成投資或交易建議</div>
+  </footer>
+
+  <!-- ===== 浮動元件 ===== -->
+  <button class="back-to-top" id="backTop" aria-label="回到頂端">↑</button><!-- back-to-top -->
+  <button class="fab" id="fabFav" aria-label="收藏">★</button><!-- fab -->
+  <nav class="context-menu" id="contextMenu" aria-label="右鍵選單"><!-- context-menu -->
+    <a href="#" data-act="top">↑ 回到頂端</a><a href="#" data-act="fav">★ 收藏本頁</a><a href="#" data-act="theme">☀ 切換主題</a><a href="sitemap.html">≣ 網站地圖</a>
+  </nav>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
