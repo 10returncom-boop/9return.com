@@ -103,24 +103,24 @@ button{font-family:inherit;cursor:pointer}
 
 /* 卡片（城市天際線橫幅樣式） */
 .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-.card{position:relative;border-radius:var(--radius);overflow:hidden;background-size:cover;background-position:center;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:var(--shadow);transition:transform .22s,box-shadow .22s;text-decoration:none}
-.card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,18,.04) 0%,rgba(8,12,18,.55) 78%);z-index:1}
+.card{position:relative;border-radius:var(--radius);overflow:hidden;background:#fff;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .22s,box-shadow .22s;text-decoration:none;border:1px solid #ececef}
 .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.card .th{display:block;height:160px;background-size:cover;background-position:center;flex:none;border-bottom:1px solid #ececef}
 .thumb-market{background-image:url('assets/card-market.webp')}
 .thumb-rent{background-image:url('assets/card-rent.webp')}
 .thumb-urban{background-image:url('assets/card-urban.webp')}
 .thumb-land{background-image:url('assets/card-land.webp')}
 .thumb-recalc{background-image:url('assets/card-recalc.webp')}
 .thumb-arch{background-image:url('assets/arch.webp')}
-.card .cat{position:absolute;top:14px;left:14px;z-index:2;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);color:#fff;font-size:11px;font-weight:600;letter-spacing:.08em;padding:5px 11px;border-radius:20px}
-.card .body{position:relative;z-index:2;padding:18px 20px 20px;display:flex;flex-direction:column;gap:8px}
-.card .body h3{font-family:var(--serif);font-size:21px;font-weight:800;color:#fff;line-height:1.28;margin:0}
-.card .body p{font-size:13px;color:rgba(255,255,255,.86);line-height:1.7;margin:0}
-.card .foot{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
-.card .go{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:#ffe6a0}
+.card .cat{position:absolute;top:12px;left:12px;z-index:2;background:rgba(255,255,255,.9);backdrop-filter:blur(6px);color:#2f3e2e;font-size:11px;font-weight:700;letter-spacing:.08em;padding:5px 11px;border-radius:20px;box-shadow:0 2px 8px rgba(0,0,0,.14)}
+.card .body{position:relative;padding:16px 20px 18px;display:flex;flex-direction:column;gap:8px;flex:1;background:#fff}
+.card .body h3{font-family:var(--serif);font-size:21px;font-weight:800;color:#2a2a2a;line-height:1.28;margin:0}
+.card .body p{font-size:13px;color:#5a5a62;line-height:1.7;margin:0;flex:1}
+.card .foot{display:flex;align-items:center;justify-content:space-between;margin-top:6px;border-top:1px solid #f0f0f2;padding-top:10px}
+.card .go{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;color:#2f3e2e}
 .card .go svg{width:15px;height:15px;transition:transform .18s}
 .card:hover .go svg{transform:translateX(3px)}
-.card .sub{font-size:11.5px;color:rgba(255,255,255,.6)}
+.card .sub{font-size:11.5px;color:#9a9aa2}
 
 /* ===== Sitemap ===== */
 .sitemap{margin-top:30px}
@@ -226,7 +226,7 @@ footer{border-top:1px solid var(--line);background:var(--surface);margin-top:20p
   .crumb-in{padding:0 16px}
   .hero-in{padding:52px 16px}
   .sec-head{flex-direction:column;align-items:flex-start}
-  .card{min-height:230px}
+  .card .th{height:128px}
 }
 p,li,td,th,h1,h2,h3,h4{overflow-wrap:break-word}
 /* 觸控目標最小化 */
@@ -418,8 +418,9 @@ var SITES = [
 var cardsEl=document.getElementById('cards');
 function renderCards(list){
   cardsEl.innerHTML=list.map(function(s){
-    return '<a class="card '+s.cls+'" href="'+s.href+'" target="_blank" rel="noopener">'+
+    return '<a class="card" href="'+s.href+'" target="_blank" rel="noopener">'+
       '<span class="cat">'+s.cat+'</span>'+
+      '<span class="th '+s.cls+'"></span>'+
       '<div class="body"><h3>'+s.name+'</h3><p>'+s.desc+'</p>'+
       '<div class="foot"><span class="go">開啟主題站<svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="sub">九回房地</span></div></div></a>';
   }).join('');
