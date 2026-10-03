@@ -104,7 +104,7 @@ button{font-family:inherit;cursor:pointer}
 /* 卡片（城市天際線橫幅樣式） */
 .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
 .card{position:relative;border-radius:var(--radius);overflow:hidden;background-size:cover;background-position:center;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:var(--shadow);transition:transform .22s,box-shadow .22s;text-decoration:none}
-.card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,18,.10) 0%,rgba(8,12,18,.88) 78%);z-index:1}
+.card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,18,.04) 0%,rgba(8,12,18,.55) 78%);z-index:1}
 .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
 .thumb-market{background-image:url('assets/card-market.webp')}
 .thumb-rent{background-image:url('assets/card-rent.webp')}
@@ -252,11 +252,12 @@ p,li,td,th,h1,h2,h3,h4{overflow-wrap:break-word}
         <svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
       <ul class="nav-dd-menu" id="navDDmenu" role="menu" aria-label="主選單">
-        <li><a href="#top">首頁</a></li>
-        <li><a href="#catalog">主題目錄</a></li>
-        <li><a href="#sitemap">網站地圖</a></li>
-        <li><a href="#sibling">不動產知識百科</a></li>
-        <li><a href="https://9return.com/" class="nav-cta">前往主題站</a></li>
+        <li><a href="recalc/">九回算算網</a></li>
+        <li><a href="architecture-atlas/">世界建築史</a></li>
+        <li><a href="姊妹站_不動產知識百科.html">不動產知識百科</a></li>
+        <li><a href="rent-map-calculator/">租屋地圖</a></li>
+        <li><a href="urban-renewal-roi-calculator/">都市更新</a></li>
+        <li><a href="land-development-handbook/">土地開發</a></li>
       </ul>
     </div>
   </div>

@@ -833,10 +833,6 @@
     SS.getSettings(); /* ensure defaults */
     applyProtect(SS.getSettings().copyProtect);
     $('#favCount').textContent = SS.getFavs().length;
-    $('#statArticles').textContent = DS.getAll().length;
-    $('#statStyles').textContent = DS.getStyles().length;
-    $('#statFeatures').textContent = C.features.length;
-    $('#statRegions').textContent = C.regions.length;
     initFilters();
     initSidebar();
     initHeaderTools();
