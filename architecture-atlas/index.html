@@ -173,5 +173,45 @@
 <script src="js/service/data.js"></script>
 <script src="js/service/export.js"></script>
 <script src="js/app.js"></script>
+<!-- ===== 浮動站內導覽（全站 6 主題 + 回首頁 + 上一頁）===== -->
+<style>
+.floating-nav{position:fixed;left:16px;bottom:16px;z-index:9999;font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif}
+.floating-nav .fn-toggle{width:56px;height:56px;border-radius:50%;border:1px solid #e2e2e6;cursor:pointer;background:linear-gradient(135deg,#fff,#ececef);color:#2f3e2e;box-shadow:0 6px 18px rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;transition:transform .2s}
+.floating-nav .fn-toggle:hover{transform:translateY(-2px)}
+.floating-nav .fn-panel{position:absolute;left:0;bottom:68px;width:252px;background:#fff;border:1px solid #e2e2e6;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.16);padding:10px 6px;display:none;max-height:min(72vh,500px);overflow:auto}
+.floating-nav.open .fn-panel{display:block}
+.floating-nav .fn-title{font-size:11px;color:#8a8a92;font-weight:700;padding:4px 14px 6px;letter-spacing:.5px}
+.floating-nav a{display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:8px;color:#333;text-decoration:none;font-size:14px}
+.floating-nav a:hover{background:#f0f0f2}
+.floating-nav .fn-sep{height:1px;background:#e8e8ec;margin:6px 10px}
+.floating-nav a.fn-back{color:#7c6a3a;font-weight:600}
+@media(max-width:480px){.floating-nav .fn-panel{width:210px}}
+</style>
+<div class="floating-nav" id="floatingNav">
+  <button class="fn-toggle" id="fnToggle" aria-label="站內導覽">導覽</button>
+  <div class="fn-panel" id="fnPanel">
+    <div class="fn-title">全站主題</div>
+    <a data-t="recalc/">九回算算網</a>
+    <a data-t="architecture-atlas/">世界建築史</a>
+    <a data-t="姊妹站_不動產知識百科.html">不動產知識百科</a>
+    <a data-t="rent-map-calculator/">租屋地圖</a>
+    <a data-t="urban-renewal-roi-calculator/">都市更新</a>
+    <a data-t="land-development-handbook/">土地開發</a>
+    <div class="fn-sep"></div>
+    <a data-t="index.html" class="fn-back">回首頁</a>
+    <a href="javascript:void(0)" onclick="history.back();return false;" class="fn-back">上一頁</a>
+  </div>
+</div>
+<script>
+(function(){var nav=document.getElementById('floatingNav');if(!nav)return;
+var dirs=location.pathname.split('/').filter(Boolean);
+if(dirs.length&&dirs[dirs.length-1].indexOf('.')>=0)dirs.pop();
+var base=dirs.map(function(){return '../';}).join('');
+nav.querySelectorAll('a[data-t]').forEach(function(a){a.setAttribute('href',base+a.getAttribute('data-t'));});
+var t=document.getElementById('fnToggle');
+t.addEventListener('click',function(){nav.classList.toggle('open');});
+document.addEventListener('click',function(e){if(!nav.contains(e.target))nav.classList.remove('open');});
+})();
+</script>
 </body>
 </html>
