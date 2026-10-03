@@ -63,11 +63,6 @@ a{color:var(--primary);text-decoration:none}
 .content-card ul{list-style:none;padding:0}
 .content-card li{padding:5px 0;font-size:13px;color:var(--text);display:flex;align-items:flex-start;gap:6px}
 .content-card li::before{content:"✓";color:var(--secondary);font-weight:900;flex-shrink:0}
-/* Stats */
-.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:30px}
-.stat-card{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;border-radius:12px;padding:18px;text-align:center}
-.stat-card .stat-num{font-size:28px;font-weight:900}
-.stat-card .stat-label{font-size:12px;opacity:.9;margin-top:4px}
 /* Footer */
 .site-footer{background:var(--dark);color:#94a3b8;padding:30px 24px;text-align:center;font-size:13px}
 .site-footer a{color:#cbd5e1;margin:0 8px}
@@ -85,8 +80,6 @@ a{color:var(--primary);text-decoration:none}
   .hero p{font-size:15px}
   .section-title{font-size:20px;flex-wrap:wrap}
   .content-grid{grid-template-columns:1fr}
-  .stats-row{grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}
-  .stat-card .stat-num{font-size:22px}
   h2{font-size:20px}
   h3{font-size:17px}
   p{font-size:15px}
@@ -97,7 +90,6 @@ a{color:var(--primary);text-decoration:none}
   .hero h1{font-size:22px}
   .hero-badge{font-size:11px;padding:5px 10px}
   .section-title{font-size:18px}
-  .stat-num{font-size:20px}
   .fdd-panel{width:min(88vw,300px);right:0}
   .fdd-fab{width:48px;height:48px;font-size:22px}
   .site-logo{font-size:15px}
@@ -216,14 +208,6 @@ input,textarea,select{-webkit-user-select:text;-moz-user-select:text;-ms-user-se
     </div>
   </div>
 </section>
-
-<!-- Stats -->
-<div class="stats-row">
-  <div class="stat-card"><div class="stat-num">10</div><div class="stat-label">創新工具/遊戲</div></div>
-  <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">核心功能</div></div>
-  <div class="stat-card"><div class="stat-num">24/7</div><div class="stat-label">自動化運作</div></div>
-  <div class="stat-card"><div class="stat-num">100%</div><div class="stat-label">可執行可開發</div></div>
-</div>
 
 <!-- 10 Tools -->
 <section class="section" id="tools">
