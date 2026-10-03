@@ -3,529 +3,445 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>九回房地 · 全臺不動產知識整合站｜不動產行情・租金地圖・都更投資・土地開發</title>
-<meta name="description" content="九回房地為全臺不動產知識整合站，收錄不動產區段行情成交資料庫、全臺租金行情地圖與試算、都市更新投資報酬分析、營建土地開發流程百科等主題，整合實價登錄、租金分布、都更危老與土地開發知識，供買賣、估價與投資參考。">
-<meta name="keywords" content="不動產,九回房地,不動產行情,成交行情,實價登錄,租金行情,租金地圖,都市更新,都更,投資報酬,土地開發,營建,全臺">
-<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<title>九回房地 · 全臺不動產知識整合站</title>
+<meta name="description" content="九回房地整合不動產區段行情成交資料庫、全臺租金行情地圖與試算、都市更新投資報酬分析、營建土地開發流程百科，以專業視覺彙整全臺不動產知識與工具。">
 <meta name="author" content="張書欣">
-<meta name="theme-color" content="#0f1714">
-<link rel="canonical" href="https://九回房地不動產觀測站/index.html">
-<!-- Open Graph -->
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="九回房地 · 全臺不動產知識整合站">
+<meta property="og:description" content="專業彙整全臺不動產行情、租金、都更投資與土地開發知識入口。">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="九回房地 · 全臺不動產知識整合站">
-<meta property="og:title" content="九回房地 · 全臺不動產知識整合站｜不動產行情・租金地圖・都更投資・土地開發">
-<meta property="og:description" content="整合不動產區段行情、全臺租金地圖、都更投資報酬與土地開發流程的全臺不動產知識入口。">
-<meta property="og:locale" content="zh_TW">
-<meta property="og:url" content="https://九回房地不動產觀測站/index.html">
-<meta property="og:image" content="assets/hero-portal.jpg">
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="九回房地 · 全臺不動產知識整合站">
-<meta name="twitter:description" content="整合不動產行情、租金地圖、都更投資與土地開發知識的全臺不動產入口。">
-<meta name="twitter:image" content="assets/hero-portal.jpg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2316211d'/%3E%3Cpath d='M8 24V14l8-6 8 6v10h-5v-6h-6v6z' fill='%23c9a45a'/%3E%3C/svg%3E">
+<meta property="og:image" content="https://9return.com/assets/hero-portal.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f3e2e'/%3E%3Cpath d='M8 24V14l8-6 8 6v10h-5v-6h-6v6z' fill='%23c8b088'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+TC:wght@500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap">
 <style>
 :root{
-  --bg:#0f1714; --surface:#16211d; --surface2:#1b2823; --ink:#e9e6da;
-  --dim:#9aa89f; --faint:#66746c; --bronze:#c9a45a; --jade:#7fae8f;
-  --line:rgba(233,230,218,.10); --line2:rgba(233,230,218,.18);
-  --serif:'Noto Serif TC',serif; --sans:'Noto Sans TC',system-ui,sans-serif;
+  --bg:#f7f4ec; --surface:#fffdf7; --surface2:#efe9db;
+  --ink:#243028; --muted:#6d776d; --faint:#9aa49a;
+  --line:#e2dccd; --line2:#d5cdbb;
+  --accent:#2f4a35; --accent2:#3d5c44; --gold:#b08a4a; --gold-soft:#d9c9a6;
+  --serif:'Noto Serif TC',Georgia,'Songti TC',serif;
+  --sans:'Noto Sans TC','Microsoft JhengHei',system-ui,sans-serif;
+  --shadow:0 1px 2px rgba(40,50,40,.05),0 10px 30px rgba(40,50,40,.07);
+  --shadow-lg:0 20px 50px rgba(40,50,40,.12);
+  --radius:14px; --maxw:1180px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.75;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 img{max-width:100%;display:block}
-::selection{background:var(--bronze);color:#0f1714}
+button{font-family:inherit;cursor:pointer}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 
-/* ---------- 導覽 ---------- */
-.nav{position:sticky;top:0;z-index:80;background:rgba(15,23,20,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav-in{max-width:1240px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:26px}
-.brand{display:flex;align-items:center;gap:12px}
-.brand .mark{width:34px;height:34px;border-radius:8px;background:var(--surface2);border:1px solid var(--line2);display:grid;place-items:center;flex:none}
-.brand .t{font-family:var(--serif);font-weight:700;letter-spacing:.06em;font-size:16px}
-.brand .t small{display:block;font-family:var(--sans);font-weight:300;font-size:11px;letter-spacing:.28em;color:var(--dim)}
-.nav-links{display:flex;gap:4px;margin-left:auto}
-.nav-links a{padding:8px 14px;border-radius:8px;font-size:14px;color:var(--dim);transition:.2s}
-.nav-links a:hover{color:var(--ink);background:var(--surface2)}
-.nav-links a.on{color:var(--bronze)}
+/* ===== 頂欄 ===== */
+.topbar{position:sticky;top:0;z-index:100;background:rgba(247,244,236,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar-in{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:18px;padding:13px 24px}
+.brand{display:flex;align-items:center;gap:11px}
+.brand .mark{width:38px;height:38px;border-radius:10px;background:linear-gradient(145deg,var(--accent),var(--accent2));display:grid;place-items:center;color:#f4efe2;box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
+.brand .t{font-family:var(--serif);font-size:19px;font-weight:900;letter-spacing:.02em}
+.brand .t small{display:block;font-family:var(--sans);font-size:10.5px;font-weight:500;letter-spacing:.22em;color:var(--muted);text-transform:uppercase}
+.nav-links{margin-left:auto;display:flex;align-items:center;gap:4px}
+.nav-links a{padding:8px 13px;border-radius:9px;font-size:14px;font-weight:500;color:var(--ink);transition:background .18s}
+.nav-links a:hover{background:var(--surface2)}
+.nav-cta{padding:8px 16px!important;border-radius:9px;background:var(--accent);color:#f4efe2!important;font-weight:600}
+.nav-cta:hover{background:var(--accent2)!important}
 
-/* ---------- Hero ---------- */
-.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden}
-.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.95}
-.hero .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,20,.20) 0%,rgba(15,23,20,.35) 40%,rgba(15,23,20,.94) 100%)}
-.hero-in{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:60px 28px 88px;width:100%}
-.hero .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.34em;color:var(--bronze);margin-bottom:22px}
-.hero .eyebrow::before{content:'';width:34px;height:1px;background:var(--bronze)}
-.hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(38px,6vw,76px);line-height:1.12;letter-spacing:.04em}
-.hero h1 em{font-style:normal;color:var(--bronze)}
-.hero .sub{margin-top:20px;max-width:600px;font-size:clamp(14px,1.6vw,17px);color:#cfd7d0;line-height:1.9}
-.hero .meta{margin-top:34px;display:flex;flex-wrap:wrap;gap:10px}
-.hero .chip{border:1px solid var(--line2);border-radius:999px;padding:7px 16px;font-size:12.5px;letter-spacing:.05em;color:var(--dim);background:rgba(15,23,20,.4);backdrop-filter:blur(6px)}
+/* ===== 麵包屑 ===== */
+.crumb{padding:14px 0 0;max-width:var(--maxw);margin:0 auto}
+.crumb-in{font-size:12.5px;color:var(--muted);display:flex;align-items:center;gap:7px;flex-wrap:wrap;padding:0 24px}
+.crumb-in a{color:var(--muted);transition:color .15s}
+.crumb-in a:hover{color:var(--accent)}
+.crumb-in .sep{opacity:.5}
+.crumb-in b{color:var(--ink);font-weight:600}
 
-/* ---------- 區段 ---------- */
-.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
-section.block{padding:96px 0}
-.sec-head{margin-bottom:48px;max-width:720px}
-.sec-head .k{font-size:12px;letter-spacing:.32em;color:var(--bronze);margin-bottom:14px}
-.sec-head h2{font-family:var(--serif);font-weight:700;font-size:clamp(26px,3.4vw,40px);letter-spacing:.03em;line-height:1.25}
-.sec-head p{margin-top:14px;color:var(--dim);font-size:15px}
-.sec-head.alt .k{color:var(--jade)}
+/* ===== Hero ===== */
+.hero{position:relative;margin:26px 0 0;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('assets/bg.webp') center/cover no-repeat;filter:saturate(.95)}
+.hero-veil{position:absolute;inset:0;background:linear-gradient(100deg,rgba(25,38,28,.86) 0%,rgba(25,38,28,.55) 48%,rgba(25,38,28,.25) 100%)}
+.hero-in{position:relative;max-width:var(--maxw);margin:0 auto;padding:96px 24px;color:#f4efe2;max-width:var(--maxw)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;letter-spacing:.3em;font-weight:700;color:#d9c9a6;text-transform:uppercase}
+.hero-eyebrow::before{content:"";width:26px;height:1px;background:#d9c9a6}
+.hero h1{font-family:var(--serif);font-size:clamp(30px,5.2vw,52px);font-weight:900;line-height:1.2;margin:18px 0 16px;max-width:640px}
+.hero p{font-size:clamp(15px,1.6vw,17px);max-width:560px;opacity:.92;font-weight:300}
+.hero-meta{margin-top:30px;display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:7px 15px;border-radius:30px;font-size:12.5px;font-weight:500;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(4px)}
 
-/* ---------- 精選專題 ---------- */
-.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.feat{border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,var(--surface),rgba(22,33,29,.4));overflow:hidden;transition:.25s}
-.feat:hover{border-color:var(--line2);transform:translateY(-3px)}
-.feat summary{list-style:none;cursor:pointer;padding:26px 28px;display:flex;align-items:flex-start;gap:18px}
-.feat summary::-webkit-details-marker{display:none}
-.feat .no{flex:none;width:42px;height:42px;border-radius:11px;background:var(--surface2);border:1px solid var(--line2);display:grid;place-items:center;color:var(--bronze);font-family:var(--serif);font-weight:700;font-size:15px}
-.feat .fh{flex:1}
-.feat .fh h3{font-family:var(--serif);font-weight:600;font-size:19px;letter-spacing:.02em}
-.feat .fh .d{margin-top:8px;color:var(--dim);font-size:14px}
-.feat .chev{flex:none;color:var(--faint);transition:transform .25s;align-self:center}
-.feat[open] .chev{transform:rotate(180deg)}
-.feat .fb{border-top:1px solid var(--line);padding:24px 28px;color:#d4dcd5;font-size:15px}
-.feat .fb p+p{margin-top:12px}
-.feat .fb .tag{display:inline-block;margin-top:14px;font-size:12px;color:var(--jade);letter-spacing:.06em}
-.feat .fb ul{margin:12px 0 0 0;padding-left:20px}
-.feat .fb li{margin:6px 0}
+/* ===== 目錄 ===== */
+.section{padding:54px 0 8px}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px}
+.sec-head .k{font-size:11.5px;letter-spacing:.28em;font-weight:700;color:var(--gold);text-transform:uppercase}
+.sec-head h2{font-family:var(--serif);font-size:clamp(24px,3vw,32px);font-weight:900;margin-top:6px}
+.sec-head .sub{font-size:14px;color:var(--muted);max-width:520px;margin-top:4px}
+.sec-tools{display:flex;gap:8px;align-items:center}
+.tool-btn{display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border-radius:10px;border:1px solid var(--line2);background:var(--surface);font-size:13px;font-weight:500;color:var(--ink);transition:all .18s;box-shadow:var(--shadow)}
+.tool-btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
 
-/* ---------- 目錄 ---------- */
-.dir-bar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px;align-items:center}
-.filter{display:flex;flex-wrap:wrap;gap:8px}
-.fbtn{border:1px solid var(--line2);border-radius:999px;padding:7px 15px;font-size:13px;color:var(--dim);cursor:pointer;transition:.2s;background:transparent;font-family:var(--sans)}
-.fbtn:hover{color:var(--ink);border-color:var(--bronze)}
-.fbtn.on{background:var(--bronze);color:#0f1714;border-color:var(--bronze);font-weight:500}
-.search{margin-left:auto;position:relative}
-.search input{background:var(--surface2);border:1px solid var(--line2);border-radius:999px;padding:8px 16px 8px 40px;color:var(--ink);font-size:13.5px;width:230px;font-family:var(--sans);outline:none;transition:.2s}
-.search input:focus{border-color:var(--bronze)}
-.search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--faint)}
-.cat-name{margin:34px 0 16px;display:flex;align-items:center;gap:14px;font-family:var(--serif);font-weight:600;font-size:21px}
-.cat-name::after{content:'';flex:1;height:1px;background:var(--line)}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.card{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--surface);cursor:pointer;transition:.2s;display:flex;flex-direction:column;gap:8px}
-.card:hover{border-color:var(--bronze);transform:translateY(-2px);background:var(--surface2)}
-.card .t{font-family:var(--serif);font-weight:600;font-size:15.5px;line-height:1.5}
-.card .d{font-size:12.5px;color:var(--dim);line-height:1.6}
-.card .go{font-size:11.5px;letter-spacing:.14em;color:var(--bronze);opacity:0;transition:.2s;margin-top:2px}
-.card:hover .go{opacity:1}
-.empty{grid-column:1/-1;text-align:center;color:var(--faint);padding:60px 0;font-size:14px}
+/* 搜尋 */
+.searchbox{position:relative;flex:1;max-width:340px}
+.searchbox svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:17px;height:17px;color:var(--muted)}
+.searchbox input{width:100%;padding:11px 14px 11px 42px;border-radius:10px;border:1px solid var(--line2);background:var(--surface);font-family:var(--sans);font-size:14px;color:var(--ink);outline:none;transition:border-color .18s}
+.searchbox input:focus{border-color:var(--accent)}
+.suggest{position:absolute;top:calc(100% + 6px);left:0;right:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow-lg);overflow:hidden;display:none;z-index:50}
+.suggest.open{display:block}
+.suggest a{display:flex;align-items:center;gap:9px;padding:10px 14px;font-size:13.5px;color:var(--ink)}
+.suggest a:hover{background:var(--surface2)}
+.suggest .ico{width:26px;height:26px;border-radius:7px;background:var(--accent-soft,var(--surface2));display:grid;place-items:center;font-size:13px;flex:none}
 
-/* ---------- 姊妹站 CTA ---------- */
-.sib{position:relative;overflow:hidden;border:1px solid var(--line2);border-radius:22px}
-.sib img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.sib .veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(15,23,20,.95) 0%,rgba(15,23,20,.7) 55%,rgba(15,23,20,.35) 100%)}
-.sib-in{position:relative;z-index:2;padding:56px;max-width:640px}
-.sib-in .k{font-size:12px;letter-spacing:.3em;color:var(--jade);margin-bottom:14px}
-.sib-in h2{font-family:var(--serif);font-weight:700;font-size:clamp(24px,3vw,34px);line-height:1.3}
-.sib-in p{margin-top:14px;color:var(--dim);font-size:15px}
-.sib-in .btn{margin-top:26px;display:inline-flex;align-items:center;gap:10px;background:var(--bronze);color:#0f1714;font-weight:500;border-radius:12px;padding:13px 24px;font-size:14.5px;transition:.2s}
-.sib-in .btn:hover{background:#ddb96f;transform:translateY(-2px)}
+/* 卡片 */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);transition:transform .22s,box-shadow .22s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--line2)}
+.card .thumb{position:relative;height:180px;overflow:hidden;background:var(--surface2)}
+.card .thumb{background-size:cover;background-position:center}
+.thumb-market{background-image:url('assets/card-market.webp')}
+.thumb-rent{background-image:url('assets/card-rent.webp')}
+.thumb-urban{background-image:url('assets/card-urban.webp')}
+.thumb-land{background-image:url('assets/card-land.webp')}
+.thumb-recalc{background-image:url('assets/card-recalc.svg')}
+.card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+.card:hover .thumb img{transform:scale(1.05)}
+.card .thumb .cat{position:absolute;top:12px;left:12px;background:rgba(25,38,28,.72);color:#f4efe2;font-size:11px;font-weight:600;letter-spacing:.08em;padding:5px 11px;border-radius:20px;backdrop-filter:blur(4px)}
+.card .body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.card .body h3{font-family:var(--serif);font-size:20px;font-weight:800;margin-bottom:8px}
+.card .body p{font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:16px;flex:1}
+.card .foot{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--line)}
+.card .go{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:var(--accent)}
+.card .go svg{width:15px;height:15px;transition:transform .18s}
+.card:hover .go svg{transform:translateX(3px)}
+.card .sub{font-size:11.5px;color:var(--faint)}
 
-/* ---------- footer ---------- */
-footer{border-top:1px solid var(--line);padding:52px 0 60px}
-.foot-in{max-width:1240px;margin:0 auto;padding:0 28px;display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start;justify-content:space-between}
-.foot-in .ft{font-size:12px;color:var(--faint);letter-spacing:.1em;max-width:520px;line-height:1.9}
-.foot-in .fl{display:flex;gap:20px;font-size:13px;color:var(--dim)}
-.foot-in .fl a:hover{color:var(--bronze)}
+/* ===== Sitemap ===== */
+.sitemap{margin-top:30px}
+.sm-group{margin-bottom:22px}
+.sm-group h3{font-family:var(--serif);font-size:17px;font-weight:800;padding-bottom:9px;border-bottom:1px solid var(--line);margin-bottom:12px;display:flex;align-items:center;gap:9px}
+.sm-group .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex:none}
+.sm-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px}
+.sm-list a{display:flex;align-items:center;gap:8px;padding:9px 12px;border-radius:9px;background:var(--surface);border:1px solid var(--line);font-size:13px;color:var(--ink);transition:all .15s}
+.sm-list a:hover{border-color:var(--accent);color:var(--accent);transform:translateX(2px)}
+.sm-list .ic{font-size:12px;opacity:.7}
 
-/* ---------- 響應式 ---------- */
-.faq-list{display:flex;flex-direction:column;gap:12px}
-.faq-list .feat summary{flex-wrap:wrap}
-.faq-list .no{background:var(--surface2);border-color:var(--line2);color:var(--jade)}
-@media (max-width:1024px){ .cards{grid-template-columns:repeat(2,1fr)} .feat-grid{grid-template-columns:1fr} }
-@media (max-width:700px){
-  .nav-links{display:none}
-  .nav-in{padding:12px 16px}
-  .wrap{padding:0 18px}
-  section.block{padding:68px 0}
+/* ===== 主題橫幅 ===== */
+.banner{margin:40px 0 0;position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.banner-bg{position:absolute;inset:0;background:url('assets/hero-portal.webp') center/cover no-repeat;filter:saturate(.9)}
+.banner-veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(25,38,28,.78),rgba(25,38,28,.28))}
+.banner-in{position:relative;padding:52px 48px;color:#f4efe2;max-width:660px}
+.banner-in .k{font-size:11px;letter-spacing:.28em;font-weight:700;color:#d9c9a6;text-transform:uppercase}
+.banner-in h2{font-family:var(--serif);font-size:clamp(22px,3vw,30px);font-weight:900;margin:10px 0 12px}
+.banner-in p{font-size:14.5px;opacity:.92;line-height:1.8}
+.banner-in .btn{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:11px 22px;border-radius:10px;background:#f4efe2;color:var(--accent);font-size:14px;font-weight:700;transition:all .18s}
+.banner-in .btn:hover{background:#fff;transform:translateY(-1px)}
+.banner-in .btn svg{width:16px;height:16px}
+
+/* ===== 姊妹站 ===== */
+.sib{margin:10px 0 46px;position:relative;border-radius:var(--radius);overflow:hidden}
+.sib img{width:100%;height:240px;object-fit:cover}
+.sib .veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(25,38,28,.82),rgba(25,38,28,.25))}
+.sib-in{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 48px;color:#f4efe2;max-width:680px}
+.sib-in .k{font-size:11px;letter-spacing:.28em;font-weight:700;color:#d9c9a6;text-transform:uppercase}
+.sib-in h2{font-family:var(--serif);font-size:clamp(22px,3vw,30px);font-weight:900;margin:8px 0 10px}
+.sib-in p{font-size:14.5px;opacity:.92}
+.sib-in .btn{display:inline-flex;align-items:center;gap:8px;margin-top:18px;align-self:flex-start;padding:11px 22px;border-radius:10px;background:#f4efe2;color:var(--accent);font-size:14px;font-weight:700;transition:all .18s}
+.sib-in .btn:hover{background:#fff;transform:translateY(-1px)}
+.sib-in .btn svg{width:16px;height:16px}
+
+/* ===== Footer ===== */
+footer{border-top:1px solid var(--line);background:var(--surface);margin-top:20px}
+.foot-in{max-width:var(--maxw);margin:0 auto;padding:38px 24px 28px;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.foot-brand .t{font-family:var(--serif);font-size:19px;font-weight:900}
+.foot-brand p{font-size:13px;color:var(--muted);margin-top:8px;max-width:300px}
+.foot-col h4{font-size:12px;letter-spacing:.16em;font-weight:700;color:var(--gold);margin-bottom:12px;text-transform:uppercase}
+.foot-col a{display:block;font-size:13.5px;color:var(--ink);padding:4px 0}
+.foot-col a:hover{color:var(--accent)}
+.foot-credit{border-top:1px solid var(--line);text-align:center;padding:16px 24px;font-size:12.5px;color:var(--muted)}
+.foot-credit b{color:var(--accent);font-weight:700}
+
+/* ===== 浮動 Dropdown ===== */
+.fdd{position:fixed;right:20px;bottom:22px;z-index:900}
+.fdd-fab{width:54px;height:54px;border-radius:50%;border:none;background:linear-gradient(145deg,var(--accent),var(--accent2));color:#f4efe2;font-size:24px;display:grid;place-items:center;box-shadow:0 8px 22px rgba(47,74,53,.4);transition:transform .25s}
+.fdd-fab:hover{transform:scale(1.07)}
+.fdd-fab.open{transform:rotate(135deg)}
+.fdd-panel{position:absolute;right:0;bottom:64px;width:290px;max-height:76vh;overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-lg);padding:14px;display:none;text-align:left}
+.fdd-panel.open{display:block;animation:fddIn .18s ease}
+@keyframes fddIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.fdd h4{margin:0 0 8px;font-size:12px;letter-spacing:.14em;color:var(--gold);font-weight:700;border-bottom:1px solid var(--line);padding-bottom:6px;text-transform:uppercase}
+.fdd-crumb{font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.6}
+.fdd-crumb a{color:var(--accent)}
+.fdd-crumb .sep{opacity:.5;margin:0 3px}
+.fdd-crumb b{color:var(--ink)}
+.fdd-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px}
+.fdd-btn{display:flex;align-items:center;gap:7px;padding:9px;border-radius:9px;background:var(--bg);border:1px solid var(--line);cursor:pointer;font-size:12.5px;color:var(--ink);transition:background .15s}
+.fdd-btn svg{flex:none}
+.fdd-btn:hover{background:var(--accent);color:#f4efe2}
+.fdd-nav{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.fdd-nav a{display:block;padding:8px 10px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:13px;background:var(--bg);border:1px solid var(--line)}
+.fdd-nav a:hover{background:var(--accent);color:#f4efe2}
+
+/* ===== RWD ===== */
+@media(max-width:900px){
+  .cards{grid-template-columns:1fr 1fr}
+  .foot-in{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
   .cards{grid-template-columns:1fr}
-  .search{margin-left:0;width:100%}
-  .search input{width:100%}
-  .sib-in{padding:36px 24px}
-  .hero{min-height:78vh}
+  .topbar-in{flex-wrap:wrap;gap:10px}
+  .nav-links{width:100%;overflow-x:auto;margin-left:0;padding-bottom:4px}
+  .sec-tools{flex-wrap:wrap}
+  .searchbox{max-width:100%;flex:1 1 100%}
+  .hero-in{padding:64px 20px}
+  .foot-in{grid-template-columns:1fr}
+  .sib-in{padding:0 22px}
+  .sib-in p{font-size:13px}
+  .sib img{height:200px}
+  .fdd-panel{width:min(88vw,290px);right:0}
+  .fdd-fab{width:48px;height:48px;font-size:22px}
+  body{font-size:16px}
+  .crumb-in{font-size:13px}
+  .card .body p{font-size:14px}
+  .card .body h3{font-size:19px}
+  .card .foot .go{font-size:14px}
+  .sec-head .sub{font-size:14px}
+  .hero-eyebrow{font-size:12px}
+  .chip{font-size:13px}
+  .sib-in p{font-size:14px}
+  .sib-in h2{font-size:24px}
+  .fdd-btn{font-size:13px}
+  .sm-list a{font-size:13.5px}
+  .foot-credit{font-size:13px}
+  .suggest a{font-size:14px}
 }
-@media (max-width:480px){ .cards{grid-template-columns:1fr} }
+@media(max-width:480px){
+  .wrap{padding:0 16px}
+  .crumb-in{padding:0 16px}
+  .hero-in{padding:52px 16px}
+  .sec-head{flex-direction:column;align-items:flex-start}
+  .card .thumb{height:150px}
+}
+p,li,td,th,h1,h2,h3,h4{overflow-wrap:break-word}
+/* 觸控目標最小化 */
+@media(max-width:900px){
+  .nav-links a{min-height:44px;display:inline-flex;align-items:center}
+  .foot-col a{min-height:44px;display:flex;align-items:center}
+}
 </style>
-
-<!-- ===== SEO / AEO / GEO 結構化資料 ===== -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@graph":[
-    {
-      "@type":"WebSite",
-      "@id":"https://九回房地不動產觀測站/index.html#website",
-      "url":"https://九回房地不動產觀測站/index.html",
-      "name":"九回房地 · 全臺不動產知識整合站",
-      "description":"整合不動產區段行情、全臺租金地圖、都更投資報酬與土地開發流程的全臺不動產知識入口。",
-      "inLanguage":"zh-TW",
-      "publisher":{"@id":"https://九回房地不動產觀測站/index.html#org"}
-    },
-    {
-      "@type":"Organization",
-      "@id":"https://九回房地不動產觀測站/index.html#org",
-      "name":"九回房地",
-      "alternateName":"九回房地不動產觀測站",
-      "url":"https://九回房地不動產觀測站/index.html",
-      "founder":{"@type":"Person","name":"張書欣"},
-      "knowsAbout":["不動產估價","實價登錄","都市更新","土地開發","租金行情"]
-    },
-    {
-      "@type":"BreadcrumbList",
-      "@id":"https://九回房地不動產觀測站/index.html#breadcrumb",
-      "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"九回房地","item":"https://九回房地不動產觀測站/index.html"},
-        {"@type":"ListItem","position":2,"name":"不動產知識整合站","item":"https://九回房地不動產觀測站/index.html"}
-      ]
-    },
-    {
-      "@type":"ItemList",
-      "name":"全站主題目錄",
-      "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"不動產區段行情成交資料庫"},
-        {"@type":"ListItem","position":2,"name":"全臺租金行情地圖與試算"},
-        {"@type":"ListItem","position":3,"name":"都市更新投資報酬分析"},
-        {"@type":"ListItem","position":4,"name":"營建土地開發流程百科"}
-      ]
-    },
-    {
-      "@type":"FAQPage",
-      "mainEntity":[
-        {"@type":"Question","name":"九回房地是什麼？","acceptedAnswer":{"@type":"Answer","text":"九回房地是整合全臺不動產知識的入口網站，收錄成交行情、租金地圖、都更投資報酬與土地開發流程等主題工具，供買賣、估價與投資參考。"}},
-        {"@type":"Question","name":"哪裡可以查不動產區段成交行情？","acceptedAnswer":{"@type":"Answer","text":"本站的不動產區段行情成交資料庫彙整各區段實價登錄與成交行情，可依縣市、行政區快速查詢參考行情。"}},
-        {"@type":"Question","name":"如何查全臺租金行情？","acceptedAnswer":{"@type":"Answer","text":"本站的全臺租金行情地圖與試算提供全台租金分布地圖與租金試算工具，可比較各區域租金水準。"}},
-        {"@type":"Question","name":"都市更新投資報酬怎麼算？","acceptedAnswer":{"@type":"Answer","text":"本站的都市更新投資報酬分析提供都更案投資報酬計算工具，協助評估都更與危老重建的可行性與報酬。"}},
-        {"@type":"Question","name":"土地開發流程有哪些？","acceptedAnswer":{"@type":"Answer","text":"本站的營建土地開發流程百科收錄土地開發全流程知識，涵蓋取得、規劃、施工到銷售等階段。"}}
-      ]
-    }
-  ]
-}
-</script>
 </head>
 <body>
 
-<header class="nav">
-  <div class="nav-in">
+<!-- ===== 頂欄 ===== -->
+<header class="topbar">
+  <div class="topbar-in">
     <a class="brand" href="#top">
-      <span class="mark"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 20V11l8-6 8 6v9h-5v-6h-6v6z" stroke="#c9a45a" stroke-width="1.6" stroke-linejoin="round"/><path d="M2 20h20" stroke="#c9a45a" stroke-width="1.6" stroke-linecap="round"/></svg></span>
-      <span class="t">九回房地<small>全臺不動產知識整合站</small></span>
+      <span class="mark"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M3 21V10l9-6 9 6v11h-6v-7h-6v7z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+      <span class="t">九回房地<small>REAL ESTATE · TAIWAN</small></span>
     </a>
     <nav class="nav-links">
-      <a href="#featured">精選專題</a>
-      <a href="#catalog">主題總覽</a>
+      <a href="#top">首頁</a>
+      <a href="#catalog">主題目錄</a>
+      <a href="#sitemap">網站地圖</a>
       <a href="#sibling">姊妹站</a>
+      <a href="https://9return.com/" class="nav-cta">前往主題站</a>
     </nav>
   </div>
 </header>
 
-<main id="top">
-<section class="hero">
-  <img src="assets/hero-portal.jpg" alt="九回房地・都市建築天際線與興建中的大樓" fetchpriority="high" decoding="async">
-  <div class="veil"></div>
+<!-- ===== 麵包屑 ===== -->
+<nav class="crumb" aria-label="breadcrumb">
+  <div class="crumb-in">
+    <a href="#top">首頁</a><span class="sep">›</span>
+    <span>主題總覽</span><span class="sep">›</span>
+    <b>全臺不動產知識整合站</b>
+  </div>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-veil"></div>
   <div class="hero-in">
-    <span class="eyebrow">REAL ESTATE · 九回房地 全臺知識整合</span>
-    <h1>一座入口，<br>走進<em>全臺不動產</em>的世界</h1>
-    <p class="sub">從建築圖鑑、買賣媒合、估價到都更危老與全球居住型態，我們把分散各處的不動產主題收攏為一個清晰可查的整合站。以分類為經、專題為緯，帶你快速定位所需要的知識與工具。</p>
-    <div class="meta">
-      <span class="chip">市場與交易</span>
-      <span class="chip">土地與都更</span>
-      <span class="chip">土地使用規劃</span>
-      <span class="chip">風險與透明</span>
-      <span class="chip">投資與特殊不動產</span>
-      <span class="chip">租賃與居住</span>
-      <span class="chip">稅務財務</span>
-      <span class="chip">產業與平台</span>
+    <span class="hero-eyebrow">不動產知識整合入口</span>
+    <h1>一座入口，走進全臺不動產的世界</h1>
+    <p>從實價行情、租金分布，到都更投資報酬與土地開發流程，將分散的不動產主題收攏為清晰可查的專業入口。</p>
+    <div class="hero-meta">
+      <span class="chip">不動產區段行情</span>
+      <span class="chip">全臺租金地圖</span>
+      <span class="chip">都更投資報酬</span>
+      <span class="chip">營建土地開發</span>
+      <span class="chip">不動產 × 財務試算</span>
     </div>
   </div>
 </section>
-<!-- ===== 精選專題 ===== -->
-<section class="block" id="featured">
+
+<!-- ===== 主題目錄 ===== -->
+<section class="section" id="catalog">
   <div class="wrap">
     <div class="sec-head">
-      <div class="k">FEATURED TOPICS · 合併精選</div>
-      <h2>精選專題，一次讀懂</h2>
-      <p>從眾多主題中挑出最常被需要的主題，將分散知識合併成可展開的專題頁，點開即讀。</p>
-    </div>
-    <div class="feat-grid">
-      <details class="feat" open>
-        <summary>
-          <span class="no">01</span>
-          <span class="fh"><h3>全臺特色公寓大廈建築圖鑑</h3><div class="d">認識台灣從透天到摩天住宅的建築型態與演變</div></span>
-          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <div class="fb">
-          <p>台灣住宅建築以「透天厝」與「集合住宅」兩大脈絡為主軸。早期城鎮以低層透天為主，隨著都市化與地價攀升，五層以下公寓、七樓以上電梯華廈、高層住宅大樓漸次取代，形成台灣特有的都市天際線。</p>
-          <ul>
-            <li>公寓：五樓以下、無電梯，公設比低、坪數實在，常見於都會舊市區。</li>
-            <li>電梯華廈／住宅大樓：七樓以上，配備電梯與管理，公設比約二至三成。</li>
-            <li>透天厝：獨門獨院、土地持分完整，中南部的居住主流。</li>
-            <li>國宅與社會住宅：由政府興辦，近年導入宜居與綠建築標準。</li>
-          </ul>
-          <p>近年趨勢是「去公設、重視格局」與「永續節能」並進：住宅設計轉向低公設、好採光的實用主義，並納入屋頂太陽能、節能設備等綠色元素。</p>
-          <span class="tag">延伸主題 · 公設比真相 · 永續住宅 · 建商交屋品質</span>
+      <div>
+        <div class="k">CATALOG · 主題目錄</div>
+        <h2>五大主題知識站</h2>
+        <p class="sub">點選任一主題卡片，開啟對應的專業工具與知識內容。</p>
+      </div>
+      <div class="sec-tools">
+        <div class="searchbox">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <input id="q" type="text" placeholder="搜尋主題…" autocomplete="off">
+          <div class="suggest" id="suggest"></div>
         </div>
-      </details>
-
-      <details class="feat">
-        <summary>
-          <span class="no">02</span>
-          <span class="fh"><h3>買賣流程與需求媒合</h3><div class="d">從議價到交屋，一次看懂交易全貌</div></span>
-          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <div class="fb">
-          <p>一宗不動產買賣，大致循「議價斡旋 → 簽約 → 用印 → 完稅 → 過戶 → 交屋」的主流程推進，每一階段各有應備文件與資金節點。買賣雙方若能先做好「需求媒合」——把預算、區域、坪數、屋齡、貸款條件等條件先對齊，可大幅降低後續斡旋與交屋的摩擦。</p>
-          <ul>
-            <li>斡旋議價：確認出價與底價的落差，決定是否進入簽約。</li>
-            <li>簽約用印：簽訂買賣契約，交付定金，進行契約審閱。</li>
-            <li>完稅過戶：申報契稅與土地增值稅，辦理所有權移轉登記。</li>
-            <li>交屋點交：核對屋況、水電、設備與謄本，完成尾款結算。</li>
-          </ul>
-          <p>以系統化媒合與流程追蹤，能讓買賣雙方與代書、房仲、銀行在同一張時間軸上協作，減少資訊落差與延誤。</p>
-          <span class="tag">延伸主題 · 房屋買賣流程時光軸 · 預售屋履約 · 代書收費</span>
-        </div>
-      </details>
-
-      <details class="feat">
-        <summary>
-          <span class="no">03</span>
-          <span class="fh"><h3>房地估價：三大方法入門</h3><div class="d">成本法、比較法、收益法怎麼選</div></span>
-          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <div class="fb">
-          <p>不動產估價以「成本法、比較法、收益法」三大方法為核心，由估價師依標的性質與用途擇定組合運用。近年AI估價工具與大數據實價登錄興起，讓一般人也能量化參考行情。</p>
-          <ul>
-            <li>比較法：以鄰近類似案例的成交價為基準，做區域、樓層、屋況等修正。</li>
-            <li>成本法：以重建／重置成本扣除折舊推估，適合特殊或缺乏交易案例的標的。</li>
-            <li>收益法：以淨收益資本化推估價值，適用出租型、商用與收益性不動產。</li>
-          </ul>
-          <p>估價結果是銀行核貸、稅務、都更權利變換與交易定價的共同語言；AI估價則提供即時、低門檻的參考區間，但最終仍建議以估價師專業報告為準。</p>
-          <span class="tag">延伸主題 · 估價師工具 · AI估價 · 銀行估價 · 正心估價</span>
-        </div>
-      </details>
-
-      <details class="feat">
-        <summary>
-          <span class="no">04</span>
-          <span class="fh"><h3>凶宅與事故屋：定義與查詢</h3><div class="d">法律揭露義務、影響與自保方法</div></span>
-          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <div class="fb">
-          <p>「凶宅」一般指專有部分曾發生兇殺、自殺、火災致死或其他非自然死亡事件的房屋。依實務見解，此類資訊屬「影響交易之重要事項」，仲介與賣方負有告知義務，若刻意隱瞞，買方得主張解約或減少價金。</p>
-          <ul>
-            <li>定義範圍：以「專有部分」為原則，公共區域爭議較大。</li>
-            <li>查詢管道：可透過事故屋資訊平台、在地派出所詢問、委託仲介查證、周邊鄰居探詢。</li>
-            <li>影響評估：同棟、同樓層、同社區的價差與流通性影響不一，需個案判斷。</li>
-          </ul>
-          <p>對自住者而言，「事後發現」的成本最高；簽約前多做一步查證、把事故揭露寫進契約與瑕疵擔保，是常見的自保方式。</p>
-          <span class="tag">延伸主題 · 凶宅地圖 · 事故屋揭露 · 瑕疵擔保</span>
-        </div>
-      </details>
-
-      <details class="feat">
-        <summary>
-          <span class="no">05</span>
-          <span class="fh"><h3>租金管制與全球居住型態</h3><div class="d">從各國政策到另類居住的趨勢</div></span>
-          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <div class="fb">
-          <p>租金是否該管制，是各國居住政策的長期爭論。德國採「租金剎車」與地域比較租金制度，紐約以租金穩定公寓控管漲幅，台灣則以市場機制為主、輔以租金補貼與包租代管社會住宅。管制強度不同，直接影響供給意願與租屋市場健全度。</p>
-          <ul>
-            <li>德國：租金漲幅設限，重視租客保護與長期穩定。</li>
-            <li>紐約：租金穩定公寓管控調漲幅度，保護舊有租客。</li>
-            <li>台灣：租賃專法上路後強化契約保障，搭配租金補貼與社宅。</li>
-          </ul>
-          <p>另一股趨勢是「另類居住」的興起：共居（Co-living）、青銀共居、微型住宅與短期租賃，回應單身化、高房價與人口老化，重新定義「家」的型態。</p>
-          <span class="tag">延伸主題 · 各國租金管制 · 另類居住 · 租金補貼 · 學生租屋</span>
-        </div>
-      </details>
-
-      <details class="feat">
-        <summary>
-          <span class="no">06</span>
-          <span class="fh"><h3>都更與危老重建</h3><div class="d">老屋如何透過都市更新翻新</div></span>
-          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <div class="fb">
-          <p>都市更新與危老重建是台灣老屋翻新的兩條主要路徑。都更著重「整體地區再發展」，流程包含劃定更新單元、事業概要、事業計畫、權利變換與拆遷興建；危老重建則採「快速通關」，需取得全體土地及合法建物所有權人同意，並符合屋齡與結構安全條件，可申請容積獎勵。</p>
-          <ul>
-            <li>都更：程序完整、整合難度高，但範圍大、可申請多項獎勵。</li>
-            <li>危老：門檻明確（屋齡逾三十年且非屬列管之高氯離子等），同意門檻高但時程快。</li>
-            <li>獎勵容積：兩者皆可申請，用以提升重建後價值與改建誘因。</li>
-          </ul>
-          <p>對老屋所有權人而言，關鍵是先做「基地與權屬盤點」、評估報酬與負擔，再決定走都更或危老路徑。</p>
-          <span class="tag">延伸主題 · 都更報酬分析 · 危老重建 · 區段徵收市地重劃 · 土地開發</span>
-        </div>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- ===== 主題總覽 ===== -->
-<section class="block" id="catalog" style="padding-top:24px">
-  <div class="wrap">
-    <div class="sec-head alt">
-      <div class="k">CATALOG · 主題總覽</div>
-      <h2>全站主題目錄</h2>
-    </div>
-    <div class="dir-bar">
-      <div class="filter" id="filters"></div>
-      <div class="search">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        <input id="q" type="text" placeholder="搜尋主題名稱…">
       </div>
     </div>
-    <div id="catalogBody"></div>
+    <div class="cards" id="cards"></div>
   </div>
 </section>
 
-<!-- ===== 常見問題 FAQ（AEO/GEO） ===== -->
-<section class="block" id="faq" style="padding-top:24px">
+<!-- ===== 網站地圖 ===== -->
+<section class="section" id="sitemap">
   <div class="wrap">
-    <div class="sec-head alt">
-      <div class="k">FAQ · 常見問題</div>
-      <h2>不動產常見問題</h2>
+    <div class="sec-head">
+      <div>
+        <div class="k">SITEMAP · 網站地圖</div>
+        <h2>全站導覽</h2>
+        <p class="sub">依分類快速定位，一站到位的知識入口。</p>
+      </div>
     </div>
-    <div class="faq-list">
-      <details class="feat" open>
-        <summary>
-          <span class="no">Q</span>
-          <span class="fh"><h3>九回房地是什麼？</h3></span>
-          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <div class="fb"><p>九回房地是整合全臺不動產知識的入口網站，收錄成交行情、租金地圖、都更投資報酬與土地開發流程等主題工具，供買賣、估價與投資參考。</p></div>
-      </details>
-      <details class="feat">
-        <summary>
-          <span class="no">Q</span>
-          <span class="fh"><h3>哪裡可以查不動產區段成交行情？</h3></span>
-          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <div class="fb"><p>本站的不動產區段行情成交資料庫彙整各區段實價登錄與成交行情，可依縣市、行政區快速查詢參考行情。</p></div>
-      </details>
-      <details class="feat">
-        <summary>
-          <span class="no">Q</span>
-          <span class="fh"><h3>如何查全臺租金行情？</h3></span>
-          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <div class="fb"><p>本站的全臺租金行情地圖與試算提供全台租金分布地圖與租金試算工具，可比較各區域租金水準。</p></div>
-      </details>
-      <details class="feat">
-        <summary>
-          <span class="no">Q</span>
-          <span class="fh"><h3>都市更新投資報酬怎麼算？</h3></span>
-          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <div class="fb"><p>本站的都市更新投資報酬分析提供都更案投資報酬計算工具，協助評估都更與危老重建的可行性與報酬。</p></div>
-      </details>
-      <details class="feat">
-        <summary>
-          <span class="no">Q</span>
-          <span class="fh"><h3>土地開發流程有哪些？</h3></span>
-          <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </summary>
-        <div class="fb"><p>本站的營建土地開發流程百科收錄土地開發全流程知識，涵蓋取得、規劃、施工到銷售等階段。</p></div>
-      </details>
-    </div>
+    <div class="sitemap" id="sitemapBody"></div>
   </div>
 </section>
 
-<!-- ===== 姊妹站 CTA ===== -->
-<section class="block" id="sibling" style="padding-top:24px">
+<!-- ===== 主題橫幅 ===== -->
+<section class="section">
   <div class="wrap">
-    <div class="sib">
-      <img src="assets/hero-sibling.jpg" alt="權狀、印章、鑰匙與都市計畫藍圖的靜物" loading="lazy" decoding="async">
-      <div class="veil"></div>
-      <div class="sib-in">
-        <div class="k">SIBLING SITE · 姊妹站</div>
-        <h2>姊妹站：不動產知識百科</h2>
-        <p>與整合站同系列的第二座獨立入口。從買賣流程時間軸、契約與應備文件、稅務費用，到交易風險檢查清單與名詞速查，一次收齊交易實務知識。</p>
-        <a class="btn" href="姊妹站_不動產知識百科.html">前往姊妹站
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="banner">
+      <div class="banner-bg"></div>
+      <div class="banner-veil"></div>
+      <div class="banner-in">
+        <div class="k">TAIWAN REAL ESTATE · 全臺不動產</div>
+        <h2>從行情到開發，一站掌握</h2>
+        <p>涵蓋實價行情、租金分布、都更投資、土地開發與專業試算五大面向，以清晰入口串起全臺不動產知識與工具。</p>
+        <a class="btn" href="#catalog">探索五大主題
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
     </div>
   </div>
 </section>
-</main>
 
+<!-- ===== 姊妹站 ===== -->
+<section class="section" id="sibling">
+  <div class="wrap">
+    <div class="sib">
+      <img src="assets/hero-sibling.webp" alt="姊妹站：不動產知識百科">
+      <div class="veil"></div>
+      <div class="sib-in">
+        <div class="k">SIBLING SITE · 姊妹站</div>
+        <h2>姊妹站：不動產知識百科</h2>
+        <p>從買賣流程時間軸、契約與應備文件、稅務費用，到交易風險檢查清單與名詞速查，一次收齊交易實務知識。</p>
+        <a class="btn" href="姊妹站_不動產知識百科.html">前往姊妹站
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
 <footer>
   <div class="foot-in">
-    <div class="ft">九回房地 · 全臺不動產知識整合站<br>以清單重建的主題整合入口，串聯分散的不動產知識與工具。本頁為資訊整理性質，內容請以各主管機關與專業機構為準。</div>
-    <div class="fl">
-      <a href="#featured">精選專題</a>
-      <a href="#catalog">主題總覽</a>
+    <div class="foot-brand">
+      <div class="t">九回房地</div>
+      <p>以專業視覺彙整全臺不動產知識與工具，串聯分散的行情、租金、都更與土地開發主題。</p>
+    </div>
+    <div class="foot-col">
+      <h4>主題</h4>
+      <div id="footLinks"></div>
+    </div>
+    <div class="foot-col">
+      <h4>導覽</h4>
+      <a href="#top">首頁</a>
+      <a href="#catalog">主題目錄</a>
+      <a href="#sitemap">網站地圖</a>
       <a href="#sibling">姊妹站</a>
     </div>
   </div>
+  <div class="foot-credit">
+    規劃設計開發：<b>張書欣</b>　·　Line：<b>331.today</b>　·　📱 0968-222201
+  </div>
 </footer>
+
+<!-- ===== 浮動 Dropdown ===== -->
+<div class="fdd" id="fdd">
+  <div class="fdd-panel" id="fddPanel">
+    <h4>目前位置</h4>
+    <nav class="fdd-crumb" id="fddCrumb">首頁 <span class="sep">›</span> <b>全臺不動產知識整合站</b></nav>
+    <h4>功能控制台</h4>
+    <div class="fdd-grid">
+      <button class="fdd-btn" onclick="fddBackTop()"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M12 19V5M6 11l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>回到頂部</button>
+      <button class="fdd-btn" onclick="fddPrint()"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M6 9V3h12v6M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v7H6z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>列印</button>
+      <button class="fdd-btn" onclick="fddFull()"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>全螢幕</button>
+      <button class="fdd-btn" onclick="fddRandom()"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"><path d="M4 6h4.5a3.5 3.5 0 0 1 0 7H4m0 0h4.5M4 13h4.5a3.5 3.5 0 0 1 0 7H4M20 6h-4.5a3.5 3.5 0 0 0 0 7H20m0 0h-4.5M20 13h-4.5a3.5 3.5 0 0 0 0 7H20" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>隨機主題</button>
+    </div>
+    <h4>站內導覽</h4>
+    <ul class="fdd-nav" id="fddNav"></ul>
+  </div>
+  <button class="fdd-fab" id="fddFab" aria-label="功能選單"><svg viewBox="0 0 24 24" width="26" height="26" fill="none"><circle cx="12" cy="12" r="3" fill="currentColor"/><circle cx="5" cy="12" r="2" fill="currentColor"/><circle cx="19" cy="12" r="2" fill="currentColor"/></svg></button>
+</div>
 
 <script>
-/* ---------- 目錄資料 ---------- */
-const CATS = ["市場與交易","土地都更與開發"];
-const ITEMS = [
-[0,"不動產區段行情成交資料庫","各區段實價登錄與成交行情查詢"],
-[0,"全臺租金行情地圖與試算","全台租金分布地圖與租金試算"],
-[1,"都市更新投資報酬分析","都更案投資報酬計算"],
-[1,"營建土地開發流程百科","土地開發全流程百科"]
+/* ===== 資料 ===== */
+var SITES = [
+  {cat:"試算工具", name:"九回算算網 · 不動產 × 財務管理試算", desc:"113 種專業試算工具：房貸、購屋、稅務、投資槓桿、儲蓄、退休、貸款、財務分析，每支皆可實際計算並附圖表。", img:"assets/card-recalc.svg", href:"recalc/", tags:["試算","房貸","財務","算算網","不動產"]},
+  {cat:"市場與交易", name:"不動產區段行情成交資料庫", desc:"各區段實價登錄與成交行情查詢，實價可視化、區域走勢、買賣方情報。", img:"assets/card-market.webp", href:"transaction-price-database/", tags:["行情","實價登錄","成交","區段"]},
+  {cat:"市場與交易", name:"全臺租金行情地圖與試算", desc:"全台租金分布地圖與租金試算工具，比較各區域租金水準與投報。", img:"assets/card-rent.webp", href:"rent-map-calculator/", tags:["租金","地圖","試算","行情"]},
+  {cat:"土地都更與開發", name:"都市更新投資報酬分析", desc:"都更案投資報酬計算工具，評估都更與危老重建的可行性與報酬。", img:"assets/card-urban.webp", href:"urban-renewal-roi-calculator/", tags:["都更","投資報酬","危老","試算"]},
+  {cat:"土地都更與開發", name:"營建土地開發流程百科", desc:"土地開發全流程知識，涵蓋取得、規劃、施工到銷售各階段。", img:"assets/card-land.webp", href:"land-development-handbook/", tags:["土地開發","營建","流程","百科"]}
 ];
 
-/* ---------- 子站對應（GitHub Pages 相對路徑） ---------- */
-const BASE = './';
-const FOLDERS = {
-"不動產區段行情成交資料庫":"transaction-price-database",
-"全臺租金行情地圖與試算":"rent-map-calculator",
-"都市更新投資報酬分析":"urban-renewal-roi-calculator",
-"營建土地開發流程百科":"land-development-handbook"
-};
-
-/* ---------- 渲染 ---------- */
-const filtersEl = document.getElementById('filters');
-const bodyEl = document.getElementById('catalogBody');
-const qEl = document.getElementById('q');
-let curCat = -1, curQ = '';
-
-function buildFilters(){
-  filtersEl.innerHTML = '<button class="fbtn on" data-c="-1">全部</button>' +
-    CATS.map((c,i)=>`<button class="fbtn" data-c="${i}">${c}</button>`).join('');
-  filtersEl.querySelectorAll('.fbtn').forEach(b=>b.addEventListener('click',()=>{
-    filtersEl.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('on'));
-    b.classList.add('on');
-    curCat = parseInt(b.dataset.c,10);
-    render();
-  }));
-}
-function render(){
-  const q = curQ.trim();
-  const shown = ITEMS.filter(it=>(curCat<0||it[0]===curCat) && (!q || it[1].includes(q) || it[2].includes(q)));
-  bodyEl.innerHTML='';
-  CATS.forEach((cname,ci)=>{
-    const list = shown.filter(it=>it[0]===ci);
-    if(curCat>=0){ if(ci===curCat && list.length){ bodyEl.innerHTML += catBlock(cname,list);} }
-    else if(list.length){ bodyEl.innerHTML += catBlock(cname,list); }
-  });
-  if(!shown.length){ bodyEl.innerHTML='<div class="empty">沒有符合條件的主题，請換個關鍵字試試。</div>'; }
-}
-function catBlock(cname,list){
-  const cards = list.map(it=>{
-    const fld = FOLDERS[it[1]];
-    const inner = `<span class="t">${it[1]}</span><span class="d">${it[2]}</span><span class="go">${fld?'開啟網站':'知識單元'}</span>`;
-    return fld
-      ? `<a class="card" href="${encodeURI(BASE+fld+'/index.html')}" target="_blank" rel="noopener">${inner}</a>`
-      : `<div class="card">${inner}</div>`;
+/* ===== 卡片渲染 ===== */
+var cardsEl=document.getElementById('cards');
+function thumbCls(i){return ['thumb-recalc','thumb-market','thumb-rent','thumb-urban','thumb-land'][i]||'thumb-market';}
+function renderCards(list){
+  cardsEl.innerHTML=list.map(function(s,i){
+    return '<a class="card" href="'+s.href+'" target="_blank" rel="noopener">'+
+      '<div class="thumb '+thumbCls(i)+'"><span class="cat">'+s.cat+'</span></div>'+
+      '<div class="body"><h3>'+s.name+'</h3><p>'+s.desc+'</p>'+
+      '<div class="foot"><span class="go">開啟主題站<svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="sub">九回房地</span></div></div></a>';
   }).join('');
-  return `<div class="cat-name">${cname}</div><div class="cards">${cards}</div>`;
 }
-qEl.addEventListener('input',e=>{ curQ=e.target.value; render(); });
+renderCards(SITES);
 
-buildFilters();
-render();
+/* ===== 搜尋建議 ===== */
+var qEl=document.getElementById('q'), suggest=document.getElementById('suggest');
+qEl.addEventListener('input',function(){
+  var v=qEl.value.trim().toLowerCase();
+  if(!v){suggest.classList.remove('open');return;}
+  var hit=SITES.filter(function(s){return (s.name+s.desc+s.tags.join('')).toLowerCase().indexOf(v)>-1;}).slice(0,6);
+  if(!hit.length){suggest.classList.remove('open');return;}
+  suggest.innerHTML=hit.map(function(s){return '<a href="'+s.href+'" target="_blank"><span class="ico">·</span>'+s.name+'</a>';}).join('');
+  suggest.classList.add('open');
+});
+document.addEventListener('click',function(e){if(!document.querySelector('.searchbox').contains(e.target)){suggest.classList.remove('open');}});
+
+/* ===== 網站地圖 ===== */
+var smBody=document.getElementById('sitemapBody');
+var groups={};
+SITES.forEach(function(s){ (groups[s.cat]=groups[s.cat]||[]).push(s); });
+smBody.innerHTML=Object.keys(groups).map(function(g){
+  return '<div class="sm-group"><h3><span class="dot"></span>'+g+'</h3><div class="sm-list">'+
+    groups[g].map(function(s){return '<a href="'+s.href+'" target="_blank"><span class="ic">·</span>'+s.name+'</a>';}).join('')+
+    '</div></div>';
+}).join('');
+
+/* ===== Footer 主題連結 ===== */
+document.getElementById('footLinks').innerHTML=SITES.map(function(s){return '<a href="'+s.href+'" target="_blank">'+s.name+'</a>';}).join('');
+
+/* ===== 浮動 Dropdown ===== */
+var fab=document.getElementById('fddFab'),panel=document.getElementById('fddPanel');
+fab.addEventListener('click',function(){fab.classList.toggle('open');panel.classList.toggle('open');});
+document.addEventListener('click',function(e){if(!document.getElementById('fdd').contains(e.target)){fab.classList.remove('open');panel.classList.remove('open');}});
+window.fddBackTop=function(){window.scrollTo({top:0,behavior:'smooth'});};
+window.fddPrint=function(){window.print();};
+window.fddFull=function(){if(document.fullscreenElement){document.exitFullscreen();}else{document.documentElement.requestFullscreen();}};
+window.fddRandom=function(){var a=document.querySelectorAll('#fddNav a');if(a.length){a[Math.floor(Math.random()*a.length)].click();}};
+var fnav=document.getElementById('fddNav');fnav.innerHTML='';
+SITES.forEach(function(s){var li=document.createElement('li'),a=document.createElement('a');a.href=s.href;a.textContent=s.name;li.appendChild(a);fnav.appendChild(li);});
 </script>
 
-<footer class="site-credit-bar-zhangshuxin" style="background:#2c2418;color:#f0e6d2;text-align:center;padding:10px 16px;font-size:13px;font-family:'Microsoft JhengHei',sans-serif;line-height:1.7;border-top:1px solid rgba(233,230,218,.1)">
-  規劃設計開發：<b style="color:#e0b56a">張書欣</b>　·　Line：<b style="color:#e0b56a">331.today</b>　·　📱 0968-222201
-</footer>
 </body>
 </html>

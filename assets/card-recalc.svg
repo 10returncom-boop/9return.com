@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2f4a35"/>
+      <stop offset="1" stop-color="#4a6b53"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fdfaf1"/>
+      <stop offset="1" stop-color="#efe7d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="1060" cy="80" r="210" fill="#ffffff" opacity="0.06"/>
+  <circle cx="60" cy="620" r="260" fill="#ffffff" opacity="0.05"/>
+  <!-- 計算機卡片 -->
+  <rect x="430" y="150" width="340" height="380" rx="30" fill="url(#card)" stroke="#d9c9a6" stroke-width="3"/>
+  <rect x="470" y="200" width="260" height="42" rx="10" fill="#2f4a35" opacity="0.92"/>
+  <text x="600" y="230" text-anchor="middle" font-family="'Noto Sans TC','Microsoft JhengHei',sans-serif" font-size="26" font-weight="700" fill="#f4efe2">113</text>
+  <!-- 按鍵網格 -->
+  <g>
+    <rect x="470" y="270" width="52" height="52" rx="10" fill="#3d5c44"/>
+    <rect x="536" y="270" width="52" height="52" rx="10" fill="#b08a4a"/>
+    <rect x="602" y="270" width="52" height="52" rx="10" fill="#3d5c44"/>
+    <rect x="668" y="270" width="52" height="52" rx="10" fill="#b08a4a"/>
+    <rect x="470" y="336" width="52" height="52" rx="10" fill="#3d5c44"/>
+    <rect x="536" y="336" width="52" height="52" rx="10" fill="#3d5c44"/>
+    <rect x="602" y="336" width="52" height="52" rx="10" fill="#3d5c44"/>
+    <rect x="668" y="336" width="52" height="52" rx="10" fill="#3d5c44"/>
+    <rect x="470" y="402" width="52" height="52" rx="10" fill="#3d5c44"/>
+    <rect x="536" y="402" width="52" height="52" rx="10" fill="#3d5c44"/>
+    <rect x="602" y="402" width="52" height="52" rx="10" fill="#3d5c44"/>
+    <rect x="668" y="402" width="52" height="52" rx="10" fill="#b08a4a"/>
+    <rect x="470" y="468" width="116" height="52" rx="10" fill="#2f4a35"/>
+    <rect x="602" y="468" width="118" height="52" rx="10" fill="#b08a4a"/>
+  </g>
+  <!-- 標題 -->
+  <text x="600" y="610" text-anchor="middle" font-family="'Noto Serif TC',serif" font-size="52" font-weight="900" fill="#f4efe2">九回算算網</text>
+  <text x="600" y="652" text-anchor="middle" font-family="'Noto Sans TC','Microsoft JhengHei',sans-serif" font-size="24" font-weight="500" fill="#d9c9a6">不動產 × 財務管理 · 專業試算</text>
+</svg>
