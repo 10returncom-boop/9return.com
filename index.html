@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
+    <meta property="og:url" content="https://9return.com/"/>
+    <meta property="og:locale" content="zh_TW"/>
+    <meta property="og:site_name" content="9return.com"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <link rel="canonical" href="https://9return.com/"/>
+    <meta name="theme-color" content="#14120e"/>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "9return.com", "url": "https://9return.com/", "description": "九回房地整合不動產區段行情成交資料庫、全臺租金行情地圖與試算、都市更新投資報酬分析、營建土地開發流程百科，以專業視覺彙整全臺不動產知識與工具。", "logo": "https://9return.com/assets/hero-portal.webp"}</script>
+  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>九回房地 · 全臺不動產知識整合站</title>
@@ -113,6 +121,7 @@ button{font-family:inherit;cursor:pointer}
 .thumb-land{background-image:url('assets/card-land.webp')}
 .thumb-recalc{background-image:url('assets/card-recalc.webp')}
 .thumb-arch{background-image:url('assets/arch.webp')}
+.thumb-taichung{background-image:url('taichung_landzone/images/zones_index_hero.jpg')}
 .card .cat{position:absolute;top:12px;left:12px;z-index:2;background:rgba(255,255,255,.9);backdrop-filter:blur(6px);color:#2f3e2e;font-size:11px;font-weight:700;letter-spacing:.08em;padding:5px 11px;border-radius:20px;box-shadow:0 2px 8px rgba(0,0,0,.14)}
 .card .no{position:absolute;top:12px;right:12px;z-index:2;background:linear-gradient(135deg,#b08a4a,#8a5a2e);color:#fff;font-size:12px;font-weight:800;padding:5px 12px;border-radius:20px;box-shadow:0 2px 8px rgba(0,0,0,.24);letter-spacing:.03em}
 .card .body{position:relative;padding:16px 20px 18px;display:flex;flex-direction:column;gap:8px;flex:1;background:#fff}
@@ -257,6 +266,7 @@ p,li,td,th,h1,h2,h3,h4{overflow-wrap:break-word}
       <ul class="nav-dd-menu" id="navDDmenu" role="menu" aria-label="主選單">
         <li><a href="recalc/">九回算算網</a></li>
         <li><a href="architecture-atlas/">世界建築史</a></li>
+        <li><a href="taichung_landzone/">台中重劃區</a></li>
         <li><a href="姊妹站_不動產知識百科.html">不動產知識百科</a></li>
         <li><a href="rent-map-calculator/">租屋地圖</a></li>
         <li><a href="urban-renewal-roi-calculator/">都市更新</a></li>
@@ -299,7 +309,7 @@ p,li,td,th,h1,h2,h3,h4{overflow-wrap:break-word}
     <div class="sec-head">
       <div>
         <div class="k">CATALOG · 主題目錄</div>
-        <h2>六大主題站</h2>
+        <h2>七大主題站</h2>
         <p class="sub">點選任一主題卡片，開啟對應的專業工具與知識內容。</p>
       </div>
       <div class="sec-tools">
@@ -348,9 +358,7 @@ p,li,td,th,h1,h2,h3,h4{overflow-wrap:break-word}
       <a href="#sibling">不動產知識百科</a>
     </div>
   </div>
-  <div class="foot-credit">
-    規劃設計開發：<b>張書欣</b>　·　Line：<b>331.today</b>　·　📱 0968-222201
-  </div>
+  <div class="foot-credit">規劃 | 設計 | 開發 | 整合行銷 : 舒安境工作室 /張書欣 Line: 331.today Tel: 0968-222201 <a href="mailto:10return.com@gmail.com">10return.com@gmail.com</a></div>
 </footer>
 
 <!-- ===== 浮動 Dropdown ===== -->
@@ -376,6 +384,7 @@ p,li,td,th,h1,h2,h3,h4{overflow-wrap:break-word}
 var SITES = [
   {no:1, cat:"土地都更與開發", name:"營建土地開發流程百科", desc:"土地開發全流程知識，涵蓋取得、規劃、施工到銷售各階段。", cls:"thumb-land", href:"land-development-handbook/", tags:["土地開發","營建","流程","百科"]},
   {no:2, cat:"建築", name:"世界建築史 · Architecture Atlas", desc:"100 篇專業內文、30 種建築風格、60 大功能，跨越七大區域、三十種風格解讀人類最偉大的造物。", cls:"thumb-arch", href:"architecture-atlas/", tags:["建築","世界建築史","風格","文明"]},
+  {cat:"土地都更與開發", name:"台中重劃區與建案指南 · Taichung Land Zone", desc:"台中 10 行政區、22 個主要重劃區、58 個代表性新建案，重劃開發方式、歷史、交通機能與房市觀察一站看懂。", cls:"thumb-taichung", href:"taichung_landzone/", tags:["台中","重劃區","建案","土地分區","開發"]},
   {cat:"試算工具", name:"九回算算網 · 不動產 × 財務管理試算", desc:"113 種專業試算工具：房貸、購屋、稅務、投資槓桿、儲蓄、退休、貸款、財務分析，每支皆可實際計算並附圖表。", cls:"thumb-recalc", href:"recalc/", tags:["試算","房貸","財務","算算網","不動產"]},
   {cat:"市場與交易", name:"不動產區段行情成交資料庫", desc:"各區段實價登錄與成交行情查詢，實價可視化、區域走勢、買賣方情報。", cls:"thumb-market", href:"transaction-price-database/", tags:["行情","實價登錄","成交","區段"]},
   {cat:"市場與交易", name:"全臺租金行情地圖與試算", desc:"全台租金分布地圖與租金試算工具，比較各區域租金水準與投報。", cls:"thumb-rent", href:"rent-map-calculator/", tags:["租金","地圖","試算","行情"]},
@@ -460,6 +469,7 @@ SITES.forEach(function(s){var li=document.createElement('li'),a=document.createE
     <div class="fn-title">全站主題</div>
     <a data-t="recalc/">九回算算網</a>
     <a data-t="architecture-atlas/">世界建築史</a>
+    <a data-t="taichung_landzone/">台中重劃區</a>
     <a data-t="姊妹站_不動產知識百科.html">不動產知識百科</a>
     <a data-t="rent-map-calculator/">租屋地圖</a>
     <a data-t="urban-renewal-roi-calculator/">都市更新</a>

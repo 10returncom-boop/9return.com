@@ -1,0 +1,83 @@
+[
+  {
+    "id": "taichung_unit14_zone",
+    "url": "zones/taichung_unit14_zone.html",
+    "district": "beitun",
+    "districtLabel": "北屯區",
+    "title": "十四期重劃區",
+    "h1": "十四期重劃區（美和庄）",
+    "dev": "公辦市地重劃",
+    "status": "發展中",
+    "tags": [
+      "洲際棒球場",
+      "漢神洲際",
+      "台中巨蛋",
+      "新興重劃區"
+    ],
+    "desc": "十四期（美和庄）是台中近40年最大的公辦市地重劃區，約403.89公頃，擁有洲際棒球場、2026年開幕的漢神洲際購物廣場與目標2030年完工的台中巨蛋，是北台中新興發展熱區。",
+    "keywords": [
+      "十四期重劃區",
+      "美和庄",
+      "洲際棒球場",
+      "漢神洲際",
+      "台中巨蛋",
+      "北屯重劃區"
+    ],
+    "img": "unit14_zone_hero.jpg",
+    "area": "約403.89公頃"
+  },
+  {
+    "id": "taichung_phase11_zone",
+    "url": "zones/taichung_phase11_zone.html",
+    "district": "beitun",
+    "districtLabel": "北屯區",
+    "title": "十一期重劃區",
+    "h1": "十一期重劃區（崇德・昌平商圈）",
+    "dev": "公辦市地重劃",
+    "status": "發展成熟",
+    "tags": [
+      "小天母",
+      "崇德商圈",
+      "八二三紀念公園",
+      "學區宅"
+    ],
+    "desc": "十一期於民國82年發布公辦市地重劃，約141.02公頃，範圍涵蓋北屯崇德、昌平商圈，有「小天母」之稱，擁有八二三紀念公園、馬禮遜與衛道等學區，並鄰捷運文心崇德站與台鐵松竹站。",
+    "keywords": [
+      "十一期重劃區",
+      "崇德商圈",
+      "昌平商圈",
+      "小天母",
+      "八二三紀念公園",
+      "北屯"
+    ],
+    "img": "phase11_zone_hero.jpg",
+    "area": "約141.02公頃"
+  },
+  {
+    "id": "taichung_beitun_mrt_area",
+    "url": "zones/taichung_beitun_mrt_area.html",
+    "district": "beitun",
+    "districtLabel": "北屯區",
+    "title": "北屯機捷特區",
+    "h1": "北屯機捷特區",
+    "dev": "區段徵收",
+    "status": "發展中",
+    "tags": [
+      "捷運綠線",
+      "北屯機廠",
+      "Costco",
+      "軌道導向"
+    ],
+    "desc": "北屯機捷特區配合台中捷運綠線北屯機廠、北屯總站G0與舊社站G3，於民國100年以區段徵收開發，約103.43公頃，擁有三座捷運站、兩座台鐵站、Costco好市多與台74線匝道，是北台中首購熱區。",
+    "keywords": [
+      "北屯機捷特區",
+      "北屯機廠",
+      "台中捷運綠線",
+      "北屯總站",
+      "舊社站",
+      "Costco北屯"
+    ],
+    "img": "beitun_mrt_area_hero.jpg",
+    "area": "約103.43公頃"
+  }
+]

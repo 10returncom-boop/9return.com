@@ -1,0 +1,54 @@
+[
+  {
+    "id": "shalu_kunyue_muguangdi",
+    "url": "projects/shalu_kunyue_muguangdi.html",
+    "zone": "taichung_shalu_area", "zoneLabel": "沙鹿重劃區",
+    "district": "shalu", "districtLabel": "沙鹿區",
+    "title": "坤悅沐光邸｜沙鹿新光田特區預售華廈建案解析：基地、房型與行情",
+    "h1": "坤悅沐光邸",
+    "builder": "坤悅建設", "status": "興建中",
+    "tags": ["沙鹿", "預售屋", "電梯華廈"],
+    "desc": "坤悅建設沙鹿正德路預售電梯華廈，2–3房、26.87–34.34坪，總價1018萬/戶起，預計2026下半年完工。",
+    "keywords": ["坤悅沐光邸", "沙鹿建案", "新光田特區", "坤悅建設"],
+    "img": "shalu_kunyue_muguangdi_hero.jpg", "price": "總價1018萬/戶起", "year": "預計2026下半年"
+  },
+  {
+    "id": "shalu_shidai_yijing",
+    "url": "projects/shalu_shidai_yijing.html",
+    "zone": "taichung_shalu_area", "zoneLabel": "沙鹿重劃區",
+    "district": "shalu", "districtLabel": "沙鹿區",
+    "title": "時代一景｜沙鹿新光田特區自立路大樓建案解析：基地、房型與行情",
+    "h1": "時代一景",
+    "builder": "待補", "status": "已落成",
+    "tags": ["沙鹿", "住宅大樓", "新光田特區"],
+    "desc": "沙鹿自立路社區大樓，地上7層地下2層、2–3房、28–34.2坪、約132戶、基地約1500坪。",
+    "keywords": ["時代一景", "沙鹿建案", "自立路", "新光田特區"],
+    "img": "shalu_shidai_yijing_hero.jpg", "price": "待補", "year": "待補"
+  },
+  {
+    "id": "fengyuan_kunyue_junpin",
+    "url": "projects/fengyuan_kunyue_junpin.html",
+    "zone": "taichung_fengyuan_area", "zoneLabel": "豐原重劃區",
+    "district": "fengyuan", "districtLabel": "豐原區",
+    "title": "坤悅君品｜豐原豐南保康路指標住宅大樓解析：基地、房型與成交行情",
+    "h1": "坤悅君品",
+    "builder": "坤悅建設", "status": "已落成",
+    "tags": ["豐原", "住宅大樓", "豐南生活圈"],
+    "desc": "坤悅建設豐原豐南保康路指標大樓，110戶、屋齡約10年，近1年成交均價約36.5萬/坪、188筆成交。",
+    "keywords": ["坤悅君品", "豐原建案", "豐南生活圈", "保康路"],
+    "img": "fengyuan_kunyue_junpin_hero.jpg", "price": "約36.5萬/坪", "year": "屋齡約10年"
+  },
+  {
+    "id": "fengyuan_dalai_fengzuan",
+    "url": "projects/fengyuan_dalai_fengzuan.html",
+    "zone": "taichung_fengyuan_area", "zoneLabel": "豐原重劃區",
+    "district": "fengyuan", "districtLabel": "豐原區",
+    "title": "大錸豐鑽｜豐原豐田路巷內社區大樓解析：成交行情與地段價差",
+    "h1": "大錸豐鑽",
+    "builder": "待補", "status": "已落成",
+    "tags": ["豐原", "住宅大樓", "豐南生活圈"],
+    "desc": "豐原豐田路巷內社區大樓，成交均價約20.5萬/坪、21筆成交，對照豐南生活圈約35.4萬/坪看地段價差。",
+    "keywords": ["大錸豐鑽", "豐原建案", "豐田路", "豐南生活圈"],
+    "img": "fengyuan_dalai_fengzuan_hero.jpg", "price": "約20.5萬/坪", "year": "待補"
+  }
+]

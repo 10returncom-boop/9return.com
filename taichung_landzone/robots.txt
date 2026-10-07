@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://example.com/taichung-redevelopment-guide/sitemap.xml

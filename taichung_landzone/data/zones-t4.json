@@ -1,0 +1,38 @@
+[
+  {
+    "id": "taichung_phase9_zone",
+    "url": "zones/taichung_phase9_zone.html",
+    "district": "east", "districtLabel": "東區",
+    "title": "台中九期重劃區全解析｜旱溪市地重劃、低密度透天與東區生活圈",
+    "h1": "九期重劃區（旱溪）",
+    "dev": "公辦市地重劃", "status": "已開發成熟",
+    "tags": ["低密度", "綠地公園", "水岸住宅"],
+    "desc": "九期旱溪市地重劃位於台中市東區，約120公頃、1994年完成，第一種住宅區低密度透天為主，旱溪與大里溪流經。",
+    "keywords": ["九期重劃區", "旱溪市地重劃", "東區重劃", "九期"],
+    "img": "phase9_hanxi_villa_zone.jpg", "area": "約 120 公頃"
+  },
+  {
+    "id": "taichung_phase10_zone",
+    "url": "zones/taichung_phase10_zone.html",
+    "district": "beitun", "districtLabel": "北屯區",
+    "title": "台中十期重劃區全解析｜軍功水景市地重劃、太原路綠園道與大坑山景",
+    "h1": "十期重劃區（軍功水景）",
+    "dev": "公辦市地重劃", "status": "已開發成熟",
+    "tags": ["低密度", "綠地公園", "運動休閒"],
+    "desc": "十期軍功水景市地重劃位於台中市北屯區，約221公頃、2000年完成，50米太原路綠園道與大坑風景區為特色。",
+    "keywords": ["十期重劃區", "軍功水景", "軍功市地重劃", "北屯重劃", "太原路綠園道"],
+    "img": "phase10_jungong_hillside.jpg", "area": "約 221 公頃"
+  },
+  {
+    "id": "taichung_unit8_zone",
+    "url": "zones/taichung_unit8_zone.html",
+    "district": "beitun", "districtLabel": "北屯區",
+    "title": "台中單元八重劃區全解析｜水湳東側自辦住宅區、敦化路生活圈與房價",
+    "h1": "單元八重劃區",
+    "dev": "自辦市地重劃", "status": "發展中",
+    "tags": ["綠地公園", "生態宜居", "市郊新城"],
+    "desc": "單元八是水湳經貿園區東側的自辦市地重劃，隔經貿路與文商段相望，生活機能發展最快，敦化路南北側房價約67至80萬/坪；實際跨西屯與北屯交界。",
+    "keywords": ["單元八重劃區", "單元八", "水湳單元八", "經貿路重劃", "敦化路重劃"],
+    "img": "unit8_shuinan_residential.jpg", "area": "待補"
+  }
+]

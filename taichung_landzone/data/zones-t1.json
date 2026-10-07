@@ -1,0 +1,38 @@
+[
+  {
+    "id": "taichung_qiqi_district",
+    "url": "zones/taichung_qiqi_district.html",
+    "district": "xitun", "districtLabel": "西屯區",
+    "title": "台中七期重劃區全解析｜豪宅聚落、百貨商圈與市政核心",
+    "h1": "七期重劃區（台中市）",
+    "dev": "自辦市地重劃", "status": "已開發成熟",
+    "tags": ["商業核心", "豪宅聚落", "百貨商圈", "捷運宅"],
+    "desc": "台中新市政中心與豪宅聚落，新光三越、大遠百、國家歌劇院與捷運綠線串聯的商業軸心。",
+    "keywords": ["七期重劃區", "七期", "新市政中心", "台中豪宅", "惠來重劃"],
+    "img": "qiqi_district_hero.jpg", "area": "約 353 公頃"
+  },
+  {
+    "id": "taichung_shuinan_park",
+    "url": "zones/taichung_shuinan_park.html",
+    "district": "xitun", "districtLabel": "西屯區",
+    "title": "台中水湳經貿園區全解析｜中央公園、會展與轉運新核心",
+    "h1": "水湳經貿園區（台中市）",
+    "dev": "區段徵收", "status": "發展中",
+    "tags": ["生態公園", "會展文化", "新市政核心", "轉運接駁"],
+    "desc": "水湳機場舊址改建的智慧城，約 67 公頃中央生態公園、國際會展中心與水湳轉運中心。",
+    "keywords": ["水湳經貿園區", "水湳", "中央公園", "台中國際會展中心", "水湳轉運中心"],
+    "img": "shuinan_park_hero.jpg", "area": "約 254 公頃"
+  },
+  {
+    "id": "taichung_phase12_zone",
+    "url": "zones/taichung_phase12_zone.html",
+    "district": "xitun", "districtLabel": "西屯區",
+    "title": "台中十二期重劃區全解析｜西屯住宅重劃、緊鄰七期與水湳",
+    "h1": "十二期重劃區（台中市）",
+    "dev": "市地重劃", "status": "已大量進駐",
+    "tags": ["住宅重劃", "新古屋聚落", "雙商圈生活圈", "中科通勤"],
+    "desc": "西屯區介於七期與水湳之間的住宅型重劃區，被西屯路分成北十二期與南十二期，享雙商圈外溢。",
+    "keywords": ["十二期重劃區", "台中十二期", "西屯十二期", "北十二期", "南十二期"],
+    "img": "phase12_zone_hero.jpg", "area": "待補"
+  }
+]

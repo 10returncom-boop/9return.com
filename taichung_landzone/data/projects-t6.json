@@ -1,0 +1,232 @@
+[
+  {
+    "id": "wuri_dengyang_futurehills",
+    "url": "projects/wuri_dengyang_futurehills.html",
+    "zone": "taichung_wuri_hsr_area",
+    "zoneLabel": "烏日高鐵特區",
+    "district": "wuri",
+    "builder": "登陽建設",
+    "status": "成屋",
+    "tags": [
+      "新成屋",
+      "高鐵宅",
+      "三鐵共構",
+      "烏日"
+    ],
+    "desc": "登陽未來之丘位於烏日高鐵東路397號，登陽建設推出，約414戶、26–45坪2–3房，新成屋，近一年成交均價約45.74萬元/坪、歷史最高約60.46萬元/坪，是烏日高鐵特區少數已進入成屋市場交易的指標大樓。",
+    "keywords": [
+      "登陽未來之丘",
+      "登陽建設",
+      "烏日高鐵特區",
+      "高鐵東路",
+      "新成屋"
+    ],
+    "img": "wuri_dengyang_futurehills_hero.jpg",
+    "price": "成交均價約45.74萬元/坪",
+    "year": "新成屋（約0年）"
+  },
+  {
+    "id": "wuri_dahua_zongheng",
+    "url": "projects/wuri_dahua_zongheng.html",
+    "zone": "taichung_wuri_hsr_area",
+    "zoneLabel": "烏日高鐵特區",
+    "district": "wuri",
+    "builder": "大華建設",
+    "status": "預售",
+    "tags": [
+      "站前大案",
+      "千戶社區",
+      "三鐵共構",
+      "烏日"
+    ],
+    "desc": "大華縱橫位於烏日高鐵台中站站前，大華建設推出，約1153戶、22–43坪，與達麗白天鵝合計總銷約340億元，近一年成交均價約55.45萬元/坪、歷史最高約60.18萬元/坪，預計2026年第三季完工。",
+    "keywords": [
+      "大華縱橫",
+      "大華建設",
+      "烏日高鐵特區",
+      "高鐵站前",
+      "預售屋"
+    ],
+    "img": "wuri_dahua_zongheng_hero.jpg",
+    "price": "成交均價約55.45萬元/坪",
+    "year": "預計2026年第三季完工"
+  },
+  {
+    "id": "wuri_dali_whiteswan",
+    "url": "projects/wuri_dali_whiteswan.html",
+    "zone": "taichung_wuri_hsr_area",
+    "zoneLabel": "烏日高鐵特區",
+    "district": "wuri",
+    "builder": "達麗建設",
+    "status": "預售",
+    "tags": [
+      "站前大案",
+      "千戶社區",
+      "高單價",
+      "烏日"
+    ],
+    "desc": "達麗白天鵝位於烏日高鐵特區，達麗建設推出，約1229戶、22–46坪，與大華縱橫合計總銷約340億元，近一年成交均價約58.71萬元/坪、歷史最高約62.28萬元/坪，為烏日單價前段班，預計2027年第三季完工。",
+    "keywords": [
+      "達麗白天鵝",
+      "達麗建設",
+      "烏日高鐵特區",
+      "預售屋",
+      "高單價"
+    ],
+    "img": "wuri_dali_whiteswan_hero.jpg",
+    "price": "成交均價約58.71萬元/坪",
+    "year": "預計2027年第三季完工"
+  },
+  {
+    "id": "wuri_sakura_dazan",
+    "url": "projects/wuri_sakura_dazan.html",
+    "zone": "taichung_wuri_hsr_area",
+    "zoneLabel": "烏日高鐵特區",
+    "district": "wuri",
+    "builder": "櫻花建設",
+    "status": "預售",
+    "tags": [
+      "中庭社區",
+      "高鐵宅",
+      "小坪數",
+      "烏日"
+    ],
+    "desc": "櫻花大綻位於烏日高鐵特區，櫻花建設推出，約428戶、19–48坪，走精緻中庭路線，近一年成交均價約46.38萬元/坪、歷史最高約49.57萬元/坪，是相對務實的高鐵特區進門票，預計2028年第一季完工。",
+    "keywords": [
+      "櫻花大綻",
+      "櫻花建設",
+      "烏日高鐵特區",
+      "預售屋",
+      "首購"
+    ],
+    "img": "wuri_sakura_dazan_hero.jpg",
+    "price": "成交均價約46.38萬元/坪",
+    "year": "預計2028年第一季完工"
+  },
+  {
+    "id": "wuri_menghuancheng",
+    "url": "projects/wuri_menghuancheng.html",
+    "zone": "taichung_wuri_hsr_area",
+    "zoneLabel": "烏日高鐵特區",
+    "district": "wuri",
+    "builder": "待補",
+    "status": "成屋",
+    "tags": [
+      "千戶社區",
+      "成屋",
+      "烏日"
+    ],
+    "desc": "夢幻誠位於烏日高鐵特區，約1674戶大型成屋造鎮社區、22–34坪，屋齡約3年，已進入二手市場流通，近一年成交均價約44.88萬元/坪、歷史最高約55.55萬元/坪；建商資訊待補。",
+    "keywords": [
+      "夢幻誠",
+      "烏日高鐵特區",
+      "千戶大社區",
+      "成屋",
+      "實價登錄"
+    ],
+    "img": "wuri_menghuancheng_hero.jpg",
+    "price": "成交均價約44.88萬元/坪",
+    "year": "成屋，屋齡約3年"
+  },
+  {
+    "id": "taiping_fuyu_ledele",
+    "url": "projects/taiping_fuyu_ledele.html",
+    "zone": "taichung_taiping_xinguang_area",
+    "zoneLabel": "太平新光特區",
+    "district": "taiping",
+    "builder": "富宇建設",
+    "status": "成屋",
+    "tags": [
+      "學區宅",
+      "大坪數",
+      "成屋",
+      "太平"
+    ],
+    "desc": "富宇讀樂樂位於太平區新福路876號，富宇建設推出，約164戶、37–72坪3–4房，平面車位約243個，緊鄰新光國小與新光國中9年學區，近約成交均價約35–39萬元/坪（不同平台口徑），屋齡約6年。",
+    "keywords": [
+      "富宇讀樂樂",
+      "富宇建設",
+      "太平新光特區",
+      "新光學區",
+      "新福路"
+    ],
+    "img": "taiping_fuyu_ledele_hero.jpg",
+    "price": "成交均價約35–39萬元/坪",
+    "year": "成屋，屋齡約6年"
+  },
+  {
+    "id": "taiping_shinguang_heyuan",
+    "url": "projects/taiping_shinguang_heyuan.html",
+    "zone": "taichung_taiping_xinguang_area",
+    "zoneLabel": "太平新光特區",
+    "district": "taiping",
+    "builder": "明產建設",
+    "status": "成屋",
+    "tags": [
+      "店住大樓",
+      "成屋",
+      "太平"
+    ],
+    "desc": "新光和園位於太平區祥順路一段，明產建設推出，基地約900坪電梯店住大樓、房型29.5–38坪、公設比約29.4%；本案成交均價待補，區域2025年後大樓行情約29萬元/坪僅供參考。",
+    "keywords": [
+      "新光和園",
+      "明產建設",
+      "太平新光特區",
+      "祥順路",
+      "店住大樓"
+    ],
+    "img": "taiping_shinguang_heyuan_hero.jpg",
+    "price": "待補",
+    "year": "成屋"
+  },
+  {
+    "id": "dali_yunjiang_kanghuo",
+    "url": "projects/dali_yunjiang_kanghuo.html",
+    "zone": "taichung_dali_area",
+    "zoneLabel": "大里重劃區",
+    "district": "dali",
+    "builder": "允將建設",
+    "status": "成屋",
+    "tags": [
+      "興大生活圈",
+      "成屋",
+      "大里"
+    ],
+    "desc": "允將康活位於大里區祥興路529號興大旁，允將建設推出，約176戶，平面車位約103個＋機械約88個，屋齡約7年，近一年成交均價約40.0萬元/坪、累計約248筆實價成交。",
+    "keywords": [
+      "允將康活",
+      "允將建設",
+      "大里重劃區",
+      "興大",
+      "祥興路"
+    ],
+    "img": "dali_yunjiang_kanghuo_hero.jpg",
+    "price": "成交均價約40.0萬元/坪",
+    "year": "成屋，屋齡約7年"
+  },
+  {
+    "id": "dali_shuntian_dadi",
+    "url": "projects/dali_shuntian_dadi.html",
+    "zone": "taichung_dali_area",
+    "zoneLabel": "大里重劃區",
+    "district": "dali",
+    "builder": "待補",
+    "status": "成屋",
+    "tags": [
+      "成熟社區",
+      "低總價",
+      "大里"
+    ],
+    "desc": "順天大邸位於大里區中興路二段151號，大里舊市區成熟電梯大廈社區，成交均價約20.2萬元/坪、累計約82筆實價成交；建商、戶數與坪數帶待補。",
+    "keywords": [
+      "順天大邸",
+      "大里重劃區",
+      "中興路二段",
+      "成熟社區",
+      "低總價"
+    ],
+    "img": "dali_shuntian_dadi_hero.jpg",
+    "price": "成交均價約20.2萬元/坪",
+    "year": "成熟社區（待補）"
+  }
+]

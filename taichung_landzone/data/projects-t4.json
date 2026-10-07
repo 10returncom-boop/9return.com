@@ -1,0 +1,168 @@
+[
+  {
+    "id": "phase9_xinzhonghui",
+    "url": "projects/phase9_xinzhonghui.html",
+    "zone": "taichung_phase9_zone",
+    "zoneLabel": "九期重劃區",
+    "district": "east",
+    "districtLabel": "東區",
+    "title": "新中匯｜勝麗建設在台中九期旱溪的電梯大樓解析（基地/房型/成交）",
+    "h1": "新中匯",
+    "builder": "勝麗建設",
+    "status": "已完工",
+    "tags": [
+      "電梯大樓",
+      "成熟機能"
+    ],
+    "desc": "勝麗建設在東區旱溪市地重劃內的地上15層電梯大樓，119戶、建坪37~52坪3~4房，2017年完工。",
+    "keywords": [
+      "新中匯",
+      "勝麗建設",
+      "九期重劃",
+      "東區旱溪",
+      "台中電梯大樓"
+    ],
+    "img": "phase9_xinzhonghui_tower.jpg",
+    "price": "近期約33~35.5萬/坪（全期均價約17.6萬/坪）",
+    "year": "2017-07",
+    "county": "east",
+    "countyLabel": "東區"
+  },
+  {
+    "id": "phase9_leye_shuangxin",
+    "url": "projects/phase9_leye_shuangxin.html",
+    "zone": "taichung_phase9_zone",
+    "zoneLabel": "九期重劃區",
+    "district": "east",
+    "districtLabel": "東區",
+    "title": "樂業雙心｜敦陽開發在台中九期旱溪的電梯別墅解析（基地/地坪）",
+    "h1": "樂業雙心",
+    "builder": "敦陽開發",
+    "status": "成屋",
+    "tags": [
+      "電梯別墅",
+      "低密度"
+    ],
+    "desc": "敦陽開發在東區旱溪街19巷的微型電梯別墅，僅2戶、地上6層、地坪53~58坪、建坪154~159坪。",
+    "keywords": [
+      "樂業雙心",
+      "敦陽開發",
+      "九期重劃",
+      "東區旱溪",
+      "電梯別墅"
+    ],
+    "img": "phase9_leye_villa.jpg",
+    "price": "待補",
+    "year": "待補",
+    "county": "east",
+    "countyLabel": "東區"
+  },
+  {
+    "id": "phase10_jiafu_qianyi",
+    "url": "projects/phase10_jiafu_qianyi.html",
+    "zone": "taichung_phase10_zone",
+    "zoneLabel": "十期重劃區",
+    "district": "beitun",
+    "districtLabel": "北屯區",
+    "title": "佳福謙邑｜佳福建設在台中十期軍功的三棟式社區大樓解析",
+    "h1": "佳福謙邑",
+    "builder": "佳福建設",
+    "status": "已完銷",
+    "tags": [
+      "電梯大樓",
+      "綠地公園"
+    ],
+    "desc": "佳福建設在北屯新十期軍福十三路的三棟式社區大樓，基地約1064坪、199戶、建坪43~60坪3~4房，寶之林公園旁。",
+    "keywords": [
+      "佳福謙邑",
+      "佳福建設",
+      "十期重劃",
+      "軍功市地重劃",
+      "三棟式社區"
+    ],
+    "img": "phase10_jiafu_community.jpg",
+    "price": "成交單價待補（車位平面約110萬、機械約55萬起）",
+    "year": "待補"
+  },
+  {
+    "id": "phase10_yousong_qianjing",
+    "url": "projects/phase10_yousong_qianjing.html",
+    "zone": "taichung_phase10_zone",
+    "zoneLabel": "十期重劃區",
+    "district": "beitun",
+    "districtLabel": "北屯區",
+    "title": "佑崧千境｜佑崧營造在台中十期太原路綠園道的電梯別墅解析",
+    "h1": "佑崧千境",
+    "builder": "佑崧營造",
+    "status": "已完工",
+    "tags": [
+      "電梯別墅",
+      "運動休閒"
+    ],
+    "desc": "佑崧營造在新十期太原路綠園道、大坑第一排的電梯別墅聚落，基地約1551坪、51戶、建坪54~116坪。",
+    "keywords": [
+      "佑崧千境",
+      "佑崧營造",
+      "十期重劃",
+      "太原路綠園道",
+      "電梯別墅"
+    ],
+    "img": "phase10_yousong_villa.jpg",
+    "price": "總價約1388萬~1988萬起",
+    "year": "待補"
+  },
+  {
+    "id": "unit8_huaku_dinghui",
+    "url": "projects/unit8_huaku_dinghui.html",
+    "zone": "taichung_unit8_zone",
+    "zoneLabel": "單元八",
+    "district": "beitun",
+    "districtLabel": "北屯區",
+    "title": "華固頂滙｜華固建設在台中單元八水湳旁的27層雙塔地標解析",
+    "h1": "華固頂滙",
+    "builder": "華固建設",
+    "status": "興建中",
+    "tags": [
+      "電梯大樓",
+      "綠地公園"
+    ],
+    "desc": "華固建設在單元八北側的A/B雙塔高樓地標，基地約3243坪、地上27層、260戶住家，均價約80萬/坪。",
+    "keywords": [
+      "華固頂滙",
+      "華固建設",
+      "單元八",
+      "水湳建案",
+      "鑫港尾段"
+    ],
+    "img": "unit8_huaku_landmark.jpg",
+    "price": "約80萬/坪",
+    "year": "待補"
+  },
+  {
+    "id": "unit8_zongtai_zhixu",
+    "url": "projects/unit8_zongtai_zhixu.html",
+    "zone": "taichung_unit8_zone",
+    "zoneLabel": "單元八",
+    "district": "beitun",
+    "districtLabel": "北屯區",
+    "title": "總太之序｜總太營造在台中單元八敦化路南側的20層住宅解析",
+    "h1": "總太之序",
+    "builder": "總太營造",
+    "status": "興建中",
+    "tags": [
+      "電梯大樓",
+      "成熟機能"
+    ],
+    "desc": "富華創新建設、總太營造在單元八南側敦化路二段的地上20層住宅，190戶、3房47.6/52坪，開價約70~75萬/坪。",
+    "keywords": [
+      "總太之序",
+      "總太營造",
+      "富華創新",
+      "單元八",
+      "敦化路重劃"
+    ],
+    "img": "unit8_zongtai_residence.jpg",
+    "price": "開價約70~75萬/坪（近一年均價約69.54萬/坪）",
+    "year": "預計2027Q4"
+  }
+]

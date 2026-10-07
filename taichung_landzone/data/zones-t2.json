@@ -1,0 +1,50 @@
+[
+  {
+    "id": "taichung_phase8_zone",
+    "url": "zones/taichung_phase8_zone.html",
+    "district": "nantun", "districtLabel": "南屯區",
+    "title": "台中八期重劃區全解析｜豐樂公園、文心森林公園與南屯成熟機能",
+    "h1": "八期重劃區",
+    "dev": "公辦市地重劃", "status": "已開發成熟",
+    "tags": ["綠地公園", "文教特區", "捷運宅", "成熟商圈"],
+    "desc": "八期又稱豐樂市地重劃，約148公頃，南屯區核心，豐樂雕塑公園、文心森林公園、Costco與中捷綠線G10a至G12站環繞。",
+    "keywords": ["八期重劃區", "豐樂重劃", "豐樂雕塑公園", "文心森林公園", "台中南屯重劃"],
+    "img": "phase8_fengle_park_hero.jpg", "area": "約 148 公頃"
+  },
+  {
+    "id": "taichung_phase13_zone",
+    "url": "zones/taichung_phase13_zone.html",
+    "district": "south", "districtLabel": "南區",
+    "title": "台中十三期重劃區全解析｜大慶雙鐵、229公頃公辦與新八期發展",
+    "h1": "十三期重劃區",
+    "dev": "公辦市地重劃", "status": "開發中",
+    "tags": ["交通樞紐", "綠地公園", "新重劃區", "雙鐵共構"],
+    "desc": "十三期大慶市地重劃約229公頃，南屯為主跨南區，自辦單元六七整併為公辦，雙鐵共構大慶站、G13捷運、舊南屯溪景觀帶。",
+    "keywords": ["十三期重劃區", "大慶重劃", "新八期", "台中大慶火車站", "麻糍埔遺址"],
+    "img": "phase13_daqing_metro_hero.jpg", "area": "約 229 公頃"
+  },
+  {
+    "id": "taichung_unit2_zone",
+    "url": "zones/taichung_unit2_zone.html",
+    "district": "nantun", "districtLabel": "南屯區",
+    "title": "台中單元二重劃區全解析｜黎明自辦重劃、低密度豪宅與七期後花園",
+    "h1": "單元二重劃區",
+    "dev": "自辦市地重劃", "status": "已開發成熟",
+    "tags": ["豪宅聚落", "生態宜居", "低密度", "近七期"],
+    "desc": "單元二又稱黎明自辦市地重劃，約186公頃，前身黎明新村，低建蔽低密度純住宅，緊鄰七期百貨商圈，近一年成交均價約66.74萬/坪。",
+    "keywords": ["單元二", "黎明重劃區", "台中重劃區", "自辦市地重劃", "黎明新村"],
+    "img": "unit2_zone_hero.jpg", "area": "約 186 公頃"
+  },
+  {
+    "id": "taichung_unit6_zone",
+    "url": "zones/taichung_unit6_zone.html",
+    "district": "nantun", "districtLabel": "南屯區",
+    "title": "台中單元六重劃區全解析｜楓溪、樂田段低密純住宅與舊南屯溪",
+    "h1": "單元六重劃區",
+    "dev": "自辦市地重劃", "status": "開發中",
+    "tags": ["綠地公園", "靜巷純住宅", "新重劃區", "溪景住宅"],
+    "desc": "整體開發地區單元六（與七）位於南屯大慶一帶，自辦重劃後併入十三期，範圍約在西川一路、環中路、南屯溪、文心南七路、建國北路之間，以楓溪、樂田段低密純住宅與舊南屯溪景觀帶為特色。",
+    "keywords": ["單元六重劃區", "楓溪段", "樂田段", "舊南屯溪", "台中自辦重劃"],
+    "img": "unit6_fengxi_creek_hero.jpg", "area": "待補"
+  }
+]

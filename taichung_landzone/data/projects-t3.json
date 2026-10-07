@@ -1,0 +1,221 @@
+[
+  {
+    "id": "unit14_huyu_hemu",
+    "url": "projects/unit14_huyu_hemu.html",
+    "zone": "taichung_unit14_zone",
+    "zoneLabel": "十四期重劃區",
+    "district": "beitun",
+    "builder": "惠宇建設",
+    "status": "預售",
+    "tags": [
+      "預售屋",
+      "中大坪數",
+      "十四期"
+    ],
+    "desc": "惠宇和慕為惠宇建設在十四期重劃區推出的中大坪數預售住宅，規劃112戶、38–52坪，公開開價約64–69萬元/坪，預計2028年2月完工。",
+    "keywords": [
+      "惠宇和慕",
+      "惠宇建設",
+      "十四期重劃區",
+      "北屯預售屋"
+    ],
+    "img": "unit14_huyu_hemu_hero.jpg",
+    "price": "開價約64–69萬元/坪",
+    "year": "預計2028年2月完工"
+  },
+  {
+    "id": "unit14_huyu_mypark",
+    "url": "projects/unit14_huyu_mypark.html",
+    "zone": "taichung_unit14_zone",
+    "zoneLabel": "十四期重劃區",
+    "district": "beitun",
+    "builder": "惠宇建設",
+    "status": "預售",
+    "tags": [
+      "預售屋",
+      "公園宅",
+      "十四期"
+    ],
+    "desc": "惠宇MY PARK為惠宇建設在十四期推出、主打臨公園綠景的預售住宅，規劃130戶、32–52坪，近一年成交均價約76.03萬元/坪，預計2028年第三季完工。",
+    "keywords": [
+      "惠宇MY PARK",
+      "惠宇建設",
+      "十四期重劃區",
+      "臨公園宅"
+    ],
+    "img": "unit14_huyu_mypark_hero.jpg",
+    "price": "成交均價約76.03萬元/坪",
+    "year": "預計2028年第三季完工"
+  },
+  {
+    "id": "unit14_shuntian_kingsroad",
+    "url": "projects/unit14_shuntian_kingsroad.html",
+    "zone": "taichung_unit14_zone",
+    "zoneLabel": "十四期重劃區",
+    "district": "beitun",
+    "builder": "順天建設",
+    "status": "預售",
+    "tags": [
+      "預售屋",
+      "換屋首選",
+      "十四期"
+    ],
+    "desc": "順天KING'S ROAD為順天建設在十四期推出的臨林蔭大道中大坪數換屋宅，規劃140戶、48–54坪，近一年成交均價約70.18萬元/坪，預計2027年第三季完工。",
+    "keywords": [
+      "順天KING'S ROAD",
+      "順天建設",
+      "十四期重劃區",
+      "換屋宅"
+    ],
+    "img": "unit14_shuntian_kingsroad_hero.jpg",
+    "price": "成交均價約70.18萬元/坪",
+    "year": "預計2027年第三季完工"
+  },
+  {
+    "id": "unit14_hongrui_inter",
+    "url": "projects/unit14_hongrui_inter.html",
+    "zone": "taichung_unit14_zone",
+    "zoneLabel": "十四期重劃區",
+    "district": "beitun",
+    "builder": "泓瑞建設",
+    "status": "預售",
+    "tags": [
+      "預售屋",
+      "首購首選",
+      "小坪數",
+      "十四期"
+    ],
+    "desc": "泓瑞洲際之森為泓瑞建設在十四期推出的小坪數首購型住宅，鄰近洲際棒球場，規劃100戶、26–35坪，近一年成交均價約56.04萬元/坪，預計2026年第四季完工。",
+    "keywords": [
+      "泓瑞洲際之森",
+      "泓瑞建設",
+      "十四期重劃區",
+      "小坪數首購"
+    ],
+    "img": "unit14_hongrui_inter_hero.jpg",
+    "price": "成交均價約56.04萬元/坪",
+    "year": "預計2026年第四季完工"
+  },
+  {
+    "id": "unit14_cathay_mostplus",
+    "url": "projects/unit14_cathay_mostplus.html",
+    "zone": "taichung_unit14_zone",
+    "zoneLabel": "十四期重劃區",
+    "district": "beitun",
+    "builder": "國泰建設",
+    "status": "成屋",
+    "tags": [
+      "新成屋",
+      "品牌大社區",
+      "十四期"
+    ],
+    "desc": "國泰MOST+為國泰建設在十四期推出的大型成屋社區，206戶、37–55坪，近一年成交均價約61.23萬元/坪，目前為成屋（屋齡約1年）。",
+    "keywords": [
+      "國泰MOST+",
+      "國泰建設",
+      "十四期重劃區",
+      "品牌社區"
+    ],
+    "img": "unit14_cathay_mostplus_hero.jpg",
+    "price": "成交均價約61.23萬元/坪",
+    "year": "成屋，屋齡約1年"
+  },
+  {
+    "id": "phase11_yuancheng_chungte",
+    "url": "projects/phase11_yuancheng_chungte.html",
+    "zone": "taichung_phase11_zone",
+    "zoneLabel": "十一期重劃區",
+    "district": "beitun",
+    "builder": "元城建設",
+    "status": "銷售中",
+    "tags": [
+      "電梯大樓",
+      "公園宅",
+      "十一期"
+    ],
+    "desc": "元城崇德苑位於北屯昌平東二路，元城建設推出，基地約316坪、44戶、46–49坪，臨八二三紀念公園與仁美國小，公設比約32.9%；個案開價與成交均價待補。",
+    "keywords": [
+      "元城崇德苑",
+      "元城建設",
+      "十一期重劃區",
+      "八二三紀念公園"
+    ],
+    "img": "phase11_yuancheng_chungte_hero.jpg",
+    "price": "待補",
+    "year": "待補"
+  },
+  {
+    "id": "phase11_funjia_jia",
+    "url": "projects/phase11_funjia_jia.html",
+    "zone": "taichung_phase11_zone",
+    "zoneLabel": "十一期重劃區",
+    "district": "beitun",
+    "builder": "馥家建設",
+    "status": "銷售中",
+    "tags": [
+      "電梯大樓",
+      "空中花園",
+      "十一期"
+    ],
+    "desc": "馥家JIA位於北屯昌平三街，馥家建設推出，基地約262坪電梯大樓，公設含健身房與空中花園；個案坪數、開價與成交均價待補。",
+    "keywords": [
+      "馥家JIA",
+      "馥家建設",
+      "十一期重劃區",
+      "昌平商圈"
+    ],
+    "img": "phase11_funjia_jia_hero.jpg",
+    "price": "待補",
+    "year": "待補"
+  },
+  {
+    "id": "mrt_fuyu_platinum",
+    "url": "projects/mrt_fuyu_platinum.html",
+    "zone": "taichung_beitun_mrt_area",
+    "zoneLabel": "北屯機捷特區",
+    "district": "beitun",
+    "builder": "富宇建設",
+    "status": "銷售中",
+    "tags": [
+      "新成屋",
+      "捷運宅",
+      "大型社區",
+      "機捷特區"
+    ],
+    "desc": "富宇鉑金大苑為富宇建設在北屯機捷特區推出的大型首購社區，鄰近捷運綠線，711戶、2–3房21–40坪，近一年成交均價約59.51萬元/坪。",
+    "keywords": [
+      "富宇鉑金大苑",
+      "富宇建設",
+      "北屯機捷特區",
+      "捷運宅"
+    ],
+    "img": "mrt_fuyu_platinum_hero.jpg",
+    "price": "成交均價約59.51萬元/坪",
+    "year": "待補"
+  },
+  {
+    "id": "mrt_juhong_gcasa",
+    "url": "projects/mrt_juhong_gcasa.html",
+    "zone": "taichung_beitun_mrt_area",
+    "zoneLabel": "北屯機捷特區",
+    "district": "beitun",
+    "builder": "鉅虹建設",
+    "status": "成屋",
+    "tags": [
+      "新成屋",
+      "捷運宅",
+      "精品小宅",
+      "機捷特區"
+    ],
+    "desc": "鉅虹GCASA為鉅虹建設在北屯機捷特區推出的精緻2–3房小宅，68戶、27–35坪，屋齡約6年，近一年成交均價約52.43萬元/坪。",
+    "keywords": [
+      "鉅虹GCASA",
+      "鉅虹建設",
+      "北屯機捷特區",
+      "精品小宅"
+    ],
+    "img": "mrt_juhong_gcasa_hero.jpg",
+    "price": "成交均價約52.43萬元/坪",
+    "year": "成屋，屋齡約6年"
+  }
+]

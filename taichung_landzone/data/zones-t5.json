@@ -1,0 +1,62 @@
+[
+  {
+    "id": "taichung_unit1_zone",
+    "url": "zones/taichung_unit1_zone.html",
+    "district": "xitun",
+    "districtLabel": "西屯區",
+    "title": "台中單元一重劃區（安和自辦）全解析｜西屯55.89公頃純住宅街廓",
+    "h1": "單元一重劃區（安和自辦）",
+    "dev": "自辦市地重劃",
+    "status": "已完成重劃",
+    "tags": ["住宅區", "低密度", "綠地公園"],
+    "desc": "台中西屯安和自辦市地重劃，55.89公頃、933名所有權人共同持分開發，朝馬路與安和路一帶的方正純住宅街廓。",
+    "keywords": ["單元一重劃區", "安和自辦", "西屯重劃", "朝馬路", "安和路"],
+    "img": "unit1_zone_hero.jpg",
+    "area": "約 55.89 公頃"
+  },
+  {
+    "id": "taichung_unit3_zone",
+    "url": "zones/taichung_unit3_zone.html",
+    "district": "nantun",
+    "districtLabel": "南屯區",
+    "title": "台中單元三重劃區全解析｜五權西路林蔭大道、逾5萬坪綠覆",
+    "h1": "單元三重劃區",
+    "dev": "自辦市地重劃",
+    "status": "發展成熟",
+    "tags": ["住宅區", "低密度", "綠地公園"],
+    "desc": "台中南屯單元三重劃區，五權西路二段與向上路三段一帶，林蔭大道、逾5萬坪綠覆，串聯五期公益路與八期好市多商圈。",
+    "keywords": ["單元三重劃區", "南屯重劃", "五權西路", "向上路三段", "林蔭大道"],
+    "img": "unit3_zone_hero.jpg",
+    "area": "待補"
+  },
+  {
+    "id": "taichung_unit5_zone",
+    "url": "zones/taichung_unit5_zone.html",
+    "district": "nantun",
+    "districtLabel": "南屯區",
+    "title": "台中單元五重劃區（高鐵新市鎮）全解析｜70.18公頃純住宅、生態公園與足球園區",
+    "h1": "單元五重劃區（高鐵新市鎮）",
+    "dev": "自辦市地重劃",
+    "status": "已完成重劃",
+    "tags": ["住宅區", "低密度", "生態宜居", "綠地公園", "運動休閒"],
+    "desc": "台中南屯高鐵新市鎮自辦市地重劃，70.18公頃純住宅，擁約1.3萬坪生態公園與斥資15億的足球運動休閒園區，近捷運高鐵與74號快速道路。",
+    "keywords": ["單元五重劃區", "高鐵新市鎮", "南屯重劃", "生態公園", "足球園區"],
+    "img": "unit5_zone_hero.jpg",
+    "area": "約 70.18 公頃"
+  },
+  {
+    "id": "taichung_lingdong_area",
+    "url": "zones/taichung_lingdong_area.html",
+    "district": "nantun",
+    "districtLabel": "南屯區",
+    "title": "台中嶺東特區全解析｜嶺東科大與台中精密機械園區、彩虹眷村所在",
+    "h1": "嶺東特區",
+    "dev": "特定區計畫",
+    "status": "發展中",
+    "tags": ["產業園區", "文教特區", "住宅區"],
+    "desc": "台中南屯春社里嶺東一帶，嶺東科技大學春安校區與約124公頃台中精密機械科技創新園區所在，山腳大學城與彩虹眷村生活圈。",
+    "keywords": ["嶺東特區", "嶺東科技大學", "台中精密機械園區", "春安里", "彩虹眷村"],
+    "img": "lingdong_area_hero.jpg",
+    "area": "約 124 公頃（精密機械園區）"
+  }
+]

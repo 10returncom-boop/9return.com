@@ -1,0 +1,26 @@
+[
+  {
+    "id": "taichung_shalu_area",
+    "url": "zones/taichung_shalu_area.html",
+    "district": "shalu", "districtLabel": "沙鹿區",
+    "title": "台中沙鹿重劃區全解析｜新光田特區、中科二期與向上路生活圈",
+    "h1": "沙鹿重劃區（台中市）",
+    "dev": "都市計畫零星開發", "status": "發展中",
+    "tags": ["市郊新城", "產業園區", "住宅區"],
+    "desc": "台中海線沙鹿的新興生活圈，以新光田特區（向上路、正德路一帶）為核心，受新光田醫院與中科二期帶動，新屋電梯華廈陸續進駐。",
+    "keywords": ["沙鹿重劃區", "沙鹿", "新光田特區", "光田醫院", "中科二期"],
+    "img": "shalu_xinguangtian_hero.jpg", "area": "待補"
+  },
+  {
+    "id": "taichung_fengyuan_area",
+    "url": "zones/taichung_fengyuan_area.html",
+    "district": "fengyuan", "districtLabel": "豐原區",
+    "title": "台中豐原重劃區全解析｜豐南生活圈、豐原大道與舊縣城新發展",
+    "h1": "豐原重劃區（台中市）",
+    "dev": "都市計畫擴大發展", "status": "已發展成熟",
+    "tags": ["市郊新城", "文教特區", "住宅區"],
+    "desc": "台中舊縣城、現為北部衛星城市，新屋集中在豐原大道沿線的豐南生活圈，廟東夜市與車站機能成熟，成交均價約35.4萬/坪。",
+    "keywords": ["豐原重劃區", "豐原", "豐南生活圈", "豐原大道", "廟東夜市"],
+    "img": "fengyuan_fengnan_hero.jpg", "area": "待補"
+  }
+]
