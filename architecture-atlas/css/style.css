@@ -89,9 +89,9 @@ button{font-family:inherit;cursor:pointer}
    Toolbar / Filter
    ============================================================ */
 .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:var(--pad-md)}
-.search-box{position:relative;flex:1;min-width:200px}
-.search-box svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--ink2)}
-.search-box input{width:100%;padding:10px 12px 10px 36px;border:1px solid var(--border);border-radius:10px;background:var(--surface);color:var(--ink);font-size:14px;font-family:var(--sans)}
+.search-box{position:relative;flex:0 1 200px;min-width:120px;max-width:220px}
+.search-box svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:14px;height:14px;color:var(--ink2)}
+.search-box input{width:100%;padding:7px 10px 7px 30px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--ink);font-size:13px;font-family:var(--sans)}
 .search-box input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}
 .filter-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:var(--pad-md)}
 .filter-row .lbl{font-size:12px;color:var(--ink2);font-family:var(--sans);display:flex;align-items:center;gap:5px}
