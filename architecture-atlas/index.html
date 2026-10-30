@@ -73,11 +73,18 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
         <input id="searchInput" type="search" placeholder="搜尋建築、風格、建築師…（按 / 快速聚焦）" aria-label="全站搜尋">
       </div>
-      <div class="view-tabs" id="viewTabs" role="tablist">
-        <button data-view-mode="card" class="active" title="卡片檢視 (F07)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>卡片</button>
-        <button data-view-mode="list" title="清單檢視 (F08)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>清單</button>
-        <button data-view-mode="map" title="網站地圖檢視 (F09)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/></svg>地圖</button>
-        <button data-view-mode="timeline" title="時間軸檢視 (F10)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18M3 12h18M3 19h18"/></svg>時間軸</button>
+      <div class="view-dd" id="viewTabs" role="tablist">
+        <button class="view-dd-trigger" type="button" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+          <span class="view-dd-label">卡片</span>
+          <span class="view-dd-chev">▾</span>
+        </button>
+        <div class="view-dd-panel">
+          <button data-view-mode="card" class="active" title="卡片檢視 (F07)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>卡片</button>
+          <button data-view-mode="list" title="清單檢視 (F08)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>清單</button>
+          <button data-view-mode="map" title="網站地圖檢視 (F09)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/></svg>地圖</button>
+          <button data-view-mode="timeline" title="時間軸檢視 (F10)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18M3 12h18M3 19h18"/></svg>時間軸</button>
+        </div>
       </div>
     </div>
     <div class="nav-tools">

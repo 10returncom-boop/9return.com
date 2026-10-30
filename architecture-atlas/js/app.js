@@ -715,11 +715,24 @@
     });
     $('#btnRandom').addEventListener('click', function (e) { e.preventDefault(); location.href = 'knowledge/index.html'; });
 
-    /* 檢視切換 */
-    $$('#viewTabs button').forEach(function (b) {
-      b.addEventListener('click', function () {
+    /* 檢視切換 dropdown */
+    var viewDD = $('#viewTabs');
+    var viewTrigger = viewDD.querySelector('.view-dd-trigger');
+    var viewLabel = viewDD.querySelector('.view-dd-label');
+    var viewNames = { card:'卡片', list:'清單', map:'地圖', timeline:'時間軸' };
+    viewTrigger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = viewDD.classList.toggle('open');
+      viewTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function () { viewDD.classList.remove('open'); });
+    $$('#viewTabs .view-dd-panel button').forEach(function (b) {
+      b.addEventListener('click', function (e) {
+        e.stopPropagation();
         state.viewMode = b.getAttribute('data-view-mode');
-        $$('#viewTabs button').forEach(function (x) { x.classList.toggle('active', x === b); });
+        $$('#viewTabs .view-dd-panel button').forEach(function (x) { x.classList.toggle('active', x === b); });
+        viewLabel.textContent = viewNames[state.viewMode] || state.viewMode;
+        viewDD.classList.remove('open');
         refresh();
       });
     });
