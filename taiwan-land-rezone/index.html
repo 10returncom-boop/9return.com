@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>九回房地✦台灣22縣市重劃區地圖</title>
+<title>九回房地✦台灣22縣市重劃區</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2316283e'/%3E%3Ctext x='32' y='44' font-size='34' text-anchor='middle' fill='%23e8b04b' font-family='serif'%3E%E5%9C%B0%3C/text%3E%3C/svg%3E">
 <style>
 
@@ -668,8 +668,21 @@ footer{background:#0a1426;color:rgba(255,255,255,.6);padding:48px 0 30px;font-si
   .wrap{padding:0 18px}
   .type-grid{grid-template-columns:1fr}
   .county-grid{grid-template-columns:repeat(2,1fr)}
-  .hero-inner{padding-left:20px;padding-right:20px}
+  .hero-inner{padding-left:20px;padding-right:20px;padding-top:24px!important;padding-bottom:24px!important}
   .nav{padding:14px 18px}
+  .hero{min-height:auto!important}
+  .hero-kicker{font-size:11px;letter-spacing:2px;margin-bottom:10px}
+  .hero h1{font-size:clamp(26px,7vw,36px)!important;line-height:1.2}
+  .hero-sub{margin-top:8px!important;font-size:16px!important;letter-spacing:2px!important}
+  .hero p.lead{margin-top:12px!important;font-size:13px!important;line-height:1.6}
+  .hero-cta{margin-top:18px!important;gap:8px!important}
+  .hero-stats{margin-top:20px!important;gap:16px!important}
+  .hero-stats .hs b{font-size:22px!important}
+  .hero-stats .hs span{font-size:11px!important}
+  .top-i{flex-wrap:wrap;gap:6px}
+  .brand h1{font-size:18px}
+  .brand p{display:none}
+  .sm-toggle{padding:6px 12px;font-size:12px}
 }
 
 
@@ -677,14 +690,14 @@ footer{background:#0a1426;color:rgba(255,255,255,.6);padding:48px 0 30px;font-si
 body{background:var(--paper)}
 .hero-inner{padding-top:88px}
 .site-footer{margin-top:0}
-@media(max-width:560px){.hero-inner{padding-top:60px}}
+@media(max-width:560px){.hero-inner{padding-top:24px!important}}
 
 </style>
 </head>
 <body>
 
 <!-- ===== 全站統一 Header（含 MegaMenu／縣市／類型下拉） ===== -->
-<header class="top"><div class="top-i sm-here"><a class="brand" href="index.html"><div class="mark">地</div><div><h1>九回房地</h1><p>台灣22縣市重劃區地圖</p></div></a>
+<header class="top"><div class="top-i sm-here"><a class="brand" href="index.html"><div class="mark">地</div><div><h1>九回房地</h1><p>台灣22縣市重劃區</p></div></a>
 <span class="loc" id="locChip"></span>
 <button class="sm-toggle" id="smToggle" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg><span id="smLabel">網站地圖 Sitemap</span><span class="arw" id="smArw">▾</span></button>
 <div class="dd-group" id="ddGroup">
@@ -711,7 +724,7 @@ body{background:var(--paper)}
   <div class="hero-veil"></div>
   <div class="hero-inner">
     <span class="hero-kicker">全台重劃區 · 縣市總覽</span>
-    <h1>台灣22縣市重劃區地圖</h1>
+    <h1>台灣22縣市重劃區</h1>
     <p class="hero-sub">台灣 22 縣市</p>
     <p class="lead">公辦市地重劃、自辦市地重劃、區段徵收、都市更新四大開發類型，一縣市一目錄、一區一建案，從法定重劃到新建案行情，一站式導覽。</p>
     <div class="hero-cta">
@@ -1365,7 +1378,7 @@ document.querySelectorAll('.reveal').forEach(function(x){io.observe(x);});
 <a href="file:///D:/_WWW_325_public/9return.com/land-development-handbook/index.html">土地開發手冊</a>
 <a href="file:///D:/_WWW_325_public/9return.com/recalc/index.html">九回算算網</a>
 <a href="file:///D:/_WWW_325_public/9return.com/taichung_landzone/index.html">台中重劃區</a>
-<a href="file:///D:/_WWW_325_public/9return.com/taiwan-land-rezone/index.html">台灣22縣市重劃區地圖</a>
+<a href="file:///D:/_WWW_325_public/9return.com/taiwan-land-rezone/index.html">台灣22縣市重劃區</a>
 <a href="file:///D:/_WWW_325_public/9return.com/urban-renewal/index.html">都市更新與危老重建</a>
 <a class="fab9r-line" href="https://line.me/ti/p/g-FTLSqJAR" target="_blank" rel="noopener"><span class="fab9r-dot"></span>Line 群組邀請</a>
 </nav>
