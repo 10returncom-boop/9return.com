@@ -1,0 +1,303 @@
+{
+  "naming": "P01.004.00.333.330_333.330_都更危老重建資訊平臺_Urban_Renewal_Old_Building_Rebuild_Portal_建置網站V2_20261001_V1.json",
+  "project_code": "P01",
+  "doc_sequence": "004",
+  "jd": "00",
+  "ddc": "333.330",
+  "site_name": "333.330_都更危老重建資訊平臺_Urban_Renewal_Old_Building_Rebuild_Portal_建置網站V2",
+  "site_folder": "D:\\_WWW_325_public\\333.330_都更危老重建資訊平臺_Urban_Renewal_Old_Building_Rebuild_Portal_建置網站V2",
+  "title": "都更與危老重建資訊平台 V2 | 老屋重建評估・容積獎勵試算・申請流程",
+  "lang": "zh-Hant",
+  "encoding_issues": false,
+  "garbled": false,
+  "redirect_only": false,
+  "page_count": 1,
+  "pages": [
+    {
+      "file": "index.html",
+      "title": "都更與危老重建資訊平台 V2 | 老屋重建評估・容積獎勵試算・申請流程",
+      "role": "入口頁",
+      "size_bytes": 38904,
+      "tables": 1,
+      "tools": 0
+    }
+  ],
+  "navigation": [
+    {
+      "type": "nav",
+      "text": "概覽",
+      "href": "#overview",
+      "meta": "",
+      "file": "index.html"
+    },
+    {
+      "type": "nav",
+      "text": "都更vs危老",
+      "href": "#compare",
+      "meta": "",
+      "file": "index.html"
+    },
+    {
+      "type": "nav",
+      "text": "容積試算",
+      "href": "#calculator",
+      "meta": "",
+      "file": "index.html"
+    },
+    {
+      "type": "nav",
+      "text": "申請流程",
+      "href": "#process",
+      "meta": "",
+      "file": "index.html"
+    },
+    {
+      "type": "nav",
+      "text": "全台數據",
+      "href": "#data",
+      "meta": "",
+      "file": "index.html"
+    },
+    {
+      "type": "nav",
+      "text": "常見問答",
+      "href": "#faq",
+      "meta": "",
+      "file": "index.html"
+    },
+    {
+      "type": "nav",
+      "text": "開始容積試算",
+      "href": "#calculator",
+      "meta": "",
+      "file": "index.html"
+    },
+    {
+      "type": "nav",
+      "text": "先看都更 vs 危老",
+      "href": "#compare",
+      "meta": "",
+      "file": "index.html"
+    },
+    {
+      "type": "nav",
+      "text": "Line 諮詢：331.today",
+      "href": "https://line.me/ti/p/~331.today",
+      "meta": "",
+      "file": "index.html"
+    },
+    {
+      "type": "nav",
+      "text": "都更 vs 危老",
+      "href": "#compare",
+      "meta": "",
+      "file": "index.html"
+    }
+  ],
+  "css_variables": [
+    {
+      "name": "--navy",
+      "value": "#17334c",
+      "sources": [
+        "index.html"
+      ]
+    },
+    {
+      "name": "--navy-deep",
+      "value": "#0d2133",
+      "sources": [
+        "index.html"
+      ]
+    },
+    {
+      "name": "--terracotta",
+      "value": "#c26b2e",
+      "sources": [
+        "index.html"
+      ]
+    },
+    {
+      "name": "--terracotta-deep",
+      "value": "#a35620",
+      "sources": [
+        "index.html"
+      ]
+    },
+    {
+      "name": "--bg",
+      "value": "#f5f0e6",
+      "sources": [
+        "index.html"
+      ]
+    },
+    {
+      "name": "--paper",
+      "value": "#ffffff",
+      "sources": [
+        "index.html"
+      ]
+    },
+    {
+      "name": "--sand",
+      "value": "#e9dfcb",
+      "sources": [
+        "index.html"
+      ]
+    },
+    {
+      "name": "--line",
+      "value": "#d9cfbc",
+      "sources": [
+        "index.html"
+      ]
+    },
+    {
+      "name": "--ink",
+      "value": "#1f2933",
+      "sources": [
+        "index.html"
+      ]
+    },
+    {
+      "name": "--ink-soft",
+      "value": "#43525e",
+      "sources": [
+        "index.html"
+      ]
+    },
+    {
+      "name": "--muted",
+      "value": "#6b7783",
+      "sources": [
+        "index.html"
+      ]
+    },
+    {
+      "name": "--mint",
+      "value": "#4f7a5c",
+      "sources": [
+        "index.html"
+      ]
+    },
+    {
+      "name": "--warn",
+      "value": "#b3382e",
+      "sources": [
+        "index.html"
+      ]
+    },
+    {
+      "name": "--shadow",
+      "value": "0 10px 30px rgba(13,33,51,.10)",
+      "sources": [
+        "index.html"
+      ]
+    },
+    {
+      "name": "--radius",
+      "value": "14px",
+      "sources": [
+        "index.html"
+      ]
+    }
+  ],
+  "js_constants": [
+    {
+      "name": "items",
+      "kind": "array",
+      "file": "index.html",
+      "rows": 14,
+      "fields": [],
+      "sample": "aTime | pTime | aScale",
+      "pipe": false
+    },
+    {
+      "name": "capPct",
+      "kind": "scalar",
+      "file": "index.html",
+      "rows": 0,
+      "fields": [],
+      "sample": "",
+      "pipe": false
+    },
+    {
+      "name": "totalPct",
+      "kind": "scalar",
+      "file": "index.html",
+      "rows": 0,
+      "fields": [],
+      "sample": "",
+      "pipe": false
+    },
+    {
+      "name": "navy",
+      "kind": "scalar",
+      "file": "index.html",
+      "rows": 0,
+      "fields": [],
+      "sample": "",
+      "pipe": false
+    }
+  ],
+  "js_functions": [
+    {
+      "name": "fmt",
+      "params": [
+        "n"
+      ],
+      "file": "index.html"
+    },
+    {
+      "name": "calc",
+      "params": [],
+      "file": "index.html"
+    }
+  ],
+  "tools": [],
+  "seo": {
+    "meta": {
+      "name:viewport": "width=device-width, initial-scale=1.0"
+    },
+    "jsonld": [],
+    "index_meta_description": "台灣都更與危老重建資訊平台：老屋重建該走都市更新還是危老？提供都更vs危老比較、容積獎勵試算、申請流程時間軸、全台案件數據與常見問答。"
+  },
+  "db_schema_summary": [
+    {
+      "table": "t_items_01",
+      "source_var": "items",
+      "source_file": "index.html",
+      "rows": 14,
+      "pipe_separated": false,
+      "fields": []
+    }
+  ],
+  "file_list": {
+    "html": [
+      {
+        "name": "index.html",
+        "size_bytes": 38904
+      }
+    ],
+    "data": [],
+    "images": {
+      "count": 6,
+      "total_kb": 1944.6,
+      "samples": [
+        "assets/hero.jpg",
+        "_shots/index_desktop.jpg",
+        "_shots/index_mobile.jpg",
+        "_shots/index_mobile_p1of3.jpg",
+        "_shots/index_mobile_p2of3.jpg",
+        "_shots/index_mobile_p3of3.jpg"
+      ]
+    },
+    "other": []
+  },
+  "template_injection": {
+    "ai_upgrade_top": false,
+    "img_ai_lazy": false
+  },
+  "generated_date": "2026-10-01",
+  "version": "V1",
+  "generator": "P01 網站規格化總專案（自動生成）"
+}

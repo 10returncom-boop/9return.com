@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>台灣22縣市重劃區 整合導覽入口 — 網站規格書 SPEC</title>
+<style>
+  :root{ --ink:#16283e; --deep:#122039; --paper:#f6f4ee; --card:#fff; --line:#dcd8cc;
+         --gold:#c99a3b; --gold2:#a97a28; --accent:#2e6e6e; --muted:#6b6b61;
+         --text:#16283e; --text-dim:#9fb0c6; }
+  *{box-sizing:border-box; margin:0; padding:0}
+  body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+       background:var(--paper); color:var(--text); line-height:1.75; padding:40px 20px 80px}
+  .wrap{max-width:980px; margin:0 auto}
+  header{border-bottom:3px solid var(--ink); padding-bottom:18px; margin-bottom:28px}
+  h1{font-size:29px; color:var(--ink)}
+  .sub{color:var(--muted); font-size:14px; margin-top:8px}
+  h2{font-size:21px; color:var(--deep); margin:32px 0 12px; padding-left:12px;
+     border-left:5px solid var(--gold)}
+  h3{font-size:16px; color:var(--ink); margin:16px 0 6px}
+  p{margin:6px 0}
+  table{width:100%; border-collapse:collapse; margin:10px 0; background:var(--card); font-size:13.5px}
+  th,td{border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top}
+  th{background:#e8e2d2; color:var(--ink)}
+  tr:nth-child(even) td{background:#faf8f1}
+  code{background:#e8e2d2; padding:1px 5px; border-radius:4px; font-size:12.5px; color:var(--ink);
+       font-family:ui-monospace,Consolas,monospace}
+  .note{background:#f2ead5; border:1px solid var(--line); border-left:4px solid var(--gold);
+        padding:10px 14px; border-radius:6px; font-size:13.5px; margin:12px 0}
+  ul,ol{margin:8px 0 8px 24px} li{margin:4px 0}
+  footer{margin-top:44px; padding-top:16px; border-top:1px solid var(--line);
+         color:var(--muted); font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>台灣22縣市重劃區 整合導覽入口 — 網站規格書（SPEC）</h1>
+    <div class="sub">產出 2026-10-18 ｜ 對應根目錄 <code>index.html</code>（整合導覽入口版，891 行、約 82 KB，單檔自含）</div>
+  </header>
+
+  <h2>1. 專案概覽</h2>
+  <table>
+    <tr><th>項目</th><th>內容</th></tr>
+    <tr><td>網站名稱</td><td>台灣22縣市重劃區 整合導覽入口</td></tr>
+    <tr><td>頁面標題</td><td>台灣22縣市重劃區 整合導覽入口｜全台總目錄·台中全目錄·買房指南</td></tr>
+    <tr><td>技術棧</td><td>純 HTML + 內嵌 CSS + 原生 JavaScript（零外部框架／零外部 JS/CSS 依賴）</td></tr>
+    <tr><td>語言</td><td>繁體中文（UTF-8）</td></tr>
+    <tr><td>主題</td><td>單一淺色主題（無日夜切換）</td></tr>
+    <tr><td>定位</td><td>全台 22 縣市重劃區「整合導覽入口」：一縣市一目錄，串接各縣市重劃區總覽、全台總目錄、類型細頁與買房指南</td></tr>
+    <tr><td>資料來源</td><td>內政部國土管理署／各縣市地政局／樂居 Leju（L3 市場數據僅供參考）；法定數據以各縣市地政局原始公告為準</td></tr>
+  </table>
+
+  <h2>2. 檔案結構（根目錄）</h2>
+  <pre><code>D:\_WWW_325_private\MegaMenu一目了然\________325_台灣22縣市重劃區megamenu___________\
+├── index.html                     # 本規格書之對象（整合導覽入口，單檔自含）
+├── toc.html                       # 全站目錄／導覽 toc（18 萬字元）
+├── 台灣22縣市重劃區megamenu.html  # MegaMenu 原型（一頁式）
+├── 台灣22縣市重劃區_整合導覽入口.html（同 index 之複本）
+├── 台灣22縣市重劃區總目錄.html / -副本.html
+├── 臺中市重劃區全目錄.html / -副本.html
+├── 臺中市重劃區買房實戰指南.html / -副本.html
+├── 台灣22縣市重劃區_全站資料庫.xlsx（＋改前快照／整合版／重建分類版）
+├── 台灣22縣市重劃區_全站資料庫_Final.xlsx  # ★ 唯一資料源 Final 版（5 分頁）
+├── spec.html                      # 本規格書
+├── _shots/  _rebuild/             # 預覽截圖／重建暫存
+└── 22 個縣市子目錄（taipei/ new-taipei/ taoyang…lienchiang/，各含 index.html）</code></pre>
+
+  <h2>3. 功能規格</h2>
+  <h3>3.1 頂欄 Header（<code>&lt;header class="top"&gt;</code>）</h3>
+  <ul>
+    <li>品牌列：Logo（「地」字 SVG 方塊）＋主標題「台灣22縣市重劃區 整合導覽」＋副標「全台總目錄 · 台中全目錄 · 24 篇買房白話攻略」。</li>
+    <li>當前位置標記 <code>&lt;span class="loc" id="locChip"&gt;</code>：由 <code>renderLocChip()</code> 依 <code>CUR.slug</code> 注入。</li>
+    <li><strong>Sitemap 開關</strong> <code>#smToggle</code>（按鈕＋標籤「網站地圖 Sitemap」＋▾）：<code>initSmToggle()</code> 切換 <code>#mmWrap</code> 開合。</li>
+    <li><strong>MegaMenu</strong> <code>#hdrMmInner</code>：<code>renderMegamenu()</code> 注入全台 22 縣市「全展開網站地圖」，含 <code>mm-count</code> 統計與每縣市 accordion。</li>
+  </ul>
+
+  <h3>3.2 下拉選單（Dropdown）</h3>
+  <ul>
+    <li><strong>縣市下拉</strong>（<code>county-dd</code>）：<code>renderNavDDs()</code> 依 <code>DATA</code> 分區（六都／非六都）建置，<code>initNavDDs()</code> 處理開合與互斥。</li>
+    <li><strong>類型下拉</strong>（<code>type-dd</code>）：公辦市地重劃／自辦市地重劃／區段徵收／都市更新四類，點擊高亮對應 <code>.mm-cat</code> 群組（<code>data-type-dd</code> 事件）。</li>
+  </ul>
+
+  <h3>3.3 首頁主版區塊（Home）</h3>
+  <ul>
+    <li>「全台 22 縣市 · 一縣市一目錄」：分「01 六都（6 縣市）／02 非六都（16 縣市）」兩群，每縣市為一張卡片，含縣市名連結（<code>href="slug/index.html"</code>）與行政代碼（<code>A21001…A21022</code>）。</li>
+  </ul>
+
+  <h3>3.4 Footer（<code>&lt;footer class="site-footer"&gt;</code>）</h3>
+  <ul>
+    <li>網站地圖 Sitemap（<code>#footSitemap</code>）：<code>renderFootSitemap()</code> 注入「全站導覽」＋各縣市連結＋類型細頁。</li>
+    <li>資料聲明 <code>.foot-note</code>：資料來源、法源（市地重劃／土地徵收／都市更新條例）與免責聲明。</li>
+    <li>本頁 <strong>小字連結 <code>spec</code></strong>：指向 <code>spec.html</code>（本規格書）。</li>
+  </ul>
+
+  <h2>4. 資料規格</h2>
+  <h3>4.1 縣市資料（<code>DATA</code>）</h3>
+  <p>以「六都／非六都」分區；每縣市物件含 <code>name</code>、<code>code</code>（A21001–A21022）與四類區位陣列：<code>gong</code>（公辦市地重劃）、<code>zi</code>（自辦）、<code>zheng</code>（區段徵收）、<code>dush</code>（都市更新）。</p>
+  <table>
+    <tr><th>分區</th><th>縣市（代碼）</th></tr>
+    <tr><td>六都（6）</td><td>臺北市 A21001、新北市 A21002、桃園市 A21003、臺中市 A21004、臺南市 A21005、高雄市 A21006</td></tr>
+    <tr><td>非六都（16）</td><td>基隆市 A21021、新竹市 A21007、新竹縣 A21008、苗栗縣 A21009、宜蘭縣 A21015、彰化縣 A21010、南投縣 A21022、雲林縣 A21011、嘉義市 A21012、嘉義縣 A21013、屏東縣 A21014、花蓮縣 A21016、臺東縣 A21017、澎湖縣 A21018、金門縣 A21019、連江縣 A21020</td></tr>
+  </table>
+  <h3>4.2 路徑對照（<code>SLUG</code>）</h3>
+  <p>行政代碼 → 子目錄 slug：<code>A21001:taipei … A21022:nantou</code>，用於組建各縣市 <code>slug/index.html</code> 連結。</p>
+  <h3>4.3 分類中繼（<code>CAT_META</code> / <code>TYPE_FILES</code>）</h3>
+  <table>
+    <tr><th>鍵</th><th>標籤</th><th>類別 class</th><th>對應細頁檔案</th></tr>
+    <tr><td>gong</td><td>公辦市地重劃</td><td>ct-gong / tag-gong</td><td>public-urban-land-readjustment.html</td></tr>
+    <tr><td>zi</td><td>自辦市地重劃</td><td>ct-zi / tag-zi</td><td>private-urban-land-readjustment.html</td></tr>
+    <tr><td>zheng</td><td>區段徵收</td><td>ct-zheng / tag-zheng</td><td>zone-expropriation.html</td></tr>
+    <tr><td>dush</td><td>都市更新</td><td>ct-dush / tag-dush</td><td>urban-renewal.html</td></tr>
+  </table>
+
+  <h2>5. 視覺設計規格</h2>
+  <h3>5.1 色彩系統（CSS 變數）</h3>
+  <table>
+    <tr><th>變數</th><th>值</th><th>用途</th></tr>
+    <tr><td><code>--ink / --ink2</code></td><td>#16283e / #22395a</td><td>主文字／強調</td></tr>
+    <tr><td><code>--deep</code></td><td>#122039</td><td>深底（Header／Footer）</td></tr>
+    <tr><td><code>--paper / --card</code></td><td>#f6f4ee / #fff</td><td>頁面底／卡片底</td></tr>
+    <tr><td><code>--gold / --gold2 / --gold-bright</code></td><td>#c99a3b / #a97a28 / #e8b04b</td><td>金（裝飾、連結、強調）</td></tr>
+    <tr><td><code>--accent / --accent2</code></td><td>#2e6e6e / #3f8f8f</td><td>青綠（次強調、統計）</td></tr>
+    <tr><td><code>--line / --muted / --text-dim</code></td><td>#dcd8cc / #6b6b61 / #9fb0c6</td><td>邊框／次要字／Footer 字</td></tr>
+  </table>
+  <p>無 <code>data-theme</code>／<code>prefers-color-scheme</code>／<code>localStorage</code> 主題切換邏輯（本版為固定淺色）。</p>
+  <h3>5.2 字型</h3>
+  <p><code>Noto Sans TC</code>、<code>PingFang TC</code>、<code>Microsoft JhengHei</code>、<code>system-ui</code>；標題區使用粗重字重（font-weight:900）。</p>
+  <h3>5.3 版面與 RWD</h3>
+  <p>響應式（RWD）；內容區塊最大寬約 1280px；下拉選單、MegaMenu 於窄螢幕可開合；採用 <code>flex</code>／<code>grid</code> 排版。</p>
+
+  <h2>6. 互動行為規格</h2>
+  <table>
+    <tr><th>事件</th><th>行為</th></tr>
+    <tr><td>點擊 Sitemap 開關</td><td><code>initSmToggle()</code>：展開／收合 <code>#mmWrap</code> 全展開網站地圖</td></tr>
+    <tr><td>點擊縣市下拉</td><td><code>initNavDDs()</code>：開合該下拉，並關閉其它（<code>closeOtherDDs</code>）</td></tr>
+    <tr><td>點擊類型下拉</td><td>高亮 <code>.mm-cat</code> 對應四類群組（outline 金框）</td></tr>
+    <tr><td>點擊縣市卡片</td><td>導向 <code>slug/index.html</code> 縣市總覽</td></tr>
+    <tr><td>Footer spec 連結</td><td>開啟 <code>spec.html</code>（本規格書）</td></tr>
+  </table>
+
+  <h2>7. 頁面關聯（站內導覽）</h2>
+  <pre><code>index.html（本頁・整合導覽入口）
+  ├─ 22 縣市子目錄  slug/index.html（縣市重劃區總覽）
+  ├─ 台灣22縣市重劃區總目錄.html（全台總目錄）
+  ├─ 臺中市重劃區全目錄.html
+  ├─ 臺中市重劃區買房實戰指南.html（24 篇白話攻略）
+  ├─ 類型細頁：public/private-urban-land-readjustment · zone-expropriation · urban-renewal
+  └─ toc.html（全站目錄）</code></pre>
+
+  <h2>8. Final Excel ⇄ 網頁版（雙向同步）</h2>
+  <p>建案資料庫以「Final Excel（<code>台灣22縣市重劃區_全站資料庫_Final.xlsx</code>）」為唯一資料源（Single Source of Truth），透過固定流程轉換為網頁版，並維持兩邊欄位與內容一致。</p>
+
+  <h3>8.1 資料源與欄位定義（Final Excel）</h3>
+  <table>
+    <tr><th>欄位</th><th>說明</th><th>範例</th></tr>
+    <tr><td>縣市</td><td>縣市名稱（不帶行政代碼）</td><td>台中市</td></tr>
+    <tr><td>行政區</td><td>區／鄉鎮市</td><td>北區</td></tr>
+    <tr><td>重劃區名稱</td><td>所屬重劃區／特定區</td><td>青埔高鐵特區</td></tr>
+    <tr><td>重劃區分類</td><td>公辦／自辦／區段徵收／都市更新</td><td>區段徵收</td></tr>
+    <tr><td>建案名稱</td><td>個案全名</td><td>聯聚方瑞大廈</td></tr>
+    <tr><td>建商</td><td>投資興建公司</td><td>聯聚建設</td></tr>
+    <tr><td>案件狀態</td><td>預售／興建中／成屋／結案</td><td>興建中</td></tr>
+    <tr><td>價格</td><td>單價／總價區間</td><td>80–120萬/坪</td></tr>
+    <tr><td>戶數</td><td>住家戶數</td><td>42 戶</td></tr>
+    <tr><td>完工日期</td><td>預計／實際完工</td><td>2027-03</td></tr>
+    <tr><td>資料來源</td><td>樂居／信義／實價登錄…</td><td>內政部實價登錄</td></tr>
+    <tr><td>原始網址</td><td>來源頁面連結</td><td>https://…</td></tr>
+  </table>
+
+  <h3>8.2 Excel → 網頁版 轉換流程</h3>
+  <ol>
+    <li><b>Excel 整理</b>：在 Final Excel 填妥/更新建案列（欄位如上）。</li>
+    <li><b>匯出 CSV</b>：Excel「另存新檔 → CSV(UTF-8)」，欄位順序固定。</li>
+    <li><b>轉成 JSON</b>：CSV 以工具轉為 JSON（對應 <code>PROJECTS</code> / 每重劃區 <code>projects[]</code>）。</li>
+    <li><b>寫入網站</b>：以 JSON 替換網站 JS 內建案資料結構，前端自動渲染建案清單。</li>
+  </ol>
+
+  <h3>8.3 兩邊同步更新規則</h3>
+  <ul>
+    <li><b>方向</b>：以 Final Excel 為準 → 轉 JSON → 更新網站（單向匯出，避免兩邊互改衝突）。</li>
+    <li><b>欄位對齊</b>：Excel 欄位與網站 <code>projects[]</code> 鍵一一對應，缺欄留空不刪。</li>
+    <li><b>版本化</b>：每次轉檔前先備份舊 <code>PROJECTS</code>；網站與 Excel 同步標記版本（如 Final v1.2）。</li>
+    <li><b>建議自動化</b>：以排程（cron）定期將 Final Excel 轉出 CSV→JSON，並檢查欄位完整性後自動更新網站資料檔。</li>
+  </ul>
+
+  <h3>8.4 網頁版 Tab Pages（rezone-database.html）</h3>
+  <ul>
+    <li><b>單檔自含</b>：HTML+CSS+JS，重劃區資料內嵌、無外部框架；由 Final Excel 轉出之 JSON 產生。</li>
+    <li><b>兩層 Tab</b>：上層 22 縣市（六都／非六都分組），下層四大開發類型（公辦／自辦／區段徵收／都市更新）；下方卡片網格列出該縣市該類重劃區。</li>
+    <li><b>建案下拉</b>：每張重劃區卡片點擊展開建案（綁定 <code>PROJECTS</code>）；無建案時顯示 Final Excel 待補連結。</li>
+    <li><b>入口</b>：首頁 hub 第五張卡片「重劃區資料庫（網頁版）」與 footer「資料庫網頁版」連結。</li>
+  </ul>
+
+  <h2>9. 整站資料庫齊全性檢查</h2>
+  <p>檢查時間 2026-10-18；22 縣市全數齊全，有效具名重劃區共 <b>431</b> 筆（公辦 205／自辦 153／區段徵收 66／都市更新 7）。「無／零星／幾乎無／僅公共建設類／舊市區零星都更」等為泛指佔位，不計具名案。</p>
+  <table>
+    <tr><th>縣市</th><th>公辦</th><th>自辦</th><th>區段徵收</th><th>都市更新</th><th>合計</th></tr>
+    <tr><td>臺北市</td><td>12</td><td>0</td><td>0</td><td>3</td><td>15</td></tr>
+    <tr><td>新北市</td><td>23</td><td>16</td><td>12</td><td>1</td><td>52</td></tr>
+    <tr><td>桃園市</td><td>35</td><td>4</td><td>4</td><td>0</td><td>43</td></tr>
+    <tr><td>臺中市</td><td>24</td><td>33</td><td>16</td><td>0</td><td>73</td></tr>
+    <tr><td>臺南市</td><td>39</td><td>1</td><td>4</td><td>0</td><td>44</td></tr>
+    <tr><td>高雄市</td><td>34</td><td>32</td><td>10</td><td>0</td><td>76</td></tr>
+    <tr><td>基隆市</td><td>1</td><td>1</td><td>0</td><td>1</td><td>3</td></tr>
+    <tr><td>新竹市</td><td>2</td><td>5</td><td>0</td><td>1</td><td>8</td></tr>
+    <tr><td>新竹縣</td><td>6</td><td>4</td><td>1</td><td>0</td><td>11</td></tr>
+    <tr><td>苗栗縣</td><td>2</td><td>1</td><td>3</td><td>0</td><td>6</td></tr>
+    <tr><td>宜蘭縣</td><td>2</td><td>2</td><td>3</td><td>0</td><td>7</td></tr>
+    <tr><td>彰化縣</td><td>10</td><td>41</td><td>2</td><td>0</td><td>53</td></tr>
+    <tr><td>南投縣</td><td>0</td><td>7</td><td>0</td><td>0</td><td>7</td></tr>
+    <tr><td>雲林縣</td><td>2</td><td>3</td><td>1</td><td>0</td><td>6</td></tr>
+    <tr><td>嘉義市</td><td>1</td><td>0</td><td>2</td><td>1</td><td>4</td></tr>
+    <tr><td>嘉義縣</td><td>5</td><td>0</td><td>2</td><td>0</td><td>7</td></tr>
+    <tr><td>屏東縣</td><td>3</td><td>2</td><td>1</td><td>0</td><td>6</td></tr>
+    <tr><td>花蓮縣</td><td>1</td><td>1</td><td>1</td><td>0</td><td>3</td></tr>
+    <tr><td>臺東縣</td><td>2</td><td>0</td><td>1</td><td>0</td><td>3</td></tr>
+    <tr><td>澎湖縣</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+    <tr><td>金門縣</td><td>1</td><td>0</td><td>2</td><td>0</td><td>3</td></tr>
+    <tr><td>連江縣</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+    <tr><td><b>合計</b></td><td><b>205</b></td><td><b>153</b></td><td><b>66</b></td><td><b>7</b></td><td><b>431</b></td></tr>
+  </table>
+  <h3>9.1 發現的資料品質問題</h3>
+  <ul>
+    <li><b>筆誤（待修）</b>：高雄自辦類 2 筆期數缺失——「高雄市第國泰期鳳山區道爺部段…」「高雄市第苦苓腳期林園區王公廟段…」，正確期數需查高雄市地政局。</li>
+    <li><b>連江縣</b>四類均無具名重劃區（離島，現地僅公共建設，屬合理）。</li>
+    <li>多數縣市都市更新僅列「舊市區零星都更」泛指，不具名故不計入；臺北、新北、基隆、新竹市、嘉義市有具名公辦都更。</li>
+    <li><b>建案資料尚待補</b>：受限於房仲網站服務條款，未自動抓取；Final Excel「建案資料」分頁已備好 431 列骨架與完整欄位，待以政府實價登錄或手動方式補入。</li>
+  </ul>
+
+  <h2>10. 權威資料來源</h2>
+  <table>
+    <tr><th>類別</th><th>機構／網站</th><th>用途</th></tr>
+    <tr><td>政府</td><td>內政部國土管理署（營建署）</td><td>市地重劃／區段徵收政策與名單</td></tr>
+    <tr><td>政府</td><td>內政部地政司</td><td>市地重劃、區段徵收、都市更新法規</td></tr>
+    <tr><td>政府</td><td>內政部不動產資訊平台</td><td>房價、實價登錄、預售屋資訊</td></tr>
+    <tr><td>政府</td><td>政府資料開放平臺</td><td>實價登錄／預售屋 CSV 開放資料</td></tr>
+    <tr><td>政府</td><td>各縣市政府地政局</td><td>重劃區公告、進度、圖籍</td></tr>
+    <tr><td>房仲參考</td><td>樂居、信義房屋、591新建案、PLEX、Knowhouse、全國不動產</td><td>新建案與行情（市場數據僅供參考，抓取前須遵守各站服務條款）</td></tr>
+  </table>
+
+  <h2>11. 驗證紀錄</h2>
+  <ul>
+    <li>檔案 891 行、82,164 bytes，單檔自含 HTML+CSS+JS。</li>
+    <li>縣市資料齊全：六都 6 + 非六都 16 = 22；代碼 A21001–A21022 均有 <code>SLUG</code> 對應。</li>
+    <li>四分類 <code>CAT_META</code> 與 <code>TYPE_FILES</code> 鍵值對應一致。</li>
+    <li>Footer 已含小字 <code>spec</code> 連結（指向 <code>spec.html</code>）。</li>
+    <li>已知限制：本版為固定淺色主題（無日夜切換）；區位資料為重點概覽，非政府全量清單。</li>
+  </ul>
+
+  <footer>台灣22縣市重劃區 整合導覽入口 · 網站規格書 v1.0 · 2026-10-18</footer>
+</div>
+
+<!-- FAB9R: 9return.com 全站浮動導覽（回首頁 / 網站導覽 / Line） -->
+<div id="fab9r" class="fab9r" role="complementary" aria-label="9return.com 網站導覽">
+<style>
+.fab9r{position:fixed;right:14px;top:55%;z-index:2147483000;isolation:isolate;font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif}
+.fab9r *{box-sizing:border-box}
+.fab9r-btn{width:38px;height:38px;border:0;border-radius:50%;cursor:pointer;background:linear-gradient(145deg,#3d5c44,#2f4a35);color:#f4efe2;font-family:"Noto Serif TC","Microsoft JhengHei",serif;font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(47,74,53,.5),inset 0 1px 0 rgba(255,255,255,.25);transition:transform .18s;outline:none}
+.fab9r-btn:hover{transform:translateY(-2px)}
+.fab9r-btn:active{transform:translateY(0)}
+.fab9r-tip{position:absolute;right:0;bottom:calc(100% + 6px);background:#243028;color:#f4efe2;font-size:11px;line-height:1;padding:5px 8px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .18s;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.fab9r-btn:hover + .fab9r-tip,.fab9r-btn:focus-visible + .fab9r-tip{opacity:1}
+.fab9r.open .fab9r-tip{opacity:0}
+.fab9r-menu{position:absolute;right:0;bottom:calc(100% + 10px);width:174px;max-width:calc(100vw - 28px);background:#243028;border:1px solid rgba(217,201,166,.35);border-radius:12px;padding:8px 6px;box-shadow:0 10px 28px rgba(0,0,0,.35);opacity:0;transform:translateY(6px);pointer-events:none;transition:opacity .18s,transform .18s}
+.fab9r.open .fab9r-menu{opacity:1;transform:translateY(0);pointer-events:auto}
+@media (max-width:640px){.fab9r-menu{width:166px}}
+.fab9r-brand{font-family:"Noto Serif TC","Microsoft JhengHei",serif;font-weight:700;font-size:12px;letter-spacing:.06em;color:#d9c9a6;padding:4px 10px 7px;border-bottom:1px solid rgba(217,201,166,.25);white-space:nowrap}
+.fab9r-label{font-size:10px;letter-spacing:.22em;color:#d9c9a6;font-weight:700;padding:8px 10px 4px;white-space:nowrap}
+.fab9r-menu a{display:flex;align-items:center;gap:8px;color:#f4efe2;text-decoration:none;font-size:12px;line-height:1.5;padding:5px 10px;border-radius:7px;white-space:nowrap;transition:background .15s,color .15s}
+.fab9r-menu a:hover{background:#3d5c44;color:#fff}
+.fab9r-home{font-weight:600}
+.fab9r-line{font-weight:600;color:#c8f7dc!important}
+.fab9r-line:hover{background:rgba(6,199,85,.18)!important;color:#eafff2!important}
+.fab9r-dot{width:7px;height:7px;border-radius:50%;background:#06c755;display:inline-block;flex:none}
+</style>
+<button class="fab9r-btn" type="button" aria-label="9return.com 網站導覽" aria-expanded="false">9</button>
+<div class="fab9r-tip">9return.com 網站導覽</div>
+<nav class="fab9r-menu" aria-label="9return.com 網站導覽選單">
+<div class="fab9r-brand">9return.com</div>
+<a class="fab9r-home" href="file:///D:/_WWW_325_public/9return.com/index.html">回首頁</a>
+<div class="fab9r-label">網站導覽</div>
+<a href="file:///D:/_WWW_325_public/9return.com/architecture-atlas/index.html">世界建築史</a>
+<a href="file:///D:/_WWW_325_public/9return.com/land-development-handbook/index.html">土地開發手冊</a>
+<a href="file:///D:/_WWW_325_public/9return.com/recalc/index.html">九回算算網</a>
+<a href="file:///D:/_WWW_325_public/9return.com/taichung_landzone/index.html">台中重劃區</a>
+<a href="file:///D:/_WWW_325_public/9return.com/taiwan-land-rezone/index.html">台灣22縣市重劃區地圖</a>
+<a href="file:///D:/_WWW_325_public/9return.com/urban-renewal/index.html">都市更新與危老重建</a>
+<a class="fab9r-line" href="https://line.me/ti/p/g-FTLSqJAR" target="_blank" rel="noopener"><span class="fab9r-dot"></span>Line 群組邀請</a>
+</nav>
+<script>
+(function(){
+ var w=document.getElementById('fab9r');
+ if(!w||w.__fab9r){return}
+ var btn=w.querySelector('.fab9r-btn');
+ function setOpen(o){w.classList.toggle('open',o);btn.setAttribute('aria-expanded',o?'true':'false')}
+ btn.addEventListener('click',function(e){e.stopPropagation();setOpen(!w.classList.contains('open'))});
+ document.addEventListener('click',function(){setOpen(false)});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape'){setOpen(false)}});
+ w.querySelector('.fab9r-menu').addEventListener('click',function(){setOpen(false)});
+ w.__fab9r=true;
+})();
+</script>
+</div>
+<!-- /FAB9R -->
+</body>
+</html>

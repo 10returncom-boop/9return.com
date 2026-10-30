@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>台灣 22 縣市重劃區 MegaMenu</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2312334c'/%3E%3Cpath d='M16 6l7 4v7c0 4.4-2.9 7.6-7 9-4.1-1.4-7-4.6-7-9v-7z' fill='%23c39a5e'/%3E%3Ccircle cx='16' cy='16' r='3.4' fill='%23f2ecdf'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#12334c; --ink-2:#1c4a6b; --sand:#f2ecdf; --panel:#fbf7ec;
+  --ochre:#c39a5e; --ochre-2:#a97e42; --pin:#c94f3d; --land:#3e7d5c;
+  --line:#d8cfba; --text:#22303c; --muted:#66707a; --shadow:0 10px 30px rgba(18,51,76,.16);
+  --t-dir:#a97e42; --t-city:#3e7d5c; --t-county:#c94f3d;
+}
+html[data-theme="dark"]{
+  --ink:#0e2130; --ink-2:#20445f; --sand:#0f1c28; --panel:#162634;
+  --ochre:#d3ad77; --ochre-2:#e2c89a; --pin:#e07a5f; --land:#7fae8f;
+  --line:#2c4050; --text:#e8eef2; --muted:#98a7b3; --shadow:0 12px 34px rgba(0,0,0,.5);
+  --t-dir:#e2c89a; --t-city:#9cc7ae; --t-county:#ef9b83;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,-apple-system,sans-serif; background:var(--sand); color:var(--text); line-height:1.7; -webkit-font-smoothing:antialiased}
+.display{font-family:"Noto Serif TC","Noto Sans TC",serif}
+.wrap{max-width:1180px; margin:0 auto; padding:0 20px}
+
+/* ===== 頂欄 ===== */
+.topbar{position:sticky; top:0; z-index:60; background:color-mix(in srgb, var(--sand) 88%, transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--line)}
+.topbar-in{display:flex; align-items:center; gap:14px; min-height:60px; flex-wrap:wrap; padding:8px 20px; max-width:1180px; margin:0 auto}
+.logo{display:flex; align-items:center; gap:10px; margin-right:auto; text-decoration:none; color:var(--text)}
+.logo svg{flex:0 0 auto}
+.logo-t{display:flex; flex-direction:column; line-height:1.15}
+.logo-t b{font-size:15px; letter-spacing:.5px}
+.logo-t span{font-size:11px; color:var(--muted); letter-spacing:1.5px}
+
+/* MegaMenu 按鈕 — 左上角 */
+.mega-btn{display:flex; align-items:center; gap:9px; border:0; cursor:pointer; background:var(--ink); color:var(--sand); padding:0 16px; height:44px; border-radius:10px; font-size:14px; font-weight:700; box-shadow:var(--shadow); transition:transform .15s ease, background .2s}
+.mega-btn:hover{background:var(--ink-2)}
+.mega-btn:active{transform:translateY(1px)}
+.mega-btn .bars{display:flex; flex-direction:column; gap:4px}
+.mega-btn .bars i{display:block; width:18px; height:2px; background:currentColor; border-radius:2px}
+.mega-btn small{font-weight:500; opacity:.75; font-size:11px}
+
+.top-actions{display:flex; align-items:center; gap:8px}
+.pill{display:inline-flex; align-items:center; gap:6px; border:1px solid var(--line); background:var(--panel); color:var(--text); border-radius:999px; padding:8px 13px; font-size:13px; cursor:pointer; text-decoration:none; transition:.15s}
+.pill:hover{border-color:var(--ochre-2); color:var(--ochre-2)}
+.pill .dot{width:8px; height:8px; border-radius:50%; background:var(--ochre); box-shadow:0 0 0 3px color-mix(in srgb, var(--ochre) 25%, transparent)}
+.icon-btn{border:1px solid var(--line); background:var(--panel); color:var(--text); width:40px; height:40px; border-radius:10px; cursor:pointer; display:grid; place-items:center; font-size:18px; transition:.15s}
+.icon-btn:hover{border-color:var(--ochre-2); color:var(--ochre-2)}
+
+/* ===== 麵包屑 ===== */
+.crumbs{max-width:1180px; margin:16px auto 0; padding:0 20px; font-size:12.5px; color:var(--muted); display:flex; flex-wrap:wrap; gap:6px; align-items:center}
+.crumbs a{color:var(--ochre-2); text-decoration:none}
+.crumbs a:hover{text-decoration:underline}
+.crumbs .sep{opacity:.5}
+
+/* ===== Hero ===== */
+.hero{max-width:1180px; margin:0 auto; padding:34px 20px 10px; display:grid; gap:26px}
+@media(min-width:880px){.hero{grid-template-columns:1.5fr 1fr; align-items:center}}
+.hero h1{font-size:clamp(26px,4.5vw,42px); line-height:1.22; color:var(--ink-2); margin:6px 0 12px}
+html[data-theme="dark"] .hero h1{color:var(--ochre-2)}
+.hero h1 .accent{display:inline-block; border-bottom:4px solid var(--ochre); padding-bottom:2px}
+.hero .lede{color:var(--muted); font-size:15.5px; max-width:56ch}
+.stat-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:22px}
+.stat{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:14px 18px; min-width:120px}
+.stat b{display:block; font-size:26px; color:var(--ink-2); font-family:"Noto Serif TC",serif}
+html[data-theme="dark"] .stat b{color:var(--ochre-2)}
+.stat span{font-size:12px; color:var(--muted); letter-spacing:1px}
+.legend-card{background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:18px; box-shadow:var(--shadow)}
+.legend-card h3{font-size:14px; letter-spacing:1px; color:var(--muted); margin-bottom:12px; font-weight:600}
+.tier-legend{display:flex; flex-direction:column; gap:8px}
+.tier-legend .tl{display:flex; align-items:center; gap:10px; font-size:13.5px}
+.tl .sw{width:14px; height:14px; border-radius:4px; flex:0 0 auto}
+.tl .n{margin-left:auto; color:var(--muted)}
+/* 行政圖例 — 22 縣市格 */
+.mapgrid{margin-top:16px; display:grid; grid-template-columns:repeat(6,1fr); gap:6px}
+@media(min-width:880px){.mapgrid{grid-template-columns:repeat(7,1fr)}}
+.zone-cell{aspect-ratio:1; border:1px solid var(--line); border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; background:color-mix(in srgb, var(--panel) 60%, transparent); cursor:pointer; transition:.15s; padding:2px}
+.zone-cell:hover{transform:translateY(-2px); border-color:var(--ochre-2); box-shadow:0 6px 14px rgba(0,0,0,.08)}
+.zone-cell b{font-size:12px; color:var(--ink-2)}
+html[data-theme="dark"] .zone-cell b{color:var(--ochre-2)}
+.zone-cell span{font-size:9px; color:var(--muted)}
+.zone-cell.t-dir b{color:var(--t-dir)} .zone-cell.t-city b{color:var(--t-city)} .zone-cell.t-county b{color:var(--t-county)}
+
+/* ===== 縣市卡片 ===== */
+.section{max-width:1180px; margin:0 auto; padding:34px 20px 0}
+.sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:18px}
+.sec-head h2{font-size:22px; color:var(--ink-2)}
+html[data-theme="dark"] .sec-head h2{color:var(--ochre-2)}
+.sec-head .tag{font-size:12px; color:var(--muted); letter-spacing:1px}
+.region-grid{display:grid; grid-template-columns:1fr; gap:14px}
+@media(min-width:520px){.region-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:820px){.region-grid{grid-template-columns:repeat(3,1fr)}}
+.r-card{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px; cursor:pointer; transition:.16s; position:relative; overflow:hidden}
+.r-card::before{content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--rc, var(--ochre))}
+.r-card:hover{transform:translateY(-3px); box-shadow:var(--shadow); border-color:var(--ochre-2)}
+.r-card .rc-top{display:flex; align-items:center; gap:10px}
+.r-card .rc-zh{font-size:17px; font-weight:700; color:var(--ink-2)}
+html[data-theme="dark"] .r-card .rc-zh{color:var(--ochre-2)}
+.r-card .rc-tier{font-size:10px; letter-spacing:1px; color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:2px 8px}
+.r-card .rc-z{display:flex; flex-wrap:wrap; gap:6px; margin-top:12px}
+.zi{font-size:12px; color:var(--muted); background:color-mix(in srgb, var(--sand) 80%, transparent); border:1px solid var(--line); padding:3px 9px; border-radius:999px}
+.r-card .rc-more{margin-top:12px; font-size:12px; color:var(--ochre-2); display:flex; align-items:center; gap:4px}
+
+/* ===== MegaMenu 面板 ===== */
+.mega{position:fixed; top:0; left:0; right:0; bottom:0; z-index:80; visibility:hidden; opacity:0; transition:opacity .2s}
+.mega.open{visibility:visible; opacity:1}
+.mega .backdrop{position:absolute; inset:0; background:rgba(6,18,28,.45)}
+.mega .panel{position:absolute; top:76px; left:20px; right:20px; max-width:1120px; margin:0 auto; background:var(--panel); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow); max-height:calc(100vh - 100px); display:flex; flex-direction:column; overflow:hidden}
+.mega .m-head{display:flex; align-items:center; gap:12px; padding:16px 20px; border-bottom:1px solid var(--line)}
+.mega .m-head h3{font-size:17px; color:var(--ink-2)}
+html[data-theme="dark"] .mega .m-head h3{color:var(--ochre-2)}
+.m-search{margin-left:auto; display:flex; align-items:center; gap:8px; background:var(--sand); border:1px solid var(--line); border-radius:10px; padding:8px 12px; width:200px}
+.m-search input{border:0; background:transparent; outline:0; color:var(--text); font-size:13.5px; width:100%}
+.m-search input::placeholder{color:var(--muted)}
+.mega .m-body{overflow:auto; padding:16px 20px; flex:1}
+.mega .m-foot{padding:12px 20px; border-top:1px solid var(--line); font-size:12px; color:var(--muted); display:flex; gap:16px; flex-wrap:wrap; align-items:center}
+.mega .m-foot a{color:var(--ochre-2); text-decoration:none}
+.tier-group{margin-bottom:20px}
+.tier-group>h4{font-size:13px; letter-spacing:1.5px; color:var(--muted); margin-bottom:10px; display:flex; align-items:center; gap:8px}
+.tier-group>h4 .bar{width:10px; height:10px; border-radius:3px}
+.acc-wrap{display:grid; gap:8px; grid-template-columns:1fr}
+@media(min-width:720px){.acc-wrap{grid-template-columns:1fr 1fr}}
+.acc{background:var(--sand); border:1px solid var(--line); border-radius:12px; overflow:hidden}
+.acc>button{width:100%; border:0; background:transparent; cursor:pointer; padding:12px 14px; display:flex; align-items:center; gap:10px; color:var(--text); font-size:15px; font-weight:600; text-align:left}
+.acc>button .cnt{margin-left:auto; font-size:11px; color:var(--muted); background:var(--panel); border:1px solid var(--line); border-radius:999px; padding:2px 9px; font-weight:500}
+.acc>button .chev{transition:transform .2s; color:var(--ochre-2); flex:0 0 auto}
+.acc.open>button .chev{transform:rotate(180deg)}
+.acc .acc-body{display:none; padding:4px 14px 14px; flex-wrap:wrap; gap:7px}
+.acc.open .acc-body{display:flex}
+.acc .zi{background:var(--panel)}
+
+/* 空態 */
+.empty{padding:26px; text-align:center; color:var(--muted); font-size:14px}
+
+/* ===== Footer ===== */
+footer{margin-top:44px; border-top:1px solid var(--line); background:var(--panel)}
+.foot-in{max-width:1180px; margin:0 auto; padding:26px 20px; display:flex; flex-direction:column; gap:14px}
+.foot-nav{display:flex; flex-wrap:wrap; gap:10px}
+.foot-nav a{color:var(--muted); font-size:13px; text-decoration:none}
+.foot-nav a:hover{color:var(--ochre-2)}
+.foot-note{font-size:12px; color:var(--muted)}
+
+/* 捲軸美化 */
+.mega .m-body::-webkit-scrollbar,.region-grid::-webkit-scrollbar{width:9px}
+.mega .m-body::-webkit-scrollbar-thumb,.region-grid::-webkit-scrollbar-thumb{background:var(--line); border-radius:8px}
+</style>
+</head>
+<body data-state="idle">
+
+<!-- ===== 頂欄 ===== -->
+<header class="topbar">
+  <div class="topbar-in">
+    <button class="mega-btn" id="megaBtn" aria-haspopup="dialog" aria-expanded="false" aria-label="開啟重劃區 MegaMenu">
+      <span class="bars"><i></i><i></i><i></i></span>
+      <span>重劃區<span> MegaMenu</span></span>
+      <small>22 縣市</small>
+    </button>
+    <a class="logo" href="#top" aria-label="回首頁">
+      <svg width="34" height="34" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="var(--ink)"/><path d="M16 6l7 4v7c0 4.4-2.9 7.6-7 9-4.1-1.4-7-4.6-7-9v-7z" fill="var(--ochre)"/><circle cx="16" cy="16" r="3.4" fill="var(--sand)"/></svg>
+      <span class="logo-t"><b>重劃區總覽</b><span>TAIWAN 22 · REDEVELOPMENT</span></span>
+    </a>
+    <div class="top-actions">
+      <a class="pill" id="portalLink" href="portal325.html" title="回到 _WWW_325 Portal 首頁"><span class="dot"></span>Portal</a>
+      <button class="icon-btn" id="themeBtn" aria-label="切換日夜主題" title="切換日夜主題">◐</button>
+    </div>
+  </div>
+</header>
+
+<!-- 麵包屑 -->
+<nav class="crumbs" aria-label="麵包屑">
+  <a href="#top">首頁</a><span class="sep">›</span>
+  <a href="#" data-bread-portal>Portal</a><span class="sep">›</span>
+  <span>台灣 22 縣市重劃區</span>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="top">
+  <div>
+    <h1><span class="accent">台灣 22 縣市</span> 重劃區<br>一頁式 MegaMenu 導覽</h1>
+    <p class="lede">左上角「重劃區 MegaMenu」按鈕，一鍵展開全台 6 直轄市、3 市、13 縣的重劃區與重點開發區位，快速查找各行政區的都市重劃聚落。</p>
+    <div class="stat-row" id="statRow"></div>
+  </div>
+  <div class="legend-card">
+    <h3>行政分級圖例</h3>
+    <div class="tier-legend" id="tierLegend"></div>
+    <div class="mapgrid" id="mapGrid"></div>
+  </div>
+</section>
+
+<!-- ===== 縣市卡片 ===== -->
+<section class="section">
+  <div class="sec-head">
+    <h2>22 縣市重劃區一覽</h2>
+    <span class="tag">點選卡片展開該縣市區位 · 可於 MegaMenu 內搜尋</span>
+  </div>
+  <div class="region-grid" id="regionGrid"></div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <div class="foot-in">
+    <div class="foot-nav">
+      <a href="#top">回到頂端</a>
+      <a id="footPortal" href="portal325.html">Portal 首頁</a>
+      <a href="#" data-theme-link>切換主題</a>
+    </div>
+    <p class="foot-note">資料整理自各縣市政府地政局與公開都市計畫資訊，屬重點區位／常見重劃聚落概覽，非完整重劃清單；詳情以各縣市公告為準。</p>
+  </div>
+</footer>
+
+<!-- ===== MegaMenu 面板 ===== -->
+<div class="mega" id="mega" role="dialog" aria-modal="true" aria-label="重劃區選單">
+  <div class="backdrop" id="megaBackdrop"></div>
+  <div class="panel">
+    <div class="m-head">
+      <h3>台灣 22 縣市 · 重劃區選單</h3>
+      <label class="m-search">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input id="megaSearch" type="search" placeholder="搜尋縣市或區位…">
+      </label>
+      <button class="icon-btn" id="megaClose" aria-label="關閉選單">✕</button>
+    </div>
+    <div class="m-body" id="megaBody"></div>
+    <div class="m-foot">
+      <span id="megaCount"></span>
+      <a href="portal325.html">← 回到 Portal 首頁</a>
+      <span style="margin-left:auto">按 <kbd>Esc</kbd> 關閉</span>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============ 資料：台灣 22 縣市重劃區（公開概覽） ============ */
+const TIER_ORDER = ["直轄市","市","縣"];
+const TIER_COLOR = { "直轄市":"var(--t-dir)", "市":"var(--t-city)", "縣":"var(--t-county)" };
+const REGIONS = [
+  { tier:"直轄市", name:"台北市", code:"TPE", zones:["信義計畫區","內湖五期","南港經貿園區","南港重陽","北投士林科技園區","社子島(規劃中)","國父紀念館特定區"] },
+  { tier:"直轄市", name:"新北市", code:"NWT", zones:["新莊副都心","板橋江翠北側","土城暫緩發展區","林口新市鎮","三重重陽","蘆洲南港子","新店央北","泰山塭仔圳","樹林山佳"] },
+  { tier:"直轄市", name:"桃園市", code:"TYC", zones:["桃園藝文特區","中路","經國","八德擴大","青埔高鐵特區","龜山A7站特區","小檜溪","楊梅四維","航空城(第三跑道)"] },
+  { tier:"直轄市", name:"台中市", code:"TXG", zones:["七期","八期","十期","十一期(四張犁)","十二期(水湳)","十三期(大慶)","十四期(北屯美和市)","單元二","單元三","單元五","單元八","台中港特定區"] },
+  { tier:"直轄市", name:"台南市", code:"TNN", zones:["平實營區","東橋","九份子","北安","南台南副都心","鹽行國中","南科特區(F/G區)","永康"] },
+  { tier:"直轄市", name:"高雄市", code:"KHH", zones:["農16特區(凹子底)","美術館特區","亞洲新灣區","高雄大學特區","楠梓","岡山","橋頭新市鎮","鳳山","仁武"] },
+  { tier:"市", name:"基隆市", code:"KEE", zones:["基隆市區","安樂區","暖暖"] },
+  { tier:"市", name:"新竹市", code:"HSZ", zones:["關埔","光埔","新竹科學園區特定區"] },
+  { tier:"市", name:"嘉義市", code:"CYI", zones:["湖子內","劉厝","民生"] },
+  { tier:"縣", name:"新竹縣", code:"HSQ", zones:["竹北高鐵特區","縣治三期","台科大重劃區","竹北水瀧","竹東二重埔"] },
+  { tier:"縣", name:"苗栗縣", code:"MIA", zones:["苗栗市","竹南頭份","後龍"] },
+  { tier:"縣", name:"彰化縣", code:"CHA", zones:["彰化市","員林","和美","鹿港"] },
+  { tier:"縣", name:"南投縣", code:"NAN", zones:["南投市","草屯","埔里"] },
+  { tier:"縣", name:"雲林縣", code:"YUN", zones:["斗六","虎尾","斗南"] },
+  { tier:"縣", name:"嘉義縣", code:"CYQ", zones:["嘉義高鐵特區(太保)","朴子"] },
+  { tier:"縣", name:"屏東縣", code:"PIF", zones:["屏東市","潮州","東港","內埔"] },
+  { tier:"縣", name:"宜蘭縣", code:"ILA", zones:["宜蘭市","礁溪","羅東","員山"] },
+  { tier:"縣", name:"花蓮縣", code:"HUA", zones:["花蓮市","吉安"] },
+  { tier:"縣", name:"台東縣", code:"TTT", zones:["台東市"] },
+  { tier:"縣", name:"澎湖縣", code:"PEN", zones:["馬公"] },
+  { tier:"縣", name:"金門縣", code:"KIN", zones:["金城","金寧","金湖"] },
+  { tier:"縣", name:"連江縣", code:"LJF", zones:["南竿","北竿"] }
+];
+const TOTAL_ZONES = REGIONS.reduce((s,r)=>s+r.zones.length,0);
+const TOTAL_REGIONS = REGIONS.length;
+
+/* ============ 渲染 ============ */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function renderStats(){
+  $("#statRow").innerHTML = [
+    `<div class="stat"><b>${TOTAL_REGIONS}</b><span>縣市</span></div>`,
+    `<div class="stat"><b>${TOTAL_ZONES}</b><span>重劃區位</span></div>`,
+    `<div class="stat"><b>6</b><span>直轄市</span></div>`,
+    `<div class="stat"><b>16</b><span>市＋縣</span></div>`
+  ].join("");
+}
+function renderLegend(){
+  const byTier = {};
+  REGIONS.forEach(r=>byTier[r.tier]=(byTier[r.tier]||0)+1);
+  $("#tierLegend").innerHTML = TIER_ORDER.map(t=>
+    `<div class="tl"><span class="sw" style="background:${TIER_COLOR[t]}"></span>${t}<span class="n">${byTier[t]} 縣市</span></div>`
+  ).join("");
+  $("#mapGrid").innerHTML = REGIONS.map(r=>
+    `<div class="zone-cell t-${r.tier==='直轄市'?'dir':r.tier==='市'?'city':'county'}" data-region="${esc(r.name)}" title="${esc(r.name)} · ${r.zones.length} 區位">
+      <b>${esc(r.name.replace(/[市縣]$/,''))}</b><span>${r.zones.length}</span>
+    </div>`
+  ).join("");
+}
+function renderRegions(filter){
+  const list = filter ? REGIONS.filter(r=>r.name.includes(filter)||r.zones.some(z=>z.includes(filter))) : REGIONS;
+  $("#regionGrid").innerHTML = list.map(r=>`
+    <div class="r-card" data-region="${esc(r.name)}" style="--rc:${TIER_COLOR[r.tier]}">
+      <div class="rc-top"><span class="rc-zh">${esc(r.name)}</span><span class="rc-tier">${esc(r.tier)}</span></div>
+      <div class="rc-z">${r.zones.slice(0,5).map(z=>`<span class="zi">${esc(z)}</span>`).join("")}${r.zones.length>5?`<span class="zi">+${r.zones.length-5}</span>`:""}</div>
+      <div class="rc-more">點開 MegaMenu 查看全部區位 <span>›</span></div>
+    </div>
+  `).join("") || `<div class="empty">沒有符合「${esc(filter)}」的縣市或區位。</div>`;
+}
+function renderMega(query){
+  const q = (query||"").trim();
+  const body = $("#megaBody");
+  let total = 0;
+  const tierHtml = TIER_ORDER.map(t=>{
+    const list = REGIONS.filter(r=>r.tier===t && (!q || r.name.includes(q) || r.zones.some(z=>z.includes(q))));
+    if(!list.length) return "";
+    total += list.length;
+    return `<div class="tier-group">
+      <h4><span class="bar" style="background:${TIER_COLOR[t]}"></span>${t}</h4>
+      <div class="acc-wrap">${list.map(r=>`
+        <div class="acc" data-region="${esc(r.name)}">
+          <button type="button"><span>${esc(r.name)}</span><span class="cnt">${r.zones.length} 區位</span><span class="chev">▾</span></button>
+          <div class="acc-body">${r.zones.map(z=>`<span class="zi">${esc(z)}</span>`).join("")}</div>
+        </div>`).join("")}
+      </div>
+    </div>`;
+  }).join("");
+  body.innerHTML = tierHtml || `<div class="empty">沒有符合「${esc(q)}」的縣市或區位。</div>`;
+  $("#megaCount").textContent = `共 ${REGIONS.length} 縣市 · ${TOTAL_ZONES} 區位${q?` · 篩選出 ${total} 縣市`:""}`;
+}
+
+/* ============ 事件 ============ */
+const mega = $("#mega"), megaBtn = $("#megaBtn");
+function openMega(region){
+  mega.classList.add("open"); megaBtn.setAttribute("aria-expanded","true");
+  document.body.style.overflow="hidden";
+  $("#megaSearch").value=""; renderMega("");
+  if(region){ const acc=[...document.querySelectorAll(".acc")].find(a=>a.dataset.region===region); if(acc){ acc.classList.add("open"); acc.scrollIntoView({block:"center"});} }
+}
+function closeMega(){ mega.classList.remove("open"); megaBtn.setAttribute("aria-expanded","false"); document.body.style.overflow=""; }
+
+megaBtn.addEventListener("click",e=>{ e.stopPropagation(); openMega(); });
+$("#megaBackdrop").addEventListener("click",closeMega);
+$("#megaClose").addEventListener("click",closeMega);
+$("#megaSearch").addEventListener("input",e=>renderMega(e.target.value));
+$("#megaBody").addEventListener("click",e=>{
+  const btn=e.target.closest(".acc>button");
+  if(btn){ const acc=btn.parentElement; acc.classList.toggle("open"); return; }
+  const acc=e.target.closest(".acc");
+  if(acc){ acc.classList.toggle("open"); }
+});
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") closeMega(); });
+
+$("#mapGrid").addEventListener("click",e=>{ const c=e.target.closest(".zone-cell"); if(c) openMega(c.dataset.region); });
+$("#regionGrid").addEventListener("click",e=>{ const c=e.target.closest(".r-card"); if(c) openMega(c.dataset.region); });
+
+/* Portal 連結：本機未建檔時提示設定 */
+document.querySelectorAll("[data-bread-portal], #portalLink, #footPortal").forEach(a=>{
+  a.addEventListener("click",e=>{
+    if(!sessionStorage.getItem("portal_ok")){
+      e.preventDefault();
+      const ok = confirm("Portal 頁面尚未偵測到。請於 D:\\_WWW_325 執行 generate_portal325.py 後，將本頁 portal325.html 連結更新為實際檔案。\n\n仍要前往 portal325.html 嗎？");
+      if(ok){ sessionStorage.setItem("portal_ok","1"); window.location.href="portal325.html"; }
+    }
+  });
+});
+document.querySelectorAll("[data-theme-link]").forEach(a=>{
+  a.addEventListener("click",e=>{ e.preventDefault(); toggleTheme(); });
+});
+
+/* ============ 主題 ============ */
+function applyTheme(t){
+  document.documentElement.setAttribute("data-theme", t);
+  localStorage.setItem("mm-theme", t);
+}
+function toggleTheme(){
+  const cur = document.documentElement.getAttribute("data-theme");
+  applyTheme(cur==="dark"?"light":"dark");
+}
+(function initTheme(){
+  const saved = localStorage.getItem("mm-theme");
+  const sys = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  applyTheme(saved || sys);
+})();
+$("#themeBtn").addEventListener("click",toggleTheme);
+
+/* ============ 初始 ============ */
+renderStats(); renderLegend(); renderRegions(""); renderMega("");
+</script>
+
+<!-- FAB9R: 9return.com 全站浮動導覽（回首頁 / 網站導覽 / Line） -->
+<div id="fab9r" class="fab9r" role="complementary" aria-label="9return.com 網站導覽">
+<style>
+.fab9r{position:fixed;right:14px;top:55%;z-index:2147483000;isolation:isolate;font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif}
+.fab9r *{box-sizing:border-box}
+.fab9r-btn{width:38px;height:38px;border:0;border-radius:50%;cursor:pointer;background:linear-gradient(145deg,#3d5c44,#2f4a35);color:#f4efe2;font-family:"Noto Serif TC","Microsoft JhengHei",serif;font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(47,74,53,.5),inset 0 1px 0 rgba(255,255,255,.25);transition:transform .18s;outline:none}
+.fab9r-btn:hover{transform:translateY(-2px)}
+.fab9r-btn:active{transform:translateY(0)}
+.fab9r-tip{position:absolute;right:0;bottom:calc(100% + 6px);background:#243028;color:#f4efe2;font-size:11px;line-height:1;padding:5px 8px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .18s;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.fab9r-btn:hover + .fab9r-tip,.fab9r-btn:focus-visible + .fab9r-tip{opacity:1}
+.fab9r.open .fab9r-tip{opacity:0}
+.fab9r-menu{position:absolute;right:0;bottom:calc(100% + 10px);width:174px;max-width:calc(100vw - 28px);background:#243028;border:1px solid rgba(217,201,166,.35);border-radius:12px;padding:8px 6px;box-shadow:0 10px 28px rgba(0,0,0,.35);opacity:0;transform:translateY(6px);pointer-events:none;transition:opacity .18s,transform .18s}
+.fab9r.open .fab9r-menu{opacity:1;transform:translateY(0);pointer-events:auto}
+@media (max-width:640px){.fab9r-menu{width:166px}}
+.fab9r-brand{font-family:"Noto Serif TC","Microsoft JhengHei",serif;font-weight:700;font-size:12px;letter-spacing:.06em;color:#d9c9a6;padding:4px 10px 7px;border-bottom:1px solid rgba(217,201,166,.25);white-space:nowrap}
+.fab9r-label{font-size:10px;letter-spacing:.22em;color:#d9c9a6;font-weight:700;padding:8px 10px 4px;white-space:nowrap}
+.fab9r-menu a{display:flex;align-items:center;gap:8px;color:#f4efe2;text-decoration:none;font-size:12px;line-height:1.5;padding:5px 10px;border-radius:7px;white-space:nowrap;transition:background .15s,color .15s}
+.fab9r-menu a:hover{background:#3d5c44;color:#fff}
+.fab9r-home{font-weight:600}
+.fab9r-line{font-weight:600;color:#c8f7dc!important}
+.fab9r-line:hover{background:rgba(6,199,85,.18)!important;color:#eafff2!important}
+.fab9r-dot{width:7px;height:7px;border-radius:50%;background:#06c755;display:inline-block;flex:none}
+</style>
+<button class="fab9r-btn" type="button" aria-label="9return.com 網站導覽" aria-expanded="false">9</button>
+<div class="fab9r-tip">9return.com 網站導覽</div>
+<nav class="fab9r-menu" aria-label="9return.com 網站導覽選單">
+<div class="fab9r-brand">9return.com</div>
+<a class="fab9r-home" href="file:///D:/_WWW_325_public/9return.com/index.html">回首頁</a>
+<div class="fab9r-label">網站導覽</div>
+<a href="file:///D:/_WWW_325_public/9return.com/architecture-atlas/index.html">世界建築史</a>
+<a href="file:///D:/_WWW_325_public/9return.com/land-development-handbook/index.html">土地開發手冊</a>
+<a href="file:///D:/_WWW_325_public/9return.com/recalc/index.html">九回算算網</a>
+<a href="file:///D:/_WWW_325_public/9return.com/taichung_landzone/index.html">台中重劃區</a>
+<a href="file:///D:/_WWW_325_public/9return.com/taiwan-land-rezone/index.html">台灣22縣市重劃區地圖</a>
+<a href="file:///D:/_WWW_325_public/9return.com/urban-renewal/index.html">都市更新與危老重建</a>
+<a class="fab9r-line" href="https://line.me/ti/p/g-FTLSqJAR" target="_blank" rel="noopener"><span class="fab9r-dot"></span>Line 群組邀請</a>
+</nav>
+<script>
+(function(){
+ var w=document.getElementById('fab9r');
+ if(!w||w.__fab9r){return}
+ var btn=w.querySelector('.fab9r-btn');
+ function setOpen(o){w.classList.toggle('open',o);btn.setAttribute('aria-expanded',o?'true':'false')}
+ btn.addEventListener('click',function(e){e.stopPropagation();setOpen(!w.classList.contains('open'))});
+ document.addEventListener('click',function(){setOpen(false)});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape'){setOpen(false)}});
+ w.querySelector('.fab9r-menu').addEventListener('click',function(){setOpen(false)});
+ w.__fab9r=true;
+})();
+</script>
+</div>
+<!-- /FAB9R -->
+</body>
+</html>

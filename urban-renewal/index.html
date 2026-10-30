@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<link rel="canonical" href="index.html">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="都更與危老重建資訊平台 V2 | 老屋重建評估・容積獎勵試算・申請流程">
+<meta property="og:description" content="都更與危老重建資訊平台 V2 | 老屋重建評估・容積獎勵試算・申請流程">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="都更與危老重建資訊平台 V2 | 老屋重建評估・容積獎勵試算・申請流程">
+<meta name="twitter:description" content="都更與危老重建資訊平台 V2 | 老屋重建評估・容積獎勵試算・申請流程">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>都更與危老重建資訊平台 V2 | 老屋重建評估・容積獎勵試算・申請流程</title>
+<meta name="description" content="台灣都更與危老重建資訊平台：老屋重建該走都市更新還是危老？提供都更vs危老比較、容積獎勵試算、申請流程時間軸、全台案件數據與常見問答。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2317334c'/%3E%3Cpath d='M14 34 L32 14 L50 34 v18 H14z' fill='%23c26b2e'/%3E%3Cpath d='M22 52 v-12 h20 v12' fill='%23f5f0e6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&display=swap">
+<style>
+:root{
+  --navy:#17334c; --navy-deep:#0d2133; --terracotta:#c26b2e; --terracotta-deep:#a35620;
+  --bg:#f5f0e6; --paper:#ffffff; --sand:#e9dfcb; --line:#d9cfbc;
+  --ink:#1f2933; --ink-soft:#43525e; --muted:#6b7783; --mint:#4f7a5c; --warn:#b3382e;
+  --shadow:0 10px 30px rgba(13,33,51,.10);
+  --radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:"Noto Serif TC","Microsoft JhengHei","PingFang TC",serif}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--terracotta);text-decoration:none}
+button{font-family:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* ===== Top Nav ===== */
+.topnav{position:sticky;top:0;z-index:100;background:rgba(23,51,76,.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08)}
+.topnav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:900;font-size:17px;white-space:nowrap}
+.brand svg{flex:none}
+.brand small{display:block;font-size:11px;font-weight:400;color:#bcd0e0}
+.nav-links{display:flex;gap:4px;flex-wrap:wrap}
+.nav-links a{color:#dbe7f0;font-size:14px;font-weight:600;padding:8px 12px;border-radius:8px;transition:.2s}
+.nav-links a:hover{background:rgba(255,255,255,.12);color:#fff}
+
+/* ===== Hero ===== */
+.hero{position:relative;color:#fff;overflow:hidden;background:var(--navy-deep)}
+.hero-bg{position:absolute;inset:0;background:url('assets/hero.jpg') center/cover no-repeat;opacity:.55;filter:saturate(.9)}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(100deg,rgba(13,33,51,.92) 0%,rgba(13,33,51,.72) 42%,rgba(13,33,51,.28) 72%,rgba(13,33,51,.05) 100%)}
+.hero .wrap{position:relative;z-index:2;padding-top:96px;padding-bottom:120px}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.05em;color:#f2c98d;background:rgba(194,107,46,.18);border:1px solid rgba(242,201,141,.35);padding:6px 14px;border-radius:999px;margin-bottom:20px}
+.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.16;font-weight:900;max-width:18em;text-shadow:0 3px 22px rgba(0,0,0,.35)}
+.hero h1 .acc{color:#f2c98d}
+.hero p.lead{margin-top:18px;font-size:clamp(15px,2vw,18px);max-width:42em;color:#e6edf3;opacity:.92}
+.hero-cta{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:10px;font-weight:700;font-size:15px;cursor:pointer;border:none;transition:.18s}
+.btn-primary{background:linear-gradient(135deg,var(--terracotta),var(--terracotta-deep));color:#fff;box-shadow:0 8px 22px rgba(194,107,46,.4)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.4)}
+.btn-ghost:hover{background:rgba(255,255,255,.22)}
+
+/* ===== Stat band ===== */
+.statband{margin-top:-64px;position:relative;z-index:3}
+.statband .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.ov-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.ov-grid>div{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.statcard{background:var(--paper);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);border-top:3px solid var(--terracotta)}
+.statcard .num{font-family:"Noto Serif TC",serif;font-size:34px;font-weight:900;color:var(--navy);line-height:1.1}
+.statcard .num small{font-size:15px;color:var(--terracotta)}
+.statcard .lab{font-size:13px;color:var(--muted);margin-top:6px}
+.statcard .src{font-size:11px;color:#a89f8e;margin-top:6px}
+
+/* ===== Section shell ===== */
+section{scroll-margin-top:76px}
+.section{padding:64px 0 16px}
+.section-head{margin-bottom:34px;max-width:760px}
+.section-head .kicker{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:700;color:var(--terracotta);letter-spacing:.06em;margin-bottom:10px;text-transform:none}
+.section-head h2{font-size:clamp(24px,3vw,32px);font-weight:900;color:var(--navy);line-height:1.3}
+.section-head p{margin-top:12px;color:var(--ink-soft);font-size:15px}
+
+/* ===== Comparison table ===== */
+.cmp-card{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;border:1px solid var(--line)}
+.cmp-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.cmp-scroll-hint{display:none;text-align:center;font-size:12px;color:var(--muted);padding:8px 0 0}
+table.cmp{width:100%;border-collapse:collapse;table-layout:fixed;min-width:0}
+.cmp col.a{width:16%}.cmp col.b{width:42%}.cmp col.c{width:42%}
+.cmp th,.cmp td{padding:14px 16px;vertical-align:top;text-align:left;font-size:14px;border-bottom:1px solid var(--line)}
+.cmp thead th{background:var(--navy);color:#fff;font-weight:900;font-size:15px;padding:16px}
+.cmp thead th.colb{background:var(--terracotta)}
+.cmp tbody tr:nth-child(even){background:#faf6ee}
+.cmp td.rowh{background:#f0e9d8;font-weight:800;color:var(--navy)}
+.cmp .lead-badge{font-size:12px;font-weight:700}
+.cmp-foot{padding:12px 16px;font-size:12px;color:var(--muted);background:#fdfaf4;border-top:1px solid var(--line)}
+
+/* ===== Calculator ===== */
+.calc{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:start}
+.calc-panel,.calc-result{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--line)}
+.calc-panel{padding:26px}
+.field{margin-bottom:18px}
+.field label{display:block;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:8px}
+.field input[type=number]{width:100%;padding:12px 14px;font-size:15px;border:1px solid var(--line);border-radius:10px;background:#fdfbf6;font-family:inherit}
+.field input[type=number]:focus{outline:2px solid var(--terracotta);border-color:transparent}
+.award-items{border-top:1px dashed var(--line);padding-top:16px;margin-top:4px}
+.award-row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #f0e9d8}
+.award-row:last-child{border-bottom:none}
+.award-row input[type=checkbox]{width:20px;height:20px;accent-color:var(--terracotta);flex:none}
+.award-row .a-name{flex:1;font-size:14px;color:var(--ink)}
+.award-row .a-name small{display:block;color:var(--muted);font-size:12px}
+.award-row .a-pct{width:76px;padding:8px 8px;text-align:right;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:13px}
+.calc-btn{width:100%;margin-top:8px}
+.calc-result{padding:26px;background:linear-gradient(160deg,#ffffff,var(--sand))}
+.calc-result h3{font-size:17px;font-weight:900;color:var(--navy);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.calc-result .note{font-size:12px;color:var(--muted);margin-bottom:18px}
+.outline{font-size:13px;color:var(--ink-soft);display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--line)}
+.outline b{color:var(--ink)}
+.metric{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px dashed var(--line)}
+.metric .k{font-size:13px;color:var(--ink-soft)}
+.metric .v{font-family:"Noto Serif TC",serif;font-size:22px;font-weight:900;color:var(--navy)}
+.metric .v small{font-size:13px;color:var(--muted);font-weight:500}
+.total-box{margin-top:16px;background:var(--navy);color:#fff;border-radius:12px;padding:18px;text-align:center}
+.total-box .t-k{font-size:13px;color:#bcd0e0}
+.total-box .t-v{font-family:"Noto Serif TC",serif;font-size:30px;font-weight:900;color:#fff}
+.total-box .t-sub{font-size:12px;color:#cfe0ee;margin-top:4px}
+.cap-warn{margin-top:12px;font-size:13px;font-weight:700;color:var(--warn);background:#fdece9;border:1px solid #f2c3bb;border-radius:10px;padding:10px 12px;display:none}
+.cap-warn.show{display:block}
+.calc-foot{margin-top:14px;font-size:11px;color:var(--muted);line-height:1.7}
+
+/* ===== Timeline ===== */
+.tl{display:grid;grid-template-columns:86px 36px 1fr;gap:0;max-width:820px}
+.tl-row{display:contents}
+.tl-st{text-align:right;padding:0 10px 26px 0;font-family:"Noto Serif TC",serif;font-weight:900;font-size:15px;color:var(--terracotta);padding-top:6px}
+.tl-axis{position:relative}
+.tl-axis .dot{width:20px;height:20px;border-radius:50%;background:var(--paper);border:5px solid var(--terracotta);box-sizing:border-box;justify-self:center;align-self:start;margin-top:6px;z-index:1;position:relative}
+.tl-axis .line{position:absolute;top:30px;bottom:0;left:50%;width:3px;background:var(--sand);transform:translateX(-50%)}
+.tl-row:last-child .tl-axis .line{display:none}
+.tl-card{padding:0 0 26px 18px}
+.tl-card h4{font-weight:900;color:var(--navy);font-size:16px;margin-bottom:4px}
+.tl-card p{font-size:14px;color:var(--ink-soft)}
+.tl-note{grid-column:2/4;font-size:12px;color:var(--muted);padding:0 0 8px 18px;margin-top:-12px}
+
+/* ===== Data dashboard ===== */
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.chart-card{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--line);padding:20px}
+.chart-card h3{font-size:16px;font-weight:900;color:var(--navy);margin-bottom:4px}
+.chart-card .sub{font-size:12px;color:var(--muted);margin-bottom:12px}
+.chart-box{width:100%;height:320px}
+.srcnote{font-size:11px;color:var(--muted);margin-top:10px;line-height:1.7;background:#fdfaf4;border-left:3px solid var(--sand);padding:10px 12px}
+
+/* ===== FAQ ===== */
+.faq{max-width:820px}
+.faq-item{background:var(--paper);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:16px 18px;font-size:15px;font-weight:800;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:inherit}
+.faq-q .ic{flex:none;width:22px;height:22px;border-radius:50%;background:var(--sand);color:var(--terracotta);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;transition:.25s}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a .inner{padding:0 18px 18px;font-size:14px;color:var(--ink-soft);border-top:1px dashed var(--line);margin:0 0 14px;padding-top:14px}
+.faq-item.open .faq-q .ic{transform:rotate(45deg);background:var(--terracotta);color:#fff}
+
+/* ===== CTA ===== */
+.cta-band{background:var(--navy);color:#fff;border-radius:var(--radius);padding:44px 40px;margin:56px 0;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;background-image:radial-gradient(circle at 85% 20%,rgba(194,107,46,.35),transparent 55%)}
+.cta-band h3{font-size:clamp(20px,3vw,26px);font-weight:900;max-width:20em;line-height:1.35}
+.cta-band p{margin-top:10px;color:#cfe0ee;font-size:14px}
+
+/* ===== Footer ===== */
+footer{background:var(--navy-deep);color:#bcd0e0;margin-top:40px}
+.foot{max-width:1180px;margin:0 auto;padding:40px 24px 28px}
+.foot-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;border-bottom:1px solid rgba(255,255,255,.1);padding-bottom:24px}
+.foot-brand{max-width:360px}
+.foot-brand h4{color:#fff;font-size:18px;font-weight:900;margin-bottom:8px}
+.foot-brand p{font-size:13px;color:#8fa6b8;line-height:1.8}
+.foot-col h5{color:#fff;font-size:14px;font-weight:700;margin-bottom:12px}
+.foot-col a,.foot-col span{display:block;font-size:13px;color:#9db4c6;padding:6px 0}
+.foot-col a:hover{color:#fff}
+.foot-src{margin-top:20px;font-size:11px;color:#7c95a8;line-height:1.9}
+.foot-bottom{margin-top:20px;text-align:center;font-size:12px;color:#7c95a8;border-top:1px solid rgba(255,255,255,.08);padding-top:20px}
+
+/* ===== Back to top ===== */
+#backtop{position:fixed;bottom:24px;right:24px;width:46px;height:46px;border-radius:50%;background:var(--terracotta);color:#fff;border:none;font-size:20px;cursor:pointer;box-shadow:0 8px 22px rgba(194,107,46,.4);opacity:0;pointer-events:none;transition:.2s;z-index:90}
+#backtop.show{opacity:1;pointer-events:auto}
+
+/* ===== Responsive ===== */
+@media(max-width:900px){
+  .statband .grid{grid-template-columns:repeat(2,1fr)}
+  .calc{grid-template-columns:1fr}
+  .charts{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .nav-links{display:none}
+  .hero .wrap{padding-top:64px;padding-bottom:96px}
+  .statband .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .statcard .num{font-size:26px}
+  .statcard .lab{font-size:14px}
+  .cmp-scroll-hint{display:block}
+  table.cmp{min-width:620px;font-size:13px}
+  .award-row input[type=checkbox]{width:22px;height:22px}
+  input,select,textarea{font-size:16px}
+  .tl{grid-template-columns:60px 30px 1fr}
+  .foot-top{flex-direction:column}
+}
+</style>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Organization",
+ "name": "都更與危老重建資訊平台 V2 | 老屋重建評估・容積獎勵試算・申請流程",
+ "url": "index.html"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "首頁",
+   "item": "index.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "都更與危老重建資訊平台 V2 | 老屋重建評估・容積獎勵試算・申請流程",
+   "item": "index.html"
+  }
+ ]
+}
+</script>
+</head>
+<body>
+
+
+<header class="topnav">
+  <div class="wrap">
+    <div class="brand">
+      <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#c26b2e"/><path d="M14 34 L32 14 L50 34 v18 H14z" fill="#fff"/><path d="M22 52 v-12 h20 v12" fill="#17334c"/></svg>
+      <span>都更與危老重建資訊平台<small>老屋重建評估・申請指引</small></span>
+    </div>
+    <nav class="nav-links">
+      <a href="#overview">概覽</a>
+      <a href="#articles">內頁文章</a>
+      <a href="#compare">都更vs危老</a>
+      <a href="#calculator">容積試算</a>
+      <a href="#process">申請流程</a>
+      <a href="#data">全台數據</a>
+      <a href="#faq">常見問答</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-shade"></div>
+  <div class="wrap">
+    <span class="eyebrow">台灣・都市更新與危險老舊建築重建</span>
+    <h1>老屋重建，該走<em class="acc">都市更新</em>還是<em class="acc">危老重建</em>？</h1>
+    <p class="lead">全台屋齡超過 30 年的老屋已逾 554 萬戶。你的老屋該不該重建、走哪一條路最快、能拿多少容積獎勵——這份平台幫你把比較、試算、流程與數據一次講清楚。</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#calculator">開始容積試算</a>
+      <a class="btn btn-ghost" href="#compare">先看都更 vs 危老</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Stat band ===== -->
+<div class="statband wrap">
+  <div class="grid">
+    <div class="statcard"><div class="num">554<small> 萬戶</small></div><div class="lab">全台屋齡超過 30 年之老屋</div><div class="src">資料：內政部國土管理署</div></div>
+    <div class="statcard"><div class="num">6,130<small> 件</small></div><div class="lab">全國都更與危老案件已核定（115/02）</div><div class="src">資料：內政部國土管理署</div></div>
+    <div class="statcard"><div class="num">3,652<small> 件</small></div><div class="lab">其中已申報開工（115/02）</div><div class="src">資料：內政部國土管理署</div></div>
+    <div class="statcard"><div class="num">2 倍</div><div class="lab">都更容積獎勵上限（不逾基準容積2倍）</div><div class="src">資料：行政院會 115/07 修法</div></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ===== 內頁文章 ===== -->
+<section class="section" id="articles">
+  <div class="section-head">
+    <div class="kicker">深入閱讀</div>
+    <h2>內頁文章：把都更與危老的關鍵機制讀懂</h2>
+    <p>想進一步了解權利變換、容積獎勵與實施者選擇，可從以下專文開始。</p>
+  </div>
+  <div class="ov-grid">
+    <div style="background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px">
+      <h3 style="font-size:16px;font-weight:900;color:var(--navy);margin-bottom:8px">都更權利變換是什麼</h3>
+      <p style="font-size:14px;color:var(--ink-soft)">更新前權利價值如何換算成更新後房地？為何有人分房、有人領現金？</p>
+      <p style="margin:12px 0 0"><a href="articles/rights-conversion.html" style="color:var(--terracotta);font-weight:900">閱讀全文 →</a></p>
+    </div>
+    <div style="background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px">
+      <h3 style="font-size:16px;font-weight:900;color:var(--navy);margin-bottom:8px">容積獎勵項目與試算眉角</h3>
+      <p style="font-size:14px;color:var(--ink-soft)">時程、規模、耐震、綠建築獎勵怎麼算？上限 30% 怎麼抓？</p>
+      <p style="margin:12px 0 0"><a href="articles/far-incentive-guide.html" style="color:var(--terracotta);font-weight:900">閱讀全文 →</a></p>
+    </div>
+    <div style="background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px">
+      <h3 style="font-size:16px;font-weight:900;color:var(--navy);margin-bottom:8px">自主都更 vs 建商合建</h3>
+      <p style="font-size:14px;color:var(--ink-soft)">重建一定要找建商嗎？兩者出資、分配、風險與適合條件一次比較。</p>
+      <p style="margin:12px 0 0"><a href="articles/self-renewal-vs-joint-venture.html" style="color:var(--terracotta);font-weight:900">閱讀全文 →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Overview ===== -->
+<section class="section" id="overview">
+  <div class="section-head">
+    <div class="kicker"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c26b2e" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>為什麼要談老屋重建</div>
+    <h2>老屋不只是「舊」，更關乎居住安全</h2>
+    <p>台灣老屋普遍面臨結構老化、耐震不足、無電梯、管線老舊等問題。重建的目的不只是換新房，而是透過政府提供的容積獎勵與稅賦優惠，讓所有權人用較低的自備成本，換回更安全、更宜居的家。而「走都更」還是「走危老」，決定了流程快慢與獎勵多寡。</p>
+  </div>
+  <div class="ov-grid">
+    <div style="background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px">
+      <h3 style="font-size:16px;font-weight:900;color:var(--navy);margin-bottom:8px">為什麼政府要鼓勵重建</h3>
+      <p style="font-size:14px;color:var(--ink-soft)">改善居住安全、因應都市防災，並透過容積獎勵與社宅連結，讓開發利益回饋社會與婚育家庭。</p>
+    </div>
+    <div style="background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px">
+      <h3 style="font-size:16px;font-weight:900;color:var(--navy);margin-bottom:8px">重建的實質誘因</h3>
+      <p style="font-size:14px;color:var(--ink-soft)">容積獎勵、重建期間地價稅與房屋稅減免、融資協助與信用保證，降低所有權人的財務門檻。</p>
+    </div>
+    <div style="background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px">
+      <h3 style="font-size:16px;font-weight:900;color:var(--navy);margin-bottom:8px">先搞懂一件事</h3>
+      <p style="font-size:14px;color:var(--ink-soft)">你的基地大小、屋齡、所有權人數量與整合難度，會決定都更與危老哪一條路更適合你。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Comparison ===== -->
+<section class="section" id="compare">
+  <div class="section-head">
+    <div class="kicker"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c26b2e" stroke-width="2"><rect x="4" y="4" width="7" height="16" rx="1.5"/><rect x="13" y="4" width="7" height="16" rx="1.5"/></svg>核心決策</div>
+    <h2>都市更新 vs 危老重建，一張表看懂差異</h2>
+    <p>兩條路各有適用條件、門檻與獎勵，先看自己在哪一格，再決定怎麼走。</p>
+  </div>
+  <div class="cmp-card">
+    <div class="cmp-scroll">
+    <table class="cmp">
+      <colgroup><col style="width:16%"><col style="width:42%"><col style="width:42%"></colgroup>
+      <thead>
+        <tr><th>比較面向</th><th class="colb">都市更新（都更）</th><th>危老重建（危老）</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="rowh">法源依據</td><td>《都市更新條例》</td><td>《都市危險及老舊建築物加速重建條例》</td></tr>
+        <tr><td class="rowh">適用對象</td><td>都市計畫範圍內，經劃定或申請劃定之更新單元；不限屋齡</td><td>都市計畫範圍內之合法建築物，且屬危險或老舊（耐震初評未達標準，或屋齡達一定年限等）</td></tr>
+        <tr><td class="rowh">同意門檻</td><td>依實施方式採多數決，所有權人同意比例依條例規定；未同意者經審議程序處理</td><td>須取得全體所有權人 100% 同意</td></tr>
+        <tr><td class="rowh">容積獎勵</td><td>依都更條例及獎勵辦法核給，上限提高，仍不得超過基地基準容積之 2 倍（修法推動中）</td><td>獎勵上限為基準容積之 1.3 倍（獎勵最多 30%）；修法擬新增捐贈社會住宅等項目</td></tr>
+        <tr><td class="rowh">審議流程</td><td>較長：劃定單元、事業計畫、公開展覽、審議會審議、核定</td><td>較短：擬訂重建計畫、送縣市主管機關核准</td></tr>
+        <tr><td class="rowh">時程</td><td>通常數年至十數年，適合大面積、跨棟整合</td><td>相對快速，適合小面積、所有權單純之基地</td></tr>
+        <tr><td class="rowh">政府協助</td><td>可申請都更基金、自主都更信用保證等</td><td>容積獎勵、重建期間稅賦優惠等</td></tr>
+      </tbody>
+    </table>
+    <div class="cmp-scroll-hint">← 左右滑動查看完整比較表 →</div>
+    </div>
+    <div class="cmp-foot">註：本表為通則性比較，個別案件之適用條件、同意比例與獎勵，仍以現行法規及地方政府審議結果為準。</div>
+  </div>
+</section>
+
+<!-- ===== Calculator ===== -->
+<section class="section" id="calculator">
+  <div class="section-head">
+    <div class="kicker"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c26b2e" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>互動工具</div>
+    <h2>危老重建容積獎勵試算器</h2>
+    <p>輸入基地面積與基準容積率，勾選預計申請的獎勵項目，即時估算可增加的容積與重建後總容積。各項目實際獎勵比例依申請內容與縣市審議為準，系統以「獎勵總和不得超過基準容積 30%（1.3 倍上限）」作為總量檢核。</p>
+  </div>
+
+  <div class="calc">
+    <div class="calc-panel">
+      <div class="field">
+        <label for="landArea">基地面積（平方公尺）</label>
+        <input type="number" id="landArea" value="500" min="1" step="10">
+      </div>
+      <div class="field">
+        <label for="far">基準容積率（%）</label>
+        <input type="number" id="far" value="200" min="50" step="10">
+      </div>
+      <div class="award-items">
+        <div class="award-row">
+          <input type="checkbox" id="aTime" checked>
+          <label class="a-name" for="aTime">時程獎勵<small>於期限內提出申請，目前約 4%</small></label>
+          <input type="number" class="a-pct" id="pTime" value="4" min="0" max="30">
+        </div>
+        <div class="award-row">
+          <input type="checkbox" id="aScale" checked>
+          <label class="a-name" for="aScale">規模獎勵<small>基地達 1,000 平方公尺以上</small></label>
+          <input type="number" class="a-pct" id="pScale" value="10" min="0" max="30">
+        </div>
+        <div class="award-row">
+          <input type="checkbox" id="aQuake" checked>
+          <label class="a-name" for="aQuake">耐震設計獎勵<small>符合耐震標章或構造標準</small></label>
+          <input type="number" class="a-pct" id="pQuake" value="2" min="0" max="30">
+        </div>
+        <div class="award-row">
+          <input type="checkbox" id="aGreen">
+          <label class="a-name" for="aGreen">綠建築獎勵<small>取得候選綠建築證書</small></label>
+          <input type="number" class="a-pct" id="pGreen" value="2" min="0" max="30">
+        </div>
+        <div class="award-row">
+          <input type="checkbox" id="aSmart">
+          <label class="a-name" for="aSmart">智慧建築獎勵<small>符合智慧建築標章</small></label>
+          <input type="number" class="a-pct" id="pSmart" value="2" min="0" max="30">
+        </div>
+        <div class="award-row">
+          <input type="checkbox" id="aBarrier">
+          <label class="a-name" for="aBarrier">無障礙環境獎勵<small>設置無障礙設施</small></label>
+          <input type="number" class="a-pct" id="pBarrier" value="1" min="0" max="30">
+        </div>
+        <div class="award-row">
+          <input type="checkbox" id="aSocial">
+          <label class="a-name" for="aSocial">捐贈社會住宅／社福設施<small>修法新增，最高基準容積 15%</small></label>
+          <input type="number" class="a-pct" id="pSocial" value="0" min="0" max="30">
+        </div>
+      </div>
+      <button class="btn btn-primary calc-btn" id="calcBtn">重新試算</button>
+    </div>
+
+    <div class="calc-result">
+      <h3>試算結果</h3>
+      <div class="note">基準容積 ＝ 基地面積 × 基準容積率；獎勵容積 ＝ 基準容積 × 各項獎勵比例之和</div>
+      <div class="outline"><span>基地面積</span><b id="oArea">—</b></div>
+      <div class="outline"><span>基準容積</span><b id="oBase">—</b></div>
+      <div class="outline"><span>基準容積率</span><b id="oFar">—</b></div>
+      <div class="metric"><span class="k">各項獎勵容積合計</span><span class="v" id="mBonus">—</span></div>
+      <div class="metric"><span class="k">獎勵後總容積率</span><span class="v" id="mFar">—</span></div>
+      <div class="total-box">
+        <div class="t-k">重建後可建築總容積</div>
+        <div class="t-v" id="tTotal">—</div>
+        <div class="t-sub" id="tSub">—</div>
+      </div>
+      <div class="cap-warn" id="capWarn">⚠ 獎勵比例總和已超過 30%（基準容積 1.3 倍上限），請調降部分項目，否則將無法全數核給。</div>
+      <div class="calc-foot">說明：此為初步估算工具，供決策參考。實際容積獎勵須依《都市危險及老舊建築物加速重建條例》及縣市審議核定為準，最終以主管機關核准之重建計畫為準。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Process ===== -->
+<section class="section" id="process">
+  <div class="section-head">
+    <div class="kicker"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c26b2e" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg>一步一步來</div>
+    <h2>危老重建申請流程</h2>
+    <p>危老因流程相對精簡，適合所有權單純、想加速重建的基地。以下為通則性流程，各縣市細節略有差異。</p>
+  </div>
+  <div class="tl">
+    <div class="tl-row">
+      <div class="tl-st">01</div>
+      <div class="tl-axis"><div class="dot"></div><div class="line"></div></div>
+      <div class="tl-card"><h4>資格確認</h4><p>確認建築物位於都市計畫範圍、為合法建築物，且屬危險或老舊（耐震初評未達標準、或符合屋齡與無電梯等要件）。</p></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-st">02</div>
+      <div class="tl-axis"><div class="dot"></div><div class="line"></div></div>
+      <div class="tl-card"><h4>整合所有權人</h4><p>與全體所有權人溝通、取得 100% 同意，並確認重建意願與分配方案方向。</p></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-st">03</div>
+      <div class="tl-axis"><div class="dot"></div><div class="line"></div></div>
+      <div class="tl-card"><h4>委託專業機構</h4><p>委由建築師或專業機構協助耐震評估、建築設計與重建計畫擬訂。</p></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-st">04</div>
+      <div class="tl-axis"><div class="dot"></div><div class="line"></div></div>
+      <div class="tl-card"><h4>擬訂重建計畫</h4><p>彙整容積獎勵申請項目、建築規劃、財務與分配方案，製作重建計畫書圖。</p></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-st">05</div>
+      <div class="tl-axis"><div class="dot"></div><div class="line"></div></div>
+      <div class="tl-card"><h4>申請核准</h4><p>向直轄市或縣市政府申請核准重建計畫，取得核准文件。</p></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-st">06</div>
+      <div class="tl-axis"><div class="dot"></div><div class="line"></div></div>
+      <div class="tl-card"><h4>申請建照與重建</h4><p>申請建築執照、辦理拆除與施工，完工後申請使用執照與產權登記。</p></div>
+    </div>
+    <div class="tl-note">註：危老條例修法擬刪除申請施行期限、確立常態化；實際流程與應備文件以縣市政府公告為準。</div>
+  </div>
+</section>
+
+<!-- ===== Data dashboard ===== -->
+<section class="section" id="data">
+  <div class="section-head">
+    <div class="kicker"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c26b2e" stroke-width="2"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg>全台數據</div>
+    <h2>都更與危老的實際案件數據</h2>
+    <p>以下數據取自內政部國土管理署公開新聞稿，標示統計時點，供評估市場熱度與政府推力參考。</p>
+  </div>
+  <div class="charts">
+    <div class="chart-card">
+      <h3>全國都更與危老案件累計（115 年 2 月）</h3>
+      <div class="sub">核定 vs 已申報開工</div>
+      <div class="chart-box" id="chartNation"></div>
+      <div class="srcnote">資料：內政部國土管理署（115-03-26 新聞稿）。</div>
+    </div>
+    <div class="chart-card">
+      <h3>危老重建累計（111 年 6 月底）</h3>
+      <div class="sub">受理、核准、申報開工</div>
+      <div class="chart-box" id="chartWl"></div>
+      <div class="srcnote">資料：內政部（111 年新聞稿）。自 106 年條例公布施行起累計。</div>
+    </div>
+  </div>
+  <div style="margin-top:20px">
+    <div class="srcnote">註：兩圖統計時點不同（115/02 與 111/06），不可直接相加比較。全國整體「都更＋危老」核定數為 6,130 件（115/02），顯示近年案量持續累積。</div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section" id="faq">
+  <div class="section-head">
+    <div class="kicker"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#c26b2e" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.6 2.3c-.7.3-1.1.8-1.1 1.7"/><circle cx="12" cy="16.5" r=".9" fill="#c26b2e"/></svg>常見問答</div>
+    <h2>關於都更與危老，你最常問的事</h2>
+  </div>
+  <div class="faq" id="faqList">
+    <div class="faq-item"><button class="faq-q"><span>我家老屋要符合什麼條件才能走危老重建？</span><span class="ic">+</span></button>
+      <div class="faq-a"><div class="inner">原則上須為都市計畫範圍內之合法建築物，且屬「危險」或「老舊」：例如經耐震初步評估未達一定標準，或屋齡達一定年限且無電梯等。是否適用，宜先請建築師或專業機構初評確認。</div></div></div>
+    <div class="faq-item"><button class="faq-q"><span>都更和危老，哪一條路的容積獎勵比較多？</span><span class="ic">+</span></button>
+      <div class="faq-a"><div class="inner">危老獎勵上限為基準容積的 1.3 倍（獎勵最多 30%）；都更依修法方向提高上限、但不得超過基準容積的 2 倍。都更的空間較大，但流程與門檻也較高，需視基地條件取捨。</div></div></div>
+    <div class="faq-item"><button class="faq-q"><span>老屋沒有百分百同意，還能重建嗎？</span><span class="ic">+</span></button>
+      <div class="faq-a"><div class="inner">危老要求全體所有權人 100% 同意；都更則採多數決並有審議程序處理未同意者。因此，若所有權單純、可全數整合，危老較快；若人數複雜、整合困難，都更機制較有彈性。</div></div></div>
+    <div class="faq-item"><button class="faq-q"><span>危老條例的施行期限是不是快到期了？</span><span class="ic">+</span></button>
+      <div class="faq-a"><div class="inner">行政院會已於 115-07 通過《危老條例》修正草案，擬刪除重建計畫申請之施行期限、確立危老重建常態化。法案尚待立法院審議，現階段仍以現行法規與縣市公告為準。</div></div></div>
+    <div class="faq-item"><button class="faq-q"><span>重建一定要找建商嗎？可以自己主導嗎？</span><span class="ic">+</span></button>
+      <div class="faq-a"><div class="inner">不一定。政府正推動「自主都更」，由所有權人委託具專業能力的機構擔任實施者統籌辦理，僅收取服務費、不參與分配房地，房地權利仍保留在所有權人；並有信用保證機制協助融資。</div></div></div>
+    <div class="faq-item"><button class="faq-q"><span>重建期間的稅賦和資金壓力怎麼處理？</span><span class="ic">+</span></button>
+      <div class="faq-a"><div class="inner">危老與都更多有重建期間地價稅、房屋稅等優惠；政府亦推動自主都更信用保證（中央都更基金提撥專款、預估可提供百億級信用擔保），協助降低銀行融資疑慮。詳細適用條件需依個案與縣市規定。</div></div></div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<div class="cta-band">
+  <div>
+    <h3>不確定自家老屋該走哪條路？</h3>
+    <p>提供專業評估、容積試算與重建規劃諮詢，歡迎洽詢。</p>
+  </div>
+  <a class="btn btn-primary" href="https://line.me/ti/p/~331.today">Line 諮詢：331.today</a>
+</div>
+
+</div><!-- /.wrap -->
+
+<footer>
+  <div class="foot">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <h4>都更與危老重建資訊平台 V2</h4>
+        <p>整合台灣都市更新與危老重建的案件資訊、容積獎勵、比較評估、申請流程與官方數據，協助老屋所有權人、建商與顧問掌握決策依據。</p>
+      </div>
+      <div class="foot-col">
+        <h5>平台導覽</h5>
+        <a href="#overview">概覽</a>
+        <a href="#compare">都更 vs 危老</a>
+        <a href="#calculator">容積試算</a>
+        <a href="#process">申請流程</a>
+        <a href="#data">全台數據</a>
+      </div>
+      <div class="foot-col">
+        <h5>聯絡與服務</h5>
+        <span>Line：331.today</span>
+        <span>電話：0968-222201</span>
+        <span>規劃／設計／開發／行銷：張書欣</span>
+      </div>
+    </div>
+    <div class="foot-src">資料來源：內政部〈修正都更基金運用辦法〉新聞稿（115-03-26）、內政部〈危老重建逾3千件〉新聞稿（111）、行政院會〈危老條例及都更條例修正案〉新聞稿（115-07-16）。本平台內容僅供資訊參考，不構成法律或投資建議；實際適用與獎勵以現行法規及主管機關核定為準。</div>
+    <div class="foot-bottom">© 2026 都更與危老重建資訊平台 V2</div>
+    <p style="margin:10px auto 4px;font-size:12px;line-height:1.7;opacity:.75;text-align:center;max-width:920px;padding:0 20px">免責聲明：本站內容僅供參考與資訊交流之用，不構成任何投資、置產、合約或法律建議或要約；都市更新、危老重建、容積獎勵、稅務等相關資訊，請以政府主管機關最新公告與專業人士意見為準。使用者依本站資訊所為之任何決定，應自行判斷並自負風險。</p>
+  </div>
+</footer>
+
+<button id="backtop" title="回到頂部">↑</button>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+<script>
+(function(){
+  // Back to top
+  var bt=document.getElementById('backtop');
+  window.addEventListener('scroll',function(){
+    bt.classList.toggle('show', window.scrollY>500);
+  });
+  bt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click',function(){
+      var item=q.closest('.faq-item');
+      var a=item.querySelector('.faq-a');
+      var open=item.classList.contains('open');
+      // close others
+      document.querySelectorAll('.faq-item.open').forEach(function(o){o.classList.remove('open');o.querySelector('.faq-a').style.maxHeight='0px';});
+      if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}
+    });
+  });
+})();
+
+// ===== Calculator =====
+(function(){
+  var capPct=30; // 基準容積 1.3 倍上限 => 獎勵最多 30%
+  function fmt(n){return Math.round(n).toLocaleString('zh-Hant');}
+  function calc(){
+    var area=parseFloat(document.getElementById('landArea').value)||0;
+    var far=parseFloat(document.getElementById('far').value)||0;
+    var base=area*far/100;
+    var items=[['aTime','pTime'],['aScale','pScale'],['aQuake','pQuake'],['aGreen','pGreen'],['aSmart','pSmart'],['aBarrier','pBarrier'],['aSocial','pSocial']];
+    var totalPct=0;
+    items.forEach(function(pair){
+      var on=document.getElementById(pair[0]).checked;
+      var v=parseFloat(document.getElementById(pair[1]).value)||0;
+      if(on)totalPct+=v;
+    });
+    var bonus=base*totalPct/100;
+    var total=base+bonus;
+    var totalFar=total/area*100;
+    document.getElementById('oArea').textContent=fmt(area)+' m²';
+    document.getElementById('oFar').textContent=far+'%';
+    document.getElementById('oBase').textContent=fmt(base)+' m²';
+    document.getElementById('mBonus').textContent='+'+fmt(bonus)+' m²';
+    document.getElementById('mFar').textContent=fmt(totalFar)+'%';
+    document.getElementById('tTotal').textContent=fmt(total)+' m²';
+    document.getElementById('tSub').textContent='（獎勵 '+totalPct.toFixed(1)+'%）';
+    var warn=document.getElementById('capWarn');
+    warn.classList.toggle('show', totalPct>capPct);
+  }
+  document.getElementById('calcBtn').addEventListener('click',calc);
+  document.querySelectorAll('.a-pct').forEach(function(i){i.addEventListener('input',calc);});
+  document.querySelectorAll('.award-row input[type=checkbox]').forEach(function(i){i.addEventListener('change',calc);});
+  document.getElementById('landArea').addEventListener('input',calc);
+  document.getElementById('far').addEventListener('input',calc);
+  calc();
+})();
+
+// ===== ECharts =====
+(function(){
+  if(typeof echarts==='undefined')return;
+  var navy='#17334c',terra='#c26b2e',mint='#4f7a5c',sand='#d9cfbc';
+
+  var c1=echarts.init(document.getElementById('chartNation'));
+  c1.setOption({
+    grid:{left:44,right:20,top:30,bottom:30},
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},
+    xAxis:{type:'category',data:['已核定','已申報開工'],axisLine:{lineStyle:{color:'#b9ad96'}},axisLabel:{color:'#43525e',fontSize:12}},
+    yAxis:{type:'value',name:'件數',nameTextStyle:{color:'#6b7783'},splitLine:{lineStyle:{color:'#efe6d4'}},axisLabel:{color:'#6b7783'}},
+    series:[{type:'bar',data:[6130,3652],barWidth:'42%',
+      itemStyle:{color:function(p){return p.dataIndex===0?navy:terra;},borderRadius:[6,6,0,0]},
+      label:{show:true,position:'top',fontWeight:'bold',color:'#1f2933',formatter:'{c}'}}]
+  });
+
+  var c2=echarts.init(document.getElementById('chartWl'));
+  c2.setOption({
+    grid:{left:44,right:20,top:30,bottom:30},
+    tooltip:{trigger:'axis',axisPointer:{type:'shadow'}},
+    xAxis:{type:'category',data:['受理','核准','申報開工'],axisLine:{lineStyle:{color:'#b9ad96'}},axisLabel:{color:'#43525e',fontSize:12}},
+    yAxis:{type:'value',name:'件數',nameTextStyle:{color:'#6b7783'},splitLine:{lineStyle:{color:'#efe6d4'}},axisLabel:{color:'#6b7783'}},
+    series:[{type:'bar',data:[3052,2313,1014],barWidth:'46%',
+      itemStyle:{color:function(p){return [navy,terra,mint][p.dataIndex];},borderRadius:[6,6,0,0]},
+      label:{show:true,position:'top',fontWeight:'bold',color:'#1f2933',formatter:'{c}'}}]
+  });
+
+  window.addEventListener('resize',function(){c1.resize();c2.resize();});
+})();
+</script>
+
+<!-- some thing todo -->
+
+
+
+
+<!-- FAB9R: 9return.com 全站浮動導覽（回首頁 / 網站導覽 / Line） -->
+<div id="fab9r" class="fab9r" role="complementary" aria-label="9return.com 網站導覽">
+<style>
+.fab9r{position:fixed;right:14px;top:55%;z-index:2147483000;isolation:isolate;font-family:"Noto Sans TC","Microsoft JhengHei","PingFang TC",sans-serif}
+.fab9r *{box-sizing:border-box}
+.fab9r-btn{width:38px;height:38px;border:0;border-radius:50%;cursor:pointer;background:linear-gradient(145deg,#3d5c44,#2f4a35);color:#f4efe2;font-family:"Noto Serif TC","Microsoft JhengHei",serif;font-weight:900;font-size:17px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(47,74,53,.5),inset 0 1px 0 rgba(255,255,255,.25);transition:transform .18s;outline:none}
+.fab9r-btn:hover{transform:translateY(-2px)}
+.fab9r-btn:active{transform:translateY(0)}
+.fab9r-tip{position:absolute;right:0;bottom:calc(100% + 6px);background:#243028;color:#f4efe2;font-size:11px;line-height:1;padding:5px 8px;border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .18s;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.fab9r-btn:hover + .fab9r-tip,.fab9r-btn:focus-visible + .fab9r-tip{opacity:1}
+.fab9r.open .fab9r-tip{opacity:0}
+.fab9r-menu{position:absolute;right:0;bottom:calc(100% + 10px);width:174px;max-width:calc(100vw - 28px);background:#243028;border:1px solid rgba(217,201,166,.35);border-radius:12px;padding:8px 6px;box-shadow:0 10px 28px rgba(0,0,0,.35);opacity:0;transform:translateY(6px);pointer-events:none;transition:opacity .18s,transform .18s}
+.fab9r.open .fab9r-menu{opacity:1;transform:translateY(0);pointer-events:auto}
+@media (max-width:640px){.fab9r-menu{width:166px}}
+.fab9r-brand{font-family:"Noto Serif TC","Microsoft JhengHei",serif;font-weight:700;font-size:12px;letter-spacing:.06em;color:#d9c9a6;padding:4px 10px 7px;border-bottom:1px solid rgba(217,201,166,.25);white-space:nowrap}
+.fab9r-label{font-size:10px;letter-spacing:.22em;color:#d9c9a6;font-weight:700;padding:8px 10px 4px;white-space:nowrap}
+.fab9r-menu a{display:flex;align-items:center;gap:8px;color:#f4efe2;text-decoration:none;font-size:12px;line-height:1.5;padding:5px 10px;border-radius:7px;white-space:nowrap;transition:background .15s,color .15s}
+.fab9r-menu a:hover{background:#3d5c44;color:#fff}
+.fab9r-home{font-weight:600}
+.fab9r-line{font-weight:600;color:#c8f7dc!important}
+.fab9r-line:hover{background:rgba(6,199,85,.18)!important;color:#eafff2!important}
+.fab9r-dot{width:7px;height:7px;border-radius:50%;background:#06c755;display:inline-block;flex:none}
+</style>
+<button class="fab9r-btn" type="button" aria-label="9return.com 網站導覽" aria-expanded="false">9</button>
+<div class="fab9r-tip">9return.com 網站導覽</div>
+<nav class="fab9r-menu" aria-label="9return.com 網站導覽選單">
+<div class="fab9r-brand">9return.com</div>
+<a class="fab9r-home" href="file:///D:/_WWW_325_public/9return.com/index.html">回首頁</a>
+<div class="fab9r-label">網站導覽</div>
+<a href="file:///D:/_WWW_325_public/9return.com/architecture-atlas/index.html">世界建築史</a>
+<a href="file:///D:/_WWW_325_public/9return.com/land-development-handbook/index.html">土地開發手冊</a>
+<a href="file:///D:/_WWW_325_public/9return.com/recalc/index.html">九回算算網</a>
+<a href="file:///D:/_WWW_325_public/9return.com/taichung_landzone/index.html">台中重劃區</a>
+<a href="file:///D:/_WWW_325_public/9return.com/taiwan-land-rezone/index.html">台灣22縣市重劃區地圖</a>
+<a href="file:///D:/_WWW_325_public/9return.com/urban-renewal/index.html">都市更新與危老重建</a>
+<a class="fab9r-line" href="https://line.me/ti/p/g-FTLSqJAR" target="_blank" rel="noopener"><span class="fab9r-dot"></span>Line 群組邀請</a>
+</nav>
+<script>
+(function(){
+ var w=document.getElementById('fab9r');
+ if(!w||w.__fab9r){return}
+ var btn=w.querySelector('.fab9r-btn');
+ function setOpen(o){w.classList.toggle('open',o);btn.setAttribute('aria-expanded',o?'true':'false')}
+ btn.addEventListener('click',function(e){e.stopPropagation();setOpen(!w.classList.contains('open'))});
+ document.addEventListener('click',function(){setOpen(false)});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape'){setOpen(false)}});
+ w.querySelector('.fab9r-menu').addEventListener('click',function(){setOpen(false)});
+ w.__fab9r=true;
+})();
+</script>
+</div>
+<!-- /FAB9R -->
+</body>
+</html>
