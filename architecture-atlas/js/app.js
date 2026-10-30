@@ -440,15 +440,19 @@
     tools.appendChild(el('button', { class:'btn', html:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1"/></svg>' + U.readMinutes(a.summary + a.body.join('')) + ' ' + tr('readMin'), onclick:function(){} }));
     wrap.appendChild(tools);
 
-    /* 主體 + TOC 布局 */
-    var grid = el('div', { class:'layout', style:{ gridTemplateColumns:'220px 1fr', padding:'0' } });
-
-    /* TOC */
-    var toc = el('div', { class:'toc' });
-    toc.appendChild(el('h4', { html:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/><path d="M7 6h.01M7 12h.01M7 18h.01"/></svg>文章目錄' }));
+    /* TOC 可收合 dropdown（上方單欄） */
+    var tocWrap = el('div', { class:'toc-dropdown' });
+    var tocHead = el('button', { type:'button', class:'toc-dropdown-head', html:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/><path d="M7 6h.01M7 12h.01M7 18h.01"/></svg>文章目錄<span class="toc-chev">▾</span>' });
+    var tocBody = el('div', { class:'toc-dropdown-body' });
     var tocItems = [[tr('summary'),'#sec-summary'],[tr('body'),'#sec-body'],[tr('buildings'),'#sec-buildings'],[tr('architects'),'#sec-architects'],[tr('terms'),'#sec-terms'],[tr('related'),'#sec-related']];
-    tocItems.forEach(function (it) { toc.appendChild(el('a', { href: it[1], text: it[0] })); });
-    grid.appendChild(toc);
+    tocItems.forEach(function (it) { tocBody.appendChild(el('a', { href: it[1], text: it[0] })); });
+    tocHead.addEventListener('click', function () {
+      var open = tocWrap.classList.toggle('open');
+      tocHead.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    tocWrap.appendChild(tocHead);
+    tocWrap.appendChild(tocBody);
+    wrap.appendChild(tocWrap);
 
     /* Body */
     var bodyWrap = el('div', { class:'article-body' });
@@ -511,8 +515,7 @@
     DS.related(a.id, 3).forEach(function (r) { rel.appendChild(buildCard(r)); });
     bodyWrap.appendChild(rel);
 
-    grid.appendChild(bodyWrap);
-    wrap.appendChild(grid);
+    wrap.appendChild(bodyWrap);
 
     /* 上一篇 / 下一篇 */
     var all = DS.getAll();
