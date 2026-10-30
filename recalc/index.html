@@ -122,7 +122,7 @@
 .head-dd-menu .dd-item .dd-ic{width:16px;height:16px;flex:none;opacity:.85}
 .head-dd-menu .dd-item .dd-cnt{margin-left:auto;font-size:11px;color:var(--text-3);flex:none}
 .cat-dd-btn{display:inline-flex;align-items:center;gap:6px}
-.cat-dd-label{font-size:13px;font-weight:600}
+.cat-dd-label{font-size:13px;font-weight:600;white-space:nowrap}
 .cat-dd-chev{width:14px;height:14px;flex:none;transition:transform .18s}
 .head-dd.open .cat-dd-chev{transform:rotate(180deg)}
 </style>
@@ -231,7 +231,7 @@
         <div class="head-dd" id="catDD">
           <button class="icon-btn cat-dd-btn" id="catDDbtn" title="分類目錄" aria-label="分類目錄" aria-expanded="false">
             <svg viewBox="0 0 24 24" width="17" height="17"><use href="#i-menu"></use></svg>
-            <span class="cat-dd-label">分類</span>
+            <span class="cat-dd-label">工具總覽</span>
             <svg viewBox="0 0 24 24" class="cat-dd-chev"><use href="#i-chevronD"></use></svg>
           </button>
           <div class="head-dd-menu" id="catDDmenu" role="menu" aria-label="工具分類目錄"></div>
