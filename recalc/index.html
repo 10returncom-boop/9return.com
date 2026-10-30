@@ -2,7 +2,7 @@
 <html lang="zh-Hant" data-theme="light">
 <head>
     <meta property="og:title" content="九回算算網｜不動產 × 財務管理 113 種專業試算工具"/>
-    <meta property="og:description" content="史上最完整的專業試算網站：60 種不動產試算（房貸、購屋、稅務、投資槓桿、坪數建物、持有管理）與 53 種財務管理試算（儲蓄、投資、退休、貸款、稅務、財務分析），每支工具皆可實際計算並附圖表視覺化，支援日夜主題、RWD、離線使用。"/>
+    <meta property="og:description" content="史上最完整的專業試算網站：60 種不動產試算（房貸、購屋、稅務、投資槓桿、坪數建物、持有管理）與 53 種財務管理試算（儲蓄、投資、退休、貸款、稅務、財務分析），每支工具皆可實際計算並附圖表視覺化，響應式設計（RWD）、離線使用。"/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://9return.com/recalc/"/>
     <meta property="og:locale" content="zh_TW"/>
@@ -13,27 +13,35 @@
     <link rel="canonical" href="index.html"/>
     <meta name="theme-color" content="#14120e"/>
     <meta name="robots" content="index, follow"/>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "九回算算網｜不動產 × 財務管理 113 種專業試算工具", "url": "https://9return.com/recalc/", "description": "史上最完整的專業試算網站：60 種不動產試算（房貸、購屋、稅務、投資槓桿、坪數建物、持有管理）與 53 種財務管理試算（儲蓄、投資、退休、貸款、稅務、財務分析），每支工具皆可實際計算並附圖表視覺化，支援日夜主題、RWD、離線使用。", "isPartOf": {"@type": "WebSite", "name": "9return.com", "url": "https://9return.com/"}}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "九回算算網｜不動產 × 財務管理 113 種專業試算工具", "url": "https://9return.com/recalc/", "description": "史上最完整的專業試算網站：60 種不動產試算（房貸、購屋、稅務、投資槓桿、坪數建物、持有管理）與 53 種財務管理試算（儲蓄、投資、退休、貸款、稅務、財務分析），每支工具皆可實際計算並附圖表視覺化，響應式設計（RWD）、離線使用。", "isPartOf": {"@type": "WebSite", "name": "9return.com", "url": "https://9return.com/"}}</script>
   
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>九回算算網｜不動產 × 財務管理 113 種專業試算工具</title>
-<meta name="description" content="史上最完整的專業試算網站：60 種不動產試算（房貸、購屋、稅務、投資槓桿、坪數建物、持有管理）與 53 種財務管理試算（儲蓄、投資、退休、貸款、稅務、財務分析），每支工具皆可實際計算並附圖表視覺化，支援日夜主題、RWD、離線使用。">
+<meta name="description" content="史上最完整的專業試算網站：60 種不動產試算（房貸、購屋、稅務、投資槓桿、坪數建物、持有管理）與 53 種財務管理試算（儲蓄、投資、退休、貸款、稅務、財務分析），每支工具皆可實際計算並附圖表視覺化，響應式設計（RWD）、離線使用。">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="stylesheet" href="assets/css/main.css">
 <style>
 .hero{background-image:linear-gradient(to right,#ffffff 0%,#f3f8ff 52%,rgba(243,248,255,0) 78%),url("img/bg.webp");background-size:auto,cover;background-position:0 0,right center;background-repeat:no-repeat,no-repeat;background-color:#f6faff;min-height:400px}
-[data-theme="dark"] .hero{background-image:none}
 .domain-card{background:linear-gradient(135deg,#eaf3ff 0%,#ffffff 55%,#f3f9ff 100%);box-shadow:0 10px 26px rgba(96,148,216,.18),0 2px 6px rgba(96,148,216,.10)}
 .domain-card:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(96,148,216,.28)}
+/* 分類下拉選單（取代日夜切換） */
+.head-dd{position:relative}
+.head-dd-menu{position:absolute;right:0;top:calc(100% + 8px);display:none;flex-direction:column;gap:2px;min-width:210px;max-width:min(240px,calc(100vw - 24px));max-height:min(60vh,520px);overflow-y:auto;padding:8px;background:var(--surface);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow-lg);z-index:300}
+.head-dd.open .head-dd-menu{display:flex}
+.head-dd-menu .dd-head{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--text-3);padding:6px 10px 4px;text-transform:uppercase}
+.head-dd-menu .dd-item{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:8px;font-size:13px;color:var(--text-2);text-decoration:none;transition:background .15s,color .15s}
+.head-dd-menu .dd-item:hover{background:var(--surface-2);color:var(--primary)}
+.head-dd-menu .dd-item .dd-ic{width:16px;height:16px;flex:none;opacity:.85}
+.head-dd-menu .dd-item .dd-cnt{margin-left:auto;font-size:11px;color:var(--text-3);flex:none}
+.cat-dd-btn{display:inline-flex;align-items:center;gap:6px}
+.cat-dd-label{font-size:13px;font-weight:600}
+.cat-dd-chev{width:14px;height:14px;flex:none;transition:transform .18s}
+.head-dd.open .cat-dd-chev{transform:rotate(180deg)}
 </style>
 <script>
-/* 主題引導：避免畫面閃爍（FOUC）——預設白天，僅依 localStorage 的手動選擇 */
-(function () {
-  var pref = 'light';
-  try { pref = localStorage.getItem('recalc-theme') || 'light'; } catch (e) { pref = 'light'; }
-  document.documentElement.setAttribute('data-theme', pref === 'dark' ? 'dark' : 'light');
-})();
+/* 白天模式固定（已移除黑夜模式） */
+(function () { document.documentElement.setAttribute('data-theme', 'light'); })();
 </script>
 </head>
 <body>
@@ -133,11 +141,13 @@
           <svg viewBox="0 0 24 24" class="search-icon"><use href="#i-search"></use></svg>
           <input type="search" id="globalSearch" placeholder="搜尋 113 種工具…" autocomplete="off" aria-label="搜尋工具">
         </div>
-        <div class="theme-switch">
-          <button class="icon-btn" id="themeToggle" title="切換日夜主題" aria-label="切換日夜主題" aria-pressed="false">
-            <svg viewBox="0 0 24 24" class="ts-sun"><use href="#i-sun"></use></svg>
-            <svg viewBox="0 0 24 24" class="ts-moon"><use href="#i-moon"></use></svg>
+        <div class="head-dd" id="catDD">
+          <button class="icon-btn cat-dd-btn" id="catDDbtn" title="分類目錄" aria-label="分類目錄" aria-expanded="false">
+            <svg viewBox="0 0 24 24" width="17" height="17"><use href="#i-menu"></use></svg>
+            <span class="cat-dd-label">分類</span>
+            <svg viewBox="0 0 24 24" class="cat-dd-chev"><use href="#i-chevronD"></use></svg>
           </button>
+          <div class="head-dd-menu" id="catDDmenu" role="menu" aria-label="工具分類目錄"></div>
         </div>
       </div>
     </header>
@@ -153,7 +163,7 @@
         <p class="footer-disclaimer">
           本網站之試算結果僅供參考與教育用途，不構成任何投資、財務或稅務建議。實際利率、稅率與法規請以官方公告與專業人士意見為準；各稅制計算採簡化模型，實際申報金額可能不同。
         </p>
-        <p class="footer-note">113 種專業試算工具 ・ 離線可用 ・ 手動日夜主題 ・ 響應式設計</p>
+        <p class="footer-note">113 種專業試算工具 ・ 離線可用 ・ 響應式設計</p>
         <p class="footer-credit">規劃 | 設計 | 開發 | 整合行銷 : 舒安境工作室 /張書欣 Line: 331.today Tel: 0968-222201 <a href="mailto:10return.com@gmail.com">10return.com@gmail.com</a></p>
       </div>
     </footer>
@@ -237,5 +247,31 @@
 </script>
 </div>
 <!-- /FAB9R -->
+<script>
+(function () {
+  var dd = document.getElementById('catDD');
+  if (!dd || dd.__cat) return;
+  var btn = document.getElementById('catDDbtn');
+  var menu = document.getElementById('catDDmenu');
+  var CATS = (window.RECalcCategories) || [];
+  function close() { dd.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+  btn.addEventListener('click', function (e) { e.stopPropagation(); dd.classList.contains('open') ? close() : dd.classList.add('open'), btn.setAttribute('aria-expanded', 'true'); });
+  document.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  if (menu && CATS.length) {
+    var head = document.createElement('div');
+    head.className = 'dd-head'; head.textContent = '工具分類';
+    menu.appendChild(head);
+    CATS.forEach(function (c) {
+      var a = document.createElement('a');
+      a.className = 'dd-item'; a.href = '#/cat/' + c.id; a.setAttribute('role', 'menuitem');
+      a.innerHTML = '<svg class="dd-ic" viewBox="0 0 24 24"><use href="#i-' + c.icon + '"></use></svg><span>' + c.name + '</span>';
+      menu.appendChild(a);
+    });
+    menu.addEventListener('click', close);
+  }
+  dd.__cat = true;
+})();
+</script>
 </body>
 </html>

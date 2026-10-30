@@ -8,7 +8,6 @@
   var D = g.RECalcDom;
   var F = g.RECalcFormat;
   var CH = g.RECalcChart;
-  var TH = g.RECalcTheme;
 
   var $view = document.getElementById('view');
   var $nav = document.getElementById('sidebarNav');
@@ -694,20 +693,6 @@
       renderSidebar();
     }, 120);
   });
-
-  /* 主題切換：單一手動日夜切換（預設白天，不跟隨系統） */
-  var themeToggle = document.getElementById('themeToggle');
-  function syncThemeUI() {
-    if (!themeToggle) return;
-    themeToggle.setAttribute('aria-pressed', TH.current() === 'dark' ? 'true' : 'false');
-  }
-  if (themeToggle) {
-    themeToggle.addEventListener('click', function () {
-      TH.set(TH.current() === 'dark' ? 'light' : 'dark');
-      syncThemeUI();
-    });
-  }
-  document.addEventListener('recalc:theme', syncThemeUI);
 
   /* 鍵盤：Esc 關閉側欄 */
   document.addEventListener('keydown', function (e) {
