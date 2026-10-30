@@ -8,3 +8,7 @@ Thumbs.db
 desktop.ini
 *.log
 node_modules/
+# Build 狀態檔（執行時自動產生）
+build_state.json
+# Build 設定（含 token，不上 repo）
+build_config.json

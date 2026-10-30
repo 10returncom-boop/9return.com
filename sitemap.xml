@@ -7,81 +7,111 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://9return.com/architecture-atlas/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://9return.com/land-development-handbook/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://9return.com/recalc/</loc>
     <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://9return.com/rent-map-calculator/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://9return.com/taichung_landzone/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://9return.com/taiwan-land-rezone/</loc>
     <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://9return.com/taiwan-land-rezone/台灣22縣市重劃區總目錄.html</loc>
+    <loc>https://9return.com/taiwan-land-rezone/%E5%8F%B0%E7%81%A322%E7%B8%A3%E5%B8%82%E9%87%8D%E5%8A%83%E5%8D%80%E7%B8%BD%E7%9B%AE%E9%8C%84.html</loc>
     <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://9return.com/taiwan-land-rezone/%E5%8F%B0%E7%81%A322%E7%B8%A3%E5%B8%82%E9%87%8D%E5%8A%83%E5%8D%80_%E6%95%B4%E5%90%88%E5%B0%8E%E8%A6%BD%E5%85%A5%E5%8F%A3.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://9return.com/taiwan-land-rezone/%E5%8F%B0%E7%81%A322%E7%B8%A3%E5%B8%82%E9%87%8D%E5%8A%83%E5%8D%80megamenu.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://9return.com/taiwan-land-rezone/%E8%87%BA%E4%B8%AD%E5%B8%82%E9%87%8D%E5%8A%83%E5%8D%80%E5%85%A8%E7%9B%AE%E9%8C%84.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://9return.com/taiwan-land-rezone/%E8%87%BA%E4%B8%AD%E5%B8%82%E9%87%8D%E5%8A%83%E5%8D%80%E8%B2%B7%E6%88%BF%E5%AF%A6%E6%88%B0%E6%8C%87%E5%8D%97.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://9return.com/taiwan-land-rezone/2.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://9return.com/taiwan-land-rezone/rezone-database.html</loc>
     <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://9return.com/taiwan-land-rezone/臺中市重劃區全目錄.html</loc>
+    <loc>https://9return.com/taiwan-land-rezone/spec.html</loc>
     <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://9return.com/taiwan-land-rezone/臺中市重劃區買房實戰指南.html</loc>
+    <loc>https://9return.com/taiwan-land-rezone/toc.html</loc>
     <lastmod>2026-10-30</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://9return.com/architecture-atlas/</loc>
-    <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://9return.com/land-development-handbook/</loc>
-    <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://9return.com/rent-map-calculator/</loc>
-    <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://9return.com/taichung_landzone/</loc>
-    <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://9return.com/transaction-price-database/</loc>
     <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://9return.com/urban-renewal/</loc>
-    <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://9return.com/urban-renewal-roi-calculator/</loc>
     <lastmod>2026-10-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://9return.com/urban-renewal/</loc>
+    <lastmod>2026-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
