@@ -1302,6 +1302,7 @@ renderFootSitemap();
  document.addEventListener('click',function(){setOpen(false)});
  document.addEventListener('keydown',function(e){if(e.key==='Escape'){setOpen(false)}});
  w.querySelector('.fab9r-menu').addEventListener('click',function(){setOpen(false)});
+ w.querySelectorAll('.fab9r-menu a').forEach(function(a){a.setAttribute('target','_blank');a.setAttribute('rel','noopener')});
  w.__fab9r=true;
 })();
 </script>
